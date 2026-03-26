@@ -1,0 +1,7 @@
+{
+  "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "code": "C:\\Users\\%USERNAME%\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+  "notepad": "notepad.exe",
+  "settings": "ms-settings:",
+  "explorer": "explorer.exe"
+}

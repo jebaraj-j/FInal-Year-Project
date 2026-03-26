@@ -1,0 +1,41 @@
+{
+  "audio": {
+    "sample_rate": 16000,
+    "chunk_size": 2048,
+    "channels": 1,
+    "format": "int16",
+    "input_device_index": null,
+    "auto_detect_device": true,
+    "silence_threshold": 500,
+    "silence_timeout": 1.0
+  },
+  "recognition": {
+    "model_path": "models/vosk-model-small-en-us-0.15",
+    "wake_word_threshold": 0.65,
+    "command_confidence_threshold": 0.5,
+    "active_listening_timeout": 10.0,
+    "max_retry_attempts": 3
+  },
+  "wake_words": [
+    "hey assistant",
+    "ok assistant", 
+    "hello system"
+  ],
+  "noise_words": [
+    "please",
+    "can you",
+    "assistant",
+    "system",
+    "now",
+    "quickly",
+    "could you",
+    "would you"
+  ],
+  "logging": {
+    "level": "INFO",
+    "log_to_file": true,
+    "log_to_console": true,
+    "max_file_size_mb": 10,
+    "backup_count": 5
+  }
+}

@@ -1,0 +1,19 @@
+# Voice Assistant Dependencies
+
+# Speech Recognition
+vosk>=0.3.45
+pyaudio>=0.2.11
+
+# Brightness Control
+screen-brightness-control>=0.4.0
+
+# Volume Control
+pycaw>=2023.9.3
+comtypes>=1.2.0
+
+# Text Processing
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.2
+
+# System Utilities
+numpy>=1.21.0

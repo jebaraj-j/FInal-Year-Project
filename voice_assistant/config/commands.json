@@ -1,0 +1,129 @@
+{
+  "brightness": {
+    "keywords": ["brightness", "bright"],
+    "actions": {
+      "absolute_increase": {
+        "patterns": [
+          "increase brightness",
+          "maximum brightness",
+          "full brightness",
+          "brightest"
+        ],
+        "value": 100,
+        "description": "Set brightness to 100%"
+      },
+      "absolute_decrease": {
+        "patterns": [
+          "decrease brightness",
+          "minimum brightness",
+          "zero brightness",
+          "darkest",
+          "turn off brightness"
+        ],
+        "value": 0,
+        "description": "Set brightness to 0%"
+      },
+      "relative_increase": {
+        "patterns": [
+          "brightness up",
+          "increase bright",
+          "bright up",
+          "more brightness",
+          "brighter"
+        ],
+        "step": 2,
+        "description": "Increase brightness by 2%"
+      },
+      "relative_decrease": {
+        "patterns": [
+          "brightness down",
+          "decrease bright",
+          "bright down",
+          "less brightness",
+          "dimmer"
+        ],
+        "step": 2,
+        "description": "Decrease brightness by 2%"
+      },
+      "set_value": {
+        "patterns": [
+          "set brightness {value}",
+          "brightness {value}",
+          "bright to {value}",
+          "set bright {value}"
+        ],
+        "value_range": [0, 100],
+        "description": "Set brightness to specific value (0-100)"
+      }
+    }
+  },
+  "volume": {
+    "keywords": ["volume", "sound"],
+    "actions": {
+      "absolute_increase": {
+        "patterns": [
+          "increase volume",
+          "maximum volume",
+          "full volume",
+          "loudest"
+        ],
+        "value": 100,
+        "description": "Set volume to 100%"
+      },
+      "absolute_decrease": {
+        "patterns": [
+          "decrease volume",
+          "minimum volume",
+          "zero volume",
+          "quietest",
+          "turn off volume"
+        ],
+        "value": 0,
+        "description": "Set volume to 0%"
+      },
+      "relative_increase": {
+        "patterns": [
+          "volume up",
+          "increase sound",
+          "sound up",
+          "more volume",
+          "louder"
+        ],
+        "step": 2,
+        "description": "Increase volume by 2%"
+      },
+      "relative_decrease": {
+        "patterns": [
+          "volume down",
+          "decrease sound",
+          "sound down",
+          "less volume",
+          "quieter"
+        ],
+        "step": 2,
+        "description": "Decrease volume by 2%"
+      },
+      "set_value": {
+        "patterns": [
+          "set volume {value}",
+          "volume {value}",
+          "sound to {value}",
+          "set sound {value}"
+        ],
+        "value_range": [0, 100],
+        "description": "Set volume to specific value (0-100)"
+      }
+    }
+  },
+  "app_launcher": {
+    "keywords": ["open", "start", "launch"],
+    "open": ["open", "start", "launch"]
+  },
+  "system_control": {
+    "keywords": ["system", "computer", "pc"],
+    "shutdown": ["shutdown system", "turn off computer"],
+    "restart": ["restart system", "reboot computer"],
+    "sleep": ["sleep system", "sleep computer"],
+    "lock": ["lock system", "lock computer"]
+  }
+}
