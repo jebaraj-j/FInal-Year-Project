@@ -1,16 +1,4 @@
-"""
-Easy Hand Cursor Control - Hold-Based Repeated Clicks + Visual Pinch Line
-==========================================================================
-Key Improvements:
-  - ALWAYS draw line between thumb & index tips in cursor mode (colored by pinch strength)
-  - Hold-based clicking (no need to release):
-    • Mild pinch (small gap): Single click immediately + repeat every 1 second while holding
-    • Tight pinch (very small gap): Double click immediately + repeat every 2 seconds while holding
-  - Open hand: Normal relative cursor movement
-  - Cursor freezes automatically during any pinch → precise positioning
-  - PyAutoGUI fail-safe disabled (required for reliable relative movement)
-  - Tuned thresholds for easy, natural control
-"""
+
 # vision.py
 import cv2
 import mediapipe as mp
@@ -20,9 +8,14 @@ from collections import deque
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
 import pyautogui
+import threading
+import queue
+import json
+import vosk
+import pyaudio
+import os
 
-# Disable PyAutoGUI fail-safe (needed for smooth relative control)
-# WARNING: This allows unrestricted mouse movement. Only safe because you control it with your hand.
+
 pyautogui.FAILSAFE = False
 pyautogui.PAUSE = 0.01  # Small pause for smooth actions
 
@@ -37,8 +30,8 @@ class Config:
     max_hands: int = 2
     model_complexity: int = 1
     # Detection: Confidence thresholds (increased for better accuracy)
-    min_detection_conf: float = 0.7  # Increased from 0.5
-    min_tracking_conf: float = 0.7   # Increased from 0.5
+    min_detection_conf: float = 0.7  
+    min_tracking_conf: float = 0.7   
     clahe_clip_limit: float = 3.0
     clahe_grid_size: tuple = (8, 8)
     denoise_h: int = 7
@@ -150,9 +143,18 @@ FINGER_DEFS = {
 def is_finger_extended(pts: List[Tuple[float,float,float]], name: str, hand_label: str) -> bool:
     d = FINGER_DEFS[name]
     tip, pip, mcp = pts[d["tip"]], pts[d["pip"]], pts[d["mcp"]]
+    
     if name == "Thumb":
-        return tip[0] > pip[0] if hand_label == "Right" else tip[0] < pip[0]
-    return tip[1] < pip[1] and pip[1] < mcp[1]
+        # Distance-based extension check for Thumb
+        # Tip-to-MCP should be longer than Pip-to-MCP
+        tip_mcp_dist = np.linalg.norm(np.array(tip) - np.array(mcp))
+        pip_mcp_dist = np.linalg.norm(np.array(pip) - np.array(mcp))
+        return tip_mcp_dist > pip_mcp_dist
+        
+    # Standard extension detection: Tip is above Pip
+    extension_threshold = 0.02
+    extended = (tip[1] < pip[1] - extension_threshold)
+    return extended
 
 # ─────────────────────────────────────────────
 # SKELETON + PINCH LINE
@@ -282,8 +284,53 @@ def open_camera(cfg):
             return cap, i
     return None, -1
 
+def draw_help_overlay(img: np.ndarray):
+    """Draw a semi-transparent help overlay on the image."""
+    h, w = img.shape[:2]
+    # Semi-transparent background
+    overlay = img.copy()
+    cv2.rectangle(overlay, (50, 50), (w - 50, h - 50), (0, 0, 0), -1)
+    alpha = 0.75
+    cv2.addWeighted(overlay, alpha, img, 1 - alpha, 0, img)
+    
+    # Text headers
+    cv2.putText(img, "=== GESTURE CONTROL HELP (Press 'H' to close) ===", (70, 90), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+    
+    y = 130
+    lines = [
+        "RIGHT HAND (Cursor & Clicks):",
+        "  - Move: Index finger extended only",
+        "  - Click: Mild pinch Thumb + Index (Green Line)",
+        "  - Double Click: Quick tight pinch (<0.3s)",
+        "  - Drag: Hold tight pinch (>0.35s)",
+        "  - Right Click: Pinch Thumb + Middle",
+        "  - Scroll: Index + Middle extended. Move hand UP/DOWN",
+        "",
+        "LEFT HAND (System Control):",
+        "  - Minimize (Win+Down): Closed Fist",
+        "  - Maximize (Win+Up): Open Palm",
+        "  - Task Switch (Alt+Tab): Pinch Thumb + Index. Hold to cycle.",
+        "",
+        "MODE SWITCHING (TO VOICE):",
+        "  - Thumb + Index + Middle Extended (Left Hand)",
+        "  - Hold for 1.5 seconds. Watch the yellow progress bar.",
+        "",
+        "CONTROLS: Q = Quit, S = Screenshot, H = Toggle Help"
+    ]
+    
+    for line in lines:
+        color = (255, 255, 255) if not line.isupper() else (0, 255, 255)
+        scale = 0.55 if not line.isupper() else 0.6
+        cv2.putText(img, line, (70, y), cv2.FONT_HERSHEY_SIMPLEX, scale, color, 1 if not line.isupper() else 2)
+        y += 30
+
 def main():
     print("Starting Easy Hand Cursor Control (Hold Pinch for Repeated Clicks)...")
+    
+    start_up_time = time.time()
+    switch_gesture_start_time = None
+    
     cfg = CFG
     enhancer = ImageEnhancer(cfg)
     smoother = LandmarkSmoother(cfg.smoothing_alpha)
@@ -328,22 +375,23 @@ def main():
     right_click_active = False
     pinch_start_time = 0.0      # When hard pinch begins
     hard_pinch_active = False   # Track hard pinch state
+    show_help = False           # Help overlay toggle
 
     print("\n=== EASY CONTROL GUIDE ===")
-    print("• Right hand, ONLY index extended → Cursor mode")
-    print("• Move index finger → Smooth cursor")
-    print("• Line always shown between thumb & index")
+    print("  * Right hand, ONLY index extended -> Cursor mode")
+    print("  * Move index finger -> Smooth cursor")
+    print("* Line always shown between thumb & index")
     print("  - Green: Open (move freely)")
-    print("  - Orange: Mild pinch → Single click")
-    print("  - Red: Tight pinch → Double click (quick) OR Drag (hold 0.35s+)")
-    print("• Right hand, index + middle extended → Scroll mode")
-    print("  - Move fingers up/down → Scroll up/down")
-    print("• Right hand, thumb + middle pinch → Right click")
-    print("• Right hand, thumb + index hard pinch hold → Drag & drop")
-    print("• Left hand gestures:")
-    print("  - Closed fist → Minimize window (Win+Down)")
-    print("  - Open palm → Maximize window (Win+Up)")
-    print("  - Thumb-index pinch → Alt+Tab task switching")
+    print("  - Orange: Mild pinch -> Single click")
+    print("  - Red: Tight pinch -> Double click (quick) OR Drag (hold 0.35s+)")
+    print("* Right hand, index + middle extended -> Scroll mode")
+    print("  - Move fingers up/down -> Scroll up/down")
+    print("* Right hand, thumb + middle pinch -> Right click")
+    print("* Right hand, thumb + index hard pinch hold -> Drag & drop")
+    print("* Left hand gestures:")
+    print("  - Closed fist -> Minimize window (Win+Down)")
+    print("  - Open palm -> Maximize window (Win+Up)")
+    print("  - Thumb-index pinch -> Alt+Tab task switching")
     print("Q = quit    S = screenshot\n")
 
     while cap.isOpened():
@@ -358,11 +406,12 @@ def main():
 
         enhanced = enhancer.process(frame)
         rgb = cv2.cvtColor(enhanced, cv2.COLOR_BGR2RGB)
+        
         results = hands.process(rgb)
+        hand_detected = bool(results.multi_hand_landmarks)
 
         display = frame.copy()
         
-        hand_detected = bool(results.multi_hand_landmarks)
         
         # Additional validation: check hand confidence scores
         if hand_detected and results.multi_handedness:
@@ -380,12 +429,48 @@ def main():
         line_color = Palette.LINE_OPEN
 
         if hand_detected:
+            # --- HIGH PRIORITY MODE SWITCH CHECK ---
+            found_switch_gesture = False
+            for idx in range(len(results.multi_hand_landmarks)):
+                h_lms = results.multi_hand_landmarks[idx]
+                h_label = results.multi_handedness[idx].classification[0].label
+                
+                if h_label == "Left":
+                    s_pts = smoother.smooth(idx, h_lms.landmark)
+                    # Specific Gesture: Thumb, Index, Middle Extended; Ring, Pinky Closed
+                    thumb_e = is_finger_extended(s_pts, "Thumb", h_label)
+                    index_e = is_finger_extended(s_pts, "Index", h_label)
+                    middle_e = is_finger_extended(s_pts, "Middle", h_label)
+                    ring_e = is_finger_extended(s_pts, "Ring", h_label)
+                    pinky_e = is_finger_extended(s_pts, "Pinky", h_label)
+                    
+                    if thumb_e and index_e and middle_e and not ring_e and not pinky_e:
+                        found_switch_gesture = True
+                        break
+                    
+                    # Debug print to help user get the gesture right
+                    if (index_e or middle_e) and time.time() % 0.5 < 0.03:
+                        print(f"SWITCH CHECK (L-Hand): Thumb={thumb_e}, Index={index_e}, Middle={middle_e}, Ring={ring_e}, Pinky={pinky_e}")
+            
+            if found_switch_gesture:
+                if time.time() - start_up_time > 2.0: # Startup cooldown
+                    if switch_gesture_start_time is None:
+                        switch_gesture_start_time = time.time()
+                    elif time.time() - switch_gesture_start_time > 1.5:
+                        print("[SYSTEM_SIGNAL]:SWITCH_TO_VOICE", flush=True)
+                        # Cleanup any stuck states before exiting
+                        if is_dragging: pyautogui.mouseUp()
+                        if task_switch_active: pyautogui.keyUp("alt")
+                        sys.exit(0)
+            else:
+                switch_gesture_start_time = None
+            # ---------------------------------------
+
             detected_count += 1
             h, w = display.shape[:2]
             for idx in range(len(results.multi_hand_landmarks)):
                 hand_lms = results.multi_hand_landmarks[idx]
                 label = results.multi_handedness[idx].classification[0].label
-
                 pts = smoother.smooth(idx, hand_lms.landmark)
 
                 wrist_px = _to_px(pts[0], w, h)
@@ -395,68 +480,66 @@ def main():
                 if label == "Right":
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
                     
-                    # Check for right-click gesture (thumb + middle pinch)
+                    # Check for right-click gesture (thumb + middle mild pinch)
                     thumb_tip = np.array(pts[4][:2])      # Thumb tip (landmark 4)
-                    middle_tip = np.array(pts[12][:2])     # Middle finger tip (landmark 12)
+                    middle_tip = np.array(pts[12][:2])    # Middle finger tip (landmark 12)
                     right_click_dist = np.linalg.norm(thumb_tip - middle_tip)
                     
-                    # More lenient right-click detection based primarily on distance
-                    is_right_click = (right_click_dist < cfg.right_click_threshold and 
-                                    states["Middle"] and 
-                                    not states["Ring"] and not states["Pinky"])
-                    # Require middle finger extended for right-click
+                    # Refined right-click detection based on clear mild-pinch distance
+                    is_right_click = (right_click_dist < 0.08 and 
+                                      not states["Ring"] and not states["Pinky"])
                     
                     if is_right_click and not right_click_active:
-                        # Trigger right-click only on gesture start
                         pyautogui.rightClick()
-                        print("RIGHT CLICK (thumb + middle pinch)")
+                        print(f"RIGHT CLICK (thumb + middle pinch) - dist: {right_click_dist:.3f}")
                         right_click_active = True
                     elif not is_right_click:
                         right_click_active = False
                     
-                    # Check for scroll gesture (index + middle extended) - only if not right-click
+                    # Check for scroll gesture (index + middle extended)
                     is_scroll_gesture = False
-                    if not is_right_click:
-                        is_scroll_gesture = (states["Index"] and states["Middle"] and 
-                                           not any(states[n] for n in ["Ring", "Pinky"]))
-                        # Allow thumb to be either way since it's often detected incorrectly
+                    if not is_right_click:  
+                        index_extension = pts[6][1] - pts[8][1]
+                        middle_extension = pts[10][1] - pts[12][1]
+                        min_extension = 0.04
+                        
+                        is_scroll_gesture = (
+                            states["Index"] and states["Middle"] and 
+                            not states["Ring"] and not states["Pinky"] and
+                            index_extension > min_extension and 
+                            middle_extension > min_extension
+                        )
                     
                     if is_scroll_gesture:
-                        # Scroll mode active
                         if not scroll_mode:
                             scroll_mode = True
-                            # Store index fingertip Y position as reference when gesture starts
-                            base_scroll_y = pts[8][1]  # Index fingertip
-                            print(">>> SCROLL MODE ACTIVATED <<<")
+                            base_scroll_y = pts[8][1]  
+                            last_scroll_time = time.time()
+                            print(">>> SCROLL MODE ACTIVATED (Reference set) <<<")
                         
-                        # Calculate scroll based on index fingertip movement
-                        current_index_y = pts[8][1]  # Index fingertip
+                        current_index_y = pts[8][1]  
                         dy = current_index_y - base_scroll_y
                         
-                        # Apply deadzone to avoid jitter
-                        if abs(dy) > cfg.scroll_deadzone:
-                            scroll_amount = int(-dy * cfg.scroll_sensitivity * 1000)
-                            
-                            if scroll_amount > 0:
-                                pyautogui.scroll(scroll_amount)
-                                print(f"SCROLL UP ({scroll_amount})")
-                            elif scroll_amount < 0:
-                                pyautogui.scroll(scroll_amount)
-                                print(f"SCROLL DOWN ({abs(scroll_amount)})")
+                        current_time = time.time()
+                        if current_time - last_scroll_time >= cfg.scroll_repeat_sec:
+                            if abs(dy) > cfg.scroll_deadzone:
+                                scroll_amount = int(-dy * cfg.scroll_sensitivity * 500)
+                                if scroll_amount != 0:
+                                    pyautogui.scroll(scroll_amount)
+                                    dir_str = "UP" if scroll_amount > 0 else "DOWN"
+                                    print(f"SCROLL {dir_str} ({abs(scroll_amount)})")
+                                last_scroll_time = current_time
+                        cursor_hand = False
                         
-                        cursor_hand = False  # Disable cursor mode during scroll
-                        
-                    elif states["Index"] and not states["Middle"] and not any(states[n] for n in ["Thumb", "Ring", "Pinky"]):
-                        # Cursor mode (only index finger - be more exclusive)
+                    elif states["Index"] and not states["Middle"] and not any(states[n] for n in ["Ring", "Pinky"]):
                         cursor_hand = True
-                        scroll_mode = False  # Disable scroll mode
-                        base_scroll_y = 0.0  # Reset scroll reference
+                        scroll_mode = False
+                        base_scroll_y = 0.0
 
                         thumb_tip = np.array(pts[4][:2])
                         index_tip = np.array(pts[8][:2])
                         dist = np.linalg.norm(thumb_tip - index_tip)
 
-                        # Determine pinch state
                         if dist <= cfg.tight_pinch_max:
                             current_pinch_state = "tight"
                             line_color = Palette.LINE_TIGHT
@@ -469,49 +552,37 @@ def main():
 
                         current_time = time.time()
 
-                        # Handle pinch state transitions (redesigned logic)
                         if current_pinch_state == "mild":
-                            # Mild pinch = immediate single click only
                             if pinch_state != "mild":
                                 pyautogui.click()
                                 print("SINGLE CLICK (mild pinch)")
                                 last_single_time = current_time
 
                         elif current_pinch_state == "tight":
-                            # Hard pinch = timing-based action (double click OR drag)
                             if pinch_state != "tight":
-                                # Just entered hard pinch - start timing
                                 pinch_start_time = current_time
                                 hard_pinch_active = True
                                 print("HARD PINCH START - timing for action determination")
                             
-                            # Check if drag threshold exceeded
                             if hard_pinch_active and not is_dragging and current_time - pinch_start_time >= cfg.drag_threshold:
                                 is_dragging = True
                                 pyautogui.mouseDown()
                                 print("DRAG START (hard pinch held for drag threshold)")
 
                         elif current_pinch_state == "open":
-                            # Pinch released - determine action based on duration
                             if hard_pinch_active:
                                 pinch_duration = current_time - pinch_start_time
                                 if not is_dragging and pinch_duration < cfg.double_click_threshold:
-                                    # Quick hard pinch release = double click
                                     pyautogui.doubleClick()
                                     print(f"DOUBLE CLICK (hard pinch released in {pinch_duration:.2f}s)")
                                 elif is_dragging:
-                                    # Drag was active - end drag
                                     pyautogui.mouseUp()
                                     print(f"DRAG END (pinch released after {pinch_duration:.2f}s)")
-                                
-                                # Reset states
                                 is_dragging = False
                                 hard_pinch_active = False
 
-                        # Relative movement - allow during drag, but only when not pinching for clicks
                         index_norm = np.array(pts[8][:2])
                         if prev_index_norm is not None:
-                            # Allow movement during drag or when hand is open
                             if is_dragging or current_pinch_state == "open":
                                 dx = index_norm[0] - prev_index_norm[0]
                                 dy = index_norm[1] - prev_index_norm[1]
@@ -524,16 +595,12 @@ def main():
                                         print(f"DRAG MOVE: ({move_x}, {move_y})")
                         prev_index_norm = index_norm.copy()
                     else:
-                        # Neither cursor nor scroll mode
                         cursor_hand = False
                         scroll_mode = False
-                        base_scroll_y = 0.0  # Reset scroll reference
+                        base_scroll_y = 0.0
 
                 elif label == "Left":
-                    # Left-hand gesture detection for window control
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
-                    
-                    # Thumb-index pinch detection for Alt+Tab task switching
                     thumb_tip = np.array(pts[4][:2])
                     index_tip = np.array(pts[8][:2])
                     pinch_dist = np.linalg.norm(thumb_tip - index_tip)
@@ -638,11 +705,22 @@ def main():
         draw_hud(display, fps_current, det_rate, frame_count, detected_count,
                  hand_detected, enhancing, is_cursor_mode, current_pinch_state, left_hand_state, task_switch_active)
 
+        if switch_gesture_start_time:
+            progress = min(1.0, (time.time() - switch_gesture_start_time) / 1.5)
+            cv2.rectangle(display, (10, 10), (int(10 + progress * 200), 30), (0, 255, 255), -1)
+            cv2.putText(display, "SWITCHING TO VOICE...", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+
+        if show_help:
+            draw_help_overlay(display)
+
         cv2.imshow("Easy Hand Cursor - Hold Pinch for Clicks", display)
 
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
             break
+        if key == ord('h'):
+            show_help = not show_help
+            print(f"Help overlay {'ENABLED' if show_help else 'DISABLED'}")
         if key == ord('s'):
             fname = f"hand_{time.strftime('%Y%m%d_%H%M%S')}.png"
             cv2.imwrite(fname, display)

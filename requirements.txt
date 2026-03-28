@@ -1,0 +1,18 @@
+mediapipe
+opencv-python
+numpy
+pyautogui
+SpeechRecognition
+PyAudio
+screen-brightness-control
+
+# Offline Voice Recognition (Vosk)
+vosk>=0.3.45
+
+# Volume Control
+pycaw>=2023.9.3
+comtypes>=1.2.0
+
+# NLP & Text Processing
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.2

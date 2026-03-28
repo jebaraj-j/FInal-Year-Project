@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Large Binary Models (Vosk/MediaPipe)
+# voice_assistant/models/
+# gesture/gesture_recognizer.task
+
+# Logs & Temporary Files
+voice_assistant/logs/*.log
+logs/
+*.log
+
+# User Artifacts & Media
+*.png
+*.jpg
+*.jpeg
+*.mp4
+hand_*.png
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project Specific
+.gemini/
+*.tmp
+temp_*.py

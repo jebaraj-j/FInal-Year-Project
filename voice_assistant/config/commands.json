@@ -1,24 +1,31 @@
 {
   "brightness": {
-    "keywords": ["brightness", "bright"],
+    "keywords": ["brightness", "bright", "light", "screen"],
     "actions": {
       "absolute_increase": {
         "patterns": [
-          "increase brightness",
-          "maximum brightness",
-          "full brightness",
-          "brightest"
+          "increase brightness to maximum",
+          "brightness maximum", 
+          "full brightness now",
+          "max brightness",
+          "brightest",
+          "full bright",
+          "light maximum",
+          "screen brightest"
         ],
         "value": 100,
         "description": "Set brightness to 100%"
       },
       "absolute_decrease": {
         "patterns": [
-          "decrease brightness",
-          "minimum brightness",
-          "zero brightness",
+          "decrease brightness to minimum",
+          "brightness minimum",
+          "turn off brightness",
+          "min brightness",
           "darkest",
-          "turn off brightness"
+          "zero brightness",
+          "light minimum",
+          "screen darkest"
         ],
         "value": 0,
         "description": "Set brightness to 0%"
@@ -26,31 +33,42 @@
       "relative_increase": {
         "patterns": [
           "brightness up",
-          "increase bright",
+          "increase brightness slightly", 
+          "brighten up",
           "bright up",
           "more brightness",
-          "brighter"
+          "brighter",
+          "increase bright",
+          "light up",
+          "screen up"
         ],
-        "step": 2,
-        "description": "Increase brightness by 2%"
+        "step": 5,
+        "description": "Increase brightness by 5%"
       },
       "relative_decrease": {
         "patterns": [
           "brightness down",
-          "decrease bright",
+          "decrease brightness slightly",
+          "dim down", 
           "bright down",
           "less brightness",
-          "dimmer"
+          "dimmer",
+          "decrease bright",
+          "light down",
+          "screen down"
         ],
-        "step": 2,
-        "description": "Decrease brightness by 2%"
+        "step": 5,
+        "description": "Decrease brightness by 5%"
       },
       "set_value": {
         "patterns": [
           "set brightness {value}",
+          "brightness level {value}",
+          "adjust brightness to {value}",
           "brightness {value}",
           "bright to {value}",
-          "set bright {value}"
+          "light to {value}",
+          "screen to {value}"
         ],
         "value_range": [0, 100],
         "description": "Set brightness to specific value (0-100)"
@@ -58,25 +76,33 @@
     }
   },
   "volume": {
-    "keywords": ["volume", "sound"],
+    "keywords": ["volume", "sound", "audio", "speaker"],
     "actions": {
       "absolute_increase": {
         "patterns": [
-          "increase volume",
-          "maximum volume",
+          "increase volume to maximum",
+          "volume maximum",
+          "full volume now", 
+          "max volume",
+          "loudest",
           "full volume",
-          "loudest"
+          "maximum volume",
+          "speaker loudest"
         ],
         "value": 100,
         "description": "Set volume to 100%"
       },
       "absolute_decrease": {
         "patterns": [
-          "decrease volume",
-          "minimum volume",
-          "zero volume",
+          "decrease volume to minimum",
+          "volume minimum",
+          "mute volume",
+          "turn off volume",
+          "min volume", 
           "quietest",
-          "turn off volume"
+          "zero volume",
+          "mute",
+          "speaker mute"
         ],
         "value": 0,
         "description": "Set volume to 0%"
@@ -84,31 +110,42 @@
       "relative_increase": {
         "patterns": [
           "volume up",
-          "increase sound",
+          "increase volume slightly",
+          "volume higher",
           "sound up",
-          "more volume",
-          "louder"
+          "audio up",
+          "louder",
+          "increase volume",
+          "volume louder",
+          "speaker up"
         ],
-        "step": 2,
-        "description": "Increase volume by 2%"
+        "step": 5,
+        "description": "Increase volume by 5%"
       },
       "relative_decrease": {
         "patterns": [
           "volume down",
-          "decrease sound",
-          "sound down",
-          "less volume",
-          "quieter"
+          "decrease volume slightly",
+          "volume lower",
+          "sound down", 
+          "audio down",
+          "quieter",
+          "decrease volume",
+          "volume quieter",
+          "speaker down"
         ],
-        "step": 2,
-        "description": "Decrease volume by 2%"
+        "step": 5,
+        "description": "Decrease volume by 5%"
       },
       "set_value": {
         "patterns": [
           "set volume {value}",
+          "volume level {value}",
+          "adjust volume to {value}",
           "volume {value}",
           "sound to {value}",
-          "set sound {value}"
+          "audio to {value}",
+          "speaker to {value}"
         ],
         "value_range": [0, 100],
         "description": "Set volume to specific value (0-100)"
@@ -116,14 +153,105 @@
     }
   },
   "app_launcher": {
-    "keywords": ["open", "start", "launch"],
-    "open": ["open", "start", "launch"]
+    "keywords": ["open", "launch", "start", "run"],
+    "actions": {
+      "open_chrome": {
+        "patterns": [
+          "open chrome", "launch chrome", "start chrome",
+          "open crow", "open krome", "open chrome browser",
+          "open browser", "launch browser", "run chrome",
+          "chrome browser", "web browser", "internet browser"
+        ],
+        "app": "chrome",
+        "description": "Open Chrome browser"
+      },
+      "open_code": {
+        "patterns": [
+          "open code", "launch code", "start code", "open vscode",
+          "open corridor", "open go", "open visual studio",
+          "open editor", "launch code editor", "run code",
+          "vs code", "code editor", "visual studio code"
+        ],
+        "app": "code",
+        "description": "Open VS Code"
+      },
+      "open_notepad": {
+        "patterns": [
+          "open notepad", "launch notepad", "start notepad", 
+          "open note pad", "open text editor", "open notepad++",
+          "run notepad", "text editor", "note pad"
+        ],
+        "app": "notepad",
+        "description": "Open Notepad"
+      },
+      "open_settings": {
+        "patterns": [
+          "open settings", "launch settings", "open system settings",
+          "open setting", "open control panel", "open windows settings",
+          "run settings", "system settings", "control panel"
+        ],
+        "app": "settings",
+        "description": "Open Settings"
+      },
+      "open_explorer": {
+        "patterns": [
+          "open explorer", "launch explorer", "open file explorer",
+          "open explore", "wat one explorer", "warp an order",
+          "open files", "open file manager", "open my computer",
+          "run explorer", "file manager", "my computer", "windows explorer"
+        ],
+        "app": "explorer",
+        "description": "Open File Explorer"
+      }
+    }
   },
   "system_control": {
-    "keywords": ["system", "computer", "pc"],
-    "shutdown": ["shutdown system", "turn off computer"],
-    "restart": ["restart system", "reboot computer"],
-    "sleep": ["sleep system", "sleep computer"],
-    "lock": ["lock system", "lock computer"]
+    "keywords": ["system", "computer", "pc", "shutdown", "restart", "sleep", "lock", "power"],
+    "actions": {
+      "shutdown": {
+        "patterns": [
+          "shutdown system now", "turn off computer", "shutdown pc", "shut down",
+          "shutdown", "power off", "turn off", "shut down pc",
+          "computer off", "pc off", "system off"
+        ],
+        "description": "Shutdown system"
+      },
+      "restart": {
+        "patterns": [
+          "restart system now", "reboot computer", "restart pc", "reboot",
+          "restart", "reboot system", "restart computer",
+          "computer restart", "pc restart", "system restart"
+        ],
+        "description": "Restart system"
+      },
+      "sleep": {
+        "patterns": [
+          "sleep system now", "sleep computer", "hibernate pc", "sleep system",
+          "sleep", "hibernate", "sleep mode", "computer sleep",
+          "pc sleep", "system hibernate"
+        ],
+        "description": "Put system to sleep"
+      },
+      "lock": {
+        "patterns": [
+          "lock system now", "lock computer", "lock pc", "lock system",
+          "lock", "lock screen", "lock windows", "computer lock",
+          "pc lock", "screen lock"
+        ],
+        "description": "Lock system"
+      }
+    }
+  },
+  "help": {
+    "keywords": ["help", "show", "what", "how"],
+    "actions": {
+      "show_help": {
+        "patterns": [
+          "help", "show help", "show commands", "what can i say", 
+          "how to use this", "help me", "commands list"
+        ],
+        "description": "Display help information for voice commands"
+      }
+    }
   }
 }

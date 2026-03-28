@@ -1,0 +1,26 @@
+🤚 GESTURE RECOGNITION SYSTEM - SIMPLE GUIDE
+
+📋 AVAILABLE GESTURES:
+
+�️ RIGHT HAND GESTURES:
+   • **Thumb + Index Pinch**: Move cursor & click
+   • **Index + Middle Finger**: Scroll up/down
+   • **Thumb + Ring Finger**: Right-click
+   • **Open Hand**: Stop cursor movement
+
+🤚 LEFT HAND GESTURES:
+   • **Thumb + Index Pinch**: Alt+Tab (switch windows)
+   • **Palm Movement**: Volume control
+   • **Wrist Rotation**: Brightness control
+
+🎯 BASIC FUNCTIONS:
+   • **Mild Pinch**: Single click
+   • **Tight Pinch**: Double click
+   • **Hand Movement**: Cursor control
+   • **Release**: Stop movement
+
+💡 SIMPLE USAGE:
+   1. **Right Hand Pinch**: Control cursor
+   2. **Right Hand Scroll**: Index + Middle fingers
+   3. **Left Hand Pinch**: Switch windows
+   4. **Left Hand Palm**: Control volume/brightness

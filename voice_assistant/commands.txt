@@ -1,0 +1,39 @@
+
+
+📱 BRIGHTNESS CONTROL (PRODUCTION-READY COMMANDS):
+   • "brightness up" / "bright up" / "brighter" / "increase bright"
+   • "brightness down" / "bright down" / "dimmer" / "decrease bright"
+   • "set brightness 70" / "brightness 70" / "bright to 70"
+   • "brightness maximum" / "max brightness" / "brightest"
+   • "brightness minimum" / "min brightness" / "darkest"
+
+🔊 VOLUME CONTROL (PRODUCTION-READY COMMANDS):
+   • "volume up" / "sound up" / "audio up" / "louder" / "increase volume"
+   • "volume down" / "sound down" / "audio down" / "quieter" / "decrease volume"
+   • "set volume 50" / "volume 50" / "sound to 50" / "audio to 50"
+   • "volume maximum" / "max volume" / "loudest" / "full volume"
+   • "volume minimum" / "min volume" / "quietest" / "mute"
+
+🚀 APPLICATION LAUNCHER (PRODUCTION-READY COMMANDS):
+   • "open chrome" / "open browser" / "launch browser" 
+   • "open code" / "open vscode" / "open editor" / "open visual studio"
+   • "open notepad" / "open note pad" / "open text editor"
+   • "open settings" / "open setting" / "open control panel"
+   • "open explorer" / "open files" / "open file manager" / "open my computer"
+
+⚙️ SYSTEM CONTROL (PRODUCTION-READY COMMANDS):
+   • "shutdown system now" / "shutdown" / "power off" / "turn off" / "shut down"
+   • "restart system now" / "restart" / "reboot" / "reboot system"
+   • "sleep system now" / "sleep" / "hibernate" / "sleep mode"
+   • "lock system now" / "lock" / "lock screen" / "lock windows"
+
+🎯 WAKE WORDS (must say first):
+   • "hey assistant"
+   • "ok assistant"
+   • "hello system"
+
+💡 USAGE EXAMPLE:
+   1. Say: "hey assistant"
+   2. Wait for beep
+   3. Say: "brightness up"
+   4. System executes command with 100% accuracy        

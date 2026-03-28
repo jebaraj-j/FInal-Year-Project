@@ -3193,3 +3193,2160 @@
 2026-03-26 02:18:40 | INFO     | SystemController cleanup completed
 2026-03-26 02:18:40 | INFO     | Full voice assistant shutdown complete
 2026-03-26 02:18:47 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 06:50:46 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 06:50:46 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 06:50:46 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 06:50:46 | INFO     | Detection threshold: 0.65
+2026-03-28 06:50:46 | INFO     | VoiceListener initialized
+2026-03-28 06:50:46 | INFO     | BrightnessIntentEngine initialized
+2026-03-28 06:50:46 | INFO     | Loaded 5 brightness actions
+2026-03-28 06:50:46 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 06:50:46 | INFO     | ==================================================
+2026-03-28 06:50:46 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 06:50:46 | INFO     | Start time: 2026-03-28 06:50:46
+2026-03-28 06:50:46 | INFO     | ==================================================
+2026-03-28 06:50:46 | INFO     | VoiceBrightnessAssistant initialized
+2026-03-28 06:50:46 | INFO     | Running in test mode...
+2026-03-28 06:50:46 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 06:51:01 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 06:51:23 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 06:51:23 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 06:51:23 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 06:51:23 | INFO     | Detection threshold: 0.6
+2026-03-28 06:51:23 | INFO     | VoiceListener initialized
+2026-03-28 06:51:23 | INFO     | BrightnessIntentEngine initialized
+2026-03-28 06:51:23 | INFO     | Loaded 5 brightness actions
+2026-03-28 06:51:23 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 06:51:23 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-28 06:51:23 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 06:51:24 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 06:51:24 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 06:51:24 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 06:51:57 | INFO     | COMMAND RECEIVED: 'it is'
+2026-03-28 06:51:57 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:02 | INFO     | COMMAND RECEIVED: 'he's very and snow'
+2026-03-28 06:52:02 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:06 | INFO     | COMMAND RECEIVED: 'the race'
+2026-03-28 06:52:06 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:08 | INFO     | COMMAND RECEIVED: 'it's been'
+2026-03-28 06:52:08 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:12 | INFO     | COMMAND RECEIVED: 'i didn't siblings'
+2026-03-28 06:52:12 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:32 | INFO     | COMMAND RECEIVED: 'his'
+2026-03-28 06:52:32 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:37 | INFO     | COMMAND RECEIVED: 'but i guess oven'
+2026-03-28 06:52:37 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:40 | INFO     | COMMAND RECEIVED: 'right boots'
+2026-03-28 06:52:40 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.70, value: 0
+2026-03-28 06:52:41 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 06:52:46 | INFO     | COMMAND RECEIVED: 'it's'
+2026-03-28 06:52:46 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:52 | INFO     | COMMAND RECEIVED: 'see'
+2026-03-28 06:52:52 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:52:58 | INFO     | COMMAND RECEIVED: 'for eight minutes of'
+2026-03-28 06:52:58 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:53:03 | INFO     | COMMAND RECEIVED: 'right sir'
+2026-03-28 06:53:03 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.71, value: 0
+2026-03-28 06:53:03 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 06:53:11 | INFO     | COMMAND RECEIVED: 'it it's'
+2026-03-28 06:53:11 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:53:17 | INFO     | COMMAND RECEIVED: 'it's greatness'
+2026-03-28 06:53:17 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:53:24 | INFO     | COMMAND RECEIVED: 'so'
+2026-03-28 06:53:24 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:53:30 | INFO     | COMMAND RECEIVED: 'so'
+2026-03-28 06:53:30 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 06:57:47 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 06:57:47 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 06:57:47 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 06:57:47 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:00:20 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 07:00:20 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:00:20 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:00:20 | INFO     | Detection threshold: 0.8
+2026-03-28 07:00:20 | INFO     | VoiceListener initialized
+2026-03-28 07:00:20 | INFO     | BrightnessIntentEngine initialized
+2026-03-28 07:00:20 | INFO     | Loaded 5 brightness actions
+2026-03-28 07:00:21 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 07:00:21 | INFO     | ==================================================
+2026-03-28 07:00:21 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 07:00:21 | INFO     | Start time: 2026-03-28 07:00:21
+2026-03-28 07:00:21 | INFO     | ==================================================
+2026-03-28 07:00:21 | INFO     | VoiceBrightnessAssistant initialized
+2026-03-28 07:00:21 | INFO     | Starting voice assistant...
+2026-03-28 07:00:21 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-28 07:00:21 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-28 07:00:21 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 07:00:22 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 07:00:22 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 07:00:22 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 07:00:22 | INFO     | Voice assistant started successfully
+2026-03-28 07:00:22 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-28 07:00:27 | INFO     | COMMAND RECEIVED: 'he has his friend'
+2026-03-28 07:00:27 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:00:27 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:00:31 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-03-28 07:00:31 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:00:31 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:00:35 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:00:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:00:35 | INFO     | BRIGHTNESS CHANGE: 0% → 90% (action: set)
+2026-03-28 07:00:35 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:00:39 | INFO     | COMMAND RECEIVED: 'greece brightness'
+2026-03-28 07:00:39 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.77, value: 0
+2026-03-28 07:00:39 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:00:39 | INFO     | Command executed successfully: set_value
+2026-03-28 07:00:43 | INFO     | COMMAND RECEIVED: 'the brightness up'
+2026-03-28 07:00:43 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:00:43 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 07:00:43 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:00:52 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:00:52 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:00:53 | INFO     | BRIGHTNESS CHANGE: 0% → 20% (action: set)
+2026-03-28 07:00:53 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:00:56 | INFO     | COMMAND RECEIVED: 'but as up'
+2026-03-28 07:00:56 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:00:56 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:01:02 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:01:02 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:01:02 | INFO     | BRIGHTNESS CHANGE: 0% → 30% (action: set)
+2026-03-28 07:01:02 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:01:09 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:01:09 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:01:09 | INFO     | BRIGHTNESS CHANGE: 0% → 40% (action: set)
+2026-03-28 07:01:09 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:01:14 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:01:14 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:01:14 | INFO     | BRIGHTNESS CHANGE: 0% → 50% (action: set)
+2026-03-28 07:01:14 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:01:19 | INFO     | COMMAND RECEIVED: 'redness don't'
+2026-03-28 07:01:19 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.64, value: 0
+2026-03-28 07:01:20 | INFO     | BRIGHTNESS CHANGE: 0% → 40% (action: set)
+2026-03-28 07:01:20 | INFO     | Command executed successfully: relative_decrease
+2026-03-28 07:01:27 | INFO     | COMMAND RECEIVED: 'greece brightness'
+2026-03-28 07:01:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.77, value: 0
+2026-03-28 07:01:27 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:01:27 | INFO     | Command executed successfully: set_value
+2026-03-28 07:01:31 | INFO     | COMMAND RECEIVED: 'increase brightness'
+2026-03-28 07:01:31 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.81, value: 0
+2026-03-28 07:01:31 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 07:01:31 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:01:36 | INFO     | COMMAND RECEIVED: 'in greece brightness'
+2026-03-28 07:01:36 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.71, value: 0
+2026-03-28 07:01:37 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:01:37 | INFO     | Command executed successfully: set_value
+2026-03-28 07:01:41 | INFO     | COMMAND RECEIVED: 'in greece brightness'
+2026-03-28 07:01:42 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.71, value: 0
+2026-03-28 07:01:42 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:01:42 | INFO     | Command executed successfully: set_value
+2026-03-28 07:01:47 | INFO     | COMMAND RECEIVED: 'you get his brightness'
+2026-03-28 07:01:47 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.72, value: 0
+2026-03-28 07:01:47 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:01:47 | INFO     | Command executed successfully: set_value
+2026-03-28 07:01:51 | INFO     | COMMAND RECEIVED: 'greece brightness'
+2026-03-28 07:01:51 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.77, value: 0
+2026-03-28 07:01:51 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:01:51 | INFO     | Command executed successfully: set_value
+2026-03-28 07:02:23 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:02:24 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:02:24 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:02:29 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:02:29 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:02:29 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:02:34 | INFO     | COMMAND RECEIVED: 'volume down'
+2026-03-28 07:02:34 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.63, value: 0
+2026-03-28 07:02:34 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:02:34 | INFO     | Command executed successfully: relative_decrease
+2026-03-28 07:02:39 | INFO     | COMMAND RECEIVED: 'in greece are you'
+2026-03-28 07:02:39 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:02:39 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:02:57 | INFO     | COMMAND RECEIVED: 'increase bright as to maximum'
+2026-03-28 07:02:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.92, value: 0
+2026-03-28 07:02:57 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-28 07:02:57 | INFO     | Command executed successfully: absolute_increase
+2026-03-28 07:03:02 | INFO     | COMMAND RECEIVED: 'decreased brightness to minimum'
+2026-03-28 07:03:02 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.98, value: 0
+2026-03-28 07:03:02 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:03:02 | INFO     | Command executed successfully: absolute_decrease
+2026-03-28 07:03:06 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:03:06 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:03:06 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 07:03:06 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:03:09 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:03:09 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:03:09 | INFO     | BRIGHTNESS CHANGE: 0% → 20% (action: set)
+2026-03-28 07:03:09 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:03:12 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:03:12 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:03:12 | INFO     | BRIGHTNESS CHANGE: 0% → 30% (action: set)
+2026-03-28 07:03:12 | INFO     | Command executed successfully: relative_increase
+2026-03-28 07:03:23 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:03:23 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:03:23 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:03:39 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:03:39 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:03:39 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:03:44 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:03:44 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:03:44 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:03:51 | INFO     | COMMAND RECEIVED: 'volume down'
+2026-03-28 07:03:51 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.63, value: 0
+2026-03-28 07:03:51 | INFO     | BRIGHTNESS CHANGE: 0% → 20% (action: set)
+2026-03-28 07:03:51 | INFO     | Command executed successfully: relative_decrease
+2026-03-28 07:03:56 | INFO     | COMMAND RECEIVED: 'why i'm done'
+2026-03-28 07:03:56 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.60, value: 0
+2026-03-28 07:03:56 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 07:03:56 | INFO     | Command executed successfully: relative_decrease
+2026-03-28 07:04:10 | INFO     | COMMAND RECEIVED: 'increased volume two maximum'
+2026-03-28 07:04:10 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.72, value: 0
+2026-03-28 07:04:10 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-28 07:04:10 | INFO     | Command executed successfully: absolute_increase
+2026-03-28 07:04:15 | INFO     | COMMAND RECEIVED: 'decrease volume two minimum'
+2026-03-28 07:04:15 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.74, value: 0
+2026-03-28 07:04:15 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 07:04:15 | INFO     | Command executed successfully: absolute_decrease
+2026-03-28 07:04:22 | INFO     | COMMAND RECEIVED: 'well been caught on'
+2026-03-28 07:04:22 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:26 | INFO     | COMMAND RECEIVED: 'been chrome'
+2026-03-28 07:04:26 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:35 | INFO     | COMMAND RECEIVED: 'woman settings'
+2026-03-28 07:04:35 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:35 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:38 | INFO     | COMMAND RECEIVED: 'wilpon settings'
+2026-03-28 07:04:38 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:42 | INFO     | COMMAND RECEIVED: 'the open settings'
+2026-03-28 07:04:42 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:42 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:47 | INFO     | COMMAND RECEIVED: 'what been settings'
+2026-03-28 07:04:47 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:47 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:51 | INFO     | COMMAND RECEIVED: 'whoa been sick days'
+2026-03-28 07:04:51 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:04:56 | INFO     | COMMAND RECEIVED: 'no one said things'
+2026-03-28 07:04:56 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:04:56 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:05:02 | INFO     | COMMAND RECEIVED: 'warp been explorer'
+2026-03-28 07:05:02 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:05:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:05:06 | INFO     | COMMAND RECEIVED: 'open explorer'
+2026-03-28 07:05:06 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:05:06 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:05:17 | INFO     | COMMAND RECEIVED: 'sleep system known'
+2026-03-28 07:05:17 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:05:17 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:05:20 | INFO     | COMMAND RECEIVED: 'sleep system or know'
+2026-03-28 07:05:20 | INFO     | INTENT DETECTED: brightness, action: None, confidence: 0.00
+2026-03-28 07:05:20 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:07:04 | INFO     | Received signal 2, shutting down...
+2026-03-28 07:07:04 | INFO     | Shutting down voice assistant...
+2026-03-28 07:07:04 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 07:07:05 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:07:05 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 07:07:05 | INFO     | ==================================================
+2026-03-28 07:07:05 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-28 07:07:05 | INFO     | Shutdown time: 2026-03-28 07:07:05
+2026-03-28 07:07:05 | INFO     | ==================================================
+2026-03-28 07:07:05 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:10:56 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 07:10:56 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:10:56 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:10:56 | INFO     | Detection threshold: 0.8
+2026-03-28 07:10:56 | INFO     | VoiceListener initialized
+2026-03-28 07:10:56 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 07:10:56 | INFO     | Loaded 10 total actions across 4 categories
+2026-03-28 07:10:56 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 07:10:56 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 07:10:56 | INFO     | Validated 5 application paths
+2026-03-28 07:10:56 | INFO     | ApplicationLauncher initialized
+2026-03-28 07:10:56 | INFO     | Loaded 5 application configurations
+2026-03-28 07:10:56 | INFO     | SystemController initialized
+2026-03-28 07:10:56 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 07:10:56 | INFO     | ==================================================
+2026-03-28 07:10:56 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 07:10:56 | INFO     | Start time: 2026-03-28 07:10:56
+2026-03-28 07:10:56 | INFO     | ==================================================
+2026-03-28 07:10:56 | INFO     | VoiceAssistant initialized
+2026-03-28 07:10:56 | INFO     | Running in test mode...
+2026-03-28 07:10:56 | INFO     | brightness controller: ✅ Supported
+2026-03-28 07:10:56 | INFO     | volume controller: ✅ Supported
+2026-03-28 07:10:56 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 07:10:56 | INFO     | system_control controller: ✅ Supported
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 75
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:10:56 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:10:56 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:10:56 | INFO     | Detection threshold: 0.8
+2026-03-28 07:10:56 | INFO     | WAKE WORD DETECTED: 'hey assistant'
+2026-03-28 07:10:56 | INFO     | WAKE WORD DETECTED: 'ok assistant'
+2026-03-28 07:10:56 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 07:10:56 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:11:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 07:11:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:11:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:11:19 | INFO     | Detection threshold: 0.8
+2026-03-28 07:11:19 | INFO     | VoiceListener initialized
+2026-03-28 07:11:19 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 07:11:19 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 07:11:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 07:11:19 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 07:11:19 | INFO     | Validated 5 application paths
+2026-03-28 07:11:19 | INFO     | ApplicationLauncher initialized
+2026-03-28 07:11:19 | INFO     | Loaded 5 application configurations
+2026-03-28 07:11:19 | INFO     | SystemController initialized
+2026-03-28 07:11:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 07:11:19 | INFO     | ==================================================
+2026-03-28 07:11:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 07:11:19 | INFO     | Start time: 2026-03-28 07:11:19
+2026-03-28 07:11:19 | INFO     | ==================================================
+2026-03-28 07:11:19 | INFO     | VoiceAssistant initialized
+2026-03-28 07:11:19 | INFO     | Running in test mode...
+2026-03-28 07:11:19 | INFO     | brightness controller: ✅ Supported
+2026-03-28 07:11:19 | INFO     | volume controller: ✅ Supported
+2026-03-28 07:11:19 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 07:11:19 | INFO     | system_control controller: ✅ Supported
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 75
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.84, value: 0
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 0.82, value: 0
+2026-03-28 07:11:19 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:11:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:11:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:11:19 | INFO     | Detection threshold: 0.8
+2026-03-28 07:11:19 | INFO     | WAKE WORD DETECTED: 'hey assistant'
+2026-03-28 07:11:19 | INFO     | WAKE WORD DETECTED: 'ok assistant'
+2026-03-28 07:11:19 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 07:11:19 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:12:11 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 07:12:11 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:12:11 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:12:11 | INFO     | Detection threshold: 0.8
+2026-03-28 07:12:11 | INFO     | VoiceListener initialized
+2026-03-28 07:12:11 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 07:12:11 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 07:12:12 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 07:12:12 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 07:12:12 | INFO     | Validated 5 application paths
+2026-03-28 07:12:12 | INFO     | ApplicationLauncher initialized
+2026-03-28 07:12:12 | INFO     | Loaded 5 application configurations
+2026-03-28 07:12:12 | INFO     | SystemController initialized
+2026-03-28 07:12:12 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 07:12:12 | INFO     | ==================================================
+2026-03-28 07:12:12 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 07:12:12 | INFO     | Start time: 2026-03-28 07:12:12
+2026-03-28 07:12:12 | INFO     | ==================================================
+2026-03-28 07:12:12 | INFO     | VoiceAssistant initialized
+2026-03-28 07:12:12 | INFO     | Starting voice assistant...
+2026-03-28 07:12:12 | INFO     | brightness controller: ✅ Supported
+2026-03-28 07:12:12 | INFO     | volume controller: ✅ Supported
+2026-03-28 07:12:12 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 07:12:12 | INFO     | system_control controller: ✅ Supported
+2026-03-28 07:12:12 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-28 07:12:12 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-28 07:12:12 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 07:12:12 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 07:12:13 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 07:12:13 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 07:12:13 | INFO     | Voice assistant started successfully
+2026-03-28 07:12:13 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-28 07:12:19 | INFO     | COMMAND RECEIVED: 'he has a stunt'
+2026-03-28 07:12:19 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:19 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:23 | INFO     | COMMAND RECEIVED: 'he has his stint'
+2026-03-28 07:12:23 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:23 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:27 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-03-28 07:12:27 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:27 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:37 | INFO     | COMMAND RECEIVED: 'okay friend'
+2026-03-28 07:12:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:40 | INFO     | COMMAND RECEIVED: 'okay assistant'
+2026-03-28 07:12:40 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:40 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:45 | INFO     | COMMAND RECEIVED: 'while you're up'
+2026-03-28 07:12:45 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:45 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:49 | INFO     | COMMAND RECEIVED: 'why you up'
+2026-03-28 07:12:49 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:12:49 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:12:52 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:12:52 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:12:52 | INFO     | BRIGHTNESS CHANGE: 0% → 80% (action: set)
+2026-03-28 07:12:52 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 07:12:57 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 07:12:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:12:57 | INFO     | BRIGHTNESS CHANGE: 0% → 90% (action: set)
+2026-03-28 07:12:57 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 07:13:02 | INFO     | COMMAND RECEIVED: 'volume down'
+2026-03-28 07:13:02 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 07:13:02 | INFO     | Command executed successfully: volume.relative_decrease
+2026-03-28 07:13:08 | INFO     | COMMAND RECEIVED: 'volume down'
+2026-03-28 07:13:08 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 07:13:08 | INFO     | Command executed successfully: volume.relative_decrease
+2026-03-28 07:13:36 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 07:13:36 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 07:13:36 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 07:13:45 | INFO     | COMMAND RECEIVED: 'increased volume do maximum'
+2026-03-28 07:13:45 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.94, value: 0
+2026-03-28 07:13:45 | INFO     | Command executed successfully: volume.absolute_increase
+2026-03-28 07:13:53 | INFO     | COMMAND RECEIVED: 'decrease william to minimum'
+2026-03-28 07:13:53 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.83, value: 0
+2026-03-28 07:13:53 | INFO     | Command executed successfully: volume.absolute_decrease
+2026-03-28 07:14:03 | INFO     | COMMAND RECEIVED: 'shit volume two fifty'
+2026-03-28 07:14:03 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:03 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:14:13 | INFO     | COMMAND RECEIVED: 'set to are you to sixty'
+2026-03-28 07:14:13 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:14:22 | INFO     | COMMAND RECEIVED: 'sit by volume seventy'
+2026-03-28 07:14:22 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:14:26 | INFO     | COMMAND RECEIVED: 'sick'
+2026-03-28 07:14:26 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:14:28 | INFO     | COMMAND RECEIVED: 'volume two'
+2026-03-28 07:14:28 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 0.76, value: 0
+2026-03-28 07:14:28 | INFO     | Command executed successfully: volume.relative_decrease
+2026-03-28 07:14:42 | INFO     | COMMAND RECEIVED: 'sit volume'
+2026-03-28 07:14:42 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.90, value: 0
+2026-03-28 07:14:42 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:14:55 | INFO     | COMMAND RECEIVED: 'say to all your to seventy'
+2026-03-28 07:14:55 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:55 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:14:59 | INFO     | COMMAND RECEIVED: 'yep'
+2026-03-28 07:14:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:14:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:02 | INFO     | COMMAND RECEIVED: 'keep'
+2026-03-28 07:15:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:07 | INFO     | COMMAND RECEIVED: 'sit while you to seventy'
+2026-03-28 07:15:07 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:07 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:11 | INFO     | COMMAND RECEIVED: 'set volume'
+2026-03-28 07:15:11 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-03-28 07:15:11 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:15:18 | INFO     | COMMAND RECEIVED: 'set volume two sunday'
+2026-03-28 07:15:18 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-03-28 07:15:18 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:15:22 | INFO     | COMMAND RECEIVED: 'sit volume seventy'
+2026-03-28 07:15:22 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:26 | INFO     | COMMAND RECEIVED: 'sick all yeah i'm sorry'
+2026-03-28 07:15:26 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:30 | INFO     | COMMAND RECEIVED: 'sit volume'
+2026-03-28 07:15:30 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.90, value: 0
+2026-03-28 07:15:30 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:15:33 | INFO     | COMMAND RECEIVED: 'second volume'
+2026-03-28 07:15:34 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.78, value: 0
+2026-03-28 07:15:34 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:15:37 | INFO     | COMMAND RECEIVED: 'shit or you'
+2026-03-28 07:15:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:42 | INFO     | COMMAND RECEIVED: 'sit why you'
+2026-03-28 07:15:42 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:42 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:46 | INFO     | COMMAND RECEIVED: 'sit the volume'
+2026-03-28 07:15:46 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.75, value: 0
+2026-03-28 07:15:46 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 07:15:50 | INFO     | COMMAND RECEIVED: 'stick a while you to sunday'
+2026-03-28 07:15:50 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:50 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:54 | INFO     | COMMAND RECEIVED: 'set to i i'm be'
+2026-03-28 07:15:54 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:54 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:15:59 | INFO     | COMMAND RECEIVED: 'sip why you're so in the'
+2026-03-28 07:15:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:15:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:04 | INFO     | COMMAND RECEIVED: 'sit there all i'm seventy'
+2026-03-28 07:16:04 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:04 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:12 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-03-28 07:16:12 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 07:16:12 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open chrome
+2026-03-28 07:16:19 | INFO     | COMMAND RECEIVED: 'austin settings'
+2026-03-28 07:16:19 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.80, value: 0
+2026-03-28 07:16:19 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: austin settings
+2026-03-28 07:16:22 | INFO     | COMMAND RECEIVED: 'one siblings'
+2026-03-28 07:16:22 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:24 | INFO     | COMMAND RECEIVED: 'what on'
+2026-03-28 07:16:24 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:24 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:27 | INFO     | COMMAND RECEIVED: 'one settings'
+2026-03-28 07:16:27 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.88, value: 0
+2026-03-28 07:16:27 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: one settings
+2026-03-28 07:16:33 | INFO     | COMMAND RECEIVED: 'i'm on settings'
+2026-03-28 07:16:33 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.79, value: 0
+2026-03-28 07:16:33 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: i'm on settings
+2026-03-28 07:16:37 | INFO     | COMMAND RECEIVED: 'bought one settings'
+2026-03-28 07:16:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:42 | INFO     | COMMAND RECEIVED: 'open not bad'
+2026-03-28 07:16:42 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.83, value: 0
+2026-03-28 07:16:42 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open not bad
+2026-03-28 07:16:46 | INFO     | COMMAND RECEIVED: 'oh and explorer'
+2026-03-28 07:16:46 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.79, value: 0
+2026-03-28 07:16:46 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: oh and explorer
+2026-03-28 07:16:50 | INFO     | COMMAND RECEIVED: 'wat one explorer'
+2026-03-28 07:16:50 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.76, value: 0
+2026-03-28 07:16:50 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: wat one explorer
+2026-03-28 07:16:56 | INFO     | COMMAND RECEIVED: 'or been good'
+2026-03-28 07:16:56 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:56 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:16:59 | INFO     | COMMAND RECEIVED: 'what then'
+2026-03-28 07:16:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:16:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:17:02 | INFO     | COMMAND RECEIVED: 'most i'm good'
+2026-03-28 07:17:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:17:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:17:05 | INFO     | COMMAND RECEIVED: 'open goal'
+2026-03-28 07:17:05 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:17:05 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:17:08 | INFO     | COMMAND RECEIVED: 'bullpen good'
+2026-03-28 07:17:08 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:17:08 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:17:12 | INFO     | COMMAND RECEIVED: 'warp an order'
+2026-03-28 07:17:12 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:17:12 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:17:39 | INFO     | COMMAND RECEIVED: 'we'll ban on'
+2026-03-28 07:17:39 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:17:39 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:18:41 | INFO     | COMMAND RECEIVED: 'open corridor'
+2026-03-28 07:18:41 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 07:18:41 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open corridor
+2026-03-28 07:18:44 | INFO     | COMMAND RECEIVED: 'bullpen corridor'
+2026-03-28 07:18:44 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:18:44 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:18:47 | INFO     | COMMAND RECEIVED: 'open goal'
+2026-03-28 07:18:47 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:18:47 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:18:50 | INFO     | COMMAND RECEIVED: 'open corridor'
+2026-03-28 07:18:50 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 07:18:50 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open corridor
+2026-03-28 07:18:54 | INFO     | COMMAND RECEIVED: 'open corridor'
+2026-03-28 07:18:54 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 07:18:54 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open corridor
+2026-03-28 07:18:59 | INFO     | COMMAND RECEIVED: 'what god'
+2026-03-28 07:18:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:18:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:21 | INFO     | COMMAND RECEIVED: 'hello'
+2026-03-28 07:21:21 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:21 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:31 | INFO     | COMMAND RECEIVED: 'that'
+2026-03-28 07:21:31 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:31 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:37 | INFO     | COMMAND RECEIVED: 'and three'
+2026-03-28 07:21:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:41 | INFO     | COMMAND RECEIVED: 'open a troll'
+2026-03-28 07:21:41 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:45 | INFO     | COMMAND RECEIVED: 'open a pro'
+2026-03-28 07:21:45 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:45 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:48 | INFO     | COMMAND RECEIVED: 'open a troll'
+2026-03-28 07:21:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:21:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:21:52 | INFO     | COMMAND RECEIVED: 'open crow'
+2026-03-28 07:21:52 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.80, value: 0
+2026-03-28 07:21:52 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open crow
+2026-03-28 07:21:56 | INFO     | COMMAND RECEIVED: 'open crow'
+2026-03-28 07:21:56 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.80, value: 0
+2026-03-28 07:21:56 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open crow
+2026-03-28 07:21:59 | INFO     | COMMAND RECEIVED: 'open crow'
+2026-03-28 07:21:59 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.80, value: 0
+2026-03-28 07:21:59 | ERROR    | CommandProcessError: ApplicationLauncher.execute_action() takes 2 positional arguments but 3 were given | Context: Command: open crow
+2026-03-28 07:22:19 | INFO     | COMMAND RECEIVED: 'hope and comb'
+2026-03-28 07:22:19 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:22:19 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:22:34 | INFO     | COMMAND RECEIVED: 'yeah'
+2026-03-28 07:22:34 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:22:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:23:28 | INFO     | COMMAND RECEIVED: 'good'
+2026-03-28 07:23:29 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:23:29 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:23:35 | INFO     | COMMAND RECEIVED: 'sleep system know'
+2026-03-28 07:23:35 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:23:35 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:23:39 | INFO     | COMMAND RECEIVED: 'sleep system now'
+2026-03-28 07:23:39 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:23:39 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:23:48 | INFO     | COMMAND RECEIVED: 'lock system know'
+2026-03-28 07:23:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:23:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:23:51 | INFO     | COMMAND RECEIVED: 'lock system now'
+2026-03-28 07:23:51 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.73, value: 0
+2026-03-28 07:23:51 | INFO     | SYSTEM ACTION ATTEMPT: lock
+2026-03-28 07:23:51 | INFO     | Executing screen lock...
+2026-03-28 07:23:51 | INFO     | SYSTEM ACTION SUCCESS: lock
+2026-03-28 07:23:51 | INFO     | Command executed successfully: system_control.lock
+2026-03-28 07:24:02 | INFO     | COMMAND RECEIVED: 'sleep system now'
+2026-03-28 07:24:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:24:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:24:13 | INFO     | COMMAND RECEIVED: 'them'
+2026-03-28 07:24:13 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:24:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:24:37 | INFO     | COMMAND RECEIVED: 'added'
+2026-03-28 07:24:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:24:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:24:55 | INFO     | COMMAND RECEIVED: 'what'
+2026-03-28 07:24:55 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:24:55 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:00 | INFO     | COMMAND RECEIVED: 'no'
+2026-03-28 07:25:00 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:00 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:02 | INFO     | COMMAND RECEIVED: 'what for that'
+2026-03-28 07:25:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:06 | INFO     | COMMAND RECEIVED: 'what kind of i believe that'
+2026-03-28 07:25:06 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:06 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:15 | INFO     | COMMAND RECEIVED: 'hello'
+2026-03-28 07:25:15 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:15 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:27 | INFO     | COMMAND RECEIVED: 'where anything at all'
+2026-03-28 07:25:27 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:27 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:31 | INFO     | COMMAND RECEIVED: 'where's it coming around'
+2026-03-28 07:25:31 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:31 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:35 | INFO     | COMMAND RECEIVED: 'humming alone'
+2026-03-28 07:25:35 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:35 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:41 | INFO     | COMMAND RECEIVED: 'i'm putting a wonderful'
+2026-03-28 07:25:41 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:43 | INFO     | COMMAND RECEIVED: 'there are you going'
+2026-03-28 07:25:43 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:43 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:48 | INFO     | COMMAND RECEIVED: 'oh boy'
+2026-03-28 07:25:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:49 | INFO     | COMMAND RECEIVED: 'another'
+2026-03-28 07:25:49 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:49 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:52 | INFO     | COMMAND RECEIVED: 'her father'
+2026-03-28 07:25:52 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:52 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:55 | INFO     | COMMAND RECEIVED: 'her father'
+2026-03-28 07:25:55 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:25:55 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:25:59 | INFO     | COMMAND RECEIVED: 'further reading'
+2026-03-28 07:26:00 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:26:00 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:26:02 | INFO     | COMMAND RECEIVED: 'related'
+2026-03-28 07:26:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:26:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:26:07 | INFO     | COMMAND RECEIVED: 'hidden'
+2026-03-28 07:26:07 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 07:26:07 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 07:26:18 | INFO     | Received signal 2, shutting down...
+2026-03-28 07:26:18 | INFO     | Shutting down voice assistant...
+2026-03-28 07:26:18 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 07:26:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:26:18 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 07:26:18 | INFO     | VolumeController cleanup completed
+2026-03-28 07:26:18 | INFO     | ApplicationLauncher cleanup completed
+2026-03-28 07:26:18 | INFO     | SystemController cleanup completed
+2026-03-28 07:26:18 | INFO     | ==================================================
+2026-03-28 07:26:18 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-28 07:26:18 | INFO     | Shutdown time: 2026-03-28 07:26:18
+2026-03-28 07:26:18 | INFO     | ==================================================
+2026-03-28 07:26:19 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 07:50:12 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 07:50:12 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:50:12 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:50:12 | INFO     | Detection threshold: 0.75
+2026-03-28 07:50:12 | INFO     | VoiceListener initialized
+2026-03-28 07:50:12 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 07:50:12 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 07:50:12 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 07:50:12 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 07:50:12 | INFO     | Validated 5 application paths
+2026-03-28 07:50:12 | INFO     | ApplicationLauncher initialized
+2026-03-28 07:50:12 | INFO     | Loaded 5 application configurations
+2026-03-28 07:50:12 | INFO     | SystemController initialized
+2026-03-28 07:50:12 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 07:50:12 | INFO     | ==================================================
+2026-03-28 07:50:12 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 07:50:12 | INFO     | Start time: 2026-03-28 07:50:12
+2026-03-28 07:50:12 | INFO     | ==================================================
+2026-03-28 07:50:12 | INFO     | VoiceAssistant initialized
+2026-03-28 07:50:12 | INFO     | Running in test mode...
+2026-03-28 07:50:12 | INFO     | brightness controller: ✅ Supported
+2026-03-28 07:50:12 | INFO     | volume controller: ✅ Supported
+2026-03-28 07:50:12 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 07:50:12 | INFO     | system_control controller: ✅ Supported
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 75
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.94, value: 0
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 0.82, value: 0
+2026-03-28 07:50:12 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-03-28 07:50:12 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 07:50:12 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 07:50:12 | INFO     | Detection threshold: 0.75
+2026-03-28 07:50:12 | INFO     | WAKE WORD DETECTED: 'hey assistant'
+2026-03-28 07:50:12 | INFO     | WAKE WORD DETECTED: 'ok assistant'
+2026-03-28 07:50:12 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 07:50:12 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 07:50:12 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 08:12:32 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 08:12:32 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 08:12:32 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 08:12:32 | INFO     | Detection threshold: 0.75
+2026-03-28 08:12:32 | INFO     | VoiceListener initialized
+2026-03-28 08:12:32 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 08:12:32 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 08:12:32 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 08:12:32 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 08:12:32 | INFO     | Validated 5 application paths
+2026-03-28 08:12:32 | INFO     | ApplicationLauncher initialized
+2026-03-28 08:12:32 | INFO     | Loaded 5 application configurations
+2026-03-28 08:12:32 | INFO     | SystemController initialized
+2026-03-28 08:12:32 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 08:12:32 | INFO     | ==================================================
+2026-03-28 08:12:32 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 08:12:32 | INFO     | Start time: 2026-03-28 08:12:32
+2026-03-28 08:12:32 | INFO     | ==================================================
+2026-03-28 08:12:32 | INFO     | VoiceAssistant initialized
+2026-03-28 08:12:32 | INFO     | Running in test mode...
+2026-03-28 08:12:32 | INFO     | brightness controller: ✅ Supported
+2026-03-28 08:12:32 | INFO     | volume controller: ✅ Supported
+2026-03-28 08:12:32 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 08:12:32 | INFO     | system_control controller: ✅ Supported
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 75
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-03-28 08:12:32 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 08:12:32 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 08:12:32 | INFO     | Detection threshold: 0.75
+2026-03-28 08:12:32 | INFO     | WAKE WORD DETECTED: 'hey assistant'
+2026-03-28 08:12:32 | INFO     | WAKE WORD DETECTED: 'ok assistant'
+2026-03-28 08:12:32 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 08:12:32 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 08:12:32 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:05:37 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 14:05:37 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 14:05:37 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 14:05:37 | INFO     | Detection threshold: 0.7
+2026-03-28 14:05:37 | INFO     | VoiceListener initialized
+2026-03-28 14:05:37 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 14:05:37 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 14:05:37 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 14:05:37 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 14:05:37 | INFO     | Validated 5 application paths
+2026-03-28 14:05:37 | INFO     | ApplicationLauncher initialized
+2026-03-28 14:05:37 | INFO     | Loaded 5 application configurations
+2026-03-28 14:05:37 | INFO     | SystemController initialized
+2026-03-28 14:05:37 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 14:05:37 | INFO     | ==================================================
+2026-03-28 14:05:37 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 14:05:37 | INFO     | Start time: 2026-03-28 14:05:37
+2026-03-28 14:05:37 | INFO     | ==================================================
+2026-03-28 14:05:37 | INFO     | VoiceAssistant initialized
+2026-03-28 14:05:37 | INFO     | Starting voice assistant...
+2026-03-28 14:05:37 | INFO     | brightness controller: ✅ Supported
+2026-03-28 14:05:37 | INFO     | volume controller: ✅ Supported
+2026-03-28 14:05:37 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 14:05:37 | INFO     | system_control controller: ✅ Supported
+2026-03-28 14:05:38 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-28 14:05:38 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 14:05:38 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 14:05:39 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 14:05:39 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 14:05:39 | INFO     | Voice assistant started successfully
+2026-03-28 14:05:39 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-28 14:06:24 | INFO     | COMMAND RECEIVED: 'he has spent him'
+2026-03-28 14:06:24 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:24 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:29 | INFO     | COMMAND RECEIVED: 'he as a stink'
+2026-03-28 14:06:29 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:29 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:33 | INFO     | COMMAND RECEIVED: 'he has his tent'
+2026-03-28 14:06:33 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:33 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:38 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-03-28 14:06:38 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:48 | INFO     | COMMAND RECEIVED: 'we'll get his rent'
+2026-03-28 14:06:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:53 | INFO     | COMMAND RECEIVED: 'okay as if didn't to'
+2026-03-28 14:06:53 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:06:53 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:06:58 | INFO     | COMMAND RECEIVED: 'but a mess up'
+2026-03-28 14:06:58 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.62, value: 0
+2026-03-28 14:06:58 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.62
+2026-03-28 14:07:02 | INFO     | COMMAND RECEIVED: 'right miss up'
+2026-03-28 14:07:02 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.77, value: 0
+2026-03-28 14:07:02 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-28 14:07:02 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:07:14 | INFO     | COMMAND RECEIVED: 'but i'd miss lawn'
+2026-03-28 14:07:14 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:07:14 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:07:19 | INFO     | COMMAND RECEIVED: 'but i'd miss non'
+2026-03-28 14:07:19 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:07:19 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:07:23 | INFO     | COMMAND RECEIVED: 'brightness known'
+2026-03-28 14:07:23 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-03-28 14:07:23 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 14:07:23 | INFO     | Command executed successfully: brightness.set_value
+2026-03-28 14:07:31 | INFO     | COMMAND RECEIVED: 'but miss maximum'
+2026-03-28 14:07:31 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.71, value: 0
+2026-03-28 14:07:31 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-28 14:07:31 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-28 14:07:36 | INFO     | COMMAND RECEIVED: 'but i'd miss minimum'
+2026-03-28 14:07:36 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.63, value: 0
+2026-03-28 14:07:36 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.63
+2026-03-28 14:07:40 | INFO     | COMMAND RECEIVED: 'but i'd miss minimum'
+2026-03-28 14:07:40 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.63, value: 0
+2026-03-28 14:07:40 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.63
+2026-03-28 14:07:44 | INFO     | COMMAND RECEIVED: 'but i miss minimum'
+2026-03-28 14:07:45 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.67, value: 0
+2026-03-28 14:07:45 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:07:51 | INFO     | COMMAND RECEIVED: 'the brightness minimum'
+2026-03-28 14:07:51 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-03-28 14:07:51 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 14:07:51 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-03-28 14:07:56 | INFO     | COMMAND RECEIVED: 'right mess up'
+2026-03-28 14:07:56 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.85, value: 0
+2026-03-28 14:07:57 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 14:07:57 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:08:00 | INFO     | COMMAND RECEIVED: 'but i mess up'
+2026-03-28 14:08:00 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.62, value: 0
+2026-03-28 14:08:00 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.62
+2026-03-28 14:08:03 | INFO     | COMMAND RECEIVED: 'but i'd miss'
+2026-03-28 14:08:03 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:03 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:06 | INFO     | COMMAND RECEIVED: 'but i'd miss it'
+2026-03-28 14:08:06 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:06 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:09 | INFO     | COMMAND RECEIVED: 'but i mess up'
+2026-03-28 14:08:09 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.62, value: 0
+2026-03-28 14:08:09 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.62
+2026-03-28 14:08:16 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 14:08:16 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:08:17 | INFO     | BRIGHTNESS CHANGE: 0% → 20% (action: set)
+2026-03-28 14:08:17 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:08:20 | INFO     | COMMAND RECEIVED: 'brightness'
+2026-03-28 14:08:20 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-03-28 14:08:20 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 14:08:20 | INFO     | Command executed successfully: brightness.set_value
+2026-03-28 14:08:21 | INFO     | COMMAND RECEIVED: 'up'
+2026-03-28 14:08:21 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:21 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:25 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 14:08:25 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:08:26 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 14:08:26 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:08:29 | INFO     | COMMAND RECEIVED: 'but i'd miss'
+2026-03-28 14:08:29 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:29 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:33 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 14:08:33 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:08:34 | INFO     | BRIGHTNESS CHANGE: 0% → 20% (action: set)
+2026-03-28 14:08:34 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:08:38 | INFO     | COMMAND RECEIVED: 'but i'd miss'
+2026-03-28 14:08:38 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:41 | INFO     | COMMAND RECEIVED: 'right this up'
+2026-03-28 14:08:41 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.73, value: 0
+2026-03-28 14:08:42 | INFO     | BRIGHTNESS CHANGE: 0% → 30% (action: set)
+2026-03-28 14:08:42 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:08:46 | INFO     | COMMAND RECEIVED: 'but it mess up'
+2026-03-28 14:08:46 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.67, value: 0
+2026-03-28 14:08:46 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:08:50 | INFO     | COMMAND RECEIVED: 'but i messed up'
+2026-03-28 14:08:50 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:50 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:55 | INFO     | COMMAND RECEIVED: 'but i'd mess up'
+2026-03-28 14:08:55 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:55 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:08:59 | INFO     | COMMAND RECEIVED: 'great this up'
+2026-03-28 14:08:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:08:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:09:03 | INFO     | COMMAND RECEIVED: 'brightness of'
+2026-03-28 14:09:03 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-03-28 14:09:03 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 14:09:03 | INFO     | Command executed successfully: brightness.set_value
+2026-03-28 14:09:09 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 14:09:09 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:09:09 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 14:09:09 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:09:16 | INFO     | COMMAND RECEIVED: 'said brightness sixty'
+2026-03-28 14:09:16 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 60
+2026-03-28 14:09:16 | INFO     | BRIGHTNESS CHANGE: 0% → 60% (action: set)
+2026-03-28 14:09:16 | INFO     | Command executed successfully: brightness.set_value
+2026-03-28 14:09:37 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 14:09:37 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:09:37 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 14:09:47 | INFO     | COMMAND RECEIVED: 'while you're makes you'
+2026-03-28 14:09:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:09:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:09:52 | INFO     | COMMAND RECEIVED: 'why you maximum'
+2026-03-28 14:09:52 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:09:52 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:09:57 | INFO     | COMMAND RECEIVED: 'why you maximum'
+2026-03-28 14:09:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:09:57 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:10:04 | INFO     | COMMAND RECEIVED: 'why you'
+2026-03-28 14:10:04 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:04 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:07 | INFO     | COMMAND RECEIVED: 'why i'm'
+2026-03-28 14:10:07 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:07 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:12 | INFO     | COMMAND RECEIVED: 'why you maximum'
+2026-03-28 14:10:12 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:10:12 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:10:15 | INFO     | COMMAND RECEIVED: 'why are you'
+2026-03-28 14:10:15 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:15 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:20 | INFO     | COMMAND RECEIVED: 'why you'
+2026-03-28 14:10:20 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:20 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:25 | INFO     | COMMAND RECEIVED: 'why don't you write semen'
+2026-03-28 14:10:25 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:25 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:34 | INFO     | COMMAND RECEIVED: 'why you maximum'
+2026-03-28 14:10:34 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:10:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:10:37 | INFO     | COMMAND RECEIVED: 'why you'
+2026-03-28 14:10:37 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:40 | INFO     | COMMAND RECEIVED: 'rated for god'
+2026-03-28 14:10:40 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:40 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:51 | INFO     | COMMAND RECEIVED: 'while you like semen'
+2026-03-28 14:10:52 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:52 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:55 | INFO     | COMMAND RECEIVED: 'why human'
+2026-03-28 14:10:55 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:55 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:10:59 | INFO     | COMMAND RECEIVED: 'why are you'
+2026-03-28 14:10:59 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:10:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:02 | INFO     | COMMAND RECEIVED: 'why are you'
+2026-03-28 14:11:02 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:02 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:05 | INFO     | COMMAND RECEIVED: 'why you'
+2026-03-28 14:11:05 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:05 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:08 | INFO     | COMMAND RECEIVED: 'why you're'
+2026-03-28 14:11:08 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:08 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:12 | INFO     | COMMAND RECEIVED: 'what are you'
+2026-03-28 14:11:12 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:12 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:29 | INFO     | COMMAND RECEIVED: 'a why you maximum'
+2026-03-28 14:11:29 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.65, value: 0
+2026-03-28 14:11:29 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.65
+2026-03-28 14:11:33 | INFO     | COMMAND RECEIVED: 'why are you'
+2026-03-28 14:11:33 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:33 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:35 | INFO     | COMMAND RECEIVED: 'we have got than that'
+2026-03-28 14:11:35 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:35 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:38 | INFO     | COMMAND RECEIVED: 'who are you'
+2026-03-28 14:11:38 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:42 | INFO     | COMMAND RECEIVED: 'while you're gone'
+2026-03-28 14:11:42 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:42 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:45 | INFO     | COMMAND RECEIVED: 'why you're up'
+2026-03-28 14:11:45 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:45 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:48 | INFO     | COMMAND RECEIVED: 'while you mop'
+2026-03-28 14:11:48 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:11:51 | INFO     | COMMAND RECEIVED: 'why you're up'
+2026-03-28 14:11:51 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:11:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:15:37 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 14:15:37 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 14:15:37 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 14:15:37 | INFO     | Detection threshold: 0.65
+2026-03-28 14:15:37 | INFO     | VoiceListener initialized
+2026-03-28 14:15:37 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 14:15:37 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 14:15:37 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 14:15:37 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 14:15:37 | INFO     | Validated 5 application paths
+2026-03-28 14:15:37 | INFO     | ApplicationLauncher initialized
+2026-03-28 14:15:37 | INFO     | Loaded 5 application configurations
+2026-03-28 14:15:37 | INFO     | SystemController initialized
+2026-03-28 14:15:37 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 14:15:37 | INFO     | ==================================================
+2026-03-28 14:15:37 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 14:15:37 | INFO     | Start time: 2026-03-28 14:15:37
+2026-03-28 14:15:37 | INFO     | ==================================================
+2026-03-28 14:15:37 | INFO     | VoiceAssistant initialized
+2026-03-28 14:15:37 | INFO     | Running in test mode...
+2026-03-28 14:15:37 | INFO     | brightness controller: ✅ Supported
+2026-03-28 14:15:37 | INFO     | volume controller: ✅ Supported
+2026-03-28 14:15:37 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 14:15:37 | INFO     | system_control controller: ✅ Supported
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 75
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-03-28 14:15:37 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 14:15:37 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 14:15:37 | INFO     | Detection threshold: 0.65
+2026-03-28 14:15:37 | INFO     | WAKE WORD DETECTED: 'hey assistant'
+2026-03-28 14:15:37 | INFO     | WAKE WORD DETECTED: 'ok assistant'
+2026-03-28 14:15:37 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 14:15:37 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-03-28 14:15:38 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:23:13 | INFO     | COMMAND RECEIVED: 'huh'
+2026-03-28 14:23:13 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:23:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:23:19 | INFO     | Received signal 2, shutting down...
+2026-03-28 14:23:19 | INFO     | Shutting down voice assistant...
+2026-03-28 14:23:19 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 14:23:19 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:23:19 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 14:23:19 | INFO     | VolumeController cleanup completed
+2026-03-28 14:23:19 | INFO     | ApplicationLauncher cleanup completed
+2026-03-28 14:23:19 | INFO     | SystemController cleanup completed
+2026-03-28 14:23:19 | INFO     | ==================================================
+2026-03-28 14:23:19 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-28 14:23:19 | INFO     | Shutdown time: 2026-03-28 14:23:19
+2026-03-28 14:23:19 | INFO     | ==================================================
+2026-03-28 14:23:19 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:23:29 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 14:23:29 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 14:23:29 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 14:23:29 | INFO     | Detection threshold: 0.65
+2026-03-28 14:23:29 | INFO     | VoiceListener initialized
+2026-03-28 14:23:29 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 14:23:29 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 14:23:29 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 14:23:29 | INFO     | VolumeController initialized (pycaw)
+2026-03-28 14:23:29 | INFO     | Validated 5 application paths
+2026-03-28 14:23:29 | INFO     | ApplicationLauncher initialized
+2026-03-28 14:23:29 | INFO     | Loaded 5 application configurations
+2026-03-28 14:23:29 | INFO     | SystemController initialized
+2026-03-28 14:23:29 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 14:23:29 | INFO     | ==================================================
+2026-03-28 14:23:29 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 14:23:29 | INFO     | Start time: 2026-03-28 14:23:29
+2026-03-28 14:23:29 | INFO     | ==================================================
+2026-03-28 14:23:29 | INFO     | VoiceAssistant initialized
+2026-03-28 14:23:29 | INFO     | Starting voice assistant...
+2026-03-28 14:23:29 | INFO     | brightness controller: ✅ Supported
+2026-03-28 14:23:29 | INFO     | volume controller: ✅ Supported
+2026-03-28 14:23:29 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 14:23:29 | INFO     | system_control controller: ✅ Supported
+2026-03-28 14:23:29 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-28 14:23:29 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-28 14:23:29 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 14:23:30 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 14:23:30 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 14:23:30 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 14:23:30 | INFO     | Voice assistant started successfully
+2026-03-28 14:23:30 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-28 14:23:35 | INFO     | COMMAND RECEIVED: 'here's his didn't'
+2026-03-28 14:23:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.44, value: 0
+2026-03-28 14:23:35 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-28 14:23:38 | INFO     | COMMAND RECEIVED: 'greatness up'
+2026-03-28 14:23:38 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.72, value: 0
+2026-03-28 14:23:38 | INFO     | BRIGHTNESS CHANGE: 0% → 70% (action: set)
+2026-03-28 14:23:38 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:23:42 | INFO     | COMMAND RECEIVED: 'brightness don't'
+2026-03-28 14:23:42 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-03-28 14:23:42 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-28 14:23:42 | INFO     | Command executed successfully: brightness.set_value
+2026-03-28 14:23:47 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-28 14:23:47 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-28 14:23:47 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-03-28 14:23:47 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-28 14:23:54 | INFO     | COMMAND RECEIVED: 'redness maximum'
+2026-03-28 14:23:54 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.79, value: 0
+2026-03-28 14:23:54 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-28 14:23:54 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-28 14:24:00 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 14:24:00 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:24:00 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 14:24:04 | INFO     | COMMAND RECEIVED: 'while you know'
+2026-03-28 14:24:04 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.55, value: 0
+2026-03-28 14:24:04 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-03-28 14:24:07 | INFO     | COMMAND RECEIVED: 'why you don't'
+2026-03-28 14:24:07 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.55, value: 0
+2026-03-28 14:24:07 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-03-28 14:24:11 | INFO     | COMMAND RECEIVED: 'why you don't'
+2026-03-28 14:24:11 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.55, value: 0
+2026-03-28 14:24:11 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-03-28 14:24:16 | INFO     | COMMAND RECEIVED: 'why your maximum'
+2026-03-28 14:24:16 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.67, value: 0
+2026-03-28 14:24:16 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:24:20 | INFO     | COMMAND RECEIVED: 'why i'm maximum'
+2026-03-28 14:24:20 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.64, value: 0
+2026-03-28 14:24:20 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.64
+2026-03-28 14:24:24 | INFO     | COMMAND RECEIVED: 'why yum'
+2026-03-28 14:24:24 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.40, value: 0
+2026-03-28 14:24:24 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.40
+2026-03-28 14:24:28 | INFO     | COMMAND RECEIVED: 'why are you'
+2026-03-28 14:24:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.42, value: 0
+2026-03-28 14:24:28 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.42
+2026-03-28 14:24:30 | INFO     | COMMAND RECEIVED: 'you got there'
+2026-03-28 14:24:30 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.54, value: 0
+2026-03-28 14:24:30 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-28 14:24:34 | INFO     | COMMAND RECEIVED: 'what been chrome'
+2026-03-28 14:24:34 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-28 14:24:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:24:38 | INFO     | COMMAND RECEIVED: 'what been grown'
+2026-03-28 14:24:38 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.54, value: 0
+2026-03-28 14:24:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-28 14:25:32 | INFO     | Received signal 2, shutting down...
+2026-03-28 14:25:32 | INFO     | Shutting down voice assistant...
+2026-03-28 14:25:32 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 14:25:32 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:25:32 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 14:25:32 | INFO     | VolumeController cleanup completed
+2026-03-28 14:25:32 | INFO     | ApplicationLauncher cleanup completed
+2026-03-28 14:25:32 | INFO     | SystemController cleanup completed
+2026-03-28 14:25:32 | INFO     | ==================================================
+2026-03-28 14:25:32 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-28 14:25:32 | INFO     | Shutdown time: 2026-03-28 14:25:32
+2026-03-28 14:25:32 | INFO     | ==================================================
+2026-03-28 14:25:32 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:27:36 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-28 14:27:36 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-28 14:27:36 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-28 14:27:36 | INFO     | Detection threshold: 0.65
+2026-03-28 14:27:36 | INFO     | VoiceListener initialized
+2026-03-28 14:27:36 | INFO     | UnifiedIntentEngine initialized
+2026-03-28 14:27:36 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-28 14:27:36 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-28 14:27:36 | INFO     | VolumeController initialized (VK fallback)
+2026-03-28 14:27:36 | INFO     | Validated 5 application paths
+2026-03-28 14:27:36 | INFO     | ApplicationLauncher initialized
+2026-03-28 14:27:36 | INFO     | Loaded 5 application configurations
+2026-03-28 14:27:36 | INFO     | SystemController initialized
+2026-03-28 14:27:36 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-28 14:27:36 | INFO     | ==================================================
+2026-03-28 14:27:36 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-28 14:27:36 | INFO     | Start time: 2026-03-28 14:27:36
+2026-03-28 14:27:36 | INFO     | ==================================================
+2026-03-28 14:27:36 | INFO     | VoiceAssistant initialized
+2026-03-28 14:27:36 | INFO     | Starting voice assistant...
+2026-03-28 14:27:36 | INFO     | brightness controller: ✅ Supported
+2026-03-28 14:27:36 | INFO     | volume controller: ✅ Supported
+2026-03-28 14:27:36 | INFO     | app_launcher controller: ✅ Supported
+2026-03-28 14:27:36 | INFO     | system_control controller: ✅ Supported
+2026-03-28 14:27:37 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-28 14:27:37 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-28 14:27:37 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-28 14:27:37 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-28 14:27:38 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-28 14:27:38 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-28 14:27:38 | INFO     | Voice assistant started successfully
+2026-03-28 14:27:38 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-28 14:27:43 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 14:27:43 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:27:43 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 14:27:46 | INFO     | COMMAND RECEIVED: 'volume down'
+2026-03-28 14:27:46 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-03-28 14:27:47 | INFO     | Command executed successfully: volume.relative_decrease
+2026-03-28 14:27:51 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 14:27:51 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:27:52 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 14:27:54 | INFO     | COMMAND RECEIVED: 'volume up'
+2026-03-28 14:27:54 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-03-28 14:27:54 | INFO     | Command executed successfully: volume.relative_increase
+2026-03-28 14:28:04 | INFO     | COMMAND RECEIVED: 'are you maximum'
+2026-03-28 14:28:04 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:28:04 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:28:13 | INFO     | COMMAND RECEIVED: 'why you maximum'
+2026-03-28 14:28:13 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.69, value: 0
+2026-03-28 14:28:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.69
+2026-03-28 14:28:17 | INFO     | COMMAND RECEIVED: 'volume maximum'
+2026-03-28 14:28:17 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-03-28 14:28:19 | INFO     | Command executed successfully: volume.absolute_increase
+2026-03-28 14:28:26 | INFO     | COMMAND RECEIVED: 'why your minimum'
+2026-03-28 14:28:26 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.67, value: 0
+2026-03-28 14:28:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:28:32 | INFO     | COMMAND RECEIVED: 'volume minimum'
+2026-03-28 14:28:32 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-03-28 14:28:34 | INFO     | Command executed successfully: volume.absolute_decrease
+2026-03-28 14:28:38 | INFO     | COMMAND RECEIVED: 'sit while you'
+2026-03-28 14:28:38 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.48, value: 0
+2026-03-28 14:28:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.48
+2026-03-28 14:28:42 | INFO     | COMMAND RECEIVED: 'said william sixty percent'
+2026-03-28 14:28:42 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.41, value: 0
+2026-03-28 14:28:42 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.41
+2026-03-28 14:28:46 | INFO     | COMMAND RECEIVED: 'sit volume'
+2026-03-28 14:28:46 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.90, value: 0
+2026-03-28 14:28:47 | INFO     | COMMAND RECEIVED: 'six do'
+2026-03-28 14:28:48 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 14:28:48 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.57, value: 0
+2026-03-28 14:28:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-03-28 14:28:52 | INFO     | COMMAND RECEIVED: 'sit volume sixty'
+2026-03-28 14:28:52 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 60
+2026-03-28 14:28:55 | INFO     | Command executed successfully: volume.set_value
+2026-03-28 14:29:06 | INFO     | COMMAND RECEIVED: 'what been chrome'
+2026-03-28 14:29:06 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-28 14:29:06 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:29:10 | INFO     | COMMAND RECEIVED: 'what and chrome'
+2026-03-28 14:29:10 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-28 14:29:10 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:29:14 | INFO     | COMMAND RECEIVED: 'what been chrome'
+2026-03-28 14:29:14 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-28 14:29:14 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:29:18 | INFO     | COMMAND RECEIVED: 'warp and'
+2026-03-28 14:29:18 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.76, value: 0
+2026-03-28 14:29:18 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-03-28 14:29:18 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-03-28 14:29:20 | INFO     | COMMAND RECEIVED: 'open'
+2026-03-28 14:29:20 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 14:29:20 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-03-28 14:29:20 | INFO     | Command executed successfully: app_launcher.open_code
+2026-03-28 14:29:27 | INFO     | COMMAND RECEIVED: 'they involve me either'
+2026-03-28 14:29:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.57, value: 0
+2026-03-28 14:29:27 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-03-28 14:29:38 | INFO     | COMMAND RECEIVED: 'what been chrome'
+2026-03-28 14:29:38 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-28 14:29:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-28 14:29:46 | INFO     | COMMAND RECEIVED: 'what been grown'
+2026-03-28 14:29:46 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.54, value: 0
+2026-03-28 14:29:46 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-28 14:29:49 | INFO     | COMMAND RECEIVED: 'open forum'
+2026-03-28 14:29:49 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.71, value: 0
+2026-03-28 14:29:49 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-03-28 14:29:49 | INFO     | Command executed successfully: app_launcher.open_code
+2026-03-28 14:30:10 | INFO     | COMMAND RECEIVED: 'what been grown'
+2026-03-28 14:30:10 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.54, value: 0
+2026-03-28 14:30:10 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-28 14:30:13 | INFO     | COMMAND RECEIVED: 'robin'
+2026-03-28 14:30:13 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.50, value: 0
+2026-03-28 14:30:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.50
+2026-03-28 14:30:15 | INFO     | COMMAND RECEIVED: 'open'
+2026-03-28 14:30:15 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 14:30:15 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-03-28 14:30:15 | INFO     | Command executed successfully: app_launcher.open_code
+2026-03-28 14:30:23 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-03-28 14:30:23 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-28 14:30:23 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-28 14:30:23 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-28 14:30:34 | INFO     | COMMAND RECEIVED: 'open court'
+2026-03-28 14:30:34 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.74, value: 0
+2026-03-28 14:30:34 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-28 14:30:34 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-28 14:30:40 | INFO     | COMMAND RECEIVED: 'open'
+2026-03-28 14:30:40 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-03-28 14:30:40 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-03-28 14:30:40 | INFO     | Command executed successfully: app_launcher.open_code
+2026-03-28 14:30:41 | INFO     | COMMAND RECEIVED: 'florida'
+2026-03-28 14:30:41 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.46, value: 0
+2026-03-28 14:30:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-28 14:30:49 | INFO     | COMMAND RECEIVED: 'open not bad'
+2026-03-28 14:30:49 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.88, value: 0
+2026-03-28 14:30:49 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-03-28 14:30:49 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-03-28 14:30:58 | INFO     | COMMAND RECEIVED: 'open settings'
+2026-03-28 14:30:58 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-03-28 14:30:58 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-03-28 14:30:58 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-03-28 14:31:05 | INFO     | COMMAND RECEIVED: 'open exploded'
+2026-03-28 14:31:05 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.88, value: 0
+2026-03-28 14:31:05 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-03-28 14:31:05 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-03-28 14:31:14 | INFO     | COMMAND RECEIVED: 'lock system'
+2026-03-28 14:31:14 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-03-28 14:31:14 | INFO     | SYSTEM ACTION ATTEMPT: lock
+2026-03-28 14:31:14 | INFO     | Executing screen lock...
+2026-03-28 14:31:14 | INFO     | SYSTEM ACTION SUCCESS: lock
+2026-03-28 14:31:14 | INFO     | Command executed successfully: system_control.lock
+2026-03-28 14:31:33 | INFO     | COMMAND RECEIVED: 'sleep'
+2026-03-28 14:31:33 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-03-28 14:31:33 | INFO     | SYSTEM ACTION ATTEMPT: sleep
+2026-03-28 14:31:33 | INFO     | Executing system sleep...
+2026-03-28 14:32:18 | INFO     | SYSTEM ACTION SUCCESS: sleep
+2026-03-28 14:32:18 | INFO     | Command executed successfully: system_control.sleep
+2026-03-28 14:32:40 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-03-28 14:32:40 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:32:40 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:32:44 | INFO     | COMMAND RECEIVED: 'hey as his didn't'
+2026-03-28 14:32:44 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.44, value: 0
+2026-03-28 14:32:44 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-28 14:32:48 | INFO     | COMMAND RECEIVED: 'we'll get is didn't'
+2026-03-28 14:32:48 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.46, value: 0
+2026-03-28 14:32:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-28 14:32:51 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-03-28 14:32:51 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.44, value: 0
+2026-03-28 14:32:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-28 14:33:52 | INFO     | COMMAND RECEIVED: 'huh'
+2026-03-28 14:33:52 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-28 14:33:52 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-28 14:34:07 | INFO     | Received signal 2, shutting down...
+2026-03-28 14:34:07 | INFO     | Shutting down voice assistant...
+2026-03-28 14:34:07 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-28 14:34:07 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-28 14:34:07 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-28 14:34:07 | INFO     | VolumeController cleanup completed
+2026-03-28 14:34:07 | INFO     | ApplicationLauncher cleanup completed
+2026-03-28 14:34:07 | INFO     | SystemController cleanup completed
+2026-03-28 14:34:07 | INFO     | ==================================================
+2026-03-28 14:34:07 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-28 14:34:07 | INFO     | Shutdown time: 2026-03-28 14:34:07
+2026-03-28 14:34:07 | INFO     | ==================================================
+2026-03-28 14:34:07 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:22:35 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 00:22:35 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 00:22:35 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 00:22:35 | INFO     | Detection threshold: 0.65
+2026-03-29 00:22:35 | INFO     | VoiceListener initialized
+2026-03-29 00:22:35 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 00:22:35 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 00:22:35 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 00:22:35 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 00:22:35 | INFO     | Validated 5 application paths
+2026-03-29 00:22:35 | INFO     | ApplicationLauncher initialized
+2026-03-29 00:22:35 | INFO     | Loaded 5 application configurations
+2026-03-29 00:22:35 | INFO     | SystemController initialized
+2026-03-29 00:22:35 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 00:22:35 | INFO     | ==================================================
+2026-03-29 00:22:35 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 00:22:35 | INFO     | Start time: 2026-03-29 00:22:35
+2026-03-29 00:22:35 | INFO     | ==================================================
+2026-03-29 00:22:35 | INFO     | VoiceAssistant initialized
+2026-03-29 00:22:35 | INFO     | Starting voice assistant...
+2026-03-29 00:22:35 | INFO     | brightness controller: ✅ Supported
+2026-03-29 00:22:35 | INFO     | volume controller: ✅ Supported
+2026-03-29 00:22:35 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 00:22:35 | INFO     | system_control controller: ✅ Supported
+2026-03-29 00:22:35 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-29 00:22:35 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 00:22:36 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-29 00:22:37 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 00:22:37 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 00:22:37 | INFO     | Voice assistant started successfully
+2026-03-29 00:22:37 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 00:22:41 | INFO     | COMMAND RECEIVED: 'he has the strength'
+2026-03-29 00:22:41 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.51, value: 0
+2026-03-29 00:22:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.51
+2026-03-29 00:22:44 | INFO     | COMMAND RECEIVED: 'he has his junk'
+2026-03-29 00:22:44 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.43, value: 0
+2026-03-29 00:22:44 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.43
+2026-03-29 00:22:46 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-03-29 00:22:46 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.44, value: 0
+2026-03-29 00:22:46 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 00:22:50 | INFO     | COMMAND RECEIVED: 'right as up'
+2026-03-29 00:22:50 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.80, value: 0
+2026-03-29 00:22:50 | INFO     | BRIGHTNESS CHANGE: 0% → 40% (action: set)
+2026-03-29 00:22:50 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-29 00:22:54 | INFO     | COMMAND RECEIVED: 'all your mom'
+2026-03-29 00:22:54 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.52, value: 0
+2026-03-29 00:22:54 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.52
+2026-03-29 00:22:57 | INFO     | COMMAND RECEIVED: 'why are you up'
+2026-03-29 00:22:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.45, value: 0
+2026-03-29 00:22:57 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.45
+2026-03-29 00:23:02 | INFO     | COMMAND RECEIVED: 'open court'
+2026-03-29 00:23:02 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.74, value: 0
+2026-03-29 00:23:02 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-29 00:23:02 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-29 00:23:11 | INFO     | Received signal 2, shutting down...
+2026-03-29 00:23:11 | INFO     | Shutting down voice assistant...
+2026-03-29 00:23:11 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 00:23:11 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:23:11 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 00:23:11 | INFO     | VolumeController cleanup completed
+2026-03-29 00:23:11 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 00:23:11 | INFO     | SystemController cleanup completed
+2026-03-29 00:23:11 | INFO     | ==================================================
+2026-03-29 00:23:11 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 00:23:11 | INFO     | Shutdown time: 2026-03-29 00:23:11
+2026-03-29 00:23:11 | INFO     | ==================================================
+2026-03-29 00:23:11 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:26:04 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 00:26:04 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 00:26:04 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 00:26:04 | INFO     | Detection threshold: 0.65
+2026-03-29 00:26:04 | INFO     | VoiceListener initialized
+2026-03-29 00:26:04 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 00:26:04 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 00:26:04 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 00:26:05 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 00:26:05 | INFO     | Validated 5 application paths
+2026-03-29 00:26:05 | INFO     | ApplicationLauncher initialized
+2026-03-29 00:26:05 | INFO     | Loaded 5 application configurations
+2026-03-29 00:26:05 | INFO     | SystemController initialized
+2026-03-29 00:26:05 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 00:26:05 | INFO     | ==================================================
+2026-03-29 00:26:05 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 00:26:05 | INFO     | Start time: 2026-03-29 00:26:05
+2026-03-29 00:26:05 | INFO     | ==================================================
+2026-03-29 00:26:05 | INFO     | VoiceAssistant initialized
+2026-03-29 00:26:05 | INFO     | Starting voice assistant...
+2026-03-29 00:26:05 | INFO     | brightness controller: ✅ Supported
+2026-03-29 00:26:05 | INFO     | volume controller: ✅ Supported
+2026-03-29 00:26:05 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 00:26:05 | INFO     | system_control controller: ✅ Supported
+2026-03-29 00:26:05 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-29 00:26:05 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-03-29 00:26:05 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-03-29 00:26:05 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-03-29 00:26:05 | ERROR    | Failed to start voice listener
+2026-03-29 00:26:05 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:26:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 00:26:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 00:26:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 00:26:19 | INFO     | Detection threshold: 0.65
+2026-03-29 00:26:19 | INFO     | VoiceListener initialized
+2026-03-29 00:26:19 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 00:26:19 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 00:26:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 00:26:19 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 00:26:19 | INFO     | Validated 5 application paths
+2026-03-29 00:26:19 | INFO     | ApplicationLauncher initialized
+2026-03-29 00:26:19 | INFO     | Loaded 5 application configurations
+2026-03-29 00:26:19 | INFO     | SystemController initialized
+2026-03-29 00:26:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 00:26:19 | INFO     | ==================================================
+2026-03-29 00:26:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 00:26:19 | INFO     | Start time: 2026-03-29 00:26:19
+2026-03-29 00:26:19 | INFO     | ==================================================
+2026-03-29 00:26:19 | INFO     | VoiceAssistant initialized
+2026-03-29 00:26:19 | INFO     | Starting voice assistant...
+2026-03-29 00:26:19 | INFO     | brightness controller: ✅ Supported
+2026-03-29 00:26:19 | INFO     | volume controller: ✅ Supported
+2026-03-29 00:26:19 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 00:26:19 | INFO     | system_control controller: ✅ Supported
+2026-03-29 00:26:20 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-29 00:26:20 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-03-29 00:26:20 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-03-29 00:26:20 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-03-29 00:26:20 | ERROR    | Failed to start voice listener
+2026-03-29 00:26:20 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:26:38 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 00:26:38 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 00:26:38 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 00:26:38 | INFO     | Detection threshold: 0.65
+2026-03-29 00:26:38 | INFO     | VoiceListener initialized
+2026-03-29 00:26:38 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 00:26:38 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 00:26:38 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 00:26:38 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 00:26:38 | INFO     | Validated 5 application paths
+2026-03-29 00:26:38 | INFO     | ApplicationLauncher initialized
+2026-03-29 00:26:38 | INFO     | Loaded 5 application configurations
+2026-03-29 00:26:38 | INFO     | SystemController initialized
+2026-03-29 00:26:38 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 00:26:38 | INFO     | ==================================================
+2026-03-29 00:26:38 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 00:26:38 | INFO     | Start time: 2026-03-29 00:26:38
+2026-03-29 00:26:38 | INFO     | ==================================================
+2026-03-29 00:26:38 | INFO     | VoiceAssistant initialized
+2026-03-29 00:26:38 | INFO     | Starting voice assistant...
+2026-03-29 00:26:38 | INFO     | brightness controller: ✅ Supported
+2026-03-29 00:26:38 | INFO     | volume controller: ✅ Supported
+2026-03-29 00:26:38 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 00:26:38 | INFO     | system_control controller: ✅ Supported
+2026-03-29 00:26:38 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-29 00:26:38 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 00:26:39 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-29 00:26:39 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 00:26:39 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 00:26:39 | INFO     | Voice assistant started successfully
+2026-03-29 00:26:39 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 00:26:49 | INFO     | Received signal 2, shutting down...
+2026-03-29 00:26:49 | INFO     | Shutting down voice assistant...
+2026-03-29 00:26:49 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 00:26:49 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 00:26:49 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 00:26:49 | INFO     | VolumeController cleanup completed
+2026-03-29 00:26:49 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 00:26:49 | INFO     | SystemController cleanup completed
+2026-03-29 00:26:49 | INFO     | ==================================================
+2026-03-29 00:26:49 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 00:26:49 | INFO     | Shutdown time: 2026-03-29 00:26:49
+2026-03-29 00:26:49 | INFO     | ==================================================
+2026-03-29 00:26:49 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:01:38 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:01:38 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:01:38 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:01:38 | INFO     | Detection threshold: 0.65
+2026-03-29 01:01:38 | INFO     | VoiceListener initialized
+2026-03-29 01:01:38 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:01:38 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:01:38 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:01:38 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:01:38 | INFO     | Validated 5 application paths
+2026-03-29 01:01:38 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:01:38 | INFO     | Loaded 5 application configurations
+2026-03-29 01:01:38 | INFO     | SystemController initialized
+2026-03-29 01:01:38 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:01:38 | INFO     | ==================================================
+2026-03-29 01:01:38 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:01:38 | INFO     | Start time: 2026-03-29 01:01:38
+2026-03-29 01:01:38 | INFO     | ==================================================
+2026-03-29 01:01:38 | INFO     | VoiceAssistant initialized
+2026-03-29 01:01:38 | INFO     | Starting voice assistant...
+2026-03-29 01:01:38 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:01:38 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:01:38 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:01:38 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:01:38 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone Array (IntelÂ® Smart  (Index: 1)
+2026-03-29 01:01:38 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:01:38 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: False
+2026-03-29 01:01:39 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:01:39 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:01:39 | INFO     | Voice assistant started successfully
+2026-03-29 01:01:39 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:01:47 | INFO     | COMMAND RECEIVED: 'the law system'
+2026-03-29 01:01:47 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.53, value: 0
+2026-03-29 01:01:47 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.53
+2026-03-29 01:01:52 | INFO     | COMMAND RECEIVED: 'law system'
+2026-03-29 01:01:52 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-29 01:01:52 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-29 01:01:55 | INFO     | COMMAND RECEIVED: 'right mess up'
+2026-03-29 01:01:55 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.85, value: 0
+2026-03-29 01:01:56 | INFO     | BRIGHTNESS CHANGE: 0% → 50% (action: set)
+2026-03-29 01:01:56 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-29 01:01:59 | INFO     | COMMAND RECEIVED: 'right let's hope'
+2026-03-29 01:01:59 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.64, value: 0
+2026-03-29 01:01:59 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.64
+2026-03-29 01:02:02 | INFO     | COMMAND RECEIVED: 'brightness phone'
+2026-03-29 01:02:02 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-03-29 01:02:03 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-29 01:02:03 | INFO     | Command executed successfully: brightness.set_value
+2026-03-29 01:02:06 | INFO     | COMMAND RECEIVED: 'widely mocked'
+2026-03-29 01:02:06 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.48, value: 0
+2026-03-29 01:02:06 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.48
+2026-03-29 01:02:09 | INFO     | COMMAND RECEIVED: 'great s'
+2026-03-29 01:02:09 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 0.59, value: 0
+2026-03-29 01:02:09 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.59
+2026-03-29 01:02:12 | INFO     | COMMAND RECEIVED: 'but i messed up'
+2026-03-29 01:02:12 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.57, value: 0
+2026-03-29 01:02:12 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-03-29 01:02:15 | INFO     | COMMAND RECEIVED: 'but it has helped'
+2026-03-29 01:02:15 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.43, value: 0
+2026-03-29 01:02:15 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.43
+2026-03-29 01:02:18 | INFO     | COMMAND RECEIVED: 'but a mess up with'
+2026-03-29 01:02:18 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.52, value: 0
+2026-03-29 01:02:18 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.52
+2026-03-29 01:04:33 | INFO     | COMMAND RECEIVED: 'lead you to guess job'
+2026-03-29 01:04:33 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.54, value: 0
+2026-03-29 01:04:33 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-29 01:04:37 | INFO     | COMMAND RECEIVED: 'switch to this gym'
+2026-03-29 01:04:37 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.43, value: 0
+2026-03-29 01:04:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.43
+2026-03-29 01:04:43 | INFO     | COMMAND RECEIVED: 'switch to this job'
+2026-03-29 01:04:43 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.46, value: 0
+2026-03-29 01:04:43 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-29 01:04:48 | INFO     | COMMAND RECEIVED: 'switch to this job'
+2026-03-29 01:04:48 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.46, value: 0
+2026-03-29 01:04:48 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-29 01:05:23 | INFO     | COMMAND RECEIVED: 'switch to visit germany'
+2026-03-29 01:05:23 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.48, value: 0
+2026-03-29 01:05:23 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.48
+2026-03-29 01:05:28 | INFO     | COMMAND RECEIVED: 'searching for guess job'
+2026-03-29 01:05:28 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.47, value: 0
+2026-03-29 01:05:28 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.47
+2026-03-29 01:05:34 | INFO     | COMMAND RECEIVED: 'sprint's don't get job me'
+2026-03-29 01:05:34 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.44, value: 0
+2026-03-29 01:05:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:05:38 | INFO     | COMMAND RECEIVED: 'sweet sure'
+2026-03-29 01:05:38 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.60, value: 0
+2026-03-29 01:05:38 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.60
+2026-03-29 01:05:41 | INFO     | COMMAND RECEIVED: 'switch'
+2026-03-29 01:05:41 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.44, value: 0
+2026-03-29 01:05:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:05:44 | INFO     | COMMAND RECEIVED: 'switch from'
+2026-03-29 01:05:44 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.61, value: 0
+2026-03-29 01:05:44 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.61
+2026-03-29 01:05:47 | INFO     | COMMAND RECEIVED: 'sewage the'
+2026-03-29 01:05:47 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.64, value: 0
+2026-03-29 01:05:47 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.64
+2026-03-29 01:05:54 | INFO     | COMMAND RECEIVED: 'switch doing their job'
+2026-03-29 01:05:54 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.49, value: 0
+2026-03-29 01:05:54 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.49
+2026-03-29 01:06:00 | INFO     | COMMAND RECEIVED: 'sweden to replace job'
+2026-03-29 01:06:00 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.47, value: 0
+2026-03-29 01:06:00 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.47
+2026-03-29 01:06:03 | INFO     | COMMAND RECEIVED: 'select you'
+2026-03-29 01:06:03 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.60, value: 0
+2026-03-29 01:06:03 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.60
+2026-03-29 01:06:07 | INFO     | COMMAND RECEIVED: 'civic sure you're going'
+2026-03-29 01:06:07 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.47, value: 0
+2026-03-29 01:06:07 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.47
+2026-03-29 01:06:13 | INFO     | COMMAND RECEIVED: 'smith show though as job'
+2026-03-29 01:06:13 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-29 01:06:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-29 01:06:18 | INFO     | COMMAND RECEIVED: 'snake true'
+2026-03-29 01:06:18 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.64, value: 0
+2026-03-29 01:06:18 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.64
+2026-03-29 01:06:20 | INFO     | COMMAND RECEIVED: 'switching'
+2026-03-29 01:06:20 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.48, value: 0
+2026-03-29 01:06:20 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.48
+2026-03-29 01:06:22 | INFO     | COMMAND RECEIVED: 'though you'
+2026-03-29 01:06:22 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.44, value: 0
+2026-03-29 01:06:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:06:27 | INFO     | COMMAND RECEIVED: 'switch to a woman as the show'
+2026-03-29 01:06:27 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.54, value: 0
+2026-03-29 01:06:27 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.54
+2026-03-29 01:06:30 | INFO     | COMMAND RECEIVED: 'snitch the pasture'
+2026-03-29 01:06:30 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-03-29 01:06:30 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.50
+2026-03-29 01:06:34 | INFO     | COMMAND RECEIVED: 'since'
+2026-03-29 01:06:34 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.50, value: 0
+2026-03-29 01:06:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.50
+2026-03-29 01:06:36 | INFO     | COMMAND RECEIVED: 'so he can chew'
+2026-03-29 01:06:37 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.56, value: 0
+2026-03-29 01:06:37 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.56
+2026-03-29 01:06:39 | INFO     | COMMAND RECEIVED: 'it children'
+2026-03-29 01:06:39 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.52, value: 0
+2026-03-29 01:06:39 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.52
+2026-03-29 01:06:42 | INFO     | COMMAND RECEIVED: 'speech to get a job'
+2026-03-29 01:06:42 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 0.48, value: 0
+2026-03-29 01:06:42 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.48
+2026-03-29 01:12:52 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:12:52 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:12:52 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:12:52 | INFO     | Detection threshold: 0.65
+2026-03-29 01:12:52 | INFO     | VoiceListener initialized
+2026-03-29 01:12:52 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:12:52 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:12:52 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:12:52 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:12:52 | INFO     | Validated 5 application paths
+2026-03-29 01:12:52 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:12:52 | INFO     | Loaded 5 application configurations
+2026-03-29 01:12:52 | INFO     | SystemController initialized
+2026-03-29 01:12:52 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:12:52 | INFO     | ==================================================
+2026-03-29 01:12:52 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:12:52 | INFO     | Start time: 2026-03-29 01:12:52
+2026-03-29 01:12:52 | INFO     | ==================================================
+2026-03-29 01:12:52 | INFO     | VoiceAssistant initialized
+2026-03-29 01:12:52 | INFO     | Starting voice assistant...
+2026-03-29 01:12:52 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:12:52 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:12:52 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:12:52 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:12:52 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:12:52 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:12:52 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:12:53 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:12:53 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:12:53 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:12:53 | INFO     | Voice assistant started successfully
+2026-03-29 01:12:53 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:13:08 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-03-29 01:13:08 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.44, value: 0
+2026-03-29 01:13:08 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:13:12 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-29 01:13:12 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-29 01:13:12 | INFO     | BRIGHTNESS CHANGE: 0% → 70% (action: set)
+2026-03-29 01:13:12 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-29 01:13:21 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-29 01:13:21 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-29 01:13:22 | INFO     | BRIGHTNESS CHANGE: 0% → 90% (action: set)
+2026-03-29 01:13:22 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-29 01:13:35 | INFO     | COMMAND RECEIVED: 'brightness maximum'
+2026-03-29 01:13:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-29 01:13:35 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-29 01:13:35 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-29 01:13:38 | INFO     | COMMAND RECEIVED: 'brightness minimum'
+2026-03-29 01:13:38 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-03-29 01:13:39 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-29 01:13:39 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-03-29 01:13:43 | INFO     | COMMAND RECEIVED: 'brightness fifteen'
+2026-03-29 01:13:43 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 15
+2026-03-29 01:13:43 | INFO     | BRIGHTNESS CHANGE: 0% → 15% (action: set)
+2026-03-29 01:13:43 | INFO     | Command executed successfully: brightness.set_value
+2026-03-29 01:13:53 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-03-29 01:13:53 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-03-29 01:13:53 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-29 01:13:53 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-29 01:14:00 | INFO     | COMMAND RECEIVED: 'open settings'
+2026-03-29 01:14:00 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-03-29 01:14:00 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-03-29 01:14:00 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-03-29 01:14:17 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-03-29 01:14:17 | INFO     | Shutting down voice assistant...
+2026-03-29 01:14:17 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 01:14:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:14:17 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 01:14:17 | INFO     | VolumeController cleanup completed
+2026-03-29 01:14:17 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 01:14:17 | INFO     | SystemController cleanup completed
+2026-03-29 01:14:17 | INFO     | ==================================================
+2026-03-29 01:14:17 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 01:14:17 | INFO     | Shutdown time: 2026-03-29 01:14:17
+2026-03-29 01:14:17 | INFO     | ==================================================
+2026-03-29 01:14:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:14:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:14:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:14:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:14:19 | INFO     | Detection threshold: 0.65
+2026-03-29 01:14:19 | INFO     | VoiceListener initialized
+2026-03-29 01:14:19 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:14:19 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:14:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:14:19 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:14:19 | INFO     | Validated 5 application paths
+2026-03-29 01:14:19 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:14:19 | INFO     | Loaded 5 application configurations
+2026-03-29 01:14:19 | INFO     | SystemController initialized
+2026-03-29 01:14:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:14:19 | INFO     | ==================================================
+2026-03-29 01:14:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:14:19 | INFO     | Start time: 2026-03-29 01:14:19
+2026-03-29 01:14:19 | INFO     | ==================================================
+2026-03-29 01:14:19 | INFO     | VoiceAssistant initialized
+2026-03-29 01:14:19 | INFO     | Starting voice assistant...
+2026-03-29 01:14:19 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:14:19 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:14:19 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:14:19 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:14:19 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:14:19 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:14:19 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:14:20 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:14:20 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:14:20 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:14:20 | INFO     | Voice assistant started successfully
+2026-03-29 01:14:20 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:14:28 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-03-29 01:14:28 | INFO     | Shutting down voice assistant...
+2026-03-29 01:14:28 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 01:14:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:14:29 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 01:14:29 | INFO     | VolumeController cleanup completed
+2026-03-29 01:14:29 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 01:14:29 | INFO     | SystemController cleanup completed
+2026-03-29 01:14:29 | INFO     | ==================================================
+2026-03-29 01:14:29 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 01:14:29 | INFO     | Shutdown time: 2026-03-29 01:14:29
+2026-03-29 01:14:29 | INFO     | ==================================================
+2026-03-29 01:14:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:14:31 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:14:31 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:14:31 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:14:31 | INFO     | Detection threshold: 0.65
+2026-03-29 01:14:31 | INFO     | VoiceListener initialized
+2026-03-29 01:14:31 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:14:31 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:14:31 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:14:31 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:14:31 | INFO     | Validated 5 application paths
+2026-03-29 01:14:31 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:14:31 | INFO     | Loaded 5 application configurations
+2026-03-29 01:14:31 | INFO     | SystemController initialized
+2026-03-29 01:14:31 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:14:31 | INFO     | ==================================================
+2026-03-29 01:14:31 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:14:31 | INFO     | Start time: 2026-03-29 01:14:31
+2026-03-29 01:14:31 | INFO     | ==================================================
+2026-03-29 01:14:31 | INFO     | VoiceAssistant initialized
+2026-03-29 01:14:31 | INFO     | Starting voice assistant...
+2026-03-29 01:14:31 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:14:31 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:14:31 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:14:31 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:14:31 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:14:31 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:14:31 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:14:32 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:14:32 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:14:32 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:14:32 | INFO     | Voice assistant started successfully
+2026-03-29 01:14:32 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:18:38 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:18:38 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:18:38 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:18:38 | INFO     | Detection threshold: 0.65
+2026-03-29 01:18:38 | INFO     | VoiceListener initialized
+2026-03-29 01:18:38 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:18:38 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:18:38 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:18:38 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:18:38 | INFO     | Validated 5 application paths
+2026-03-29 01:18:38 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:18:38 | INFO     | Loaded 5 application configurations
+2026-03-29 01:18:38 | INFO     | SystemController initialized
+2026-03-29 01:18:38 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:18:38 | INFO     | ==================================================
+2026-03-29 01:18:38 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:18:38 | INFO     | Start time: 2026-03-29 01:18:38
+2026-03-29 01:18:38 | INFO     | ==================================================
+2026-03-29 01:18:38 | INFO     | VoiceAssistant initialized
+2026-03-29 01:18:38 | INFO     | Starting voice assistant...
+2026-03-29 01:18:38 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:18:38 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:18:38 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:18:38 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:18:38 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:18:38 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:18:38 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:18:38 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:18:39 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:18:39 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:18:39 | INFO     | Voice assistant started successfully
+2026-03-29 01:18:39 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:18:45 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-03-29 01:18:45 | INFO     | Shutting down voice assistant...
+2026-03-29 01:18:45 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 01:18:45 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:18:45 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 01:18:45 | INFO     | VolumeController cleanup completed
+2026-03-29 01:18:45 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 01:18:45 | INFO     | SystemController cleanup completed
+2026-03-29 01:18:45 | INFO     | ==================================================
+2026-03-29 01:18:45 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 01:18:45 | INFO     | Shutdown time: 2026-03-29 01:18:45
+2026-03-29 01:18:45 | INFO     | ==================================================
+2026-03-29 01:18:45 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:18:47 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:18:47 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:18:47 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:18:47 | INFO     | Detection threshold: 0.65
+2026-03-29 01:18:47 | INFO     | VoiceListener initialized
+2026-03-29 01:18:47 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:18:47 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:18:47 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:18:47 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:18:47 | INFO     | Validated 5 application paths
+2026-03-29 01:18:47 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:18:47 | INFO     | Loaded 5 application configurations
+2026-03-29 01:18:47 | INFO     | SystemController initialized
+2026-03-29 01:18:47 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:18:47 | INFO     | ==================================================
+2026-03-29 01:18:47 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:18:47 | INFO     | Start time: 2026-03-29 01:18:47
+2026-03-29 01:18:47 | INFO     | ==================================================
+2026-03-29 01:18:47 | INFO     | VoiceAssistant initialized
+2026-03-29 01:18:47 | INFO     | Starting voice assistant...
+2026-03-29 01:18:47 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:18:47 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:18:47 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:18:47 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:18:47 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:18:47 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:18:47 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:18:48 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:18:48 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:18:48 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:18:48 | INFO     | Voice assistant started successfully
+2026-03-29 01:18:48 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:19:02 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-03-29 01:19:02 | INFO     | Shutting down voice assistant...
+2026-03-29 01:19:02 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-03-29 01:19:03 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:19:03 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-03-29 01:19:03 | INFO     | VolumeController cleanup completed
+2026-03-29 01:19:03 | INFO     | ApplicationLauncher cleanup completed
+2026-03-29 01:19:03 | INFO     | SystemController cleanup completed
+2026-03-29 01:19:03 | INFO     | ==================================================
+2026-03-29 01:19:03 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-03-29 01:19:03 | INFO     | Shutdown time: 2026-03-29 01:19:03
+2026-03-29 01:19:03 | INFO     | ==================================================
+2026-03-29 01:19:03 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:19:05 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:19:05 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:19:05 | INFO     | Detection threshold: 0.65
+2026-03-29 01:19:05 | INFO     | VoiceListener initialized
+2026-03-29 01:19:05 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:19:05 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:19:05 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:19:05 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:19:05 | INFO     | Validated 5 application paths
+2026-03-29 01:19:05 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:19:05 | INFO     | Loaded 5 application configurations
+2026-03-29 01:19:05 | INFO     | SystemController initialized
+2026-03-29 01:19:05 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:19:05 | INFO     | ==================================================
+2026-03-29 01:19:05 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:19:05 | INFO     | Start time: 2026-03-29 01:19:05
+2026-03-29 01:19:05 | INFO     | ==================================================
+2026-03-29 01:19:05 | INFO     | VoiceAssistant initialized
+2026-03-29 01:19:05 | INFO     | Starting voice assistant...
+2026-03-29 01:19:05 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:19:05 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:19:05 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:19:05 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:19:05 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:19:05 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:19:05 | INFO     | Voice assistant started successfully
+2026-03-29 01:19:05 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:22:54 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:22:54 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:22:54 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:22:54 | INFO     | Detection threshold: 0.65
+2026-03-29 01:22:54 | INFO     | VoiceListener initialized
+2026-03-29 01:22:54 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:22:54 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:22:54 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:22:54 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:22:54 | INFO     | Validated 5 application paths
+2026-03-29 01:22:54 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:22:54 | INFO     | Loaded 5 application configurations
+2026-03-29 01:22:54 | INFO     | SystemController initialized
+2026-03-29 01:22:54 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:22:54 | INFO     | ==================================================
+2026-03-29 01:22:54 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:22:54 | INFO     | Start time: 2026-03-29 01:22:54
+2026-03-29 01:22:54 | INFO     | ==================================================
+2026-03-29 01:22:54 | INFO     | VoiceAssistant initialized
+2026-03-29 01:22:54 | INFO     | Starting voice assistant...
+2026-03-29 01:22:54 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:22:54 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:22:54 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:22:54 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:22:54 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:22:54 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:22:54 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:22:55 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:22:55 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:22:55 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:22:55 | INFO     | Voice assistant started successfully
+2026-03-29 01:22:55 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:23:05 | INFO     | COMMAND RECEIVED: 'brightness up'
+2026-03-29 01:23:05 | INFO     | Processing command: 'brightness up'
+2026-03-29 01:23:05 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-03-29 01:23:05 | INFO     | BRIGHTNESS CHANGE: 0% → 61% (action: set)
+2026-03-29 01:23:05 | INFO     | Command executed successfully: brightness.relative_increase
+2026-03-29 01:23:33 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-03-29 01:50:03 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:50:03 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:50:03 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:50:03 | INFO     | Detection threshold: 0.65
+2026-03-29 01:50:03 | INFO     | VoiceListener initialized
+2026-03-29 01:50:03 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:50:03 | INFO     | Loaded 19 total actions across 4 categories
+2026-03-29 01:50:03 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:50:03 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:50:03 | INFO     | Validated 5 application paths
+2026-03-29 01:50:03 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:50:03 | INFO     | Loaded 5 application configurations
+2026-03-29 01:50:03 | INFO     | SystemController initialized
+2026-03-29 01:50:03 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:50:03 | INFO     | ==================================================
+2026-03-29 01:50:03 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:50:03 | INFO     | Start time: 2026-03-29 01:50:03
+2026-03-29 01:50:03 | INFO     | ==================================================
+2026-03-29 01:50:03 | INFO     | VoiceAssistant initialized
+2026-03-29 01:50:03 | INFO     | Starting voice assistant...
+2026-03-29 01:50:03 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:50:03 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:50:03 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:50:03 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:50:03 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:50:03 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:50:03 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:50:03 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:50:04 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:50:04 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:50:04 | INFO     | Voice assistant started successfully
+2026-03-29 01:50:04 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:50:18 | INFO     | COMMAND RECEIVED: 'help'
+2026-03-29 01:50:18 | INFO     | Processing command: 'help'
+2026-03-29 01:50:18 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.44, value: 0
+2026-03-29 01:50:18 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:50:40 | INFO     | COMMAND RECEIVED: 'hey assistant help'
+2026-03-29 01:50:40 | INFO     | Processing command: 'hey assistant help'
+2026-03-29 01:50:40 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.46, value: 0
+2026-03-29 01:50:40 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-29 01:50:51 | INFO     | COMMAND RECEIVED: 'hey assistant help'
+2026-03-29 01:50:51 | INFO     | Processing command: 'hey assistant help'
+2026-03-29 01:50:51 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.46, value: 0
+2026-03-29 01:50:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-29 01:52:34 | INFO     | COMMAND RECEIVED: 'help'
+2026-03-29 01:52:34 | INFO     | Processing command: 'help'
+2026-03-29 01:52:34 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.44, value: 0
+2026-03-29 01:52:34 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.44
+2026-03-29 01:53:07 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 01:53:07 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 01:53:07 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 01:53:07 | INFO     | Detection threshold: 0.65
+2026-03-29 01:53:07 | INFO     | VoiceListener initialized
+2026-03-29 01:53:07 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 01:53:07 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-29 01:53:07 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 01:53:07 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 01:53:07 | INFO     | Validated 5 application paths
+2026-03-29 01:53:07 | INFO     | ApplicationLauncher initialized
+2026-03-29 01:53:07 | INFO     | Loaded 5 application configurations
+2026-03-29 01:53:07 | INFO     | SystemController initialized
+2026-03-29 01:53:07 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 01:53:07 | INFO     | ==================================================
+2026-03-29 01:53:07 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 01:53:07 | INFO     | Start time: 2026-03-29 01:53:07
+2026-03-29 01:53:07 | INFO     | ==================================================
+2026-03-29 01:53:07 | INFO     | VoiceAssistant initialized
+2026-03-29 01:53:07 | INFO     | Starting voice assistant...
+2026-03-29 01:53:07 | INFO     | brightness controller: ✅ Supported
+2026-03-29 01:53:07 | INFO     | volume controller: ✅ Supported
+2026-03-29 01:53:07 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 01:53:07 | INFO     | system_control controller: ✅ Supported
+2026-03-29 01:53:07 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 01:53:07 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 01:53:07 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 01:53:08 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 01:53:08 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 01:53:08 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 01:53:08 | INFO     | Voice assistant started successfully
+2026-03-29 01:53:08 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 01:53:55 | INFO     | COMMAND RECEIVED: 'help'
+2026-03-29 01:53:55 | INFO     | Help information displayed to user
+2026-03-29 01:53:58 | INFO     | COMMAND RECEIVED: 'help'
+2026-03-29 01:53:59 | INFO     | Help information displayed to user
+2026-03-29 01:54:18 | INFO     | COMMAND RECEIVED: 'help'
+2026-03-29 01:54:18 | INFO     | Help information displayed to user
+2026-03-29 01:54:50 | INFO     | COMMAND RECEIVED: 'lock system now'
+2026-03-29 01:54:50 | INFO     | Processing command: 'lock system now'
+2026-03-29 01:54:50 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-03-29 01:54:50 | INFO     | SYSTEM ACTION ATTEMPT: lock
+2026-03-29 01:54:50 | INFO     | Executing screen lock...
+2026-03-29 01:54:50 | INFO     | SYSTEM ACTION SUCCESS: lock
+2026-03-29 01:54:50 | INFO     | Command executed successfully: system_control.lock
+2026-03-29 02:04:46 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 02:04:46 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 02:04:46 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 02:04:46 | INFO     | Detection threshold: 0.65
+2026-03-29 02:04:46 | INFO     | VoiceListener initialized
+2026-03-29 02:04:46 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 02:04:46 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-29 02:04:46 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 02:04:46 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 02:04:46 | INFO     | Validated 5 application paths
+2026-03-29 02:04:46 | INFO     | ApplicationLauncher initialized
+2026-03-29 02:04:46 | INFO     | Loaded 5 application configurations
+2026-03-29 02:04:46 | INFO     | SystemController initialized
+2026-03-29 02:04:46 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 02:04:46 | INFO     | ==================================================
+2026-03-29 02:04:46 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 02:04:46 | INFO     | Start time: 2026-03-29 02:04:46
+2026-03-29 02:04:46 | INFO     | ==================================================
+2026-03-29 02:04:46 | INFO     | VoiceAssistant initialized
+2026-03-29 02:04:46 | INFO     | Starting voice assistant...
+2026-03-29 02:04:46 | INFO     | brightness controller: ✅ Supported
+2026-03-29 02:04:46 | INFO     | volume controller: ✅ Supported
+2026-03-29 02:04:46 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 02:04:46 | INFO     | system_control controller: ✅ Supported
+2026-03-29 02:04:46 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 02:04:46 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 02:04:46 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-03-29 02:04:46 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-03-29 02:04:46 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-03-29 02:04:46 | ERROR    | Failed to start voice listener with grammar
+2026-03-29 02:04:46 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 02:06:28 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 02:06:28 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 02:06:28 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 02:06:28 | INFO     | Detection threshold: 0.65
+2026-03-29 02:06:28 | INFO     | VoiceListener initialized
+2026-03-29 02:06:28 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 02:06:28 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-29 02:06:28 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 02:06:28 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 02:06:28 | INFO     | Validated 5 application paths
+2026-03-29 02:06:28 | INFO     | ApplicationLauncher initialized
+2026-03-29 02:06:28 | INFO     | Loaded 5 application configurations
+2026-03-29 02:06:28 | INFO     | SystemController initialized
+2026-03-29 02:06:28 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 02:06:28 | INFO     | ==================================================
+2026-03-29 02:06:28 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 02:06:28 | INFO     | Start time: 2026-03-29 02:06:28
+2026-03-29 02:06:28 | INFO     | ==================================================
+2026-03-29 02:06:28 | INFO     | VoiceAssistant initialized
+2026-03-29 02:06:28 | INFO     | Starting voice assistant...
+2026-03-29 02:06:28 | INFO     | brightness controller: ✅ Supported
+2026-03-29 02:06:28 | INFO     | volume controller: ✅ Supported
+2026-03-29 02:06:28 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 02:06:28 | INFO     | system_control controller: ✅ Supported
+2026-03-29 02:06:29 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 02:06:29 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 02:06:29 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-03-29 02:06:29 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-03-29 02:06:29 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-03-29 02:06:29 | ERROR    | Failed to start voice listener with grammar
+2026-03-29 02:06:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-29 02:11:21 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-29 02:11:21 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-29 02:11:21 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-29 02:11:21 | INFO     | Detection threshold: 0.65
+2026-03-29 02:11:21 | INFO     | VoiceListener initialized
+2026-03-29 02:11:21 | INFO     | UnifiedIntentEngine initialized
+2026-03-29 02:11:21 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-29 02:11:21 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-29 02:11:21 | INFO     | VolumeController initialized (pycaw)
+2026-03-29 02:11:21 | INFO     | Validated 5 application paths
+2026-03-29 02:11:21 | INFO     | ApplicationLauncher initialized
+2026-03-29 02:11:21 | INFO     | Loaded 5 application configurations
+2026-03-29 02:11:21 | INFO     | SystemController initialized
+2026-03-29 02:11:21 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-29 02:11:21 | INFO     | ==================================================
+2026-03-29 02:11:21 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-29 02:11:21 | INFO     | Start time: 2026-03-29 02:11:21
+2026-03-29 02:11:21 | INFO     | ==================================================
+2026-03-29 02:11:21 | INFO     | VoiceAssistant initialized
+2026-03-29 02:11:21 | INFO     | Starting voice assistant...
+2026-03-29 02:11:21 | INFO     | brightness controller: ✅ Supported
+2026-03-29 02:11:21 | INFO     | volume controller: ✅ Supported
+2026-03-29 02:11:21 | INFO     | app_launcher controller: ✅ Supported
+2026-03-29 02:11:21 | INFO     | system_control controller: ✅ Supported
+2026-03-29 02:11:21 | INFO     | Checking headset candidate: Headset Microphone (Realtek(R) 
+2026-03-29 02:11:21 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (Realtek(R)  (Index: 1)
+2026-03-29 02:11:21 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-29 02:11:22 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-29 02:11:22 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-03-29 02:11:22 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-29 02:11:22 | INFO     | Voice assistant started successfully
+2026-03-29 02:11:22 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-29 02:11:26 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-03-29 02:11:26 | INFO     | Processing command: 'hey assistant'
+2026-03-29 02:11:26 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.57, value: 0
+2026-03-29 02:11:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57

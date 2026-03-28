@@ -273,16 +273,23 @@ class ApplicationLauncher:
             self.logger.log_error("AppLaunchUnexpectedError", str(e), f"App: {app_name}")
             return False
     
-    def execute_action(self, app_name: str) -> bool:
+    def execute_action(self, action: str, value: Optional[Any] = None) -> bool:
         """
         Execute app launch action (for consistency with other controllers).
         
         Args:
-            app_name: Name of application to launch
+            action: Action name (e.g., "open_chrome", "open_code")
+            value: Not used for app launcher, kept for consistency
             
         Returns:
             True if successful, False otherwise
         """
+        # Extract app name from action (e.g., "open_chrome" -> "chrome")
+        if action.startswith("open_"):
+            app_name = action.replace("open_", "")
+        else:
+            app_name = action
+            
         return self.open_app(app_name)
     
     def get_available_apps(self) -> Dict[str, str]:

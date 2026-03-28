@@ -1,6 +1,6 @@
 """
-Main execution loop for voice-controlled brightness automation.
-Coordinates voice listener, intent engine, and brightness controller.
+Main execution loop for voice-controlled automation.
+Coordinates voice listener, unified intent engine, and all controllers.
 """
 
 import json
@@ -14,19 +14,22 @@ from typing import Dict, Any
 sys.path.append(str(Path(__file__).parent))
 
 from speech.voice_listener import VoiceListener
-from brightness_control.brightness_intent_engine import BrightnessIntentEngine
+from nlp.unified_intent_engine import UnifiedIntentEngine
 from brightness_control.brightness_controller import BrightnessController
+from volume_control.volume_controller import VolumeController
+from app_control.app_launcher import ApplicationLauncher
+from system_control.system_controller import SystemController
 from utils.logger import get_logger
 
 
-class VoiceBrightnessAssistant:
+class VoiceAssistant:
     """
-    Main voice assistant class for brightness control.
-    Manages the complete workflow from wake word detection to brightness adjustment.
+    Main voice assistant class for all control types.
+    Manages the complete workflow from wake word detection to command execution.
     """
     
     def __init__(self):
-        """Initialize voice brightness assistant."""
+        """Initialize voice assistant."""
         # Load configuration
         self.config = self._load_config()
         
@@ -37,11 +40,24 @@ class VoiceBrightnessAssistant:
         
         # Initialize components
         self.voice_listener = VoiceListener(self.config)
-        self.intent_engine = BrightnessIntentEngine(
+        self.intent_engine = UnifiedIntentEngine(
             self._load_commands_config(),
             self.config["noise_words"]
         )
+        
+        # Initialize all controllers
         self.brightness_controller = BrightnessController()
+        self.volume_controller = VolumeController()
+        self.app_controller = ApplicationLauncher()
+        self.system_controller = SystemController()
+        
+        # Map categories to controllers
+        self.controllers = {
+            "brightness": self.brightness_controller,
+            "volume": self.volume_controller,
+            "app_launcher": self.app_controller,
+            "system_control": self.system_controller
+        }
         
         # Runtime state
         self.is_running = False
@@ -51,7 +67,7 @@ class VoiceBrightnessAssistant:
         signal.signal(signal.SIGTERM, self._signal_handler)
         
         self.logger.log_system_start()
-        self.logger.info("VoiceBrightnessAssistant initialized")
+        self.logger.info("VoiceAssistant initialized")
     
     def _load_config(self) -> Dict[str, Any]:
         """
@@ -84,6 +100,59 @@ class VoiceBrightnessAssistant:
         except Exception as e:
             print(f"Error loading commands configuration: {e}")
             sys.exit(1)
+            
+    def _get_compiled_grammar(self) -> list:
+        """
+        Extract all possible phrases from commands and settings for VOSK grammar.
+        Forces the speech engine to 'overfit' to these specific commands.
+        """
+        grammar = set()
+        
+        # 1. Add all wake words
+        for ww in self.config.get("wake_words", []):
+            grammar.add(ww.lower())
+            
+        # 2. Add all command patterns from commands.json
+        cmd_config = self._load_commands_config()
+        for category in cmd_config.values():
+            actions = category.get("actions", {})
+            for action in actions.values():
+                patterns = action.get("patterns", [])
+                for pattern in patterns:
+                    # Clean up pattern (handle placeholders)
+                    clean_pattern = pattern.lower().replace("{value}", "").strip()
+                    if clean_pattern:
+                        grammar.add(clean_pattern)
+                    
+                    # Split patterns into individual words to allow more flexibility
+                    # e.g., 'set', 'brightness'
+                    for word in clean_pattern.split():
+                        grammar.add(word)
+        
+        # 3. Add numbers (supports {value} patterns)
+        numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+                   "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", 
+                   "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", 
+                   "eighty", "ninety", "hundred"]
+        for num in numbers:
+            grammar.add(num)
+        # NOTE: We skip str(i) digits as the small Vosk model only supports spelled-out words
+            
+        # 4. Add the specific switch command and its variations
+        grammar.add("switch to gesture")
+        grammar.add("switch gesture")
+        grammar.add("switch mode")
+        
+        # 5. Add common noise/pre-filler words
+        for noise in self.config.get("noise_words", []):
+            grammar.add(noise.lower())
+            
+        # 6. Add [unk] for noise rejection if supported
+        grammar_list = sorted(list(grammar))
+        # Filtering: remove any entries that look like symbols or digits to avoid Vosk initialization errors
+        grammar_list = [g for g in grammar_list if any(c.isalpha() for c in g)]
+        
+        return grammar_list
     
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals."""
@@ -99,16 +168,13 @@ class VoiceBrightnessAssistant:
         
         self.logger.info("Starting voice assistant...")
         
-        # Test brightness controller
-        brightness_info = self.brightness_controller.get_brightness_info()
-        if not brightness_info.get("supported", False):
-            self.logger.error("Brightness control is not supported on this system")
-            self.logger.error("Please ensure you have a compatible display and drivers")
-            return
+        # Test all controllers
+        self._test_all_controllers()
         
-        # Start voice listener
-        if not self.voice_listener.start_listening():
-            self.logger.error("Failed to start voice listener")
+        # Start voice listener with compiled grammar (The 'Overfit')
+        grammar = self._get_compiled_grammar()
+        if not self.voice_listener.start_listening(grammar=grammar):
+            self.logger.error("Failed to start voice listener with grammar")
             return
         
         self.is_running = True
@@ -118,12 +184,38 @@ class VoiceBrightnessAssistant:
         # Main execution loop
         self._main_loop()
     
+    def _test_all_controllers(self) -> None:
+        """Test all controllers and report their status."""
+        results = {}
+        
+        # Test brightness controller
+        brightness_info = self.brightness_controller.get_brightness_info()
+        results["brightness"] = brightness_info.get("supported", False)
+        
+        # Test volume controller
+        try:
+            volume_info = self.volume_controller.get_volume_info()
+            results["volume"] = volume_info.get("supported", False)
+        except:
+            results["volume"] = False
+        
+        # App controller and system controller should always work
+        results["app_launcher"] = True
+        results["system_control"] = True
+        
+        # Report results
+        for controller, supported in results.items():
+            if supported:
+                self.logger.info(f"{controller} controller: ✅ Supported")
+            else:
+                self.logger.warning(f"{controller} controller: ❌ Not supported")
+    
     def _main_loop(self) -> None:
         """Main execution loop."""
         while self.is_running:
             try:
                 # Wait for voice command
-                result = self.voice_listener.listen(timeout=10.0)
+                result = self.voice_listener.listen(timeout=8.0)
                 
                 if result["status"] == "success":
                     self._process_command(result["text"])
@@ -144,38 +236,86 @@ class VoiceBrightnessAssistant:
         self.shutdown()
     
     def _process_command(self, command_text: str) -> None:
-        """
-        Process recognized voice command.
+        """Process recognized voice command."""
+        text = command_text.lower()
         
-        Args:
-            command_text: Recognized command text
-        """
+        # Detect mode switch with more flexibility
+        if ("switch" in text and "gesture" in text) or ("switch" in text and "mode" in text):
+            # Show visual confirmation in terminal
+            print("\n🔄 [MODE SWITCH] Detected: 'switch to gesture'")
+            print("[SYSTEM_SIGNAL]:SWITCH_TO_GESTURE", flush=True)
+            time.sleep(0.1) # Tiny pause to ensure the pipe is drained by the launcher
+            self.shutdown()
+            sys.exit(0)
+            
+        # Detect help command with high priority
+        if any(h in text for h in ["help", "show commands", "what can i say", "how to use"]):
+            self._display_voice_help()
+            return
+
         try:
+            # For debugging, log what we heard even if no intent is found later
+            # This helps the user see that the microphone IS working
+            self.logger.info(f"Processing command: '{command_text}'")
+
             # Parse intent
             intent_result = self.intent_engine.parse_intent(command_text)
             
-            if intent_result["confidence"] < 0.6:
+            if intent_result["confidence"] < 0.7:
                 self.logger.log_audio_event("Low confidence command", f"Confidence: {intent_result['confidence']:.2f}")
                 return
             
-            if not intent_result["action"]:
+            category = intent_result["category"]
+            action = intent_result["action"]
+            
+            if not category or not action:
                 self.logger.log_audio_event("No action detected", f"Command: {command_text}")
                 return
             
-            # Execute brightness action
-            success = self.brightness_controller.execute_action(
-                intent_result["action"],
-                intent_result["value"]
-            )
+            if category == "help":
+                self._display_voice_help()
+                return
+
+            # Get appropriate controller
+            controller = self.controllers.get(category)
+            if not controller:
+                self.logger.log_error("ControllerError", f"No controller found for category: {category}")
+                return
+            
+            # Execute action
+            success = controller.execute_action(action, intent_result["value"])
             
             if success:
-                self.logger.info(f"Command executed successfully: {intent_result['action']}")
+                self.logger.info(f"Command executed successfully: {category}.{action}")
             else:
-                self.logger.log_error("CommandExecutionError", f"Failed to execute: {intent_result['action']}")
+                self.logger.log_error("CommandExecutionError", f"Failed to execute: {category}.{action}")
                 
         except Exception as e:
             self.logger.log_error("CommandProcessError", str(e), f"Command: {command_text}")
     
+    def _display_voice_help(self) -> None:
+        """Print a formatted list of all available voice commands to the terminal."""
+        print("\n" + "="*50)
+        print("🎙️  VOICE COMMANDS HELP MENU")
+        print("="*50)
+        
+        commands = self._load_commands_config()
+        for category, info in commands.items():
+            if category == "help": continue
+            
+            print(f"\n🔹 {category.upper()}:")
+            actions = info.get("actions", {})
+            for action_name, action_info in actions.items():
+                desc = action_info.get("description", "No description")
+                # Show first pattern as example
+                example = action_info.get("patterns", [""])[0]
+                print(f"  - {desc.ljust(35)} | e.g., \"{example}\"")
+        
+        print("\n🔄 MODE SWITCHING:")
+        print(f"  - {'Switch back to Gesture Mode'.ljust(35)} | Say \"Switch to gesture\"")
+        print("="*50 + "\n")
+        self.logger.info("Help information displayed to user")
+
     def shutdown(self) -> None:
         """Shutdown the voice assistant gracefully."""
         if not self.is_running:
@@ -188,36 +328,46 @@ class VoiceBrightnessAssistant:
         if self.voice_listener:
             self.voice_listener.stop_listening()
         
+        # Cleanup controllers
+        for controller in self.controllers.values():
+            if hasattr(controller, 'cleanup'):
+                controller.cleanup()
+        
         self.logger.log_system_shutdown()
     
     def run_test_mode(self) -> None:
         """Run in test mode to verify components."""
         self.logger.info("Running in test mode...")
         
-        # Test brightness controller
-        print("\n=== Brightness Controller Test ===")
-        brightness_test = self.brightness_controller.test_brightness_control()
-        
-        for detail in brightness_test["details"]:
-            print(f"  {detail}")
-        
-        print(f"\nTests passed: {brightness_test['tests_passed']}")
-        print(f"Tests failed: {brightness_test['tests_failed']}")
+        # Test all controllers
+        print("\n=== Controller Status Test ===")
+        self._test_all_controllers()
         
         # Test intent engine
         print("\n=== Intent Engine Test ===")
         test_commands = [
-            "increase brightness",
+            # Brightness commands
             "brightness up",
-            "decrease brightness", 
             "brightness down",
             "set brightness 75",
-            "brightness 50"
+            # Volume commands
+            "volume up",
+            "volume down", 
+            "set volume 50",
+            # App commands
+            "open chrome",
+            "open code",
+            "open notepad",
+            # System commands
+            "shutdown system now",
+            "restart system now",
+            "sleep system now"
         ]
         
         for command in test_commands:
             result = self.intent_engine.test_intent_parsing(command)
             print(f"  Command: '{command}'")
+            print(f"    Category: {result['category']}")
             print(f"    Action: {result['action']}")
             print(f"    Value: {result['value']}")
             print(f"    Confidence: {result['confidence']:.2f}")
@@ -250,7 +400,7 @@ class VoiceBrightnessAssistant:
 
 def main():
     """Main entry point."""
-    assistant = VoiceBrightnessAssistant()
+    assistant = VoiceAssistant()
     
     # Check command line arguments
     if len(sys.argv) > 1 and sys.argv[1] == "--test":

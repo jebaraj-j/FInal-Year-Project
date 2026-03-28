@@ -1,19 +1,19 @@
 {
   "audio": {
     "sample_rate": 16000,
-    "chunk_size": 2048,
+    "chunk_size": 1024,
     "channels": 1,
     "format": "int16",
     "input_device_index": null,
     "auto_detect_device": true,
-    "silence_threshold": 500,
-    "silence_timeout": 1.0
+    "silence_threshold": 300,
+    "silence_timeout": 0.8
   },
   "recognition": {
     "model_path": "models/vosk-model-small-en-us-0.15",
     "wake_word_threshold": 0.65,
-    "command_confidence_threshold": 0.5,
-    "active_listening_timeout": 10.0,
+    "command_confidence_threshold": 0.4,
+    "active_listening_timeout": 6.0,
     "max_retry_attempts": 3
   },
   "wake_words": [
