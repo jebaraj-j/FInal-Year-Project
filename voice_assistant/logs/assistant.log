@@ -5350,3 +5350,1698 @@
 2026-03-29 02:11:26 | INFO     | Processing command: 'hey assistant'
 2026-03-29 02:11:26 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.57, value: 0
 2026-03-29 02:11:26 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-03-31 23:21:14 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:14 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:14 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:14 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:14 | INFO     | VoiceListener initialized
+2026-03-31 23:21:14 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:14 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:14 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:14 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:14 | INFO     | Validated 5 application paths
+2026-03-31 23:21:14 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:14 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:14 | INFO     | SystemController initialized
+2026-03-31 23:21:14 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:14 | INFO     | ==================================================
+2026-03-31 23:21:14 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:14 | INFO     | Start time: 2026-03-31 23:21:14
+2026-03-31 23:21:14 | INFO     | ==================================================
+2026-03-31 23:21:14 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:14 | INFO     | Starting voice assistant...
+2026-03-31 23:21:14 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:14 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:14 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:14 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:14 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:14 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:14 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:14 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:14 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:14 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:14 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:15 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:16 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:16 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:17 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:17 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:18 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:18 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:18 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:19 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:19 | INFO     | VoiceListener initialized
+2026-03-31 23:21:19 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:19 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:19 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:19 | INFO     | Validated 5 application paths
+2026-03-31 23:21:19 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:19 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:19 | INFO     | SystemController initialized
+2026-03-31 23:21:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:19 | INFO     | ==================================================
+2026-03-31 23:21:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:19 | INFO     | Start time: 2026-03-31 23:21:19
+2026-03-31 23:21:19 | INFO     | ==================================================
+2026-03-31 23:21:19 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:19 | INFO     | Starting voice assistant...
+2026-03-31 23:21:19 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:19 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:19 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:19 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:19 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:19 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:19 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:19 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:20 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:20 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:20 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:21 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:21 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:21 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:22 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:22 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:22 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:23 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:23 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:23 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:25 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:25 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:25 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:25 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:25 | INFO     | VoiceListener initialized
+2026-03-31 23:21:25 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:25 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:25 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:25 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:25 | INFO     | Validated 5 application paths
+2026-03-31 23:21:25 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:25 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:25 | INFO     | SystemController initialized
+2026-03-31 23:21:25 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:25 | INFO     | ==================================================
+2026-03-31 23:21:25 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:25 | INFO     | Start time: 2026-03-31 23:21:25
+2026-03-31 23:21:25 | INFO     | ==================================================
+2026-03-31 23:21:25 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:25 | INFO     | Starting voice assistant...
+2026-03-31 23:21:25 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:25 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:25 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:25 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:25 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:25 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:25 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:25 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:26 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:26 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:26 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:27 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:27 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:27 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:28 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:28 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:28 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:29 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:29 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:29 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:31 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:31 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:31 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:31 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:31 | INFO     | VoiceListener initialized
+2026-03-31 23:21:31 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:31 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:31 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:31 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:31 | INFO     | Validated 5 application paths
+2026-03-31 23:21:31 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:31 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:31 | INFO     | SystemController initialized
+2026-03-31 23:21:31 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:31 | INFO     | ==================================================
+2026-03-31 23:21:31 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:31 | INFO     | Start time: 2026-03-31 23:21:31
+2026-03-31 23:21:31 | INFO     | ==================================================
+2026-03-31 23:21:31 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:31 | INFO     | Starting voice assistant...
+2026-03-31 23:21:31 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:31 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:31 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:31 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:31 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:31 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:31 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:31 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:32 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:32 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:32 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:33 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:33 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:33 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:34 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:34 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:34 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:35 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:35 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:35 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:36 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:36 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:36 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:36 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:36 | INFO     | VoiceListener initialized
+2026-03-31 23:21:36 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:36 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:36 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:36 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:36 | INFO     | Validated 5 application paths
+2026-03-31 23:21:36 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:36 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:36 | INFO     | SystemController initialized
+2026-03-31 23:21:36 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:36 | INFO     | ==================================================
+2026-03-31 23:21:36 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:36 | INFO     | Start time: 2026-03-31 23:21:36
+2026-03-31 23:21:36 | INFO     | ==================================================
+2026-03-31 23:21:36 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:36 | INFO     | Starting voice assistant...
+2026-03-31 23:21:36 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:36 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:36 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:36 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:36 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:36 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:36 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:36 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:37 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:37 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:37 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:38 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:38 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:38 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:39 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:39 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:39 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:40 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:40 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:40 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:40 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:40 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:42 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:42 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:42 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:42 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:42 | INFO     | VoiceListener initialized
+2026-03-31 23:21:42 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:42 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:42 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:42 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:42 | INFO     | Validated 5 application paths
+2026-03-31 23:21:42 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:42 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:42 | INFO     | SystemController initialized
+2026-03-31 23:21:42 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:42 | INFO     | ==================================================
+2026-03-31 23:21:42 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:42 | INFO     | Start time: 2026-03-31 23:21:42
+2026-03-31 23:21:42 | INFO     | ==================================================
+2026-03-31 23:21:42 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:42 | INFO     | Starting voice assistant...
+2026-03-31 23:21:42 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:42 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:42 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:42 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:42 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:42 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:42 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:42 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:43 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:43 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:43 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:44 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:44 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:44 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:45 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:45 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:45 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:46 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:46 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:46 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:46 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:46 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:47 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:47 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:47 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:47 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:47 | INFO     | VoiceListener initialized
+2026-03-31 23:21:47 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:47 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:48 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:48 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:48 | INFO     | Validated 5 application paths
+2026-03-31 23:21:48 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:48 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:48 | INFO     | SystemController initialized
+2026-03-31 23:21:48 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:48 | INFO     | ==================================================
+2026-03-31 23:21:48 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:48 | INFO     | Start time: 2026-03-31 23:21:48
+2026-03-31 23:21:48 | INFO     | ==================================================
+2026-03-31 23:21:48 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:48 | INFO     | Starting voice assistant...
+2026-03-31 23:21:48 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:48 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:48 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:48 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:48 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:48 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:48 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:48 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:48 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:48 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:48 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:49 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:49 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:49 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:50 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:50 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:50 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:51 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:51 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:51 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:51 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:51 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:53 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:53 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:53 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:53 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:53 | INFO     | VoiceListener initialized
+2026-03-31 23:21:53 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:53 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:53 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:53 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:53 | INFO     | Validated 5 application paths
+2026-03-31 23:21:53 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:53 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:53 | INFO     | SystemController initialized
+2026-03-31 23:21:53 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:53 | INFO     | ==================================================
+2026-03-31 23:21:53 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:53 | INFO     | Start time: 2026-03-31 23:21:53
+2026-03-31 23:21:53 | INFO     | ==================================================
+2026-03-31 23:21:53 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:53 | INFO     | Starting voice assistant...
+2026-03-31 23:21:53 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:53 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:53 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:53 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:53 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:53 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:53 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:53 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:53 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:54 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:54 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:21:55 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:55 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:21:55 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:21:56 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:56 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:21:56 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:21:57 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:57 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:21:57 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:21:57 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:21:57 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:21:58 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:21:58 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:21:58 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:21:58 | INFO     | Detection threshold: 0.65
+2026-03-31 23:21:58 | INFO     | VoiceListener initialized
+2026-03-31 23:21:58 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:21:58 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:21:58 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:21:58 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:21:58 | INFO     | Validated 5 application paths
+2026-03-31 23:21:58 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:21:58 | INFO     | Loaded 5 application configurations
+2026-03-31 23:21:58 | INFO     | SystemController initialized
+2026-03-31 23:21:58 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:21:58 | INFO     | ==================================================
+2026-03-31 23:21:58 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:21:58 | INFO     | Start time: 2026-03-31 23:21:58
+2026-03-31 23:21:58 | INFO     | ==================================================
+2026-03-31 23:21:58 | INFO     | VoiceAssistant initialized
+2026-03-31 23:21:58 | INFO     | Starting voice assistant...
+2026-03-31 23:21:58 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:21:58 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:21:58 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:21:58 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:21:58 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:58 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:21:58 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:21:58 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:21:59 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:21:59 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:21:59 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:00 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:00 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:22:00 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:01 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:01 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:22:01 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:02 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:02 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:22:02 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:02 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:02 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:04 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:04 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:04 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:04 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:04 | INFO     | VoiceListener initialized
+2026-03-31 23:22:04 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:04 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:04 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:04 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:04 | INFO     | Validated 5 application paths
+2026-03-31 23:22:04 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:04 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:04 | INFO     | SystemController initialized
+2026-03-31 23:22:04 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:04 | INFO     | ==================================================
+2026-03-31 23:22:04 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:04 | INFO     | Start time: 2026-03-31 23:22:04
+2026-03-31 23:22:04 | INFO     | ==================================================
+2026-03-31 23:22:04 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:04 | INFO     | Starting voice assistant...
+2026-03-31 23:22:04 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:04 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:04 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:04 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:04 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:04 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:04 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:22:04 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:04 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:04 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:22:04 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:05 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:05 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:22:05 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:06 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:06 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:22:06 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:07 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:07 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:22:07 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:07 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:07 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:09 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:09 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:09 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:09 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:09 | INFO     | VoiceListener initialized
+2026-03-31 23:22:09 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:09 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:09 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:09 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:09 | INFO     | Validated 5 application paths
+2026-03-31 23:22:09 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:09 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:09 | INFO     | SystemController initialized
+2026-03-31 23:22:09 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:09 | INFO     | ==================================================
+2026-03-31 23:22:09 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:09 | INFO     | Start time: 2026-03-31 23:22:09
+2026-03-31 23:22:09 | INFO     | ==================================================
+2026-03-31 23:22:09 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:09 | INFO     | Starting voice assistant...
+2026-03-31 23:22:09 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:09 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:09 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:09 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:09 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:09 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:09 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-03-31 23:22:09 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:10 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:10 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:22:10 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:11 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:11 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:22:11 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:12 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:12 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:22:12 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:13 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:13 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:22:13 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:13 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:13 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:14 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:14 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:14 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:14 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:14 | INFO     | VoiceListener initialized
+2026-03-31 23:22:14 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:14 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:15 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:15 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:15 | INFO     | Validated 5 application paths
+2026-03-31 23:22:15 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:15 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:15 | INFO     | SystemController initialized
+2026-03-31 23:22:15 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:15 | INFO     | ==================================================
+2026-03-31 23:22:15 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:15 | INFO     | Start time: 2026-03-31 23:22:15
+2026-03-31 23:22:15 | INFO     | ==================================================
+2026-03-31 23:22:15 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:15 | INFO     | Starting voice assistant...
+2026-03-31 23:22:15 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:15 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:15 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:15 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:15 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:15 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-03-31 23:22:15 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 13)
+2026-03-31 23:22:15 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:16 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:16 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:22:16 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:17 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 1
+2026-03-31 23:22:17 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:18 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 2
+2026-03-31 23:22:18 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:19 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:20 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 3
+2026-03-31 23:22:20 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:20 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:20 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:21 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:21 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:21 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:21 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:21 | INFO     | VoiceListener initialized
+2026-03-31 23:22:21 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:21 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:21 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:21 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:21 | INFO     | Validated 5 application paths
+2026-03-31 23:22:21 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:21 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:21 | INFO     | SystemController initialized
+2026-03-31 23:22:21 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:21 | INFO     | ==================================================
+2026-03-31 23:22:21 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:21 | INFO     | Start time: 2026-03-31 23:22:21
+2026-03-31 23:22:21 | INFO     | ==================================================
+2026-03-31 23:22:21 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:21 | INFO     | Starting voice assistant...
+2026-03-31 23:22:21 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:21 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:21 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:21 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:22 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-03-31 23:22:22 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-03-31 23:22:22 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-03-31 23:22:22 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:22 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:22 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:22:22 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:23 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-03-31 23:22:23 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:24 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:24 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-03-31 23:22:24 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:25 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:25 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-03-31 23:22:25 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:25 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:25 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:27 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:27 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:27 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:27 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:27 | INFO     | VoiceListener initialized
+2026-03-31 23:22:27 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:27 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:27 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:27 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:27 | INFO     | Validated 5 application paths
+2026-03-31 23:22:27 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:27 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:27 | INFO     | SystemController initialized
+2026-03-31 23:22:27 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:27 | INFO     | ==================================================
+2026-03-31 23:22:27 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:27 | INFO     | Start time: 2026-03-31 23:22:27
+2026-03-31 23:22:27 | INFO     | ==================================================
+2026-03-31 23:22:27 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:27 | INFO     | Starting voice assistant...
+2026-03-31 23:22:27 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:27 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:27 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:27 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:27 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-03-31 23:22:27 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-03-31 23:22:27 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-03-31 23:22:27 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:28 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:28 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-03-31 23:22:28 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-03-31 23:22:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:29 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 1
+2026-03-31 23:22:29 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-03-31 23:22:30 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:30 | ERROR    | RetryStreamError: [Errno -9998] Invalid number of channels | Context: Attempt 2
+2026-03-31 23:22:30 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-03-31 23:22:31 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:31 | ERROR    | RetryStreamError: [Errno -9998] Invalid number of channels | Context: Attempt 3
+2026-03-31 23:22:31 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-03-31 23:22:31 | ERROR    | Failed to start voice listener with grammar
+2026-03-31 23:22:31 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-03-31 23:22:33 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-03-31 23:22:33 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-03-31 23:22:33 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-03-31 23:22:33 | INFO     | Detection threshold: 0.65
+2026-03-31 23:22:33 | INFO     | VoiceListener initialized
+2026-03-31 23:22:33 | INFO     | UnifiedIntentEngine initialized
+2026-03-31 23:22:33 | INFO     | Loaded 20 total actions across 5 categories
+2026-03-31 23:22:33 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-03-31 23:22:33 | INFO     | VolumeController initialized (pycaw)
+2026-03-31 23:22:33 | INFO     | Validated 5 application paths
+2026-03-31 23:22:33 | INFO     | ApplicationLauncher initialized
+2026-03-31 23:22:33 | INFO     | Loaded 5 application configurations
+2026-03-31 23:22:33 | INFO     | SystemController initialized
+2026-03-31 23:22:33 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-03-31 23:22:33 | INFO     | ==================================================
+2026-03-31 23:22:33 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-03-31 23:22:33 | INFO     | Start time: 2026-03-31 23:22:33
+2026-03-31 23:22:33 | INFO     | ==================================================
+2026-03-31 23:22:33 | INFO     | VoiceAssistant initialized
+2026-03-31 23:22:33 | INFO     | Starting voice assistant...
+2026-03-31 23:22:33 | INFO     | brightness controller: ✅ Supported
+2026-03-31 23:22:33 | INFO     | volume controller: ✅ Supported
+2026-03-31 23:22:33 | INFO     | app_launcher controller: ✅ Supported
+2026-03-31 23:22:33 | INFO     | system_control controller: ✅ Supported
+2026-03-31 23:22:34 | INFO     | Checking headset candidate: Headset (KDM-Z1 InAirPods)
+2026-03-31 23:22:34 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (KDM-Z1 InAirPods) (Index: 2)
+2026-03-31 23:22:34 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-03-31 23:22:35 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-03-31 23:22:35 | INFO     | AUDIO EVENT: Audio stream started | Device: 2
+2026-03-31 23:22:35 | INFO     | AUDIO EVENT: Voice listening started
+2026-03-31 23:22:35 | INFO     | Voice assistant started successfully
+2026-03-31 23:22:35 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-03-31 23:22:39 | INFO     | COMMAND RECEIVED: 'browser'
+2026-03-31 23:22:39 | INFO     | Processing command: 'browser'
+2026-03-31 23:22:39 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.78, value: 0
+2026-03-31 23:22:39 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-31 23:22:39 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-31 23:22:47 | INFO     | COMMAND RECEIVED: 'twenty browser'
+2026-03-31 23:22:47 | INFO     | Processing command: 'twenty browser'
+2026-03-31 23:22:47 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.80, value: 0
+2026-03-31 23:22:47 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-03-31 23:22:47 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-03-31 23:22:58 | INFO     | COMMAND RECEIVED: 'volume fifty'
+2026-03-31 23:22:58 | INFO     | Processing command: 'volume fifty'
+2026-03-31 23:22:58 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 50
+2026-03-31 23:22:58 | INFO     | Command executed successfully: volume.set_value
+2026-03-31 23:23:07 | INFO     | COMMAND RECEIVED: 'max volume'
+2026-03-31 23:23:07 | INFO     | Processing command: 'max volume'
+2026-03-31 23:23:07 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-03-31 23:23:07 | INFO     | Command executed successfully: volume.absolute_increase
+2026-03-31 23:23:13 | INFO     | COMMAND RECEIVED: 'volume forty'
+2026-03-31 23:23:13 | INFO     | Processing command: 'volume forty'
+2026-03-31 23:23:13 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 40
+2026-03-31 23:23:13 | INFO     | Command executed successfully: volume.set_value
+2026-03-31 23:23:21 | INFO     | COMMAND RECEIVED: 'volume maximum'
+2026-03-31 23:23:21 | INFO     | Processing command: 'volume maximum'
+2026-03-31 23:23:21 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-03-31 23:23:21 | INFO     | Command executed successfully: volume.absolute_increase
+2026-03-31 23:23:30 | INFO     | COMMAND RECEIVED: 'less brightness'
+2026-03-31 23:23:30 | INFO     | Processing command: 'less brightness'
+2026-03-31 23:23:30 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-03-31 23:23:30 | INFO     | BRIGHTNESS CHANGE: 0% → 31% (action: set)
+2026-03-31 23:23:30 | INFO     | Command executed successfully: brightness.relative_decrease
+2026-03-31 23:23:39 | INFO     | COMMAND RECEIVED: 'max brightness'
+2026-03-31 23:23:39 | INFO     | Processing command: 'max brightness'
+2026-03-31 23:23:39 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-31 23:23:39 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-31 23:23:39 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:23:48 | INFO     | COMMAND RECEIVED: 'brightness ninety'
+2026-03-31 23:23:48 | INFO     | Processing command: 'brightness ninety'
+2026-03-31 23:23:48 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 90
+2026-03-31 23:23:48 | INFO     | BRIGHTNESS CHANGE: 0% → 90% (action: set)
+2026-03-31 23:23:48 | INFO     | Command executed successfully: brightness.set_value
+2026-03-31 23:23:55 | INFO     | COMMAND RECEIVED: 'bright seventy'
+2026-03-31 23:23:56 | INFO     | Processing command: 'bright seventy'
+2026-03-31 23:23:56 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.70, value: 0
+2026-03-31 23:23:56 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-31 23:23:56 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:24:05 | INFO     | COMMAND RECEIVED: 'open explore'
+2026-03-31 23:24:05 | INFO     | Processing command: 'open explore'
+2026-03-31 23:24:05 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-03-31 23:24:05 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-03-31 23:24:05 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-03-31 23:24:10 | INFO     | COMMAND RECEIVED: 'darkest'
+2026-03-31 23:24:10 | INFO     | Processing command: 'darkest'
+2026-03-31 23:24:10 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-03-31 23:24:10 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-31 23:24:10 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-03-31 23:24:13 | INFO     | COMMAND RECEIVED: 'open max'
+2026-03-31 23:24:13 | INFO     | Processing command: 'open max'
+2026-03-31 23:24:13 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.67, value: 0
+2026-03-31 23:24:13 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-31 23:24:22 | INFO     | COMMAND RECEIVED: 'down note'
+2026-03-31 23:24:22 | INFO     | Processing command: 'down note'
+2026-03-31 23:24:22 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.67, value: 0
+2026-03-31 23:24:22 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-03-31 23:24:35 | INFO     | COMMAND RECEIVED: 'max brightness'
+2026-03-31 23:24:35 | INFO     | Processing command: 'max brightness'
+2026-03-31 23:24:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-31 23:24:35 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-31 23:24:35 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:24:41 | INFO     | COMMAND RECEIVED: 'max brightness'
+2026-03-31 23:24:41 | INFO     | Processing command: 'max brightness'
+2026-03-31 23:24:41 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-31 23:24:42 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-31 23:24:42 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:24:45 | INFO     | COMMAND RECEIVED: 'darkest'
+2026-03-31 23:24:45 | INFO     | Processing command: 'darkest'
+2026-03-31 23:24:45 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-03-31 23:24:45 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-31 23:24:45 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-03-31 23:24:50 | INFO     | COMMAND RECEIVED: 'max'
+2026-03-31 23:24:50 | INFO     | Processing command: 'max'
+2026-03-31 23:24:50 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.46, value: 0
+2026-03-31 23:24:50 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.46
+2026-03-31 23:24:54 | INFO     | COMMAND RECEIVED: 'max brightness'
+2026-03-31 23:24:54 | INFO     | Processing command: 'max brightness'
+2026-03-31 23:24:54 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-31 23:24:54 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-31 23:24:54 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:25:00 | INFO     | COMMAND RECEIVED: 'open settings'
+2026-03-31 23:25:00 | INFO     | Processing command: 'open settings'
+2026-03-31 23:25:00 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-03-31 23:25:00 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-03-31 23:25:00 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-03-31 23:25:09 | INFO     | COMMAND RECEIVED: 'warp assistant'
+2026-03-31 23:25:09 | INFO     | Processing command: 'warp assistant'
+2026-03-31 23:25:09 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.47, value: 0
+2026-03-31 23:25:09 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.47
+2026-03-31 23:25:18 | INFO     | COMMAND RECEIVED: 'minimum'
+2026-03-31 23:25:18 | INFO     | Processing command: 'minimum'
+2026-03-31 23:25:18 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.70, value: 0
+2026-03-31 23:25:18 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-03-31 23:25:18 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-03-31 23:25:22 | INFO     | COMMAND RECEIVED: 'max brightness'
+2026-03-31 23:25:22 | INFO     | Processing command: 'max brightness'
+2026-03-31 23:25:22 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-03-31 23:25:22 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-03-31 23:25:22 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-03-31 23:25:41 | INFO     | COMMAND RECEIVED: 'assistant'
+2026-03-31 23:25:41 | INFO     | Processing command: 'assistant'
+2026-03-31 23:25:41 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-03-31 23:25:41 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-03-31 23:25:45 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-03-31 23:25:45 | INFO     | Processing command: 'hey assistant'
+2026-03-31 23:25:45 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.57, value: 0
+2026-03-31 23:25:45 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-04-02 21:22:14 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:14 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:14 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:14 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:14 | INFO     | VoiceListener initialized
+2026-04-02 21:22:14 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:14 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:14 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:14 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:14 | INFO     | Validated 5 application paths
+2026-04-02 21:22:14 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:14 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:14 | INFO     | SystemController initialized
+2026-04-02 21:22:14 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:14 | INFO     | ==================================================
+2026-04-02 21:22:14 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:14 | INFO     | Start time: 2026-04-02 21:22:14
+2026-04-02 21:22:14 | INFO     | ==================================================
+2026-04-02 21:22:14 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:14 | INFO     | Starting voice assistant...
+2026-04-02 21:22:14 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:14 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:14 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:14 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:14 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:14 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:14 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-04-02 21:22:14 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:15 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:15 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:15 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:16 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:16 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:16 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:17 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:17 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:18 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:18 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:18 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:18 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:20 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:20 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:20 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:20 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:20 | INFO     | VoiceListener initialized
+2026-04-02 21:22:20 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:20 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:20 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:20 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:20 | INFO     | Validated 5 application paths
+2026-04-02 21:22:20 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:20 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:20 | INFO     | SystemController initialized
+2026-04-02 21:22:20 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:20 | INFO     | ==================================================
+2026-04-02 21:22:20 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:20 | INFO     | Start time: 2026-04-02 21:22:20
+2026-04-02 21:22:20 | INFO     | ==================================================
+2026-04-02 21:22:20 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:20 | INFO     | Starting voice assistant...
+2026-04-02 21:22:20 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:20 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:20 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:20 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:20 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:20 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:20 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-04-02 21:22:20 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:21 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:21 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:21 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:22 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:22 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:22 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:23 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:23 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:24 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:24 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:24 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:24 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:24 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:26 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:26 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:26 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:26 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:26 | INFO     | VoiceListener initialized
+2026-04-02 21:22:26 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:26 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:26 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:26 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:26 | INFO     | Validated 5 application paths
+2026-04-02 21:22:26 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:26 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:26 | INFO     | SystemController initialized
+2026-04-02 21:22:26 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:26 | INFO     | ==================================================
+2026-04-02 21:22:26 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:26 | INFO     | Start time: 2026-04-02 21:22:26
+2026-04-02 21:22:26 | INFO     | ==================================================
+2026-04-02 21:22:26 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:26 | INFO     | Starting voice assistant...
+2026-04-02 21:22:26 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:26 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:26 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:26 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:26 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:26 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:26 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-04-02 21:22:26 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:26 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:26 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:26 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:27 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:27 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:27 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:28 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:29 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:29 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:30 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:30 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:30 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:30 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:30 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:31 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:31 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:31 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:31 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:31 | INFO     | VoiceListener initialized
+2026-04-02 21:22:31 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:31 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:31 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:31 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:31 | INFO     | Validated 5 application paths
+2026-04-02 21:22:31 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:31 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:31 | INFO     | SystemController initialized
+2026-04-02 21:22:31 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:31 | INFO     | ==================================================
+2026-04-02 21:22:31 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:31 | INFO     | Start time: 2026-04-02 21:22:31
+2026-04-02 21:22:31 | INFO     | ==================================================
+2026-04-02 21:22:31 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:31 | INFO     | Starting voice assistant...
+2026-04-02 21:22:32 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:32 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:32 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:32 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:32 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:32 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:32 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-04-02 21:22:32 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:32 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:32 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:32 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:33 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:33 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:33 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:34 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:34 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:34 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:35 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:35 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:35 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:37 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:37 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:37 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:37 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:37 | INFO     | VoiceListener initialized
+2026-04-02 21:22:37 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:37 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:37 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:37 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:37 | INFO     | Validated 5 application paths
+2026-04-02 21:22:37 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:37 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:37 | INFO     | SystemController initialized
+2026-04-02 21:22:37 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:37 | INFO     | ==================================================
+2026-04-02 21:22:37 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:37 | INFO     | Start time: 2026-04-02 21:22:37
+2026-04-02 21:22:37 | INFO     | ==================================================
+2026-04-02 21:22:37 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:37 | INFO     | Starting voice assistant...
+2026-04-02 21:22:37 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:37 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:37 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:37 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:37 | INFO     | Checking headset candidate: Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:37 | WARNING  | Using fallback sample rate 48000Hz for headset Headset Microphone (AudioMiniport Wave Headset In)
+2026-04-02 21:22:37 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset Microphone (AudioMiniport Wave Headset In) (Index: 11)
+2026-04-02 21:22:37 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:38 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:38 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:38 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:39 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:39 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:39 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:40 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:41 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 2
+2026-04-02 21:22:41 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:42 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:42 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 3
+2026-04-02 21:22:42 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:42 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:42 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:44 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:44 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:44 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:44 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:44 | INFO     | VoiceListener initialized
+2026-04-02 21:22:44 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:44 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:44 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:44 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:44 | INFO     | Validated 5 application paths
+2026-04-02 21:22:44 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:44 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:44 | INFO     | SystemController initialized
+2026-04-02 21:22:44 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:44 | INFO     | ==================================================
+2026-04-02 21:22:44 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:44 | INFO     | Start time: 2026-04-02 21:22:44
+2026-04-02 21:22:44 | INFO     | ==================================================
+2026-04-02 21:22:44 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:44 | INFO     | Starting voice assistant...
+2026-04-02 21:22:44 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:44 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:44 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:44 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:44 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:44 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:44 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:22:44 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:45 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:45 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:45 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:46 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:46 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:46 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:47 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:47 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:47 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:48 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:48 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:48 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:48 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:48 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:49 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:49 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:49 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:49 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:49 | INFO     | VoiceListener initialized
+2026-04-02 21:22:50 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:50 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:50 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:50 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:50 | INFO     | Validated 5 application paths
+2026-04-02 21:22:50 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:50 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:50 | INFO     | SystemController initialized
+2026-04-02 21:22:50 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:50 | INFO     | ==================================================
+2026-04-02 21:22:50 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:50 | INFO     | Start time: 2026-04-02 21:22:50
+2026-04-02 21:22:50 | INFO     | ==================================================
+2026-04-02 21:22:50 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:50 | INFO     | Starting voice assistant...
+2026-04-02 21:22:50 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:50 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:50 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:50 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:50 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:50 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:50 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:22:50 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:50 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:50 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:50 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:51 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:51 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:51 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:52 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:52 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:52 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:53 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:54 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:22:54 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:22:54 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:22:54 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:55 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:22:55 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:22:55 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:22:55 | INFO     | Detection threshold: 0.65
+2026-04-02 21:22:55 | INFO     | VoiceListener initialized
+2026-04-02 21:22:55 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:22:55 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:22:55 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:22:55 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:22:55 | INFO     | Validated 5 application paths
+2026-04-02 21:22:55 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:22:55 | INFO     | Loaded 5 application configurations
+2026-04-02 21:22:55 | INFO     | SystemController initialized
+2026-04-02 21:22:55 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:22:55 | INFO     | ==================================================
+2026-04-02 21:22:55 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:22:55 | INFO     | Start time: 2026-04-02 21:22:55
+2026-04-02 21:22:55 | INFO     | ==================================================
+2026-04-02 21:22:55 | INFO     | VoiceAssistant initialized
+2026-04-02 21:22:55 | INFO     | Starting voice assistant...
+2026-04-02 21:22:55 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:22:55 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:22:55 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:22:55 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:22:56 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:56 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:22:56 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:22:56 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:22:56 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:22:56 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:22:56 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:22:57 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:57 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:22:57 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:22:58 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:22:58 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:22:58 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:22:59 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:00 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:00 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:00 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:00 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:01 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:01 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:01 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:01 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:01 | INFO     | VoiceListener initialized
+2026-04-02 21:23:01 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:01 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:01 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:02 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:02 | INFO     | Validated 5 application paths
+2026-04-02 21:23:02 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:02 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:02 | INFO     | SystemController initialized
+2026-04-02 21:23:02 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:02 | INFO     | ==================================================
+2026-04-02 21:23:02 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:02 | INFO     | Start time: 2026-04-02 21:23:02
+2026-04-02 21:23:02 | INFO     | ==================================================
+2026-04-02 21:23:02 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:02 | INFO     | Starting voice assistant...
+2026-04-02 21:23:02 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:02 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:02 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:02 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:02 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:02 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:02 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:02 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:02 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:02 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:02 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:03 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:03 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:03 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:04 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:04 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:23:04 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:05 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:06 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:06 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:06 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:06 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:07 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:07 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:07 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:07 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:07 | INFO     | VoiceListener initialized
+2026-04-02 21:23:07 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:07 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:07 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:07 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:07 | INFO     | Validated 5 application paths
+2026-04-02 21:23:07 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:07 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:07 | INFO     | SystemController initialized
+2026-04-02 21:23:07 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:07 | INFO     | ==================================================
+2026-04-02 21:23:07 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:07 | INFO     | Start time: 2026-04-02 21:23:07
+2026-04-02 21:23:07 | INFO     | ==================================================
+2026-04-02 21:23:07 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:07 | INFO     | Starting voice assistant...
+2026-04-02 21:23:08 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:08 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:08 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:08 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:08 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:08 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:08 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:08 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:08 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:08 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:08 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:09 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:09 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:09 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:10 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:10 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:23:10 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:11 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:11 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:11 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:11 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:11 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:13 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:13 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:13 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:13 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:13 | INFO     | VoiceListener initialized
+2026-04-02 21:23:13 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:13 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:13 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:13 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:13 | INFO     | Validated 5 application paths
+2026-04-02 21:23:13 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:13 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:13 | INFO     | SystemController initialized
+2026-04-02 21:23:13 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:13 | INFO     | ==================================================
+2026-04-02 21:23:13 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:13 | INFO     | Start time: 2026-04-02 21:23:13
+2026-04-02 21:23:13 | INFO     | ==================================================
+2026-04-02 21:23:13 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:13 | INFO     | Starting voice assistant...
+2026-04-02 21:23:13 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:13 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:13 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:13 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:14 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:14 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:14 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:14 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:14 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:14 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:14 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:15 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:15 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:15 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:16 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:16 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:23:16 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:17 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:17 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:17 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:19 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:19 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:19 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:19 | INFO     | VoiceListener initialized
+2026-04-02 21:23:19 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:19 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:19 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:19 | INFO     | Validated 5 application paths
+2026-04-02 21:23:19 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:19 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:19 | INFO     | SystemController initialized
+2026-04-02 21:23:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:19 | INFO     | ==================================================
+2026-04-02 21:23:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:19 | INFO     | Start time: 2026-04-02 21:23:19
+2026-04-02 21:23:19 | INFO     | ==================================================
+2026-04-02 21:23:19 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:19 | INFO     | Starting voice assistant...
+2026-04-02 21:23:19 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:19 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:19 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:19 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:19 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:19 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:19 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:19 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:20 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:20 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:20 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:21 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:21 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:21 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:22 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:22 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:23:22 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:23 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:23 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:23 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:25 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:25 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:25 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:25 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:25 | INFO     | VoiceListener initialized
+2026-04-02 21:23:25 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:25 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:25 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:25 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:25 | INFO     | Validated 5 application paths
+2026-04-02 21:23:25 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:25 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:25 | INFO     | SystemController initialized
+2026-04-02 21:23:25 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:25 | INFO     | ==================================================
+2026-04-02 21:23:25 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:25 | INFO     | Start time: 2026-04-02 21:23:25
+2026-04-02 21:23:25 | INFO     | ==================================================
+2026-04-02 21:23:25 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:25 | INFO     | Starting voice assistant...
+2026-04-02 21:23:25 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:25 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:25 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:25 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:25 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:25 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:25 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:25 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:26 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:26 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:26 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:27 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:27 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:27 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:28 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:28 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-02 21:23:28 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:29 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-02 21:23:29 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:29 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:29 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:31 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:31 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:31 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:31 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:31 | INFO     | VoiceListener initialized
+2026-04-02 21:23:31 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:31 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:31 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:31 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:31 | INFO     | Validated 5 application paths
+2026-04-02 21:23:31 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:31 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:31 | INFO     | SystemController initialized
+2026-04-02 21:23:31 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:31 | INFO     | ==================================================
+2026-04-02 21:23:31 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:31 | INFO     | Start time: 2026-04-02 21:23:31
+2026-04-02 21:23:31 | INFO     | ==================================================
+2026-04-02 21:23:31 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:31 | INFO     | Starting voice assistant...
+2026-04-02 21:23:31 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:31 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:31 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:31 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:31 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:31 | WARNING  | Using fallback sample rate 8000Hz for headset Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods))
+2026-04-02 21:23:31 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(KDM-Z1 InAirPods)) (Index: 11)
+2026-04-02 21:23:31 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:32 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:32 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-02 21:23:32 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-02 21:23:33 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:33 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-02 21:23:33 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-02 21:23:34 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:34 | ERROR    | RetryStreamError: [Errno -9996] Invalid device | Context: Attempt 2
+2026-04-02 21:23:34 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-02 21:23:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:35 | ERROR    | RetryStreamError: [Errno -9998] Invalid number of channels | Context: Attempt 3
+2026-04-02 21:23:35 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-02 21:23:35 | ERROR    | Failed to start voice listener with grammar
+2026-04-02 21:23:35 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-02 21:23:37 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-02 21:23:37 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-02 21:23:37 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-02 21:23:37 | INFO     | Detection threshold: 0.65
+2026-04-02 21:23:37 | INFO     | VoiceListener initialized
+2026-04-02 21:23:37 | INFO     | UnifiedIntentEngine initialized
+2026-04-02 21:23:37 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-02 21:23:37 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-02 21:23:37 | INFO     | VolumeController initialized (pycaw)
+2026-04-02 21:23:37 | INFO     | Validated 5 application paths
+2026-04-02 21:23:37 | INFO     | ApplicationLauncher initialized
+2026-04-02 21:23:37 | INFO     | Loaded 5 application configurations
+2026-04-02 21:23:37 | INFO     | SystemController initialized
+2026-04-02 21:23:37 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-02 21:23:37 | INFO     | ==================================================
+2026-04-02 21:23:37 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-02 21:23:37 | INFO     | Start time: 2026-04-02 21:23:37
+2026-04-02 21:23:37 | INFO     | ==================================================
+2026-04-02 21:23:37 | INFO     | VoiceAssistant initialized
+2026-04-02 21:23:37 | INFO     | Starting voice assistant...
+2026-04-02 21:23:37 | INFO     | brightness controller: ✅ Supported
+2026-04-02 21:23:37 | INFO     | volume controller: ✅ Supported
+2026-04-02 21:23:37 | INFO     | app_launcher controller: ✅ Supported
+2026-04-02 21:23:37 | INFO     | system_control controller: ✅ Supported
+2026-04-02 21:23:38 | INFO     | Checking headset candidate: Headset (KDM-Z1 InAirPods)
+2026-04-02 21:23:38 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (KDM-Z1 InAirPods) (Index: 2)
+2026-04-02 21:23:38 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-02 21:23:38 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-02 21:23:38 | INFO     | AUDIO EVENT: Audio stream started | Device: 2
+2026-04-02 21:23:38 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-02 21:23:38 | INFO     | Voice assistant started successfully
+2026-04-02 21:23:38 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-02 21:23:43 | INFO     | COMMAND RECEIVED: 'how system'
+2026-04-02 21:23:43 | INFO     | Processing command: 'how system'
+2026-04-02 21:23:43 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.55, value: 0
+2026-04-02 21:23:43 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-04-02 21:23:57 | INFO     | COMMAND RECEIVED: 'open go'
+2026-04-02 21:23:57 | INFO     | Processing command: 'open go'
+2026-04-02 21:23:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-02 21:23:57 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-02 21:23:57 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-02 21:24:07 | INFO     | COMMAND RECEIVED: 'open browser'
+2026-04-02 21:24:07 | INFO     | Processing command: 'open browser'
+2026-04-02 21:24:07 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-02 21:24:07 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-02 21:24:07 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-02 21:24:13 | INFO     | COMMAND RECEIVED: 'browser'
+2026-04-02 21:24:13 | INFO     | Processing command: 'browser'
+2026-04-02 21:24:13 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.78, value: 0
+2026-04-02 21:24:13 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-02 21:24:13 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-02 21:24:21 | INFO     | COMMAND RECEIVED: 'open files'
+2026-04-02 21:24:21 | INFO     | Processing command: 'open files'
+2026-04-02 21:24:21 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-02 21:24:21 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-02 21:24:21 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-02 21:24:32 | INFO     | COMMAND RECEIVED: 'sleep'
+2026-04-02 21:24:32 | INFO     | Processing command: 'sleep'
+2026-04-02 21:24:32 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-02 21:24:32 | INFO     | SYSTEM ACTION ATTEMPT: sleep
+2026-04-02 21:24:32 | INFO     | Executing system sleep...
+2026-04-02 21:25:43 | INFO     | SYSTEM ACTION SUCCESS: sleep
+2026-04-02 21:25:43 | INFO     | Command executed successfully: system_control.sleep
+2026-04-04 09:06:01 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-04 09:06:01 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-04 09:06:01 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-04 09:06:01 | INFO     | Detection threshold: 0.65
+2026-04-04 09:06:01 | INFO     | VoiceListener initialized
+2026-04-04 09:06:01 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 09:06:01 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-04 09:06:02 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-04 09:06:02 | INFO     | VolumeController initialized (pycaw)
+2026-04-04 09:06:02 | INFO     | Validated 5 application paths
+2026-04-04 09:06:02 | INFO     | ApplicationLauncher initialized
+2026-04-04 09:06:02 | INFO     | Loaded 5 application configurations
+2026-04-04 09:06:02 | INFO     | SystemController initialized
+2026-04-04 09:06:02 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-04 09:06:02 | INFO     | ==================================================
+2026-04-04 09:06:02 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-04 09:06:02 | INFO     | Start time: 2026-04-04 09:06:02
+2026-04-04 09:06:02 | INFO     | ==================================================
+2026-04-04 09:06:02 | INFO     | VoiceAssistant initialized
+2026-04-04 09:06:02 | INFO     | Starting voice assistant...
+2026-04-04 09:06:02 | INFO     | brightness controller: ✅ Supported
+2026-04-04 09:06:02 | INFO     | volume controller: ✅ Supported
+2026-04-04 09:06:02 | INFO     | app_launcher controller: ✅ Supported
+2026-04-04 09:06:02 | INFO     | system_control controller: ✅ Supported
+2026-04-04 09:06:03 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-04 09:06:03 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-04 09:06:04 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-04 09:06:04 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-04 09:06:04 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-04 09:06:04 | INFO     | Voice assistant started successfully
+2026-04-04 09:06:04 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-04 09:06:09 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-04-04 09:06:09 | INFO     | Processing command: 'hey assistant'
+2026-04-04 09:06:09 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.57, value: 0
+2026-04-04 09:06:09 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-04-04 09:06:18 | INFO     | COMMAND RECEIVED: 'how would you'
+2026-04-04 09:06:19 | INFO     | Processing command: 'how would you'
+2026-04-04 09:06:19 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.50, value: 0
+2026-04-04 09:06:19 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.50
+2026-04-04 09:06:22 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-04 09:06:22 | INFO     | Processing command: 'open chrome'
+2026-04-04 09:06:22 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 09:06:22 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:06:22 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:06:26 | INFO     | COMMAND RECEIVED: 'please chrome'
+2026-04-04 09:06:26 | INFO     | Processing command: 'please chrome'
+2026-04-04 09:06:26 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.75, value: 0
+2026-04-04 09:06:26 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:06:26 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:06:35 | INFO     | COMMAND RECEIVED: 'launch chrome'
+2026-04-04 09:06:35 | INFO     | Processing command: 'launch chrome'
+2026-04-04 09:06:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 09:06:35 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:06:35 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:06:42 | INFO     | COMMAND RECEIVED: 'launch chrome'
+2026-04-04 09:06:42 | INFO     | Processing command: 'launch chrome'
+2026-04-04 09:06:42 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 09:06:42 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:06:42 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:06:46 | INFO     | COMMAND RECEIVED: 'launch chrome'
+2026-04-04 09:06:46 | INFO     | Processing command: 'launch chrome'
+2026-04-04 09:06:46 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 09:06:46 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:06:46 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:06:54 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-04 09:06:54 | INFO     | Processing command: 'open file explorer'
+2026-04-04 09:06:54 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 09:06:54 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-04 09:06:54 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-04 09:07:02 | INFO     | COMMAND RECEIVED: 'browser file explorer'
+2026-04-04 09:07:02 | INFO     | Processing command: 'browser file explorer'
+2026-04-04 09:07:02 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.82, value: 0
+2026-04-04 09:07:02 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-04 09:07:02 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-04 09:07:13 | INFO     | COMMAND RECEIVED: 'manager'
+2026-04-04 09:07:14 | INFO     | Processing command: 'manager'
+2026-04-04 09:07:14 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.74, value: 0
+2026-04-04 09:07:14 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-04 09:07:14 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-04 09:07:20 | INFO     | COMMAND RECEIVED: 'open settings'
+2026-04-04 09:07:20 | INFO     | Processing command: 'open settings'
+2026-04-04 09:07:20 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 09:07:20 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-04-04 09:07:20 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-04-04 09:07:25 | INFO     | COMMAND RECEIVED: 'hello settings'
+2026-04-04 09:07:25 | INFO     | Processing command: 'hello settings'
+2026-04-04 09:07:25 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.74, value: 0
+2026-04-04 09:07:25 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-04-04 09:07:25 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-04-04 09:07:29 | INFO     | COMMAND RECEIVED: 'louder volume'
+2026-04-04 09:07:29 | INFO     | Processing command: 'louder volume'
+2026-04-04 09:07:29 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 09:07:29 | INFO     | Command executed successfully: volume.relative_increase
+2026-04-04 09:07:36 | INFO     | COMMAND RECEIVED: 'increase volume'
+2026-04-04 09:07:36 | INFO     | Processing command: 'increase volume'
+2026-04-04 09:07:36 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 09:07:36 | INFO     | Command executed successfully: volume.relative_increase
+2026-04-04 09:07:46 | INFO     | COMMAND RECEIVED: 'loudest volume'
+2026-04-04 09:07:46 | INFO     | Processing command: 'loudest volume'
+2026-04-04 09:07:46 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 09:07:46 | INFO     | Command executed successfully: volume.absolute_increase
+2026-04-04 09:07:56 | INFO     | COMMAND RECEIVED: 'mute volume'
+2026-04-04 09:07:56 | INFO     | Processing command: 'mute volume'
+2026-04-04 09:07:56 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 09:07:56 | INFO     | Command executed successfully: volume.absolute_decrease
+2026-04-04 09:08:02 | INFO     | COMMAND RECEIVED: 'volume fifty pc eight'
+2026-04-04 09:08:02 | INFO     | Processing command: 'volume fifty pc eight'
+2026-04-04 09:08:02 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-04-04 09:08:02 | INFO     | Command executed successfully: volume.set_value
+2026-04-04 09:08:08 | INFO     | COMMAND RECEIVED: 'volume sixty'
+2026-04-04 09:08:08 | INFO     | Processing command: 'volume sixty'
+2026-04-04 09:08:08 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 60
+2026-04-04 09:08:08 | INFO     | Command executed successfully: volume.set_value
+2026-04-04 09:08:13 | INFO     | COMMAND RECEIVED: 'brightness sixty'
+2026-04-04 09:08:13 | INFO     | Processing command: 'brightness sixty'
+2026-04-04 09:08:13 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 60
+2026-04-04 09:08:13 | INFO     | BRIGHTNESS CHANGE: 0% → 60% (action: set)
+2026-04-04 09:08:13 | INFO     | Command executed successfully: brightness.set_value
+2026-04-04 09:08:17 | INFO     | COMMAND RECEIVED: 'full brightness'
+2026-04-04 09:08:17 | INFO     | Processing command: 'full brightness'
+2026-04-04 09:08:17 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.88, value: 0
+2026-04-04 09:08:17 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-04-04 09:08:17 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-04-04 09:08:21 | INFO     | COMMAND RECEIVED: 'lower brightness'
+2026-04-04 09:08:21 | INFO     | Processing command: 'lower brightness'
+2026-04-04 09:08:21 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 0.84, value: 0
+2026-04-04 09:08:21 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-04-04 09:08:21 | INFO     | Command executed successfully: brightness.absolute_decrease
+2026-04-04 09:08:26 | INFO     | COMMAND RECEIVED: 'bright'
+2026-04-04 09:08:26 | INFO     | Processing command: 'bright'
+2026-04-04 09:08:26 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.86, value: 0
+2026-04-04 09:08:26 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-04-04 09:08:26 | INFO     | Command executed successfully: brightness.relative_increase
+2026-04-04 09:08:27 | INFO     | COMMAND RECEIVED: 'editor'
+2026-04-04 09:08:27 | INFO     | Processing command: 'editor'
+2026-04-04 09:08:27 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.71, value: 0
+2026-04-04 09:08:27 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 09:08:27 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 09:56:49 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-04 09:56:49 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-04 09:56:49 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-04 09:56:49 | INFO     | Detection threshold: 0.65
+2026-04-04 09:56:49 | INFO     | VoiceListener initialized
+2026-04-04 09:56:49 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 09:56:49 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-04 09:56:50 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-04 09:56:50 | INFO     | VolumeController initialized (pycaw)
+2026-04-04 09:56:50 | INFO     | Validated 5 application paths
+2026-04-04 09:56:50 | INFO     | ApplicationLauncher initialized
+2026-04-04 09:56:50 | INFO     | Loaded 5 application configurations
+2026-04-04 09:56:50 | INFO     | SystemController initialized
+2026-04-04 09:56:50 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-04 09:56:50 | INFO     | ==================================================
+2026-04-04 09:56:50 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-04 09:56:50 | INFO     | Start time: 2026-04-04 09:56:50
+2026-04-04 09:56:50 | INFO     | ==================================================
+2026-04-04 09:56:50 | INFO     | VoiceAssistant initialized
+2026-04-04 09:56:50 | INFO     | Starting voice assistant...
+2026-04-04 09:56:50 | INFO     | brightness controller: ✅ Supported
+2026-04-04 09:56:50 | INFO     | volume controller: ✅ Supported
+2026-04-04 09:56:50 | INFO     | app_launcher controller: ✅ Supported
+2026-04-04 09:56:50 | INFO     | system_control controller: ✅ Supported
+2026-04-04 09:56:50 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-04 09:56:50 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-04 09:56:51 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-04 09:56:51 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-04 09:56:51 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-04 09:56:51 | INFO     | Voice assistant started successfully
+2026-04-04 09:56:51 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-04 09:56:56 | INFO     | COMMAND RECEIVED: 'hey assistant'
+2026-04-04 09:56:56 | INFO     | Processing command: 'hey assistant'
+2026-04-04 09:56:56 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.57, value: 0
+2026-04-04 09:56:56 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.57
+2026-04-04 09:56:59 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-04 09:57:00 | INFO     | Processing command: 'open chrome'
+2026-04-04 09:57:00 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 09:57:00 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 09:57:00 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 09:57:04 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-04 09:57:04 | INFO     | Processing command: 'open file explorer'
+2026-04-04 09:57:04 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 09:57:04 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-04 09:57:04 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-04 09:57:08 | INFO     | COMMAND RECEIVED: 'open vs code'
+2026-04-04 09:57:08 | INFO     | Processing command: 'open vs code'
+2026-04-04 09:57:08 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 09:57:08 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 09:57:08 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 09:57:14 | INFO     | COMMAND RECEIVED: 'open settings'
+2026-04-04 09:57:14 | INFO     | Processing command: 'open settings'
+2026-04-04 09:57:14 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 09:57:14 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-04-04 09:57:14 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-04-04 09:57:18 | INFO     | COMMAND RECEIVED: 'open notepad'
+2026-04-04 09:57:18 | INFO     | Processing command: 'open notepad'
+2026-04-04 09:57:18 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 09:57:18 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-04 09:57:18 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-04 09:57:31 | INFO     | COMMAND RECEIVED: 'editor'
+2026-04-04 09:57:31 | INFO     | Processing command: 'editor'
+2026-04-04 09:57:31 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.71, value: 0
+2026-04-04 09:57:31 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 09:57:31 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 09:57:37 | INFO     | COMMAND RECEIVED: 'editor'
+2026-04-04 09:57:37 | INFO     | Processing command: 'editor'
+2026-04-04 09:57:37 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.71, value: 0
+2026-04-04 09:57:37 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 09:57:37 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 09:57:46 | INFO     | COMMAND RECEIVED: 'less'
+2026-04-04 09:57:46 | INFO     | Processing command: 'less'
+2026-04-04 09:57:46 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.55, value: 0
+2026-04-04 09:57:46 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-04-04 09:57:51 | INFO     | COMMAND RECEIVED: 'less'
+2026-04-04 09:57:51 | INFO     | Processing command: 'less'
+2026-04-04 09:57:51 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.55, value: 0
+2026-04-04 09:57:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.55
+2026-04-04 10:03:17 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-04 10:03:17 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-04 10:03:17 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-04 10:03:17 | INFO     | Detection threshold: 0.65
+2026-04-04 10:03:17 | INFO     | VoiceListener initialized
+2026-04-04 10:03:17 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 10:03:17 | INFO     | Loaded 20 total actions across 5 categories
+2026-04-04 10:03:17 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-04 10:03:17 | INFO     | VolumeController initialized (pycaw)
+2026-04-04 10:03:17 | INFO     | Validated 5 application paths
+2026-04-04 10:03:17 | INFO     | ApplicationLauncher initialized
+2026-04-04 10:03:17 | INFO     | Loaded 5 application configurations
+2026-04-04 10:03:17 | INFO     | SystemController initialized
+2026-04-04 10:03:17 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-04 10:03:17 | INFO     | ==================================================
+2026-04-04 10:03:17 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-04 10:03:17 | INFO     | Start time: 2026-04-04 10:03:17
+2026-04-04 10:03:17 | INFO     | ==================================================
+2026-04-04 10:03:17 | INFO     | VoiceAssistant initialized
+2026-04-04 10:03:17 | INFO     | Starting voice assistant...
+2026-04-04 10:03:17 | INFO     | brightness controller: ✅ Supported
+2026-04-04 10:03:17 | INFO     | volume controller: ✅ Supported
+2026-04-04 10:03:17 | INFO     | app_launcher controller: ✅ Supported
+2026-04-04 10:03:17 | INFO     | system_control controller: ✅ Supported
+2026-04-04 10:03:18 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-04 10:03:18 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-04 10:03:19 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-04 10:03:19 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-04 10:03:19 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-04 10:03:19 | INFO     | Voice assistant started successfully
+2026-04-04 10:03:19 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-04 10:03:23 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-04-04 10:03:23 | INFO     | Processing command: 'hello system'
+2026-04-04 10:03:23 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.67, value: 0
+2026-04-04 10:03:23 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.67
+2026-04-04 10:03:32 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-04 10:03:32 | INFO     | Processing command: 'open chrome'
+2026-04-04 10:03:32 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:03:32 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 10:03:32 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 10:03:35 | INFO     | COMMAND RECEIVED: 'browser chrome'
+2026-04-04 10:03:35 | INFO     | Processing command: 'browser chrome'
+2026-04-04 10:03:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.72, value: 0
+2026-04-04 10:03:35 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 10:03:35 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 10:03:41 | INFO     | COMMAND RECEIVED: 'launch chrome'
+2026-04-04 10:03:41 | INFO     | Processing command: 'launch chrome'
+2026-04-04 10:03:41 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:03:41 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 10:03:41 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 10:03:52 | INFO     | COMMAND RECEIVED: 'browser chrome'
+2026-04-04 10:03:52 | INFO     | Processing command: 'browser chrome'
+2026-04-04 10:03:52 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.72, value: 0
+2026-04-04 10:03:52 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 10:03:52 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-04 10:04:01 | INFO     | COMMAND RECEIVED: 'browser chrome'
+2026-04-04 10:04:01 | INFO     | Processing command: 'browser chrome'
+2026-04-04 10:04:01 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.72, value: 0
+2026-04-04 10:04:01 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-04 10:04:01 | INFO     | Command executed successfully: app_launcher.open_chrome

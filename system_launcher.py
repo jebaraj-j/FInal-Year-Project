@@ -9,6 +9,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.absolute()
 GESTURE_SCRIPT = PROJECT_ROOT / "gesture" / "vision_working.py"
 VOICE_SCRIPT = PROJECT_ROOT / "voice_assistant" / "main.py"
+VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe"
 
 class SystemController:
     def __init__(self):
@@ -17,6 +18,8 @@ class SystemController:
         self.voice_process = None
         self.last_switch_time = 0
         self.cooldown = 2.0  # 2 second cooldown
+        # Prefer project-local virtual environment interpreter when available.
+        self.python_exec = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
 
     def stop_all(self):
         """Safely terminate any running processes."""
@@ -46,7 +49,7 @@ class SystemController:
         env["PYTHONIOENCODING"] = "utf-8"
         
         self.gesture_process = subprocess.Popen(
-            [sys.executable, str(GESTURE_SCRIPT)],
+            [self.python_exec, str(GESTURE_SCRIPT)],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -68,7 +71,7 @@ class SystemController:
         env["PYTHONIOENCODING"] = "utf-8"
         
         self.voice_process = subprocess.Popen(
-            [sys.executable, str(VOICE_SCRIPT)],
+            [self.python_exec, str(VOICE_SCRIPT)],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,

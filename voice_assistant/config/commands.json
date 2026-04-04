@@ -202,6 +202,56 @@
         ],
         "app": "explorer",
         "description": "Open File Explorer"
+      },
+      "close_code": {
+        "patterns": [
+          "close vscode",
+          "vscode closing",
+          "vs code closing",
+          "visual studio closing"
+        ],
+        "app": "code",
+        "description": "Close VS Code"
+      },
+      "close_chrome": {
+        "patterns": [
+          "close chrome",
+          "chrome closing",
+          "google chrome closing",
+          "browser closing"
+        ],
+        "app": "chrome",
+        "description": "Close Chrome browser"
+      },
+      "close_notepad": {
+        "patterns": [
+          "close notepad",
+          "notepad closing",
+          "close note pad",
+          "note pad closing"
+        ],
+        "app": "notepad",
+        "description": "Close Notepad"
+      },
+      "close_settings": {
+        "patterns": [
+          "close settings",
+          "settings closing",
+          "close windows settings",
+          "windows settings closing"
+        ],
+        "app": "settings",
+        "description": "Close Settings"
+      },
+      "close_explorer": {
+        "patterns": [
+          "close file explorer",
+          "file explorer closing",
+          "explorer closing",
+          "files closing"
+        ],
+        "app": "explorer",
+        "description": "Close File Explorer"
       }
     }
   },

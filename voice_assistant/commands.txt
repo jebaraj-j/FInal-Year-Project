@@ -21,6 +21,13 @@
    • "open settings" / "open setting" / "open control panel"
    • "open explorer" / "open files" / "open file manager" / "open my computer"
 
+❌ APPLICATION CLOSE:
+   • VS Code: "close vscode" / "vscode closing" / "vs code closing" / "visual studio closing"
+   • Chrome: "close chrome" / "chrome closing" / "google chrome closing" / "browser closing"
+   • Notepad: "close notepad" / "notepad closing" / "close note pad" / "note pad closing"
+   • Settings: "close settings" / "settings closing" / "close windows settings" / "windows settings closing"
+   • File Explorer: "close file explorer" / "file explorer closing" / "explorer closing" / "files closing"
+
 ⚙️ SYSTEM CONTROL (PRODUCTION-READY COMMANDS):
    • "shutdown system now" / "shutdown" / "power off" / "turn off" / "shut down"
    • "restart system now" / "restart" / "reboot" / "reboot system"

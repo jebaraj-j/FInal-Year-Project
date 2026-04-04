@@ -272,6 +272,73 @@ class ApplicationLauncher:
         except Exception as e:
             self.logger.log_error("AppLaunchUnexpectedError", str(e), f"App: {app_name}")
             return False
+
+    def close_app(self, app_name: str) -> bool:
+        """
+        Close application process with validation and error handling.
+
+        Args:
+            app_name: Name of application to close
+
+        Returns:
+            True if close successful (or app is already not running), False otherwise
+        """
+        try:
+            if not app_name or not app_name.strip():
+                self.logger.log_error("AppCloseError", "Empty app name provided")
+                return False
+
+            app_name = app_name.strip().lower()
+            success = self._close_application(app_name)
+
+            if success:
+                self.logger.info(f"Closed {app_name}")
+            else:
+                self.logger.log_error("AppCloseFailed", f"Failed to close {app_name}")
+
+            return success
+        except Exception as e:
+            self.logger.log_error("AppCloseError", str(e), f"App: {app_name}")
+            return False
+
+    def _close_application(self, app_name: str) -> bool:
+        """
+        Close application using Windows taskkill.
+
+        Args:
+            app_name: Logical app name from config/action (e.g., code, chrome)
+
+        Returns:
+            True when process closes or is already not running, False otherwise
+        """
+        process_map = {
+            "chrome": "chrome.exe",
+            "code": "Code.exe",
+            "notepad": "notepad.exe",
+            "settings": "SystemSettings.exe",
+            "explorer": "explorer.exe",
+        }
+        process_name = process_map.get(app_name, f"{app_name}.exe")
+
+        try:
+            result = subprocess.run(
+                ["taskkill", "/IM", process_name, "/F"],
+                capture_output=True,
+                text=True,
+                timeout=6,
+            )
+
+            if result.returncode == 0:
+                return True
+
+            combined_output = f"{result.stdout}\n{result.stderr}".lower()
+            if "not found" in combined_output or "no running instance" in combined_output:
+                return True
+
+            return False
+        except Exception as e:
+            self.logger.log_error("AppCloseUnexpectedError", str(e), f"App: {app_name}")
+            return False
     
     def execute_action(self, action: str, value: Optional[Any] = None) -> bool:
         """
@@ -287,9 +354,12 @@ class ApplicationLauncher:
         # Extract app name from action (e.g., "open_chrome" -> "chrome")
         if action.startswith("open_"):
             app_name = action.replace("open_", "")
-        else:
-            app_name = action
-            
+            return self.open_app(app_name)
+        if action.startswith("close_"):
+            app_name = action.replace("close_", "")
+            return self.close_app(app_name)
+
+        app_name = action
         return self.open_app(app_name)
     
     def get_available_apps(self) -> Dict[str, str]:

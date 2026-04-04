@@ -1,7 +1,7 @@
 # Core Dependencies for Gesture & Voice Control System
 
 # Computer Vision & Gesture Recognition
-mediapipe>=0.10.0
+mediapipe==0.10.14
 opencv-python>=4.8.0
 numpy>=1.24.0
 pyautogui>=0.9.54
