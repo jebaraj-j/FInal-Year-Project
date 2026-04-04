@@ -5,3 +5,649 @@
 2026-04-04 10:09:02 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
 2026-04-04 10:09:02 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
 2026-04-04 10:09:02 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 10:35:57 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.88, value: 0
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.80, value: 0
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.67, value: 0
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:57 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:35:59 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-04 10:35:59 | INFO     | WakeWordDetector initialized with 3 wake words
+2026-04-04 10:35:59 | INFO     | Wake words: ['hey assistant', 'ok assistant', 'hello system']
+2026-04-04 10:35:59 | INFO     | Detection threshold: 0.65
+2026-04-04 10:35:59 | INFO     | VoiceListener initialized
+2026-04-04 10:35:59 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 10:35:59 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-04 10:35:59 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-04 10:35:59 | INFO     | VolumeController initialized (pycaw)
+2026-04-04 10:35:59 | INFO     | Validated 5 application paths
+2026-04-04 10:35:59 | INFO     | ApplicationLauncher initialized
+2026-04-04 10:35:59 | INFO     | Loaded 5 application configurations
+2026-04-04 10:35:59 | INFO     | SystemController initialized
+2026-04-04 10:35:59 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-04 10:35:59 | INFO     | ==================================================
+2026-04-04 10:35:59 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-04 10:35:59 | INFO     | Start time: 2026-04-04 10:35:59
+2026-04-04 10:35:59 | INFO     | ==================================================
+2026-04-04 10:35:59 | INFO     | VoiceAssistant initialized
+2026-04-04 10:36:35 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 10:36:35 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.88, value: 0
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00, value: 0
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.80, value: 0
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.67, value: 0
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:36:35 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 10:38:27 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.88, value: 0
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 55
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:27 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00, value: 0
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.80, value: 0
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_code, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.67, value: 0
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00

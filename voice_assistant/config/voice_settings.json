@@ -17,9 +17,11 @@
     "max_retry_attempts": 3
   },
   "wake_words": [
-    "hey assistant",
-    "ok assistant", 
-    "hello system"
+    "hey nora",
+    "ok nora",
+    "hi nora",
+    "hello nora",
+    "nora on"
   ],
   "noise_words": [
     "please",

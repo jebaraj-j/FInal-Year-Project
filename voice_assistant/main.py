@@ -12,6 +12,7 @@ from typing import Dict, Any
 
 # Add project root to path for imports
 sys.path.append(str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent))
 
 from speech.voice_listener import VoiceListener
 from nlp.unified_intent_engine import UnifiedIntentEngine
@@ -20,6 +21,13 @@ from volume_control.volume_controller import VolumeController
 from app_control.app_launcher import ApplicationLauncher
 from system_control.system_controller import SystemController
 from utils.logger import get_logger
+
+try:
+    from extensions.voice_shortcut_commands import check_and_execute as shortcut_check
+    from extensions.voice_shortcut_commands import ADDITIONAL_PHRASES as SHORTCUT_PHRASES
+except Exception:
+    shortcut_check = None
+    SHORTCUT_PHRASES = []
 
 
 class VoiceAssistant:
@@ -44,6 +52,7 @@ class VoiceAssistant:
             self._load_commands_config(),
             self.config["noise_words"]
         )
+        self.command_confidence_threshold = self.config["recognition"].get("command_confidence_threshold", 0.7)
         
         # Initialize all controllers
         self.brightness_controller = BrightnessController()
@@ -142,6 +151,14 @@ class VoiceAssistant:
         grammar.add("switch to gesture")
         grammar.add("switch gesture")
         grammar.add("switch mode")
+
+        # 4.5 Add additional shortcut phrases (modular extension layer)
+        for phrase in SHORTCUT_PHRASES:
+            p = phrase.lower().strip()
+            if p:
+                grammar.add(p)
+                for word in p.split():
+                    grammar.add(word)
         
         # 5. Add common noise/pre-filler words
         for noise in self.config.get("noise_words", []):
@@ -253,6 +270,13 @@ class VoiceAssistant:
             self._display_voice_help()
             return
 
+        # Additional shortcut command layer (kept modular and non-invasive)
+        if shortcut_check:
+            handled, msg = shortcut_check(text)
+            if handled:
+                self.logger.info(f"Shortcut command executed: {msg}")
+                return
+
         try:
             # For debugging, log what we heard even if no intent is found later
             # This helps the user see that the microphone IS working
@@ -261,7 +285,7 @@ class VoiceAssistant:
             # Parse intent
             intent_result = self.intent_engine.parse_intent(command_text)
             
-            if intent_result["confidence"] < 0.7:
+            if intent_result["confidence"] < self.command_confidence_threshold:
                 self.logger.log_audio_event("Low confidence command", f"Confidence: {intent_result['confidence']:.2f}")
                 return
             
@@ -392,7 +416,7 @@ class VoiceAssistant:
         
         for phrase in test_wake_phrases:
             detected, wake_word, confidence = wake_detector.detect_wake_word(phrase)
-            status = "✓" if detected else "✗"
+            status = "PASS" if detected else "FAIL"
             print(f"  {status} '{phrase}' -> {wake_word} ({confidence:.2f})")
         
         print("\nTest mode completed.")

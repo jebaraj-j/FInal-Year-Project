@@ -329,7 +329,7 @@ class AudioStreamManager:
         max_possible = np.iinfo(np.int16).max
         return min(rms / max_possible, 1.0)
     
-    def cleanup(self) -> None:
+    def cleanup(self, log_event: bool = True) -> None:
         """Clean up audio resources."""
         try:
             if self.stream:
@@ -343,11 +343,17 @@ class AudioStreamManager:
                 self.audio.terminate()
                 self.audio = None
                 
-            self.logger.log_audio_event("Audio resources cleaned up")
+            if log_event:
+                self.logger.log_audio_event("Audio resources cleaned up")
             
         except Exception as e:
-            self.logger.log_error("AudioCleanupError", str(e))
+            if log_event:
+                self.logger.log_error("AudioCleanupError", str(e))
     
     def __del__(self):
         """Destructor to ensure cleanup."""
-        self.cleanup()
+        try:
+            # Avoid logger usage during interpreter teardown.
+            self.cleanup(log_event=False)
+        except Exception:
+            pass

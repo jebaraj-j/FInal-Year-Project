@@ -12,8 +12,22 @@ from typing import Callable, Tuple
 import pyautogui
 
 
+NOISE_WORDS = {
+    "assistant",
+    "system",
+    "please",
+    "now",
+    "quickly",
+}
+
+
 def _normalize(text: str) -> str:
-    return " ".join((text or "").lower().split())
+    normalized = " ".join((text or "").lower().split())
+    if not normalized:
+        return ""
+
+    tokens = [t for t in normalized.split() if t not in NOISE_WORDS]
+    return " ".join(tokens).strip()
 
 
 def _press(key: str) -> None:
@@ -117,6 +131,8 @@ _EXACT_COMMANDS: dict[str, tuple[Callable[[], None], str]] = {
     "previous": (_left, "Arrow left"),
 }
 
+ADDITIONAL_PHRASES = [item[0] for item in _PRIORITY_COMMANDS] + list(_EXACT_COMMANDS.keys())
+
 
 def check_and_execute(command_text: str) -> Tuple[bool, str]:
     """
@@ -144,4 +160,3 @@ def check_and_execute(command_text: str) -> Tuple[bool, str]:
         return False, ""
     except Exception as exc:
         return True, f"Shortcut command failed: {exc}"
-
