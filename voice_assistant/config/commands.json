@@ -165,16 +165,6 @@
         "app": "chrome",
         "description": "Open Chrome browser"
       },
-      "open_code": {
-        "patterns": [
-          "open code", "launch code", "start code", "open vscode",
-          "open corridor", "open go", "open visual studio",
-          "open editor", "launch code editor", "run code",
-          "vs code", "code editor", "visual studio code"
-        ],
-        "app": "code",
-        "description": "Open VS Code"
-      },
       "open_notepad": {
         "patterns": [
           "open notepad", "launch notepad", "start notepad", 
@@ -202,16 +192,6 @@
         ],
         "app": "explorer",
         "description": "Open File Explorer"
-      },
-      "close_code": {
-        "patterns": [
-          "close vscode",
-          "vscode closing",
-          "vs code closing",
-          "visual studio closing"
-        ],
-        "app": "code",
-        "description": "Close VS Code"
       },
       "close_chrome": {
         "patterns": [

@@ -4,11 +4,12 @@ Coordinates voice listener, unified intent engine, and all controllers.
 """
 
 import json
+import re
 import signal
 import sys
 import time
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional, Set
 
 # Add project root to path for imports
 sys.path.append(str(Path(__file__).parent))
@@ -40,6 +41,7 @@ class VoiceAssistant:
         """Initialize voice assistant."""
         # Load configuration
         self.config = self._load_config()
+        self.commands_config = self._load_commands_config()
         
         # Initialize logger
         log_level = self.config["logging"]["level"]
@@ -49,10 +51,21 @@ class VoiceAssistant:
         # Initialize components
         self.voice_listener = VoiceListener(self.config)
         self.intent_engine = UnifiedIntentEngine(
-            self._load_commands_config(),
+            self.commands_config,
             self.config["noise_words"]
         )
         self.command_confidence_threshold = self.config["recognition"].get("command_confidence_threshold", 0.7)
+        # Safety-focused thresholds to reduce unintended actions.
+        self.base_command_threshold = max(self.command_confidence_threshold, 0.55)
+        self.app_command_threshold = 0.62
+        self.system_command_threshold = 0.78
+
+        # Confirmation workflow for dangerous system actions.
+        self.pending_system_action: Optional[str] = None
+        self.pending_confirmation_started_at = 0.0
+        self.confirmation_timeout_sec = 8.0
+        self.confirm_yes_words = {"yes", "yeah", "yep", "ok", "okay", "confirm", "do it"}
+        self.confirm_no_words = {"no", "nope", "cancel", "stop", "not now", "dont", "don't"}
         
         # Initialize all controllers
         self.brightness_controller = BrightnessController()
@@ -67,6 +80,7 @@ class VoiceAssistant:
             "app_launcher": self.app_controller,
             "system_control": self.system_controller
         }
+        self.app_action_markers = self._build_app_action_markers()
         
         # Runtime state
         self.is_running = False
@@ -77,6 +91,110 @@ class VoiceAssistant:
         
         self.logger.log_system_start()
         self.logger.info("VoiceAssistant initialized")
+
+    def _normalize_text(self, text: str) -> str:
+        """Normalize recognized text for robust comparisons."""
+        return " ".join((text or "").lower().split())
+
+    def _extract_tokens(self, text: str) -> Set[str]:
+        """Extract lowercase alphanumeric tokens from text."""
+        return {tok for tok in re.findall(r"[a-z0-9]+", (text or "").lower()) if tok}
+
+    def _build_app_action_markers(self) -> Dict[str, Set[str]]:
+        """
+        Build action-specific marker tokens from app command patterns.
+        Used to ignore ambiguous commands like just "open".
+        """
+        markers: Dict[str, Set[str]] = {}
+        generic_words = {"open", "launch", "start", "run", "close", "closing"}
+        app_actions = self.commands_config.get("app_launcher", {}).get("actions", {})
+
+        for action_name, action_info in app_actions.items():
+            action_markers: Set[str] = set()
+            for pattern in action_info.get("patterns", []):
+                for token in self._extract_tokens(pattern):
+                    if token in generic_words:
+                        continue
+                    if len(token) <= 2:
+                        continue
+                    action_markers.add(token)
+            markers[action_name] = action_markers
+        return markers
+
+    def _is_app_action_explicit(self, text: str, action: str) -> bool:
+        """Return True when spoken text clearly mentions the target app."""
+        text_tokens = self._extract_tokens(text)
+        action_markers = self.app_action_markers.get(action, set())
+        return bool(text_tokens & action_markers)
+
+    def _is_system_action_explicit(self, text: str, action: str) -> bool:
+        """Require explicit action wording for dangerous system controls."""
+        t = f" {self._normalize_text(text)} "
+        phrase_map = {
+            "shutdown": (" shutdown ", " shut down ", " power off ", " turn off ", " computer off ", " pc off ", " system off "),
+            "restart": (" restart ", " reboot ", " system restart ", " restart pc ", " restart computer "),
+            "sleep": (" sleep ", " hibernate ", " sleep mode ", " sleep system ", " sleep computer "),
+            "lock": (" lock ", " lock screen ", " lock system ", " lock computer ", " lock windows "),
+        }
+        return any(p in t for p in phrase_map.get(action, ()))
+
+    def _start_system_confirmation(self, action: str) -> None:
+        """Start explicit YES/NO confirmation for system actions."""
+        action_name = {
+            "shutdown": "shutdown",
+            "restart": "restart",
+            "sleep": "sleep",
+            "lock": "lock screen",
+        }.get(action, action)
+        self.pending_system_action = action
+        self.pending_confirmation_started_at = time.time()
+        print(f"\nWARNING: Confirm {action_name}. Say YES to continue or NO to cancel.")
+        self.logger.info(f"System confirmation requested: {action}")
+
+    def _handle_pending_confirmation(self, text: str) -> bool:
+        """
+        Process pending confirmation.
+        Returns True if current command is fully handled by confirmation flow.
+        """
+        if not self.pending_system_action:
+            return False
+
+        # Timeout check
+        if time.time() - self.pending_confirmation_started_at > self.confirmation_timeout_sec:
+            expired_action = self.pending_system_action
+            self.pending_system_action = None
+            print("Confirmation timed out. Command cancelled.")
+            self.logger.info(f"System confirmation timeout: {expired_action}")
+            return False
+
+        normalized = self._normalize_text(text)
+        yes = any(normalized == w or normalized.startswith(f"{w} ") for w in self.confirm_yes_words)
+        no = any(normalized == w or normalized.startswith(f"{w} ") for w in self.confirm_no_words)
+
+        if yes:
+            action = self.pending_system_action
+            self.pending_system_action = None
+            success = self.system_controller.execute_action(action, require_confirmation=False)
+            if success:
+                self.logger.info(f"Confirmed system command executed: {action}")
+                print(f"Confirmed: {action}")
+            else:
+                self.logger.log_error("CommandExecutionError", f"Failed confirmed system action: {action}")
+                print(f"Failed: {action}")
+            return True
+
+        if no:
+            cancelled_action = self.pending_system_action
+            self.pending_system_action = None
+            print("Command cancelled.")
+            self.logger.info(f"System confirmation cancelled: {cancelled_action}")
+            return True
+
+        # If user said a different command, cancel the pending dangerous action and continue.
+        cancelled_action = self.pending_system_action
+        self.pending_system_action = None
+        self.logger.info(f"System confirmation auto-cancelled due to new input: {cancelled_action}")
+        return False
     
     def _load_config(self) -> Dict[str, Any]:
         """
@@ -254,7 +372,11 @@ class VoiceAssistant:
     
     def _process_command(self, command_text: str) -> None:
         """Process recognized voice command."""
-        text = command_text.lower()
+        text = self._normalize_text(command_text)
+
+        # Pending dangerous-action confirmation has highest priority.
+        if self._handle_pending_confirmation(text):
+            return
         
         # Detect mode switch with more flexibility
         if ("switch" in text and "gesture" in text) or ("switch" in text and "mode" in text):
@@ -284,13 +406,10 @@ class VoiceAssistant:
 
             # Parse intent
             intent_result = self.intent_engine.parse_intent(command_text)
-            
-            if intent_result["confidence"] < self.command_confidence_threshold:
-                self.logger.log_audio_event("Low confidence command", f"Confidence: {intent_result['confidence']:.2f}")
-                return
-            
+
             category = intent_result["category"]
             action = intent_result["action"]
+            confidence = intent_result["confidence"]
             
             if not category or not action:
                 self.logger.log_audio_event("No action detected", f"Command: {command_text}")
@@ -300,14 +419,50 @@ class VoiceAssistant:
                 self._display_voice_help()
                 return
 
+            # Category-aware confidence thresholding.
+            min_threshold = self.base_command_threshold
+            if category == "app_launcher":
+                min_threshold = max(min_threshold, self.app_command_threshold)
+            elif category == "system_control":
+                min_threshold = max(min_threshold, self.system_command_threshold)
+
+            if confidence < min_threshold:
+                self.logger.log_audio_event(
+                    "Low confidence command",
+                    f"Category: {category}, Action: {action}, Confidence: {confidence:.2f}, Required: {min_threshold:.2f}",
+                )
+                return
+
+            # Prevent ambiguous app launches (e.g., "open" accidentally opening Notepad).
+            if category == "app_launcher" and not self._is_app_action_explicit(text, action):
+                self.logger.log_audio_event(
+                    "Ignored ambiguous app command",
+                    f"Command: {command_text}, Action: {action}",
+                )
+                return
+
+            # Dangerous system commands require explicit wording + YES confirmation.
+            if category == "system_control":
+                if not self._is_system_action_explicit(text, action):
+                    self.logger.log_audio_event(
+                        "Ignored ambiguous system command",
+                        f"Command: {command_text}, Action: {action}",
+                    )
+                    return
+                self._start_system_confirmation(action)
+                return
+
             # Get appropriate controller
             controller = self.controllers.get(category)
             if not controller:
                 self.logger.log_error("ControllerError", f"No controller found for category: {category}")
                 return
             
-            # Execute action
-            success = controller.execute_action(action, intent_result["value"])
+            # Execute action with category-safe signatures.
+            if category == "app_launcher":
+                success = controller.execute_action(action)
+            else:
+                success = controller.execute_action(action, intent_result["value"])
             
             if success:
                 self.logger.info(f"Command executed successfully: {category}.{action}")
@@ -380,7 +535,6 @@ class VoiceAssistant:
             "set volume 50",
             # App commands
             "open chrome",
-            "open code",
             "open notepad",
             # System commands
             "shutdown system now",

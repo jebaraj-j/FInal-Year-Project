@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Callable, Optional, Tuple
 
+import ctypes
 import pyautogui
 
 
@@ -146,9 +147,49 @@ def _down() -> None:
     _press("down")
 
 
+def _enter() -> None:
+    _press("enter")
+
+
+def _send_media_key(vk_code: int) -> bool:
+    try:
+        user32 = ctypes.windll.user32
+        user32.keybd_event(vk_code, 0, 0, 0)
+        user32.keybd_event(vk_code, 0, 0x0002, 0)
+        return True
+    except Exception:
+        return False
+
+
+def _play_pause() -> None:
+    if not _send_media_key(0xB3):
+        try:
+            _press("playpause")
+        except Exception:
+            pass
+
+
+def _next_track() -> None:
+    if not _send_media_key(0xB0):
+        try:
+            _press("nexttrack")
+        except Exception:
+            pass
+
+
+def _previous_track() -> None:
+    if not _send_media_key(0xB1):
+        try:
+            _press("prevtrack")
+        except Exception:
+            pass
+
+
 # Priority order matters:
 # Specific phrases must be checked before generic words like "next"/"previous".
 _PRIORITY_COMMANDS: list[tuple[str, Callable[[], Optional[str]], str]] = [
+    ("next track", _next_track, "Next track"),
+    ("previous track", _previous_track, "Previous track"),
     ("next image", _right, "Next image"),
     ("previous image", _left, "Previous image"),
     ("next page", _next_page, "Next page"),
@@ -157,6 +198,10 @@ _PRIORITY_COMMANDS: list[tuple[str, Callable[[], Optional[str]], str]] = [
 
 _EXACT_COMMANDS: dict[str, tuple[Callable[[], Optional[str]], str]] = {
     "screenshot": (_screenshot, "Screenshot"),
+    "open": (_enter, "Enter"),
+    "enter": (_enter, "Enter"),
+    "open selected": (_enter, "Enter"),
+    "open selected item": (_enter, "Enter"),
     "open file": (_open_file, "Open file"),
     "close file": (_close_file, "Close file"),
     "close": (_close_window, "Close window"),
@@ -172,6 +217,10 @@ _EXACT_COMMANDS: dict[str, tuple[Callable[[], Optional[str]], str]] = {
     "right": (_right, "Arrow right"),
     "next": (_right, "Arrow right"),
     "previous": (_left, "Arrow left"),
+    "play": (_play_pause, "Play/Pause"),
+    "pause": (_play_pause, "Play/Pause"),
+    "play video": (_play_pause, "Play/Pause"),
+    "pause video": (_play_pause, "Play/Pause"),
 }
 
 ADDITIONAL_PHRASES = [item[0] for item in _PRIORITY_COMMANDS] + list(_EXACT_COMMANDS.keys())
