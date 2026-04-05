@@ -88,6 +88,13 @@ class VoiceWorker(QThread):
             from voice_assistant.main import VoiceAssistant
 
             self._assistant = VoiceAssistant()
+            # Ensure VOSK model path resolves correctly in UI mode.
+            model_path = self._assistant.config.get("recognition", {}).get("model_path", "")
+            if model_path and not Path(model_path).is_absolute():
+                abs_model_path = (va_dir / model_path).resolve()
+                self._assistant.config["recognition"]["model_path"] = str(abs_model_path)
+                self._assistant.voice_listener.config["recognition"]["model_path"] = str(abs_model_path)
+
             self.action_logged.emit("Voice Mode started - say a wake word.")
 
             # Extend grammar at runtime with additional shortcut phrases.
@@ -132,6 +139,10 @@ class VoiceWorker(QThread):
 
             # Start listening
             self._assistant.start()
+            if not getattr(self._assistant, "is_running", False):
+                msg = "Voice listener failed to start. Check microphone device and audio settings."
+                self.error_occurred.emit(msg)
+                self.action_logged.emit(f"Voice Error: {msg}")
 
         except Exception as e:
             self.error_occurred.emit(str(e))

@@ -1,75 +1,185 @@
-"""
-ui/help_dialog.py — Professional Help dialog with gesture reference and voice commands.
-"""
+﻿"""ui/help_dialog.py - Help dialog with gesture reference and section-wise voice command browser."""
+
+from pathlib import Path
+import json
+from collections import OrderedDict
+from typing import List, Tuple, Dict
 
 from PyQt5.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QTabWidget, QWidget,
-    QLabel, QScrollArea, QFrame, QTableWidget, QTableWidgetItem,
-    QPushButton, QHeaderView,
+    QDialog,
+    QVBoxLayout,
+    QHBoxLayout,
+    QTabWidget,
+    QWidget,
+    QLabel,
+    QScrollArea,
+    QFrame,
+    QTableWidget,
+    QTableWidgetItem,
+    QPushButton,
+    QHeaderView,
+    QToolBox,
 )
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui  import QFont, QColor
+from PyQt5.QtGui import QFont
 
 from ui.styles import MAIN_STYLE
 
 
-# ── Gesture data ─────────────────────────────────────────────────
 RIGHT_HAND_GESTURES = [
-    ("Index finger only extended",        "🟢 Green line",  "Move cursor"),
-    ("Mild pinch: Thumb + Index (small gap)", "🟠 Orange line", "Single Click"),
-    ("Quick tight pinch + release (<0.25s)", "🔴 Red line",   "Double Click"),
-    ("Hold tight pinch (>0.35s)",         "🔴 Red line",   "Drag & Drop"),
-    ("Thumb + Middle finger pinch",        "—",             "Right Click"),
-    ("Index + Middle extended, move up",   "—",             "Scroll Up"),
-    ("Index + Middle extended, move down", "—",             "Scroll Down"),
+    ("Index finger only extended", "Green line", "Move cursor"),
+    ("Mild pinch: thumb + index", "Orange line", "Single click"),
+    ("Quick tight pinch release (<0.25s)", "Red line", "Double click"),
+    ("Hold tight pinch (>0.35s)", "Red line", "Drag and drop"),
+    (
+        "Thumb + middle pinch (hold 0.7s) with index/ring/pinky extended",
+        "Gesture confirm",
+        "Right click",
+    ),
+    ("Index + middle extended, move hand up", "Scroll mode", "Scroll up"),
+    ("Index + middle extended, move hand down", "Scroll mode", "Scroll down"),
 ]
 
 LEFT_HAND_GESTURES = [
-    ("Thumb + Index pinch",                     "Immediate", "Alt+Tab (Task Switch)"),
-    ("Index finger only — hold 1s",             "1 s hold",  "Copy  (Ctrl+C)"),
-    ("Index + Middle fingers — hold 1s",        "1 s hold",  "Paste (Ctrl+V)"),
-    ("Closed Fist (all fingers folded) — hold 1s", "1 s hold", "Minimize Window"),
-    ("Open Palm (all fingers spread) — hold 1s",   "1 s hold", "Maximize Window"),
-    ("Thumb + Index + Middle — hold 1.5s",      "1.5 s hold","Switch to Voice Mode"),
+    (
+        "Thumb-index pinch + middle/ring/pinky extended (hold 1s)",
+        "1s hold",
+        "Alt+Tab switch",
+    ),
+    ("Pinky only extended (hold 1s)", "1s hold", "Copy (Ctrl+C)"),
+    ("Ring + pinky extended (hold 1s)", "1s hold", "Paste (Ctrl+V)"),
+    ("Thumb only extended (hold 1s)", "1s hold", "Minimize window"),
+    ("Open palm (all fingers extended, hold 1s)", "1s hold", "Maximize window"),
+    (
+        "Thumb + index + middle extended, ring+pinky closed (hold 1.5s)",
+        "1.5s hold",
+        "Switch to voice mode",
+    ),
 ]
 
-VOICE_COMMANDS = [
-    # Wake words
-    ("Wake Words", "hey assistant / ok assistant / hello system", "Activate voice mode"),
-    # Brightness
-    ("Brightness", "brightness up / brightness down",         "Adjust screen brightness"),
-    ("Brightness", "set brightness 70",                       "Set to specific value"),
-    ("Brightness", "max brightness / min brightness",         "Max / Min brightness"),
-    # Volume
-    ("Volume",     "volume up / volume down",                 "Adjust volume"),
-    ("Volume",     "set volume 50",                           "Set to specific value"),
-    ("Volume",     "mute / max volume",                       "Mute / Max volume"),
-    # Apps — open
-    ("Open Apps",  "open chrome / open browser",              "Launch Chrome"),
-    ("Open Apps",  "open notepad / open text editor",         "Launch Notepad"),
-    ("Open Apps",  "open code / open vscode",                 "Launch VS Code"),
-    ("Open Apps",  "open settings / open explorer",           "Launch Settings / Explorer"),
-    # Apps — close (NEW)
-    ("Close Apps ✨", "chrome closing",                       "Close Google Chrome"),
-    ("Close Apps ✨", "vscode closing / visual studio closing","Close VS Code"),
-    ("Close Apps ✨", "file explorer closing / explorer closing","Close File Explorer"),
-    ("Close Apps ✨", "notepad closing",                       "Close Notepad"),
-    # System
-    ("System",     "shutdown / power off",                    "Shut down PC"),
-    ("System",     "restart / reboot",                        "Restart PC"),
-    ("System",     "sleep / hibernate",                       "Sleep mode"),
-    ("System",     "lock / lock screen",                      "Lock screen"),
-    # Mode switch
-    ("Mode",       "switch to gesture / switch mode",         "Return to Gesture Mode"),
-]
+
+def _load_json(path: Path) -> dict:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _pretty_category(name: str) -> str:
+    mapping = {
+        "brightness": "Brightness",
+        "volume": "Volume",
+        "app_launcher": "Applications",
+        "system_control": "System",
+        "help": "Help",
+        "wake_word": "Wake Words",
+        "mode": "Mode",
+        "shortcut": "Shortcuts",
+    }
+    return mapping.get(name, name.replace("_", " ").title())
+
+
+def _shortcut_result(phrase: str) -> str:
+    p = phrase.strip().lower()
+
+    if p in {"open", "enter", "open selected", "open selected item"}:
+        return "Press Enter"
+    if p == "screenshot":
+        return "Capture full screenshot"
+    if p == "open file":
+        return "Open file dialog"
+    if p == "close file":
+        return "Close current file/tab"
+    if p == "close":
+        return "Close current window"
+    if p == "minimize":
+        return "Minimize window"
+    if p == "maximize":
+        return "Maximize window"
+    if p == "zoom in":
+        return "Zoom in"
+    if p == "zoom out":
+        return "Zoom out"
+    if p in {"next image", "next page", "next"}:
+        return "Navigate forward"
+    if p in {"previous image", "previous page", "previous"}:
+        return "Navigate backward"
+    if p in {"up", "down", "left", "right"}:
+        return "Arrow key navigation"
+    if p in {"scroll up", "scroll down"}:
+        return "Scrolling"
+    if p in {"play", "pause", "play video", "pause video"}:
+        return "Play or pause media"
+    if p == "next track":
+        return "Next media track"
+    if p == "previous track":
+        return "Previous media track"
+
+    return "Execute shortcut"
+
+
+def _load_voice_commands() -> List[Tuple[str, str, str]]:
+    root = Path(__file__).resolve().parent.parent
+    commands_cfg = _load_json(root / "voice_assistant" / "config" / "commands.json")
+    settings_cfg = _load_json(root / "voice_assistant" / "config" / "voice_settings.json")
+
+    rows: List[Tuple[str, str, str]] = []
+    seen = set()
+
+    def add_row(category: str, phrase: str, result: str) -> None:
+        phrase = (phrase or "").strip().lower()
+        result = (result or "").strip()
+        if not phrase:
+            return
+        key = (category, phrase, result)
+        if key in seen:
+            return
+        seen.add(key)
+        rows.append((category, phrase, result))
+
+    for ww in settings_cfg.get("wake_words", []):
+        add_row("Wake Words", str(ww), "Activate voice assistant")
+
+    for cat_name, cat_cfg in commands_cfg.items():
+        actions = cat_cfg.get("actions", {}) if isinstance(cat_cfg, dict) else {}
+        category = _pretty_category(cat_name)
+
+        for _, action_cfg in actions.items():
+            desc = str(action_cfg.get("description", "Execute action"))
+            for phrase in action_cfg.get("patterns", []):
+                add_row(category, str(phrase), desc)
+
+    add_row("Mode", "switch to gesture", "Switch to gesture mode")
+    add_row("Mode", "switch gesture", "Switch to gesture mode")
+    add_row("Mode", "switch mode", "Switch to gesture mode")
+
+    try:
+        from extensions.voice_shortcut_commands import ADDITIONAL_PHRASES
+    except Exception:
+        ADDITIONAL_PHRASES = []
+
+    for phrase in ADDITIONAL_PHRASES:
+        add_row("Shortcuts", str(phrase), _shortcut_result(str(phrase)))
+
+    return rows
+
+
+def _group_voice_commands(rows: List[Tuple[str, str, str]]) -> Dict[str, List[Tuple[str, str]]]:
+    grouped: OrderedDict[str, List[Tuple[str, str]]] = OrderedDict()
+    for category, phrase, result in rows:
+        grouped.setdefault(category, []).append((phrase, result))
+    return grouped
 
 
 class HelpDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("GestureVox — Help & Reference")
-        self.setMinimumSize(820, 600)
+        self.voice_commands = _load_voice_commands()
+        self.setWindowTitle("GestureVox - Help and Reference")
+        self.setMinimumSize(1200, 760)
         self.setStyleSheet(MAIN_STYLE)
+        self.setWindowState(self.windowState() | Qt.WindowMaximized)
         self._build_ui()
 
     def _build_ui(self):
@@ -77,31 +187,27 @@ class HelpDialog(QDialog):
         lay.setContentsMargins(16, 16, 16, 12)
         lay.setSpacing(10)
 
-        # Title
-        title = QLabel("📖  GestureVox — Gesture & Voice Reference")
+        title = QLabel("GestureVox - Gesture and Voice Reference")
         title.setFont(QFont("Segoe UI", 14, QFont.Bold))
         title.setStyleSheet("color:#1565C0;")
         lay.addWidget(title)
 
-        # Tabs
         tabs = QTabWidget()
-        tabs.addTab(self._right_hand_tab(), "✋  Right Hand")
-        tabs.addTab(self._left_hand_tab(),  "🤚  Left Hand")
-        tabs.addTab(self._voice_tab(),      "🎙  Voice Commands")
-        tabs.addTab(self._tips_tab(),       "💡  Tips")
-        lay.addWidget(tabs)
+        tabs.addTab(self._right_hand_tab(), "Right Hand")
+        tabs.addTab(self._left_hand_tab(), "Left Hand")
+        tabs.addTab(self._voice_tab(), "Voice Commands")
+        tabs.addTab(self._tips_tab(), "Tips")
+        lay.addWidget(tabs, 1)
 
-        # Close button
-        close_btn = QPushButton("✕  Close")
+        close_btn = QPushButton("Close")
         close_btn.setObjectName("btn_stop")
-        close_btn.setFixedWidth(120)
+        close_btn.setFixedWidth(140)
         close_btn.clicked.connect(self.accept)
         row = QHBoxLayout()
         row.addStretch()
         row.addWidget(close_btn)
         lay.addLayout(row)
 
-    # ── Tab builders ─────────────────────────────────────────────
     def _right_hand_tab(self):
         w = QScrollArea()
         w.setWidgetResizable(True)
@@ -110,21 +216,18 @@ class HelpDialog(QDialog):
         lay.setSpacing(8)
 
         intro = QLabel(
-            "Right hand controls the <b>mouse cursor</b>. "
-            "Extend only your <b>index finger</b> to enter cursor mode.\n"
-            "The line between thumb and index finger changes colour to show pinch state."
+            "Right hand drives pointer and click control. Keep hand visible and steady for best recognition."
         )
         intro.setWordWrap(True)
         intro.setStyleSheet("color:#37474F; font-size:12px; padding:4px;")
         lay.addWidget(intro)
 
-        # Visual pinch guide
-        lay.addWidget(self._pinch_guide())
-
-        lay.addWidget(self._make_table(
-            ["Gesture / Hand Shape", "Visual Indicator", "Action"],
-            RIGHT_HAND_GESTURES,
-        ))
+        lay.addWidget(
+            self._make_table(
+                ["Gesture / Hand Shape", "Indicator", "Action"],
+                RIGHT_HAND_GESTURES,
+            )
+        )
         lay.addStretch()
         w.setWidget(inner)
         return w
@@ -137,55 +240,91 @@ class HelpDialog(QDialog):
         lay.setSpacing(8)
 
         intro = QLabel(
-            "Left hand controls <b>system actions</b>. "
-            "Hold gestures steady for the required time — a progress bar will appear at the top of the app.\n"
-            "New gestures (Copy, Paste, Minimize, Maximize) require a <b>1-second hold</b> to prevent accidental triggers."
+            "Left hand controls system actions. Hold gestures for required duration to confirm actions."
         )
         intro.setWordWrap(True)
         intro.setStyleSheet("color:#37474F; font-size:12px; padding:4px;")
         lay.addWidget(intro)
 
-        lay.addWidget(self._make_table(
-            ["Gesture / Hand Shape", "Hold Time", "Action"],
-            LEFT_HAND_GESTURES,
-        ))
+        lay.addWidget(
+            self._make_table(
+                ["Gesture / Hand Shape", "Hold Time", "Action"],
+                LEFT_HAND_GESTURES,
+            )
+        )
 
-        note = QLabel(
-            "⚠  During Alt+Tab (pinch), Copy/Paste/Minimize/Maximize are disabled to prevent conflicts."
-        )
-        note.setWordWrap(True)
-        note.setStyleSheet(
-            "background:#FFF3E0; color:#E65100; border:1px solid #FFCC02;"
-            "border-radius:6px; padding:8px; font-size:11px;"
-        )
-        lay.addWidget(note)
         lay.addStretch()
         w.setWidget(inner)
         return w
 
     def _voice_tab(self):
-        w = QScrollArea()
-        w.setWidgetResizable(True)
-        inner = QWidget()
-        lay = QVBoxLayout(inner)
+        page = QWidget()
+        lay = QVBoxLayout(page)
+        lay.setContentsMargins(8, 8, 8, 8)
         lay.setSpacing(8)
 
+        total = len(self.voice_commands)
         intro = QLabel(
-            "Voice mode uses a fully <b>offline</b> speech engine (VOSK). "
-            "First say a <b>wake word</b>, then speak your command clearly.\n"
-            "Commands marked ✨ are new additions."
+            f"Voice commands are grouped section-wise. Total available phrases: {total}."
         )
         intro.setWordWrap(True)
         intro.setStyleSheet("color:#37474F; font-size:12px; padding:4px;")
         lay.addWidget(intro)
 
-        lay.addWidget(self._make_table(
-            ["Category", "Say This", "Result"],
-            VOICE_COMMANDS,
-        ))
-        lay.addStretch()
-        w.setWidget(inner)
-        return w
+        grouped = _group_voice_commands(self.voice_commands)
+
+        toolbox = QToolBox()
+        toolbox.setObjectName("voice_toolbox")
+        for category, items in grouped.items():
+            section = QWidget()
+            sec_lay = QVBoxLayout(section)
+            sec_lay.setContentsMargins(6, 6, 6, 6)
+            sec_lay.setSpacing(6)
+
+            tbl = QTableWidget(len(items), 2)
+            tbl.setHorizontalHeaderLabels(["Say This", "Result"])
+            tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+            tbl.verticalHeader().setVisible(False)
+            tbl.setEditTriggers(QTableWidget.NoEditTriggers)
+            tbl.setAlternatingRowColors(True)
+            tbl.setStyleSheet(
+                """
+                QTableWidget {
+                    border:1px solid #E0E0E0;
+                    border-radius:6px;
+                    font-family:'Segoe UI',Arial;
+                    font-size:11px;
+                    color:#212121;
+                    gridline-color:#F0F0F0;
+                }
+                QHeaderView::section {
+                    background:#1565C0;
+                    color:#FFFFFF;
+                    font-weight:bold;
+                    font-size:11px;
+                    padding:6px;
+                    border:none;
+                }
+                QTableWidget::item:alternate { background:#F3F8FE; }
+                QTableWidget::item:selected  { background:#BBDEFB; color:#0D47A1; }
+                """
+            )
+
+            for r, (phrase, result) in enumerate(items):
+                p_item = QTableWidgetItem(phrase)
+                p_item.setTextAlignment(Qt.AlignVCenter | Qt.AlignLeft)
+                tbl.setItem(r, 0, p_item)
+
+                r_item = QTableWidgetItem(result)
+                r_item.setTextAlignment(Qt.AlignVCenter | Qt.AlignLeft)
+                tbl.setItem(r, 1, r_item)
+
+            tbl.resizeRowsToContents()
+            sec_lay.addWidget(tbl)
+            toolbox.addItem(section, f"{category} ({len(items)})")
+
+        lay.addWidget(toolbox, 1)
+        return page
 
     def _tips_tab(self):
         w = QScrollArea()
@@ -195,58 +334,37 @@ class HelpDialog(QDialog):
         lay.setSpacing(10)
 
         tips = [
-            ("💡", "Lighting",
-             "Ensure your hand is well-lit. The system works best in normal room lighting."),
-            ("📏", "Distance",
-             "Keep your hand 30–60 cm from the camera for best detection accuracy."),
-            ("🖱️", "Single Click",
-             "Bring thumb and index CLOSE (orange line appears) then release. Don't squeeze too tight."),
-            ("👆", "Double Click",
-             "Make the RED line appear (very close thumb+index), then QUICKLY open your fingers (<0.25s)."),
-            ("📂", "Drag & Drop",
-             "Make RED line appear and HOLD for 0.35+ seconds. Move your hand to drag, then release pinch."),
-            ("🔇", "Minimize/Maximize",
-             "Hold your fist or open palm STILL for 1 full second. A progress bar shows hold time."),
-            ("📋", "Copy & Paste",
-             "Point only your index finger (Copy) or index+middle (Paste) and hold steady for 1 second."),
-            ("🔄", "Switch to Voice",
-             "On LEFT hand: extend Thumb + Index + Middle (3 fingers), keep Ring and Pinky folded. Hold 1.5s."),
-            ("🎙️", "Voice Commands",
-             "Say wake word FIRST, wait for the beep, THEN say your command clearly and slowly."),
-            ("⚡", "Sensitivity",
-             "Cursor sensitivity matches the original vision_working.py (cfg.sensitivity). Edit gesture/config.py to tune."),
+            ("Lighting", "Use stable lighting so finger shapes are visible."),
+            ("Distance", "Keep hands around 30 to 60 cm from camera."),
+            ("Steadiness", "For hold gestures (1s/1.5s), keep hand still until action confirms."),
+            ("Voice", "Say wake word first, then command clearly."),
+            ("Mode switch", "Use left-hand switch gesture or voice phrase 'switch to gesture'."),
         ]
 
-        for icon, title, desc in tips:
+        for title, desc in tips:
             card = QFrame()
             card.setObjectName("card")
-            card.setStyleSheet("QFrame#card{background:#FFFFFF; border:1px solid #E0E0E0; border-radius:8px; padding:4px;}")
-            row = QHBoxLayout(card)
+            card.setStyleSheet(
+                "QFrame#card{background:#FFFFFF; border:1px solid #E0E0E0; border-radius:8px; padding:4px;}"
+            )
+            row = QVBoxLayout(card)
             row.setContentsMargins(12, 8, 12, 8)
-            row.setSpacing(12)
+            row.setSpacing(4)
 
-            ic = QLabel(icon)
-            ic.setFont(QFont("Segoe UI Emoji", 18))
-            ic.setFixedWidth(36)
-
-            text_col = QVBoxLayout()
             tl = QLabel(f"<b>{title}</b>")
             tl.setStyleSheet("color:#1565C0; font-size:12px;")
             dl = QLabel(desc)
             dl.setWordWrap(True)
             dl.setStyleSheet("color:#37474F; font-size:11px;")
-            text_col.addWidget(tl)
-            text_col.addWidget(dl)
+            row.addWidget(tl)
+            row.addWidget(dl)
 
-            row.addWidget(ic)
-            row.addLayout(text_col)
             lay.addWidget(card)
 
         lay.addStretch()
         w.setWidget(inner)
         return w
 
-    # ── Helpers ───────────────────────────────────────────────────
     def _make_table(self, headers, rows):
         tbl = QTableWidget(len(rows), len(headers))
         tbl.setHorizontalHeaderLabels(headers)
@@ -254,51 +372,34 @@ class HelpDialog(QDialog):
         tbl.verticalHeader().setVisible(False)
         tbl.setEditTriggers(QTableWidget.NoEditTriggers)
         tbl.setAlternatingRowColors(True)
-        tbl.setStyleSheet("""
+        tbl.setStyleSheet(
+            """
             QTableWidget {
-                border:1px solid #E0E0E0; border-radius:6px;
-                font-family:'Segoe UI',Arial; font-size:11px; color:#212121;
+                border:1px solid #E0E0E0;
+                border-radius:6px;
+                font-family:'Segoe UI',Arial;
+                font-size:11px;
+                color:#212121;
                 gridline-color:#F0F0F0;
             }
             QHeaderView::section {
-                background:#1565C0; color:#FFFFFF;
-                font-weight:bold; font-size:11px;
-                padding:6px; border:none;
+                background:#1565C0;
+                color:#FFFFFF;
+                font-weight:bold;
+                font-size:11px;
+                padding:6px;
+                border:none;
             }
             QTableWidget::item:alternate { background:#F3F8FE; }
             QTableWidget::item:selected  { background:#BBDEFB; color:#0D47A1; }
-        """)
+            """
+        )
+
         for r, row in enumerate(rows):
             for c, val in enumerate(row):
                 item = QTableWidgetItem(str(val))
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignLeft)
                 tbl.setItem(r, c, item)
+
         tbl.resizeRowsToContents()
         return tbl
-
-    def _pinch_guide(self):
-        frame = QFrame()
-        frame.setStyleSheet(
-            "background:#E3F2FD; border:1px solid #90CAF9; border-radius:8px;"
-        )
-        lay = QHBoxLayout(frame)
-        lay.setContentsMargins(12, 8, 12, 8)
-        lay.setSpacing(24)
-
-        for color, label, action in [
-            ("#4CAF50", "🟢  Green",  "Move cursor freely"),
-            ("#FF9800", "🟠  Orange", "Single Click"),
-            ("#F44336", "🔴  Red",    "Double Click / Drag"),
-        ]:
-            col = QVBoxLayout()
-            lbl = QLabel(label)
-            lbl.setFont(QFont("Segoe UI Emoji", 13))
-            lbl.setAlignment(Qt.AlignCenter)
-            act = QLabel(action)
-            act.setStyleSheet(f"color:{color}; font-weight:bold; font-size:11px;")
-            act.setAlignment(Qt.AlignCenter)
-            col.addWidget(lbl)
-            col.addWidget(act)
-            lay.addLayout(col)
-
-        return frame

@@ -169,10 +169,15 @@ mkdir voice_assistant/models
 
 ### Launch the System
 ```bash
-python system_launcher.py
+python main.py
 ```
 
-The system will start in **Gesture Mode** by default, showing a camera window with hand tracking.
+The system starts in the redesigned desktop UI and enters **Gesture Mode** automatically.
+
+For legacy headless switching flow (no PyQt UI), you can still run:
+```bash
+python system_launcher.py
+```
 
 ### Basic Usage
 1. **Gesture Mode**: Use hand gestures to control cursor and windows

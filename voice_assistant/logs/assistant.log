@@ -8220,3 +8220,252 @@
 2026-04-05 18:33:37 | INFO     | INTENT DETECTED: system_control, action: restart, confidence: 1.00
 2026-04-05 18:33:37 | INFO     | System confirmation requested: restart
 2026-04-05 18:33:37 | INFO     | System confirmation cancelled: restart
+2026-04-05 19:03:27 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:03:27 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:03:27 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:03:27 | INFO     | Detection threshold: 0.65
+2026-04-05 19:03:27 | INFO     | VoiceListener initialized
+2026-04-05 19:03:27 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:03:27 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:03:28 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:03:28 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 19:03:28 | INFO     | Validated 4 application paths
+2026-04-05 19:03:28 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:03:28 | INFO     | Loaded 4 application configurations
+2026-04-05 19:03:28 | INFO     | SystemController initialized
+2026-04-05 19:03:28 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:03:28 | INFO     | ==================================================
+2026-04-05 19:03:28 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:03:28 | INFO     | Start time: 2026-04-05 19:03:28
+2026-04-05 19:03:28 | INFO     | ==================================================
+2026-04-05 19:03:28 | INFO     | VoiceAssistant initialized
+2026-04-05 19:03:28 | INFO     | Starting voice assistant...
+2026-04-05 19:03:28 | INFO     | brightness controller: ✅ Supported
+2026-04-05 19:03:28 | INFO     | volume controller: ✅ Supported
+2026-04-05 19:03:28 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 19:03:28 | INFO     | system_control controller: ✅ Supported
+2026-04-05 19:03:28 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 19:03:28 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-04-05 19:03:28 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-04-05 19:03:28 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-04-05 19:03:28 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 19:04:02 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:04:02 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:04:02 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:04:02 | INFO     | Detection threshold: 0.65
+2026-04-05 19:04:02 | INFO     | VoiceListener initialized
+2026-04-05 19:04:02 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:04:02 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:04:02 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:04:02 | INFO     | Validated 4 application paths
+2026-04-05 19:04:02 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:04:02 | INFO     | Loaded 4 application configurations
+2026-04-05 19:04:02 | INFO     | SystemController initialized
+2026-04-05 19:04:02 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:04:02 | INFO     | ==================================================
+2026-04-05 19:04:02 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:04:02 | INFO     | Start time: 2026-04-05 19:04:02
+2026-04-05 19:04:02 | INFO     | ==================================================
+2026-04-05 19:04:02 | INFO     | VoiceAssistant initialized
+2026-04-05 19:04:02 | INFO     | Starting voice assistant...
+2026-04-05 19:04:02 | INFO     | brightness controller: ✅ Supported
+2026-04-05 19:04:02 | INFO     | volume controller: ✅ Supported
+2026-04-05 19:04:02 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 19:04:02 | INFO     | system_control controller: ✅ Supported
+2026-04-05 19:04:02 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 19:04:02 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-04-05 19:04:02 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-04-05 19:04:02 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-04-05 19:04:02 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 19:37:28 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:37:28 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:37:28 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:37:28 | INFO     | Detection threshold: 0.65
+2026-04-05 19:37:28 | INFO     | VoiceListener initialized
+2026-04-05 19:37:28 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:37:28 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:37:28 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:37:28 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 19:37:28 | INFO     | Validated 4 application paths
+2026-04-05 19:37:28 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:37:28 | INFO     | Loaded 4 application configurations
+2026-04-05 19:37:28 | INFO     | SystemController initialized
+2026-04-05 19:37:28 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:37:28 | INFO     | ==================================================
+2026-04-05 19:37:28 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:37:28 | INFO     | Start time: 2026-04-05 19:37:28
+2026-04-05 19:37:28 | INFO     | ==================================================
+2026-04-05 19:37:28 | INFO     | VoiceAssistant initialized
+2026-04-05 19:37:28 | INFO     | Starting voice assistant...
+2026-04-05 19:37:28 | INFO     | brightness controller: ✅ Supported
+2026-04-05 19:37:28 | INFO     | volume controller: ✅ Supported
+2026-04-05 19:37:28 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 19:37:28 | INFO     | system_control controller: ✅ Supported
+2026-04-05 19:37:29 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 19:37:29 | ERROR    | ModelNotFound: VOSK model not found at: models/vosk-model-small-en-us-0.15
+2026-04-05 19:37:29 | INFO     | Please download vosk-model-small-en-us-0.15 and extract to models/ directory
+2026-04-05 19:37:29 | INFO     | Download from: https://alphacephei.com/vosk/models
+2026-04-05 19:37:29 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 19:42:47 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:42:47 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:42:47 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:42:47 | INFO     | Detection threshold: 0.65
+2026-04-05 19:42:47 | INFO     | VoiceListener initialized
+2026-04-05 19:42:48 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:42:48 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:42:48 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:42:48 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 19:42:48 | INFO     | Validated 4 application paths
+2026-04-05 19:42:48 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:42:48 | INFO     | Loaded 4 application configurations
+2026-04-05 19:42:48 | INFO     | SystemController initialized
+2026-04-05 19:42:48 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:42:48 | INFO     | ==================================================
+2026-04-05 19:42:48 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:42:48 | INFO     | Start time: 2026-04-05 19:42:48
+2026-04-05 19:42:48 | INFO     | ==================================================
+2026-04-05 19:42:48 | INFO     | VoiceAssistant initialized
+2026-04-05 19:44:44 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:44:44 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:44:44 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:44:44 | INFO     | Detection threshold: 0.65
+2026-04-05 19:44:44 | INFO     | VoiceListener initialized
+2026-04-05 19:44:44 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:44:44 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:44:44 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:44:44 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 19:44:44 | INFO     | Validated 4 application paths
+2026-04-05 19:44:44 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:44:44 | INFO     | Loaded 4 application configurations
+2026-04-05 19:44:44 | INFO     | SystemController initialized
+2026-04-05 19:44:44 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:44:44 | INFO     | ==================================================
+2026-04-05 19:44:44 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:44:44 | INFO     | Start time: 2026-04-05 19:44:44
+2026-04-05 19:44:44 | INFO     | ==================================================
+2026-04-05 19:44:44 | INFO     | VoiceAssistant initialized
+2026-04-05 19:44:44 | INFO     | Starting voice assistant...
+2026-04-05 19:44:44 | INFO     | brightness controller: ✅ Supported
+2026-04-05 19:44:44 | INFO     | volume controller: ✅ Supported
+2026-04-05 19:44:44 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 19:44:44 | INFO     | system_control controller: ✅ Supported
+2026-04-05 19:44:44 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 19:44:44 | INFO     | AUDIO EVENT: Loading VOSK model | Path: E:\projectnew\voice_assistant\models\vosk-model-small-en-us-0.15
+2026-04-05 19:44:45 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 19:44:45 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 19:44:45 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 19:44:45 | INFO     | Voice assistant started successfully
+2026-04-05 19:44:45 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 19:44:55 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 19:44:55 | INFO     | Processing command: 'hey nora'
+2026-04-05 19:44:55 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 19:44:55 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.50, Required: 0.62
+2026-04-05 19:45:01 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 19:45:01 | INFO     | Processing command: 'hey nora'
+2026-04-05 19:45:01 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 19:45:01 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.50, Required: 0.62
+2026-04-05 19:45:07 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-04-05 19:45:07 | INFO     | Processing command: 'hello system'
+2026-04-05 19:45:07 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.67, value: 0
+2026-04-05 19:45:07 | INFO     | Help information displayed to user
+2026-04-05 19:45:13 | INFO     | COMMAND RECEIVED: 'hello system'
+2026-04-05 19:45:13 | INFO     | Processing command: 'hello system'
+2026-04-05 19:45:13 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.67, value: 0
+2026-04-05 19:45:13 | INFO     | Help information displayed to user
+2026-04-05 19:45:25 | INFO     | COMMAND RECEIVED: 'switch to gesture'
+2026-04-05 19:45:25 | INFO     | Shutting down voice assistant...
+2026-04-05 19:45:25 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-04-05 19:45:25 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 19:45:25 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-04-05 19:45:25 | INFO     | VolumeController cleanup completed
+2026-04-05 19:45:25 | INFO     | ApplicationLauncher cleanup completed
+2026-04-05 19:45:25 | INFO     | SystemController cleanup completed
+2026-04-05 19:45:25 | INFO     | ==================================================
+2026-04-05 19:45:25 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-04-05 19:45:25 | INFO     | Shutdown time: 2026-04-05 19:45:25
+2026-04-05 19:45:25 | INFO     | ==================================================
+2026-04-05 19:45:56 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 19:45:56 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 19:45:56 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 19:45:56 | INFO     | Detection threshold: 0.65
+2026-04-05 19:45:56 | INFO     | VoiceListener initialized
+2026-04-05 19:45:56 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 19:45:56 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 19:45:56 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 19:45:56 | INFO     | Validated 4 application paths
+2026-04-05 19:45:56 | INFO     | ApplicationLauncher initialized
+2026-04-05 19:45:56 | INFO     | Loaded 4 application configurations
+2026-04-05 19:45:56 | INFO     | SystemController initialized
+2026-04-05 19:45:56 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 19:45:56 | INFO     | ==================================================
+2026-04-05 19:45:56 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 19:45:56 | INFO     | Start time: 2026-04-05 19:45:56
+2026-04-05 19:45:56 | INFO     | ==================================================
+2026-04-05 19:45:56 | INFO     | VoiceAssistant initialized
+2026-04-05 19:45:56 | INFO     | Starting voice assistant...
+2026-04-05 19:45:56 | INFO     | brightness controller: ✅ Supported
+2026-04-05 19:45:56 | INFO     | volume controller: ✅ Supported
+2026-04-05 19:45:56 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 19:45:56 | INFO     | system_control controller: ✅ Supported
+2026-04-05 19:45:56 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 19:45:56 | INFO     | AUDIO EVENT: Loading VOSK model | Path: E:\projectnew\voice_assistant\models\vosk-model-small-en-us-0.15
+2026-04-05 19:45:57 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 19:45:57 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 19:45:57 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 19:45:57 | INFO     | Voice assistant started successfully
+2026-04-05 19:45:57 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 19:46:13 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 19:46:13 | INFO     | Processing command: 'hey nora'
+2026-04-05 19:46:13 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 19:46:13 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.50, Required: 0.62
+2026-04-05 19:46:16 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-05 19:46:16 | INFO     | Processing command: 'open chrome'
+2026-04-05 19:46:16 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-05 19:46:16 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-05 19:46:16 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-05 19:46:26 | INFO     | COMMAND RECEIVED: 'close chrome'
+2026-04-05 19:46:27 | INFO     | Processing command: 'close chrome'
+2026-04-05 19:46:27 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-05 19:46:27 | INFO     | Closed chrome
+2026-04-05 19:46:27 | INFO     | Command executed successfully: app_launcher.close_chrome
+2026-04-05 19:46:32 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-05 19:46:33 | INFO     | Processing command: 'open file explorer'
+2026-04-05 19:46:33 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-05 19:46:33 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 19:46:33 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 19:46:44 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:46:46 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 19:46:49 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:46:51 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 19:46:53 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 19:47:02 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:47:04 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 19:47:07 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 19:47:13 | INFO     | COMMAND RECEIVED: 'zoom'
+2026-04-05 19:47:13 | INFO     | Processing command: 'zoom'
+2026-04-05 19:47:13 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.53, value: 0
+2026-04-05 19:47:13 | INFO     | AUDIO EVENT: Low confidence command | Category: volume, Action: absolute_decrease, Confidence: 0.53, Required: 0.55
+2026-04-05 19:47:16 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 19:47:21 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 19:47:24 | INFO     | COMMAND RECEIVED: 'zoom out'
+2026-04-05 19:47:28 | INFO     | COMMAND RECEIVED: 'zoom out'
+2026-04-05 19:47:30 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 19:47:35 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:47:37 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:47:39 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 19:47:41 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 19:47:44 | INFO     | COMMAND RECEIVED: 'zoom out'
+2026-04-05 19:47:47 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-05 19:47:51 | INFO     | COMMAND RECEIVED: 'track'
+2026-04-05 19:47:51 | INFO     | Processing command: 'track'
+2026-04-05 19:47:51 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.44, value: 0
+2026-04-05 19:47:51 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: lock, Confidence: 0.44, Required: 0.78
+2026-04-05 19:48:02 | INFO     | COMMAND RECEIVED: 'screenshot'
+2026-04-05 19:48:18 | INFO     | COMMAND RECEIVED: 'screenshot'
+2026-04-05 19:48:37 | INFO     | COMMAND RECEIVED: 'help me'
+2026-04-05 19:48:37 | INFO     | Help information displayed to user
+2026-04-05 19:48:53 | INFO     | COMMAND RECEIVED: 'editor'
+2026-04-05 19:48:53 | INFO     | Processing command: 'editor'
+2026-04-05 19:48:53 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.71, value: 0
+2026-04-05 19:48:53 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 19:48:53 | INFO     | Command executed successfully: app_launcher.open_notepad

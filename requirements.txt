@@ -1,5 +1,8 @@
 # Core Dependencies for Gesture & Voice Control System
 
+# Desktop UI
+PyQt5>=5.15.11
+
 # Computer Vision & Gesture Recognition
 mediapipe==0.10.14
 opencv-python>=4.8.0
