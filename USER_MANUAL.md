@@ -1,76 +1,89 @@
-# 🖐️ Gesture & Voice Control System - User Manual
+# G-Vox User Manual
 
-Welcome to your advanced, process-level mode switching control system. This manual explains how to use both **Gesture Mode** and **Voice Mode** effectively.
+## Start
+Run from project root:
 
----
-
-## 🚀 Getting Started
-
-To launch the system, open a terminal in the project root and run:
 ```powershell
-python system_launcher.py
+python main.py
 ```
-By default, the system starts in **Gesture Mode**.
 
----
+or
 
-## 🔄 Mode Switching (The Bridge)
+```powershell
+run.bat
+```
 
-The system is designed to run only one mode at a time to save resources and prevent conflicts.
+System starts in Gesture Mode.
 
-### **Gesture Mode ➔ Voice Mode**
-*   **Gesture**: Left hand, **Thumb + Index + Middle** fingers extended (Ring + Pinky closed).
-*   **Action**: Hold this gesture for **1.5 seconds**.
-*   **Feedback**: A yellow progress bar will fill at the top of the camera window.
+## Modes
+- Gesture to Voice: left ring + pinky extended (thumb/index/middle closed), hold 1.5s.
+- Voice to Gesture: say `switch to gesture` (or `switch gesture`, `switch mode`).
 
-### **Voice Mode ➔ Gesture Mode**
-*   **Command**: Say "Switch to gesture" or "Switch gesture".
-*   **Action**: The voice assistant will close, and the camera window will reactivate automatically.
+## Exit
+- Gesture exit: close both left and right palms (both fists), hold 3s.
+- Voice exit: say `exit gvox` (or `exit g vox`).
+- A confirmation popup appears before closing G-Vox.
 
----
+## Gesture Controls
+### Right Hand
+- Index only: move cursor
+- Mild thumb-index pinch: single click
+- Tight thumb-index quick release: double click
+- Tight thumb-index hold: drag/drop
+- Thumb-middle pinch hold 0.7s (index/ring/pinky extended): right click
+- Index + middle extended: scroll
 
-## 🖱️ Gesture Mode Reference (Right Hand)
+### Left Hand
+- Thumb-index pinch + middle/ring/pinky extended (hold 1s): Alt+Tab task switch
+- Pinky only (hold 1s): copy (Ctrl+C)
+- Ring + pinky (hold 1s): paste (Ctrl+V)
+- Thumb only (hold 1s): minimize window
+- Open palm (all fingers, hold 1s): maximize window
+- Ring + pinky only (hold 1.5s): switch to voice mode
+- Both fists (left + right, hold 3s): exit G-Vox
 
-Control your cursor, clicks, and scrolling with your primary hand.
+## Voice Controls
+Use wake word first:
+- `hey nora`
+- `ok nora`
+- `hi nora`
+- `hello nora`
+- `nora on`
 
-| Action | Gesture |
-| :--- | :--- |
-| **Move Cursor** | ONLY Index finger extended. |
-| **Single Click** | Mild pinch (Thumb + Index). |
-| **Double Click** | Quick tight pinch (Thumb + Index) and release (<0.3s). |
-| **Drag & Drop** | Hold tight pinch (Thumb + Index) for >0.35s to grab. Release to drop. |
-| **Right Click** | Pinch Thumb + Middle finger. |
-| **Scroll Mode** | Extend Index + Middle fingers together. Move hand up/down. |
+### Core
+- `screenshot`
+- `open file`, `close file`, `close`, `minimize`, `maximize`
+- `zoom in`, `zoom out`
+- `next image`, `previous image`
+- `scroll up`, `scroll down`
+- `next page`, `previous page`
+- `up`, `down`, `left`, `right`, `next`, `previous`
+- `open` / `enter` -> press Enter
+- `go back` -> Alt+Left (fallback Backspace)
+- `copy` -> Ctrl+C
+- `paste` -> Ctrl+V
 
----
+### Media
+- `play`, `pause`, `play video`, `pause video`
+- `next track`, `previous track`
 
-## 🪟 Gesture Mode Reference (Left Hand)
+### Applications
+- Open/close Chrome
+- Open/close Notepad
+- Open/close Settings
+- Open/close File Explorer
 
-Manage your windows and tasks with your left hand.
+### System
+- Shutdown, restart, sleep, lock
+- Confirmation required (`yes` / `no`)
 
-| Action | Gesture |
-| :--- | :--- |
-| **Minimize Window** | Closed fist. |
-| **Maximize Window** | Open palm. |
-| **Task Switching** | Pinch Thumb + Index (Alt+Tab). Hold to cycle, release to select. |
-| **Mode Switch** | Thumb + Index + Middle extended (Hold 1.5s). |
+## UI Notes
+- Right side panel:
+  - Top: Recognition Status
+  - Bottom: Commands Log
+- Camera panel is expanded for larger live feed.
+- Notifications appear in app and as system tray popups (bottom-right).
 
----
-
-## 🎙️ Voice Mode Reference
-
-Once in voice mode, say a wake word (e.g., "Hey Assistant") followed by a command.
-
-### **Common Commands**
-*   **Brightness**: "Increase brightness", "Set brightness to 50%", "Maximum brightness".
-*   **Volume**: "Volume up", "Mute sound", "Set volume to 80%".
-*   **Applications**: "Open Chrome", "Launch VS Code", "Open Notepad".
-*   **System**: "Lock computer", "Put system to sleep", "Shutdown pc".
-*   **Help**: Say "Help" or "Show commands" to see the full list in the terminal.
-
----
-
-## ⌨️ Keyboard Shortcuts (Camera Window)
-*   **H**: Toggle on-screen Help Overlay.
-*   **S**: Take a screenshot of the current view.
-*   **Q**: Quit the entire system.
+## Full Command Reference
+- In app: click `Help`
+- File: `voice_assistant/commands.txt`

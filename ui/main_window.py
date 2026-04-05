@@ -1,24 +1,27 @@
-﻿"""Industrial-grade PyQt5 main window for GestureVox."""
+"""Industrial-grade PyQt5 main window for G-Vox."""
 
-from PyQt5.QtWidgets import (
-    QMainWindow,
-    QWidget,
-    QLabel,
-    QPushButton,
-    QTextEdit,
-    QHBoxLayout,
-    QVBoxLayout,
-    QFrame,
-    QStatusBar,
-    QProgressBar,
-    QSizePolicy,
-    QGraphicsOpacityEffect,
-)
-from PyQt5.QtCore import Qt, pyqtSignal, QPropertyAnimation, QEasingCurve, QTimer
+from PyQt5.QtCore import QEasingCurve, QPropertyAnimation, QTimer, Qt, pyqtSignal
 from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import (
+    QFrame,
+    QGraphicsOpacityEffect,
+    QHBoxLayout,
+    QLabel,
+    QMainWindow,
+    QMessageBox,
+    QProgressBar,
+    QPushButton,
+    QSizePolicy,
+    QStatusBar,
+    QStyle,
+    QSystemTrayIcon,
+    QTextEdit,
+    QVBoxLayout,
+    QWidget,
+)
 
-from ui.styles import MAIN_STYLE
 from ui.notification import NotificationWidget
+from ui.styles import MAIN_STYLE
 
 
 class MainWindow(QMainWindow):
@@ -30,15 +33,14 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("GestureVox Control Center")
+        self.setWindowTitle("G-Vox Control Center")
         self.setMinimumSize(1360, 840)
         self.setStyleSheet(MAIN_STYLE)
         self._animations = []
+        self._tray_icon = None
         self._build_ui()
+        self._init_system_notifications()
 
-    # ------------------------------------------------------------------
-    # UI Construction
-    # ------------------------------------------------------------------
     def _build_ui(self):
         central = QWidget()
         central.setObjectName("central")
@@ -47,7 +49,6 @@ class MainWindow(QMainWindow):
         root = QVBoxLayout(central)
         root.setContentsMargins(0, 0, 0, 0)
         root.setSpacing(0)
-
         root.addWidget(self._build_header())
 
         body_wrap = QWidget()
@@ -58,7 +59,6 @@ class MainWindow(QMainWindow):
 
         self.left_workspace = self._build_left_workspace()
         self.right_panel = self._build_right_panel()
-
         body.addWidget(self.left_workspace, 22)
         body.addWidget(self.right_panel, 10)
         root.addWidget(body_wrap)
@@ -67,7 +67,6 @@ class MainWindow(QMainWindow):
         self._status.showMessage(" Ready. Gesture mode starts automatically.")
         self.setStatusBar(self._status)
 
-        # Subtle startup reveal for polished product feel.
         QTimer.singleShot(120, self._run_startup_animation)
 
     def _build_header(self):
@@ -81,7 +80,7 @@ class MainWindow(QMainWindow):
 
         title_col = QVBoxLayout()
         title_col.setSpacing(1)
-        title = QLabel("GestureVox")
+        title = QLabel("G-Vox")
         title.setObjectName("app_title")
         subtitle = QLabel("Industrial Gesture and Voice Operations Console")
         subtitle.setObjectName("app_subtitle")
@@ -112,9 +111,8 @@ class MainWindow(QMainWindow):
         lay = QVBoxLayout(panel)
         lay.setContentsMargins(0, 0, 0, 0)
         lay.setSpacing(12)
-
-        lay.addWidget(self._build_camera_panel(), 18)
-        lay.addWidget(self._build_controls_panel(), 4)
+        lay.addWidget(self._build_camera_panel(), 20)
+        lay.addWidget(self._build_controls_panel(), 3)
         return panel
 
     def _build_camera_panel(self):
@@ -132,21 +130,18 @@ class MainWindow(QMainWindow):
         self.camera_label = QLabel("Camera initializing...")
         self.camera_label.setObjectName("camera_label")
         self.camera_label.setAlignment(Qt.AlignCenter)
-        self.camera_label.setMinimumSize(920, 560)
+        self.camera_label.setMinimumSize(980, 620)
         self.camera_label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         lay.addWidget(self.camera_label, 1)
 
         meta = QHBoxLayout()
         meta.setSpacing(14)
-
         room_lbl = QLabel("Workspace")
         room_lbl.setObjectName("meta_label")
         room_val = QLabel("Primary Control Bay")
         room_val.setObjectName("meta_value")
-
         self.fps_label = QLabel("FPS: --")
         self.fps_label.setObjectName("meta_value")
-
         self.hand_label = QLabel("No Hand")
         self.hand_label.setObjectName("status_bad")
 
@@ -156,7 +151,6 @@ class MainWindow(QMainWindow):
         meta.addWidget(self.fps_label)
         meta.addWidget(self.hand_label)
         lay.addLayout(meta)
-
         return card
 
     def _build_controls_panel(self):
@@ -301,9 +295,20 @@ class MainWindow(QMainWindow):
 
         QTimer.singleShot(delay_ms, anim.start)
 
-    # ------------------------------------------------------------------
-    # Public slots (called by controller)
-    # ------------------------------------------------------------------
+    def _init_system_notifications(self):
+        if not QSystemTrayIcon.isSystemTrayAvailable():
+            return
+
+        tray = QSystemTrayIcon(self)
+        icon = self.style().standardIcon(QStyle.SP_ComputerIcon)
+        if not icon.isNull():
+            tray.setIcon(icon)
+        else:
+            tray.setIcon(self.windowIcon())
+        tray.setToolTip("G-Vox")
+        tray.show()
+        self._tray_icon = tray
+
     def update_camera_frame(self, q_img: QImage):
         pix = QPixmap.fromImage(q_img)
         self.camera_label.setPixmap(
@@ -329,7 +334,6 @@ class MainWindow(QMainWindow):
         self.fps_label.setText(f"FPS: {fps:.1f}")
 
     def update_hold_progress(self, progress: float):
-        """0.0-1.0 hold progress for hold-based gestures."""
         self.hold_bar.setValue(int(progress * 100))
 
     def log_action(self, text: str):
@@ -349,15 +353,26 @@ class MainWindow(QMainWindow):
         sb.setValue(sb.maximum())
 
     def notify(self, message: str, icon: str = "OK"):
+        if self._tray_icon:
+            self._tray_icon.showMessage("G-Vox", message, QSystemTrayIcon.Information, 2500)
         n = NotificationWidget(self, message, icon)
         n.show()
+
+    def confirm_exit(self, context: str = "Exit requested.") -> bool:
+        dlg = QMessageBox(self)
+        dlg.setIcon(QMessageBox.Question)
+        dlg.setWindowTitle("Exit G-Vox")
+        dlg.setText("Do you want to close G-Vox?")
+        dlg.setInformativeText(context)
+        dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        dlg.setDefaultButton(QMessageBox.No)
+        return dlg.exec_() == QMessageBox.Yes
 
     def set_mode_gesture(self):
         self.mode_badge.setText("GESTURE MODE")
         self.mode_badge.setProperty("mode", "gesture")
         self.mode_badge.style().unpolish(self.mode_badge)
         self.mode_badge.style().polish(self.mode_badge)
-
         self.system_state.setText("TRACKING LIVE HAND INPUT")
         self.btn_gesture.setChecked(True)
         self.btn_voice.setChecked(False)
@@ -368,7 +383,6 @@ class MainWindow(QMainWindow):
         self.mode_badge.setProperty("mode", "voice")
         self.mode_badge.style().unpolish(self.mode_badge)
         self.mode_badge.style().polish(self.mode_badge)
-
         self.system_state.setText("LISTENING FOR WAKE WORD")
         self.btn_gesture.setChecked(False)
         self.btn_voice.setChecked(True)
@@ -383,7 +397,6 @@ class MainWindow(QMainWindow):
         self.mode_badge.setProperty("mode", "stopped")
         self.mode_badge.style().unpolish(self.mode_badge)
         self.mode_badge.style().polish(self.mode_badge)
-
         self.system_state.setText("SYSTEM IDLE")
         self.btn_gesture.setChecked(False)
         self.btn_voice.setChecked(False)

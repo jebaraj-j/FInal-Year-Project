@@ -1,72 +1,69 @@
 """
-GestureWorker — QThread wrapping the original vision_working.py gesture logic.
-Uses extensions/left_hand_extensions.py for NEW hold-based left-hand gestures.
-Original vision_working.py is NEVER modified.
+Gesture worker thread.
+Wraps the existing gesture module and adds app-level signals for UI/controller.
 """
 
 import sys
 import time
-import numpy as np
-from pathlib import Path
 from collections import deque
+from pathlib import Path
 
-from PyQt5.QtCore import QThread, pyqtSignal, QMutex, QMutexLocker
+import cv2
+import mediapipe as mp
+import numpy as np
+import pyautogui
+from PyQt5.QtCore import QMutex, QMutexLocker, QThread, pyqtSignal
 from PyQt5.QtGui import QImage
 
-# ── Ensure gesture module is on path ────────────────────────────
+from extensions.left_hand_extensions import LeftHandExtensions
+
 GESTURE_DIR = Path(__file__).parent.parent / "gesture"
 if str(GESTURE_DIR) not in sys.path:
     sys.path.insert(0, str(GESTURE_DIR))
 
-import cv2
-import mediapipe as mp
-import pyautogui
-
-pyautogui.FAILSAFE = False
-pyautogui.PAUSE    = 0.01
-
-# ── Import ORIGINAL, UNMODIFIED gesture module ───────────────────
-from vision_working import (
-    CFG, Palette, LandmarkSmoother, ImageEnhancer,
-    FINGER_DEFS, is_finger_extended, draw_skeleton_and_line,
-    draw_finger_panel, draw_hud, open_camera,
+from vision_working import (  # noqa: E402
+    CFG,
+    FINGER_DEFS,
+    ImageEnhancer,
+    LandmarkSmoother,
+    Palette,
+    draw_finger_panel,
+    draw_hud,
+    draw_skeleton_and_line,
+    is_finger_extended,
+    open_camera,
 )
 
-# ── Import NEW extension layer ────────────────────────────────────
-from extensions.left_hand_extensions import LeftHandExtensions
+pyautogui.FAILSAFE = False
+pyautogui.PAUSE = 0.01
 
 
 class GestureWorker(QThread):
-    """Background thread for gesture detection."""
-
-    frame_ready       = pyqtSignal(QImage)
-    gesture_detected  = pyqtSignal(str, str, int)
-    hand_present      = pyqtSignal(bool)
-    fps_updated       = pyqtSignal(float)
-    action_logged     = pyqtSignal(str)
-    gesture_triggered = pyqtSignal(str, str)   # (label, icon)
-    switch_to_voice   = pyqtSignal()
+    frame_ready = pyqtSignal(QImage)
+    gesture_detected = pyqtSignal(str, str, int)
+    hand_present = pyqtSignal(bool)
+    fps_updated = pyqtSignal(float)
+    action_logged = pyqtSignal(str)
+    gesture_triggered = pyqtSignal(str, str)  # (label, icon)
+    switch_to_voice = pyqtSignal()
+    exit_requested = pyqtSignal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self._running = False
-        self._mutex   = QMutex()
+        self._mutex = QMutex()
 
     def stop(self):
         with QMutexLocker(self._mutex):
             self._running = False
         self.wait(3000)
 
-    # ------------------------------------------------------------------
-    # Main loop — RIGHT HAND logic = exact copy of vision_working.py
-    #             LEFT HAND NEW gestures = extensions/left_hand_extensions.py
-    # ------------------------------------------------------------------
     def run(self):
         self._running = True
-        cfg      = CFG
+        cfg = CFG
         enhancer = ImageEnhancer(cfg)
         smoother = LandmarkSmoother(cfg.smoothing_alpha)
-        lh_ext   = LeftHandExtensions()        # ← NEW extension layer
+        lh_ext = LeftHandExtensions()
 
         cap, _ = open_camera(cfg)
         if cap is None:
@@ -75,42 +72,42 @@ class GestureWorker(QThread):
 
         hands = mp.solutions.hands.Hands(
             static_image_mode=False,
-            max_num_hands=cfg.max_num_hands if hasattr(cfg, 'max_num_hands') else cfg.max_hands,
+            max_num_hands=cfg.max_num_hands if hasattr(cfg, "max_num_hands") else cfg.max_hands,
             model_complexity=cfg.model_complexity,
             min_detection_confidence=cfg.min_detection_conf,
             min_tracking_confidence=cfg.min_tracking_conf,
         )
 
-        # ── State variables (from vision_working.main) ───────────────
-        frame_count = detected_count = 0
-        start_time  = time.time()
+        frame_count = 0
+        detected_count = 0
+        start_time = time.time()
         det_history = deque(maxlen=cfg.history_size)
 
         # Right-hand state
-        is_cursor_mode    = False
-        prev_index_norm   = None
-        pinch_state       = "open"
-        is_dragging       = False
+        is_cursor_mode = False
+        prev_index_norm = None
+        pinch_state = "open"
+        is_dragging = False
         right_click_active = False
         right_click_hold_start = None
-        pinch_start_time  = 0.0
+        pinch_start_time = 0.0
         hard_pinch_active = False
-        scroll_mode       = False
-        scroll_was_active = False
-        base_scroll_y     = 0.0
-        last_scroll_time  = 0.0
+        scroll_mode = False
+        base_scroll_y = 0.0
+        last_scroll_time = 0.0
 
-        # Left-hand original state (Alt+Tab only — others moved to extensions)
+        # Left-hand state
         task_switch_active = False
-        last_tab_time      = 0.0
+        last_tab_time = 0.0
         left_tab_hold_start = None
 
-        # Mode-switch gesture
-        start_up_time             = time.time()
+        # Mode switch / exit gesture timers
+        startup_time = time.time()
         switch_gesture_start_time = None
+        exit_hold_start = None
+        exit_hold_announced = False
 
         last_hand_state = None
-
         self.action_logged.emit("Gesture Mode started. Camera active.")
 
         while self._running:
@@ -122,66 +119,68 @@ class GestureWorker(QThread):
             frame = cv2.flip(frame, 1)
             frame_count += 1
 
-            gray      = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             enhancing = float(gray.mean()) < 100
-            enhanced  = enhancer.process(frame)
-            rgb       = cv2.cvtColor(enhanced, cv2.COLOR_BGR2RGB)
-            results   = hands.process(rgb)
+            enhanced = enhancer.process(frame)
+            rgb = cv2.cvtColor(enhanced, cv2.COLOR_BGR2RGB)
+            results = hands.process(rgb)
             hand_detected = bool(results.multi_hand_landmarks)
-            display   = frame.copy()
+            display = frame.copy()
 
-            # Confidence gate (from original)
             if hand_detected and results.multi_handedness:
                 scores = [h.classification[0].score for h in results.multi_handedness]
                 if sum(scores) / len(scores) < 0.6:
                     hand_detected = False
 
             det_history.append(1 if hand_detected else 0)
-
             if hand_detected != last_hand_state:
                 self.hand_present.emit(hand_detected)
                 last_hand_state = hand_detected
 
-            # Frame resets
-            current_gesture     = "No hand detected"
-            current_subtitle    = ""
-            current_confidence  = 0
-            cursor_hand         = False
+            current_gesture = "No hand detected"
+            current_subtitle = ""
+            current_confidence = 0
+            cursor_hand = False
             current_pinch_state = "open"
-            line_color          = Palette.LINE_OPEN
-            found_right         = False
-            found_left          = False
+            line_color = Palette.LINE_OPEN
+            found_right = False
+            found_left = False
+            right_fist = False
+            left_fist = False
 
-            # ==============================================================
             if hand_detected:
                 detected_count += 1
                 current_confidence = int(
                     sum(h.classification[0].score for h in results.multi_handedness)
-                    / len(results.multi_handedness) * 100
+                    / len(results.multi_handedness)
+                    * 100
                 )
                 h_px, w_px = display.shape[:2]
 
                 for idx in range(len(results.multi_hand_landmarks)):
-                    lms   = results.multi_hand_landmarks[idx]
+                    hand_lms = results.multi_hand_landmarks[idx]
                     label = results.multi_handedness[idx].classification[0].label
-                    pts   = smoother.smooth(idx, lms.landmark)
+                    pts = smoother.smooth(idx, hand_lms.landmark)
                     wrist = (int(pts[0][0] * w_px), int(pts[0][1] * h_px))
 
                     if cfg.show_finger_info:
                         draw_finger_panel(display, pts, label, wrist)
 
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
+                    is_fist_shape = (
+                        not states["Index"]
+                        and not states["Middle"]
+                        and not states["Ring"]
+                        and not states["Pinky"]
+                    )
 
-                    # ══════════════════════════════════════════════════════
-                    # RIGHT HAND — original vision_working.py logic, verbatim
-                    # ══════════════════════════════════════════════════════
                     if label == "Right":
                         found_right = True
+                        right_fist = is_fist_shape
 
-                        # ── Right Click: Thumb(4) + Middle(12) pinch + hold ──────
-                        thumb_tip  = np.array(pts[4][:2])
+                        thumb_tip = np.array(pts[4][:2])
                         middle_tip = np.array(pts[12][:2])
-                        rc_dist    = np.linalg.norm(thumb_tip - middle_tip)
+                        rc_dist = np.linalg.norm(thumb_tip - middle_tip)
                         is_rc_shape = (
                             rc_dist < 0.08
                             and states["Index"]
@@ -193,8 +192,8 @@ class GestureWorker(QThread):
                             now_rc = time.time()
                             if right_click_hold_start is None:
                                 right_click_hold_start = now_rc
-
                             hold_sec = now_rc - right_click_hold_start
+
                             if hold_sec >= 0.7 and not right_click_active:
                                 pyautogui.rightClick()
                                 self.action_logged.emit("RIGHT CLICK")
@@ -202,67 +201,67 @@ class GestureWorker(QThread):
                                 right_click_active = True
 
                             if not right_click_active:
-                                current_gesture  = "Right Click Hold"
-                                current_subtitle = f"Thumb+Middle pinch hold {hold_sec:.1f}/0.7s"
+                                current_gesture = "Right Click Hold"
+                                current_subtitle = f"Thumb+Middle hold {hold_sec:.1f}/0.7s"
                             else:
-                                current_gesture  = "Right Click"
+                                current_gesture = "Right Click"
                                 current_subtitle = "Confirmed"
                         else:
                             right_click_active = False
                             right_click_hold_start = None
 
-                        # ── Scroll: Index + Middle extended ───────────────
                         is_scroll = False
                         if not is_rc_shape:
-                            ix_ext    = pts[6][1] - pts[8][1]
-                            mx_ext    = pts[10][1] - pts[12][1]
+                            ix_ext = pts[6][1] - pts[8][1]
+                            mx_ext = pts[10][1] - pts[12][1]
                             is_scroll = (
-                                states["Index"] and states["Middle"]
-                                and not states["Ring"] and not states["Pinky"]
-                                and ix_ext > 0.04 and mx_ext > 0.04
+                                states["Index"]
+                                and states["Middle"]
+                                and not states["Ring"]
+                                and not states["Pinky"]
+                                and ix_ext > 0.04
+                                and mx_ext > 0.04
                             )
 
                         if is_scroll:
                             if not scroll_mode:
-                                scroll_mode      = True
-                                base_scroll_y    = pts[8][1]
+                                scroll_mode = True
+                                base_scroll_y = pts[8][1]
                                 last_scroll_time = time.time()
                                 self.action_logged.emit("SCROLL MODE activated")
 
-                            dy    = pts[8][1] - base_scroll_y
+                            dy = pts[8][1] - base_scroll_y
                             now_s = time.time()
                             if now_s - last_scroll_time >= cfg.scroll_repeat_sec:
                                 if abs(dy) > cfg.scroll_deadzone:
                                     amt = int(-dy * cfg.scroll_sensitivity * 500)
                                     if amt:
                                         pyautogui.scroll(amt)
-                                        self.action_logged.emit(
-                                            "SCROLL " + ("UP" if amt > 0 else "DOWN"))
+                                        self.action_logged.emit("SCROLL " + ("UP" if amt > 0 else "DOWN"))
                                     last_scroll_time = now_s
 
-                            cursor_hand      = False
-                            current_gesture  = "Scroll Mode"
+                            cursor_hand = False
+                            current_gesture = "Scroll Mode"
                             current_subtitle = "Index + Middle extended"
 
-                        # ── Cursor + Clicks: Index only ───────────────────
-                        elif (states["Index"]
-                              and not states["Middle"]
-                              and not states["Ring"]
-                              and not states["Pinky"]):
-
-                            cursor_hand   = True
-                            scroll_mode   = False
+                        elif (
+                            states["Index"]
+                            and not states["Middle"]
+                            and not states["Ring"]
+                            and not states["Pinky"]
+                        ):
+                            cursor_hand = True
+                            scroll_mode = False
                             base_scroll_y = 0.0
 
-                            ta   = np.array(pts[4][:2])
-                            ia   = np.array(pts[8][:2])
+                            ta = np.array(pts[4][:2])
+                            ia = np.array(pts[8][:2])
                             dist = np.linalg.norm(ta - ia)
 
-                            # Pinch colour (original thresholds)
-                            if dist <= cfg.tight_pinch_max:       # 0.035 → RED
+                            if dist <= cfg.tight_pinch_max:
                                 current_pinch_state = "tight"
                                 line_color = Palette.LINE_TIGHT
-                            elif dist <= cfg.mild_pinch_max:      # 0.060 → ORANGE
+                            elif dist <= cfg.mild_pinch_max:
                                 current_pinch_state = "mild"
                                 line_color = Palette.LINE_MILD
                             else:
@@ -270,103 +269,103 @@ class GestureWorker(QThread):
                                 line_color = Palette.LINE_OPEN
 
                             now = time.time()
-
-                            # SINGLE CLICK — mild pinch rising edge
                             if current_pinch_state == "mild":
                                 if pinch_state != "mild":
                                     pyautogui.click()
                                     self.action_logged.emit("SINGLE CLICK")
                                     self.gesture_triggered.emit("Single Click", "🖱️")
-                                    current_gesture  = "Single Click"
+                                    current_gesture = "Single Click"
                                     current_subtitle = "Mild pinch (orange)"
                                 else:
-                                    current_gesture  = "Single Click (held)"
+                                    current_gesture = "Single Click (held)"
                                     current_subtitle = "Orange line"
 
-                            # TIGHT PINCH — drag or double-click
                             elif current_pinch_state == "tight":
                                 if pinch_state != "tight":
-                                    pinch_start_time  = now
+                                    pinch_start_time = now
                                     hard_pinch_active = True
-
-                                # Hold > 0.35 s → drag start (original)
-                                if (hard_pinch_active and not is_dragging
-                                        and now - pinch_start_time >= cfg.drag_threshold):
+                                if hard_pinch_active and not is_dragging and now - pinch_start_time >= cfg.drag_threshold:
                                     is_dragging = True
                                     pyautogui.mouseDown()
                                     self.action_logged.emit("DRAG START")
-                                    current_gesture  = "Drag"
+                                    current_gesture = "Drag"
                                     current_subtitle = "Tight pinch > 0.35s"
                                 else:
-                                    current_gesture  = "Tight Pinch (red)"
-                                    current_subtitle = "Release quickly → double-click"
+                                    current_gesture = "Tight Pinch (red)"
+                                    current_subtitle = "Quick release -> double-click"
 
-                            # OPEN (released) — double-click or drag-end
                             elif current_pinch_state == "open" and hard_pinch_active:
                                 dur = now - pinch_start_time
                                 if is_dragging:
                                     pyautogui.mouseUp()
                                     self.action_logged.emit("DRAG END")
                                     current_gesture = "Drag Released"
-                                elif dur < cfg.double_click_threshold:   # < 0.25 s
+                                elif dur < cfg.double_click_threshold:
                                     pyautogui.doubleClick()
                                     self.action_logged.emit("DOUBLE CLICK")
                                     self.gesture_triggered.emit("Double Click", "🖱️")
-                                    current_gesture  = "Double Click"
+                                    current_gesture = "Double Click"
                                     current_subtitle = "Quick tight-pinch release"
-                                is_dragging       = False
+                                is_dragging = False
                                 hard_pinch_active = False
 
-                            # Cursor movement
                             index_norm = np.array(pts[8][:2])
-                            if prev_index_norm is not None:
-                                if is_dragging or current_pinch_state == "open":
-                                    dx  = index_norm[0] - prev_index_norm[0]
-                                    dy  = index_norm[1] - prev_index_norm[1]
-                                    if np.linalg.norm([dx, dy]) > cfg.deadzone:
-                                        pyautogui.moveRel(
-                                            int(dx * cfg.sensitivity * w_px),
-                                            int(dy * cfg.sensitivity * h_px),
-                                        )
+                            if prev_index_norm is not None and (is_dragging or current_pinch_state == "open"):
+                                dx = index_norm[0] - prev_index_norm[0]
+                                dy = index_norm[1] - prev_index_norm[1]
+                                if np.linalg.norm([dx, dy]) > cfg.deadzone:
+                                    pyautogui.moveRel(
+                                        int(dx * cfg.sensitivity * w_px),
+                                        int(dy * cfg.sensitivity * h_px),
+                                    )
                             prev_index_norm = index_norm.copy()
                             if current_gesture == "No hand detected":
-                                current_gesture  = "Cursor Mode"
+                                current_gesture = "Cursor Mode"
                                 current_subtitle = "Index finger extended"
 
                         else:
-                            cursor_hand   = False
-                            scroll_mode   = False
+                            cursor_hand = False
+                            scroll_mode = False
                             base_scroll_y = 0.0
 
-                    # ══════════════════════════════════════════════════════
-                    # LEFT HAND — Alt+Tab (original) + NEW hold gestures
-                    # ══════════════════════════════════════════════════════
                     elif label == "Left":
                         found_left = True
+                        left_fist = is_fist_shape
 
-                        # ── Alt+Tab (original logic) ──────────────────────
                         thumb_l = np.array(pts[4][:2])
                         index_l = np.array(pts[8][:2])
-                        is_left_pinch = (
-                            np.linalg.norm(thumb_l - index_l) <= cfg.left_pinch_threshold
-                        )
+                        is_left_pinch = np.linalg.norm(thumb_l - index_l) <= cfg.left_pinch_threshold
 
-                        # Evaluate extension gestures first so copy/paste can override pinch noise.
-                        ext = lh_ext.process(states, is_left_pinch)
-                        extension_blocks_tab = (
-                            ext['gesture'].startswith("Copy")
-                            or ext['gesture'].startswith("Paste")
-                            or ext['gesture'].startswith("Minimize")
-                            or ext['gesture'].startswith("Maximize")
+                        # Mode switch shape: ring + pinky only, hold 1.5s.
+                        is_switch = (
+                            states["Ring"]
+                            and states["Pinky"]
+                            and not states["Thumb"]
+                            and not states["Index"]
+                            and not states["Middle"]
                         )
-                        extension_blocks_mode_switch = extension_blocks_tab
+                        ext = lh_ext.process(states, is_left_pinch)
+
+                        extension_blocks_tab = (
+                            ext["gesture"].startswith("Copy")
+                            or ext["gesture"].startswith("Paste")
+                            or ext["gesture"].startswith("Minimize")
+                            or ext["gesture"].startswith("Maximize")
+                        )
 
                         now_l = time.time()
-                        if is_left_pinch and not extension_blocks_tab:
+                        is_tab_switch = (
+                            is_left_pinch
+                            and states["Middle"]
+                            and states["Ring"]
+                            and states["Pinky"]
+                            and not extension_blocks_tab
+                        )
+                        if is_tab_switch:
                             if left_tab_hold_start is None:
                                 left_tab_hold_start = now_l
-
                             hold_sec = now_l - left_tab_hold_start
+
                             if hold_sec >= 1.0:
                                 if not task_switch_active:
                                     pyautogui.keyDown("alt")
@@ -378,10 +377,10 @@ class GestureWorker(QThread):
                                 elif now_l - last_tab_time >= cfg.tab_repeat_sec:
                                     pyautogui.press("tab")
                                     last_tab_time = now_l
-                                current_gesture  = "Task Switch"
-                                current_subtitle = "Left pinch hold confirmed — Alt+Tab"
+                                current_gesture = "Task Switch"
+                                current_subtitle = "Left pinch hold confirmed - Alt+Tab"
                             else:
-                                current_gesture  = "Task Switch Hold"
+                                current_gesture = "Task Switch Hold"
                                 current_subtitle = f"Hold {hold_sec:.1f}/1.0s"
                         else:
                             left_tab_hold_start = None
@@ -390,50 +389,52 @@ class GestureWorker(QThread):
                                 task_switch_active = False
                                 self.action_logged.emit("TASK SWITCH END")
 
-                        # ── NEW: Hold-based gestures via extensions ────────
-                        if ext['action']:
+                        if ext["action"]:
                             action_map = {
-                                'minimize': ("Window Minimized", "🔽"),
-                                'maximize': ("Window Maximized", "🔼"),
-                                'copy':     ("Copied",          "📋"),
-                                'paste':    ("Pasted",          "📥"),
+                                "minimize": ("Window Minimized", "🔽"),
+                                "maximize": ("Window Maximized", "🔼"),
+                                "copy": ("Copied", "📋"),
+                                "paste": ("Pasted", "📥"),
                             }
-                            label_icon = action_map.get(ext['action'], (ext['action'], "✅"))
-                            self.action_logged.emit(ext['action'].upper())
+                            label_icon = action_map.get(ext["action"], (ext["action"], "✅"))
+                            self.action_logged.emit(ext["action"].upper())
                             self.gesture_triggered.emit(*label_icon)
 
-                        # Show hold progress in gesture label
-                        if ext['gesture']:
-                            current_gesture  = ext['gesture']
-                            current_subtitle = ext['subtitle']
+                        if ext["gesture"]:
+                            current_gesture = ext["gesture"]
+                            current_subtitle = ext["subtitle"]
 
-                        # ── Voice-mode switch gesture ─────────────────────
-                        is_switch = (
-                            states["Thumb"] and states["Index"] and states["Middle"]
-                            and not states["Ring"] and not states["Pinky"]
-                        )
-                        if is_switch and not extension_blocks_mode_switch and time.time() - start_up_time > 2.0:
+                        if is_switch and time.time() - startup_time > 2.0:
                             if switch_gesture_start_time is None:
                                 switch_gesture_start_time = time.time()
-                                self.action_logged.emit("Switch gesture — hold 1.5s…")
+                                self.action_logged.emit("Switch gesture - hold 1.5s...")
                             elif time.time() - switch_gesture_start_time > 1.5:
-                                if is_dragging:     pyautogui.mouseUp()
-                                if task_switch_active: pyautogui.keyUp("alt")
-                                self.action_logged.emit("Switching to Voice Mode…")
+                                if is_dragging:
+                                    pyautogui.mouseUp()
+                                if task_switch_active:
+                                    pyautogui.keyUp("alt")
+                                self.action_logged.emit("Switching to Voice Mode...")
                                 self.switch_to_voice.emit()
                                 break
-                            prog = min(1.0,
-                                       (time.time() - switch_gesture_start_time) / 1.5)
-                            cv2.rectangle(display, (10, 10),
-                                          (int(10 + prog * 200), 30), (0, 255, 255), -1)
-                            cv2.putText(display, "SWITCHING TO VOICE...", (10, 50),
-                                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+
+                            prog = min(1.0, (time.time() - switch_gesture_start_time) / 1.5)
+                            cv2.rectangle(display, (10, 10), (int(10 + prog * 220), 30), (0, 255, 255), -1)
+                            cv2.putText(
+                                display,
+                                "SWITCHING TO VOICE...",
+                                (10, 52),
+                                cv2.FONT_HERSHEY_SIMPLEX,
+                                0.6,
+                                (0, 255, 255),
+                                2,
+                            )
                         else:
                             switch_gesture_start_time = None
 
-                    # Draw skeleton
                     draw_skeleton_and_line(
-                        display, pts, label,
+                        display,
+                        pts,
+                        label,
                         glow=cfg.skeleton_glow,
                         dense=cfg.dense_points_per_bone,
                         line_color=line_color,
@@ -441,59 +442,105 @@ class GestureWorker(QThread):
 
                 pinch_state = current_pinch_state
 
-            # ── No hands detected ─────────────────────────────────────
+                # Exit gesture: both palms closed (fists) hold 3s.
+                if found_left and found_right and left_fist and right_fist:
+                    now_exit = time.time()
+                    if exit_hold_start is None:
+                        exit_hold_start = now_exit
+                        exit_hold_announced = False
+                        self.action_logged.emit("Exit gesture detected - hold 3.0s...")
+
+                    hold_exit = now_exit - exit_hold_start
+                    current_gesture = "Exit Hold"
+                    current_subtitle = f"Both fists hold {hold_exit:.1f}/3.0s"
+                    prog = min(1.0, hold_exit / 3.0)
+                    cv2.rectangle(display, (10, 68), (int(10 + prog * 220), 88), (0, 70, 255), -1)
+                    cv2.putText(
+                        display,
+                        "EXITING G-VOX...",
+                        (10, 112),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.6,
+                        (0, 70, 255),
+                        2,
+                    )
+
+                    if hold_exit >= 3.0 and not exit_hold_announced:
+                        exit_hold_announced = True
+                        self.action_logged.emit("Exit gesture confirmed.")
+                        self.gesture_triggered.emit("Exit G-Vox", "⛔")
+                        self.exit_requested.emit()
+                        break
+                else:
+                    exit_hold_start = None
+                    exit_hold_announced = False
+
             else:
-                for i in range(cfg.max_hands): smoother.reset(i)
-                lh_ext.reset_all()                          # ← reset hold timers
+                for i in range(cfg.max_hands):
+                    smoother.reset(i)
+                lh_ext.reset_all()
                 prev_index_norm = None
-                scroll_mode     = False
-                base_scroll_y   = 0.0
+                scroll_mode = False
+                base_scroll_y = 0.0
+                switch_gesture_start_time = None
+                exit_hold_start = None
+                exit_hold_announced = False
 
                 if is_dragging:
                     pyautogui.mouseUp()
                     is_dragging = False
                 right_click_active = False
                 right_click_hold_start = None
-                hard_pinch_active  = False
-                pinch_start_time   = 0.0
+                hard_pinch_active = False
+                pinch_start_time = 0.0
 
                 if task_switch_active:
                     pyautogui.keyUp("alt")
                     task_switch_active = False
                 left_tab_hold_start = None
 
-                current_gesture  = "No hand detected"
+                current_gesture = "No hand detected"
                 current_subtitle = "Show hand in camera"
 
-            # Safety releases
             if not found_left and task_switch_active:
                 pyautogui.keyUp("alt")
                 task_switch_active = False
             if not found_left:
                 left_tab_hold_start = None
+                switch_gesture_start_time = None
             if not found_right:
                 if is_dragging:
                     pyautogui.mouseUp()
                     is_dragging = False
                 scroll_mode = False
                 right_click_hold_start = None
+            if not (found_left and found_right):
+                exit_hold_start = None
+                exit_hold_announced = False
 
-            # Cursor mode tracking
             if cursor_hand and not is_cursor_mode:
-                is_cursor_mode  = True
+                is_cursor_mode = True
                 prev_index_norm = None
             elif not cursor_hand and is_cursor_mode:
-                is_cursor_mode  = False
+                is_cursor_mode = False
                 prev_index_norm = None
 
-            # HUD
-            fps_cur  = frame_count / (time.time() - start_time + 1e-6)
+            fps_cur = frame_count / (time.time() - start_time + 1e-6)
             det_rate = sum(det_history) / len(det_history) * 100 if det_history else 0
-            draw_hud(display, fps_cur, det_rate, frame_count, detected_count,
-                     hand_detected, enhancing, is_cursor_mode,
-                     pinch_state, "none", task_switch_active)
+            draw_hud(
+                display,
+                fps_cur,
+                det_rate,
+                frame_count,
+                detected_count,
+                hand_detected,
+                enhancing,
+                is_cursor_mode,
+                pinch_state,
+                "none",
+                task_switch_active,
+            )
 
-            # Emit frame
             rgb_out = cv2.cvtColor(display, cv2.COLOR_BGR2RGB)
             hi, wi, ch = rgb_out.shape
             q_img = QImage(rgb_out.data, wi, hi, ch * wi, QImage.Format_RGB888)
@@ -501,9 +548,10 @@ class GestureWorker(QThread):
             self.gesture_detected.emit(current_gesture, current_subtitle, current_confidence)
             self.fps_updated.emit(fps_cur)
 
-        # Cleanup
-        if is_dragging:         pyautogui.mouseUp()
-        if task_switch_active:  pyautogui.keyUp("alt")
+        if is_dragging:
+            pyautogui.mouseUp()
+        if task_switch_active:
+            pyautogui.keyUp("alt")
         cap.release()
         hands.close()
         self.action_logged.emit("Gesture Mode stopped.")

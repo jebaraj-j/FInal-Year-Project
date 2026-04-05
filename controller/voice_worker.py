@@ -42,6 +42,11 @@ ADDITIONAL_VOICE_PHRASES = [
     "right",
     "next",
     "previous",
+    "go back",
+    "copy",
+    "paste",
+    "exit gvox",
+    "exit g vox",
 ]
 
 
@@ -53,6 +58,7 @@ class VoiceWorker(QThread):
 
     action_logged = pyqtSignal(str)
     switch_to_gesture = pyqtSignal()
+    exit_requested = pyqtSignal()
     error_occurred = pyqtSignal(str)
 
     def __init__(self, parent=None):
@@ -97,6 +103,24 @@ class VoiceWorker(QThread):
 
             self.action_logged.emit("Voice Mode started - say a wake word.")
 
+            # Patch execute_action methods to surface voice activity in UI log.
+            for category, controller in self._assistant.controllers.items():
+                if not hasattr(controller, "execute_action"):
+                    continue
+                original_exec = controller.execute_action
+
+                def _make_exec_wrapper(cat, orig_fn):
+                    def _wrapped(action, *args, **kwargs):
+                        self.action_logged.emit(f"VOICE EXEC: {cat}.{action}")
+                        ok = orig_fn(action, *args, **kwargs)
+                        self.action_logged.emit(
+                            f"VOICE {'OK' if ok else 'FAILED'}: {cat}.{action}"
+                        )
+                        return ok
+                    return _wrapped
+
+                controller.execute_action = _make_exec_wrapper(category, original_exec)
+
             # Extend grammar at runtime with additional shortcut phrases.
             original_get_grammar = self._assistant._get_compiled_grammar
 
@@ -118,6 +142,17 @@ class VoiceWorker(QThread):
 
             def patched_process(command_text: str):
                 text = command_text.lower().strip()
+                compact = text.replace(" ", "").replace("-", "")
+
+                # Always show what was recognized in command log panel.
+                if text:
+                    self.action_logged.emit(f"VOICE HEARD: {text}")
+
+                # 0) Exit command
+                if compact in {"exitgvox", "quitgvox", "closegvox"}:
+                    self.action_logged.emit("VOICE: Exit requested.")
+                    self.exit_requested.emit()
+                    return
 
                 # 1. Additional shortcut command layer
                 handled, msg = shortcut_check(text)

@@ -1,4 +1,18 @@
-﻿VOICE COMMAND LIST
+VOICE COMMAND LIST (G-Vox)
+
+WAKE WORDS:
+- "hey nora"
+- "ok nora"
+- "hi nora"
+- "hello nora"
+- "nora on"
+
+MODE:
+- "switch to gesture"
+- "switch gesture"
+- "switch mode"
+- "exit gvox"
+- "exit g vox"
 
 BRIGHTNESS CONTROL:
 - "brightness up" / "bright up" / "brighter" / "increase bright"
@@ -26,9 +40,26 @@ APPLICATION CLOSE:
 - Settings: "close settings" / "settings closing" / "close windows settings" / "windows settings closing"
 - File Explorer: "close file explorer" / "file explorer closing" / "explorer closing" / "files closing"
 
-SHORTCUT AND MEDIA:
+SHORTCUTS:
 - "open" / "enter" / "open selected" / "open selected item" -> Press Enter
-- "play" / "pause" / "play video" / "pause video" -> Play/Pause media
+- "go back" -> Alt+Left (fallback Backspace)
+- "copy" -> Ctrl+C
+- "paste" -> Ctrl+V
+- "screenshot" -> Full-screen screenshot
+- "open file" -> Ctrl+O
+- "close file" -> Ctrl+W
+- "close" -> Alt+F4
+- "minimize" -> Win+Down
+- "maximize" -> Win+Up
+- "zoom in" / "zoom out"
+- "scroll up" / "scroll down"
+- "next image" / "previous image"
+- "next page" / "previous page"
+- "up" / "down" / "left" / "right"
+- "next" / "previous"
+
+MEDIA:
+- "play" / "pause" / "play video" / "pause video" -> Play/Pause
 - "next track" -> Next media track
 - "previous track" -> Previous media track
 
@@ -37,11 +68,4 @@ SYSTEM CONTROL:
 - "restart system now" / "restart" / "reboot" / "reboot system"
 - "sleep system now" / "sleep" / "hibernate" / "sleep mode"
 - "lock system now" / "lock" / "lock screen" / "lock windows"
-- Safety: shutdown/restart/sleep/lock now require confirmation ("yes" to run, "no" to cancel)
-
-WAKE WORDS:
-- "hey nora"
-- "ok nora"
-- "hi nora"
-- "hello nora"
-- "nora on"
+- Safety: shutdown/restart/sleep/lock require confirmation ("yes" to run, "no" to cancel)

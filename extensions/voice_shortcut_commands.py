@@ -151,6 +151,22 @@ def _enter() -> None:
     _press("enter")
 
 
+def _go_back() -> None:
+    # Primary navigation-back shortcut on Windows Explorer and browsers.
+    try:
+        _hotkey("alt", "left")
+    except Exception:
+        _press("backspace")
+
+
+def _copy() -> None:
+    _hotkey("ctrl", "c")
+
+
+def _paste() -> None:
+    _hotkey("ctrl", "v")
+
+
 def _send_media_key(vk_code: int) -> bool:
     try:
         user32 = ctypes.windll.user32
@@ -202,6 +218,11 @@ _EXACT_COMMANDS: dict[str, tuple[Callable[[], Optional[str]], str]] = {
     "enter": (_enter, "Enter"),
     "open selected": (_enter, "Enter"),
     "open selected item": (_enter, "Enter"),
+    "go back": (_go_back, "Go back"),
+    "copy": (_copy, "Copy"),
+    "paste": (_paste, "Paste"),
+    "exit gvox": (lambda: "Exit G-Vox", "Exit G-Vox"),
+    "exit g vox": (lambda: "Exit G-Vox", "Exit G-Vox"),
     "open file": (_open_file, "Open file"),
     "close file": (_close_file, "Close file"),
     "close": (_close_window, "Close window"),

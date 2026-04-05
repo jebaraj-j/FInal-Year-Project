@@ -51,9 +51,14 @@ LEFT_HAND_GESTURES = [
     ("Thumb only extended (hold 1s)", "1s hold", "Minimize window"),
     ("Open palm (all fingers extended, hold 1s)", "1s hold", "Maximize window"),
     (
-        "Thumb + index + middle extended, ring+pinky closed (hold 1.5s)",
+        "Ring + pinky extended, thumb/index/middle closed (hold 1.5s)",
         "1.5s hold",
         "Switch to voice mode",
+    ),
+    (
+        "Both left and right fists closed (hold 3s)",
+        "3s hold",
+        "Exit G-Vox",
     ),
 ]
 
@@ -115,6 +120,14 @@ def _shortcut_result(phrase: str) -> str:
         return "Next media track"
     if p == "previous track":
         return "Previous media track"
+    if p == "go back":
+        return "Navigate back (Alt+Left / Backspace)"
+    if p == "copy":
+        return "Copy (Ctrl+C)"
+    if p == "paste":
+        return "Paste (Ctrl+V)"
+    if p in {"exit gvox", "exit g vox"}:
+        return "Close G-Vox"
 
     return "Execute shortcut"
 
@@ -176,7 +189,7 @@ class HelpDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.voice_commands = _load_voice_commands()
-        self.setWindowTitle("GestureVox - Help and Reference")
+        self.setWindowTitle("G-Vox - Help and Reference")
         self.setMinimumSize(1200, 760)
         self.setStyleSheet(MAIN_STYLE)
         self.setWindowState(self.windowState() | Qt.WindowMaximized)
@@ -187,7 +200,7 @@ class HelpDialog(QDialog):
         lay.setContentsMargins(16, 16, 16, 12)
         lay.setSpacing(10)
 
-        title = QLabel("GestureVox - Gesture and Voice Reference")
+        title = QLabel("G-Vox - Gesture and Voice Reference")
         title.setFont(QFont("Segoe UI", 14, QFont.Bold))
         title.setStyleSheet("color:#1565C0;")
         lay.addWidget(title)
