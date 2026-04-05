@@ -7,7 +7,9 @@ This module is intentionally separate from the core voice assistant logic.
 It handles shortcut-like commands with strict matching to avoid conflicts.
 """
 
-from typing import Callable, Tuple
+from datetime import datetime
+from pathlib import Path
+from typing import Callable, Optional, Tuple
 
 import pyautogui
 
@@ -30,6 +32,9 @@ def _normalize(text: str) -> str:
     return " ".join(tokens).strip()
 
 
+PAGE_JUMP_STEPS = 2
+
+
 def _press(key: str) -> None:
     pyautogui.press(key)
 
@@ -38,9 +43,17 @@ def _hotkey(*keys: str) -> None:
     pyautogui.hotkey(*keys)
 
 
-def _screenshot() -> None:
-    # Windows snip overlay
-    _hotkey("win", "shift", "s")
+def _screenshot() -> str:
+    """
+    Capture full-display screenshot and save to project /screenshots folder.
+    """
+    out_dir = Path(__file__).resolve().parent.parent / "screenshots"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    out_path = out_dir / f"screenshot_{ts}.png"
+    image = pyautogui.screenshot()
+    image.save(out_path)
+    return f"Screenshot saved: {out_path}"
 
 
 def _open_file() -> None:
@@ -64,11 +77,39 @@ def _maximize_window() -> None:
 
 
 def _zoom_in() -> None:
-    _hotkey("ctrl", "+")
+    # Try common zoom-in combos across apps/keyboards.
+    try:
+        _hotkey("ctrl", "add")  # numpad +
+    except Exception:
+        pass
+    try:
+        _hotkey("ctrl", "=")    # main keyboard +
+    except Exception:
+        pass
+    try:
+        _hotkey("ctrl", "+")
+    except Exception:
+        pass
+    # Fallback: Ctrl + scroll up
+    pyautogui.keyDown("ctrl")
+    pyautogui.scroll(500)
+    pyautogui.keyUp("ctrl")
 
 
 def _zoom_out() -> None:
-    _hotkey("ctrl", "-")
+    # Try common zoom-out combos across apps/keyboards.
+    try:
+        _hotkey("ctrl", "subtract")  # numpad -
+    except Exception:
+        pass
+    try:
+        _hotkey("ctrl", "-")
+    except Exception:
+        pass
+    # Fallback: Ctrl + scroll down
+    pyautogui.keyDown("ctrl")
+    pyautogui.scroll(-500)
+    pyautogui.keyUp("ctrl")
 
 
 def _scroll_up() -> None:
@@ -80,11 +121,13 @@ def _scroll_down() -> None:
 
 
 def _next_page() -> None:
-    _press("pagedown")
+    for _ in range(PAGE_JUMP_STEPS):
+        _press("pagedown")
 
 
 def _previous_page() -> None:
-    _press("pageup")
+    for _ in range(PAGE_JUMP_STEPS):
+        _press("pageup")
 
 
 def _left() -> None:
@@ -105,14 +148,14 @@ def _down() -> None:
 
 # Priority order matters:
 # Specific phrases must be checked before generic words like "next"/"previous".
-_PRIORITY_COMMANDS: list[tuple[str, Callable[[], None], str]] = [
+_PRIORITY_COMMANDS: list[tuple[str, Callable[[], Optional[str]], str]] = [
     ("next image", _right, "Next image"),
     ("previous image", _left, "Previous image"),
     ("next page", _next_page, "Next page"),
     ("previous page", _previous_page, "Previous page"),
 ]
 
-_EXACT_COMMANDS: dict[str, tuple[Callable[[], None], str]] = {
+_EXACT_COMMANDS: dict[str, tuple[Callable[[], Optional[str]], str]] = {
     "screenshot": (_screenshot, "Screenshot"),
     "open file": (_open_file, "Open file"),
     "close file": (_close_file, "Close file"),
@@ -148,14 +191,14 @@ def check_and_execute(command_text: str) -> Tuple[bool, str]:
     try:
         for phrase, action, label in _PRIORITY_COMMANDS:
             if text == phrase:
-                action()
-                return True, label
+                maybe_msg = action()
+                return True, maybe_msg or label
 
         item = _EXACT_COMMANDS.get(text)
         if item:
             action, label = item
-            action()
-            return True, label
+            maybe_msg = action()
+            return True, maybe_msg or label
 
         return False, ""
     except Exception as exc:

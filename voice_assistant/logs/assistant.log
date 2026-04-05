@@ -7218,3 +7218,675 @@
 2026-04-04 10:38:29 | INFO     | WAKE WORD DETECTED: 'ok assistant'
 2026-04-04 10:38:29 | INFO     | WAKE WORD DETECTED: 'hello system'
 2026-04-04 10:38:29 | INFO     | WAKE WORD DETECTED: 'hello system'
+2026-04-04 11:44:24 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-04 11:44:24 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-04 11:44:24 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-04 11:44:24 | INFO     | Detection threshold: 0.65
+2026-04-04 11:44:24 | INFO     | VoiceListener initialized
+2026-04-04 11:44:24 | INFO     | UnifiedIntentEngine initialized
+2026-04-04 11:44:24 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-04 11:44:25 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-04 11:44:25 | INFO     | VolumeController initialized (pycaw)
+2026-04-04 11:44:25 | INFO     | Validated 5 application paths
+2026-04-04 11:44:25 | INFO     | ApplicationLauncher initialized
+2026-04-04 11:44:25 | INFO     | Loaded 5 application configurations
+2026-04-04 11:44:25 | INFO     | SystemController initialized
+2026-04-04 11:44:25 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-04 11:44:25 | INFO     | ==================================================
+2026-04-04 11:44:25 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-04 11:44:25 | INFO     | Start time: 2026-04-04 11:44:25
+2026-04-04 11:44:25 | INFO     | ==================================================
+2026-04-04 11:44:25 | INFO     | VoiceAssistant initialized
+2026-04-04 11:44:25 | INFO     | Starting voice assistant...
+2026-04-04 11:44:25 | INFO     | brightness controller: ✅ Supported
+2026-04-04 11:44:25 | INFO     | volume controller: ✅ Supported
+2026-04-04 11:44:25 | INFO     | app_launcher controller: ✅ Supported
+2026-04-04 11:44:25 | INFO     | system_control controller: ✅ Supported
+2026-04-04 11:44:25 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-04 11:44:25 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-04 11:44:27 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-04 11:44:27 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-04 11:44:27 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-04 11:44:27 | INFO     | Voice assistant started successfully
+2026-04-04 11:44:27 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-04 11:44:37 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-04 11:44:37 | INFO     | Shortcut command executed: Arrow left
+2026-04-04 11:44:40 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-04 11:44:40 | INFO     | Shortcut command executed: Arrow right
+2026-04-04 11:44:42 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-04 11:44:42 | INFO     | Shortcut command executed: Arrow down
+2026-04-04 11:44:44 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-04 11:44:44 | INFO     | Shortcut command executed: Arrow up
+2026-04-04 11:44:46 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-04 11:44:46 | INFO     | Shortcut command executed: Arrow up
+2026-04-04 11:44:48 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-04 11:44:48 | INFO     | Processing command: 'open'
+2026-04-04 11:44:48 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-04 11:44:48 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 11:44:48 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 11:45:06 | INFO     | COMMAND RECEIVED: 'maximize'
+2026-04-04 11:45:07 | INFO     | Shortcut command executed: Maximize window
+2026-04-04 11:45:10 | INFO     | COMMAND RECEIVED: 'minimize'
+2026-04-04 11:45:10 | INFO     | Shortcut command executed: Minimize window
+2026-04-04 11:45:13 | INFO     | COMMAND RECEIVED: 'minimize'
+2026-04-04 11:45:14 | INFO     | Shortcut command executed: Minimize window
+2026-04-04 11:45:19 | INFO     | COMMAND RECEIVED: 'maximize'
+2026-04-04 11:45:19 | INFO     | Shortcut command executed: Maximize window
+2026-04-04 11:45:21 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-04 11:45:22 | INFO     | Shortcut command executed: Zoom in
+2026-04-04 11:45:25 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-04 11:45:26 | INFO     | Shortcut command executed: Zoom in
+2026-04-04 11:45:33 | INFO     | COMMAND RECEIVED: 'gesture mode'
+2026-04-04 11:45:33 | INFO     | Processing command: 'gesture mode'
+2026-04-04 11:45:33 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.64, value: 0
+2026-04-04 11:45:33 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 11:45:33 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 11:46:06 | INFO     | COMMAND RECEIVED: 'screenshot'
+2026-04-04 11:46:07 | INFO     | Shortcut command executed: Screenshot
+2026-04-04 11:46:51 | INFO     | COMMAND RECEIVED: 'next image'
+2026-04-04 11:46:52 | INFO     | Shortcut command executed: Next image
+2026-04-04 11:46:54 | INFO     | COMMAND RECEIVED: 'next image'
+2026-04-04 11:46:54 | INFO     | Shortcut command executed: Next image
+2026-04-04 11:46:57 | INFO     | COMMAND RECEIVED: 'previous image'
+2026-04-04 11:46:57 | INFO     | Shortcut command executed: Previous image
+2026-04-04 11:47:00 | INFO     | COMMAND RECEIVED: 'previous image'
+2026-04-04 11:47:00 | INFO     | Shortcut command executed: Previous image
+2026-04-04 11:47:02 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-04 11:47:03 | INFO     | Shortcut command executed: Close window
+2026-04-04 11:47:14 | INFO     | COMMAND RECEIVED: 'maximize'
+2026-04-04 11:47:14 | INFO     | Shortcut command executed: Maximize window
+2026-04-04 11:47:18 | INFO     | COMMAND RECEIVED: 'minimize'
+2026-04-04 11:47:19 | INFO     | Shortcut command executed: Minimize window
+2026-04-04 11:47:22 | INFO     | COMMAND RECEIVED: 'maximize'
+2026-04-04 11:47:22 | INFO     | Shortcut command executed: Maximize window
+2026-04-04 11:47:25 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-04 11:47:25 | INFO     | Shortcut command executed: Arrow left
+2026-04-04 11:47:27 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-04 11:47:27 | INFO     | Shortcut command executed: Arrow right
+2026-04-04 11:47:29 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-04 11:47:29 | INFO     | Shortcut command executed: Arrow up
+2026-04-04 11:47:30 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-04 11:47:30 | INFO     | Shortcut command executed: Arrow down
+2026-04-04 11:47:32 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-04 11:47:32 | INFO     | Shortcut command executed: Arrow down
+2026-04-04 11:47:34 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-04 11:47:34 | INFO     | Processing command: 'open'
+2026-04-04 11:47:34 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-04 11:47:34 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 11:47:34 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-04 11:48:34 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:48:34 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:48:35 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:48:35 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:48:38 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:48:38 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:48:41 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:48:41 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:48:43 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:48:43 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:48:47 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:48:47 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:48:50 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-04 11:48:50 | INFO     | Shortcut command executed: Scroll down
+2026-04-04 11:48:55 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-04 11:48:56 | INFO     | Shortcut command executed: Scroll down
+2026-04-04 11:48:57 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-04 11:48:57 | INFO     | Shortcut command executed: Scroll up
+2026-04-04 11:49:24 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-04 11:49:25 | INFO     | Shortcut command executed: Scroll up
+2026-04-04 11:49:27 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-04 11:49:27 | INFO     | Shortcut command executed: Scroll up
+2026-04-04 11:49:29 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-04 11:49:29 | INFO     | Shortcut command executed: Scroll up
+2026-04-04 11:49:30 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-04 11:49:31 | INFO     | Shortcut command executed: Scroll up
+2026-04-04 11:49:37 | INFO     | COMMAND RECEIVED: 'next page next page next page'
+2026-04-04 11:49:37 | INFO     | Processing command: 'next page next page next page'
+2026-04-04 11:49:37 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.43, value: 0
+2026-04-04 11:49:37 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-04 11:49:37 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-04 11:49:44 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:49:45 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:49:47 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:49:47 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:49:49 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-04 11:49:50 | INFO     | Shortcut command executed: Next page
+2026-04-04 11:49:56 | INFO     | COMMAND RECEIVED: 'close page'
+2026-04-04 11:49:56 | INFO     | Processing command: 'close page'
+2026-04-04 11:49:56 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 0.70, value: 0
+2026-04-04 11:49:57 | INFO     | Closed notepad
+2026-04-04 11:49:57 | INFO     | Command executed successfully: app_launcher.close_notepad
+2026-04-04 11:50:02 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:02 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:04 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:04 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:06 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:06 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:08 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:08 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:10 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:10 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:12 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:12 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:14 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:14 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:16 | INFO     | COMMAND RECEIVED: 'previous page'
+2026-04-04 11:50:16 | INFO     | Shortcut command executed: Previous page
+2026-04-04 11:50:19 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-04 11:50:20 | INFO     | Shortcut command executed: Close window
+2026-04-04 11:50:23 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-04 11:50:23 | INFO     | Processing command: 'open'
+2026-04-04 11:50:23 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-04 11:50:23 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-04 11:50:23 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-05 08:04:48 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:04:48 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:04:48 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:04:48 | INFO     | Detection threshold: 0.65
+2026-04-05 08:04:48 | INFO     | VoiceListener initialized
+2026-04-05 08:04:48 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:04:48 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:04:49 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:04:49 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:04:49 | INFO     | Validated 5 application paths
+2026-04-05 08:04:49 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:04:49 | INFO     | Loaded 5 application configurations
+2026-04-05 08:04:49 | INFO     | SystemController initialized
+2026-04-05 08:04:49 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:04:49 | INFO     | ==================================================
+2026-04-05 08:04:49 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:04:49 | INFO     | Start time: 2026-04-05 08:04:49
+2026-04-05 08:04:49 | INFO     | ==================================================
+2026-04-05 08:04:49 | INFO     | VoiceAssistant initialized
+2026-04-05 08:04:49 | INFO     | Starting voice assistant...
+2026-04-05 08:04:49 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:04:49 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:04:49 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:04:49 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:04:50 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:04:50 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:04:50 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:04:51 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:04:51 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:04:51 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:04:52 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:04:52 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:04:52 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:04:53 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:04:53 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-05 08:04:53 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-05 08:04:54 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:04:54 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-05 08:04:54 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-05 08:04:54 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 08:04:57 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:04:57 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:04:57 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:04:57 | INFO     | Detection threshold: 0.65
+2026-04-05 08:04:57 | INFO     | VoiceListener initialized
+2026-04-05 08:04:57 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:04:57 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:04:57 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:04:57 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:04:57 | INFO     | Validated 5 application paths
+2026-04-05 08:04:57 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:04:57 | INFO     | Loaded 5 application configurations
+2026-04-05 08:04:57 | INFO     | SystemController initialized
+2026-04-05 08:04:57 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:04:57 | INFO     | ==================================================
+2026-04-05 08:04:57 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:04:57 | INFO     | Start time: 2026-04-05 08:04:57
+2026-04-05 08:04:57 | INFO     | ==================================================
+2026-04-05 08:04:57 | INFO     | VoiceAssistant initialized
+2026-04-05 08:04:57 | INFO     | Starting voice assistant...
+2026-04-05 08:04:57 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:04:57 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:04:57 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:04:57 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:04:57 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:04:57 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:04:57 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:04:58 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:04:58 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:04:58 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:04:59 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:04:59 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:04:59 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:05:00 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:00 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-05 08:05:00 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-05 08:05:01 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:01 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-05 08:05:01 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-05 08:05:01 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 08:05:05 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:05:05 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:05:05 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:05:05 | INFO     | Detection threshold: 0.65
+2026-04-05 08:05:05 | INFO     | VoiceListener initialized
+2026-04-05 08:05:05 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:05:05 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:05:05 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:05:05 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:05:05 | INFO     | Validated 5 application paths
+2026-04-05 08:05:05 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:05:05 | INFO     | Loaded 5 application configurations
+2026-04-05 08:05:05 | INFO     | SystemController initialized
+2026-04-05 08:05:05 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:05:05 | INFO     | ==================================================
+2026-04-05 08:05:05 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:05:05 | INFO     | Start time: 2026-04-05 08:05:05
+2026-04-05 08:05:05 | INFO     | ==================================================
+2026-04-05 08:05:05 | INFO     | VoiceAssistant initialized
+2026-04-05 08:05:05 | INFO     | Starting voice assistant...
+2026-04-05 08:05:05 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:05:05 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:05:05 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:05:05 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:05:05 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:05:05 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:05:05 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:05:06 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:05:06 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:05:06 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:05:07 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:07 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:05:07 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:05:08 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:08 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-05 08:05:08 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-05 08:05:09 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:09 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-05 08:05:09 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-05 08:05:09 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 08:05:13 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:05:13 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:05:13 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:05:13 | INFO     | Detection threshold: 0.65
+2026-04-05 08:05:13 | INFO     | VoiceListener initialized
+2026-04-05 08:05:13 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:05:13 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:05:13 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:05:13 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:05:13 | INFO     | Validated 5 application paths
+2026-04-05 08:05:13 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:05:13 | INFO     | Loaded 5 application configurations
+2026-04-05 08:05:13 | INFO     | SystemController initialized
+2026-04-05 08:05:13 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:05:13 | INFO     | ==================================================
+2026-04-05 08:05:13 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:05:13 | INFO     | Start time: 2026-04-05 08:05:13
+2026-04-05 08:05:13 | INFO     | ==================================================
+2026-04-05 08:05:13 | INFO     | VoiceAssistant initialized
+2026-04-05 08:05:13 | INFO     | Starting voice assistant...
+2026-04-05 08:05:13 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:05:13 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:05:13 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:05:13 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:05:13 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:05:13 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:05:13 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:05:14 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:05:14 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:05:14 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:05:15 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:15 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:05:15 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:05:16 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:16 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-05 08:05:16 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-05 08:05:17 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:17 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-05 08:05:17 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-05 08:05:17 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 08:05:20 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:05:20 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:05:20 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:05:20 | INFO     | Detection threshold: 0.65
+2026-04-05 08:05:20 | INFO     | VoiceListener initialized
+2026-04-05 08:05:20 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:05:20 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:05:20 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:05:20 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:05:20 | INFO     | Validated 5 application paths
+2026-04-05 08:05:20 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:05:20 | INFO     | Loaded 5 application configurations
+2026-04-05 08:05:20 | INFO     | SystemController initialized
+2026-04-05 08:05:20 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:05:20 | INFO     | ==================================================
+2026-04-05 08:05:20 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:05:20 | INFO     | Start time: 2026-04-05 08:05:20
+2026-04-05 08:05:20 | INFO     | ==================================================
+2026-04-05 08:05:20 | INFO     | VoiceAssistant initialized
+2026-04-05 08:05:20 | INFO     | Starting voice assistant...
+2026-04-05 08:05:20 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:05:20 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:05:20 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:05:20 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:05:21 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:05:21 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:05:21 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:05:22 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:05:22 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:05:22 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:05:23 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:23 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:05:23 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:05:24 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:24 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 2
+2026-04-05 08:05:24 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 3/3
+2026-04-05 08:05:25 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:25 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 3
+2026-04-05 08:05:25 | ERROR    | StreamStartFailed: Failed after 3 attempts
+2026-04-05 08:05:25 | ERROR    | Failed to start voice listener with grammar
+2026-04-05 08:05:28 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:05:28 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:05:28 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:05:28 | INFO     | Detection threshold: 0.65
+2026-04-05 08:05:28 | INFO     | VoiceListener initialized
+2026-04-05 08:05:28 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:05:28 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:05:28 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:05:28 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:05:28 | INFO     | Validated 5 application paths
+2026-04-05 08:05:28 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:05:28 | INFO     | Loaded 5 application configurations
+2026-04-05 08:05:28 | INFO     | SystemController initialized
+2026-04-05 08:05:28 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:05:28 | INFO     | ==================================================
+2026-04-05 08:05:28 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:05:28 | INFO     | Start time: 2026-04-05 08:05:28
+2026-04-05 08:05:28 | INFO     | ==================================================
+2026-04-05 08:05:28 | INFO     | VoiceAssistant initialized
+2026-04-05 08:05:28 | INFO     | Starting voice assistant...
+2026-04-05 08:05:28 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:05:28 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:05:28 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:05:28 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:05:28 | INFO     | Checking headset candidate: Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212))
+2026-04-05 08:05:28 | INFO     | AUDIO EVENT: Auto-detected audio device | Headset (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free%0
+;(Airdopes 212)) (Index: 20)
+2026-04-05 08:05:29 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:05:29 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:05:29 | ERROR    | StreamStartError: [Errno -9999] Unanticipated host error
+2026-04-05 08:05:29 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 1/3
+2026-04-05 08:05:30 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 08:05:30 | ERROR    | RetryStreamError: [Errno -9999] Unanticipated host error | Context: Attempt 1
+2026-04-05 08:05:30 | INFO     | AUDIO EVENT: Retrying stream start | Attempt 2/3
+2026-04-05 08:13:47 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 08:13:47 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 08:13:47 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 08:13:47 | INFO     | Detection threshold: 0.65
+2026-04-05 08:13:47 | INFO     | VoiceListener initialized
+2026-04-05 08:13:47 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 08:13:47 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 08:13:47 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 08:13:48 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 08:13:48 | INFO     | Validated 5 application paths
+2026-04-05 08:13:48 | INFO     | ApplicationLauncher initialized
+2026-04-05 08:13:48 | INFO     | Loaded 5 application configurations
+2026-04-05 08:13:48 | INFO     | SystemController initialized
+2026-04-05 08:13:48 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 08:13:48 | INFO     | ==================================================
+2026-04-05 08:13:48 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 08:13:48 | INFO     | Start time: 2026-04-05 08:13:48
+2026-04-05 08:13:48 | INFO     | ==================================================
+2026-04-05 08:13:48 | INFO     | VoiceAssistant initialized
+2026-04-05 08:13:48 | INFO     | Starting voice assistant...
+2026-04-05 08:13:48 | INFO     | brightness controller: ✅ Supported
+2026-04-05 08:13:48 | INFO     | volume controller: ✅ Supported
+2026-04-05 08:13:48 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 08:13:48 | INFO     | system_control controller: ✅ Supported
+2026-04-05 08:13:48 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 08:13:48 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 08:13:49 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 08:13:49 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 08:13:49 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 08:13:49 | INFO     | Voice assistant started successfully
+2026-04-05 08:13:49 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 08:13:58 | INFO     | COMMAND RECEIVED: 'nora on'
+2026-04-05 08:13:58 | INFO     | Processing command: 'nora on'
+2026-04-05 08:13:58 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 0.55, value: 0
+2026-04-05 08:13:59 | INFO     | Closed notepad
+2026-04-05 08:13:59 | INFO     | Command executed successfully: app_launcher.close_notepad
+2026-04-05 08:14:12 | INFO     | COMMAND RECEIVED: 'go'
+2026-04-05 08:14:12 | INFO     | Processing command: 'go'
+2026-04-05 08:14:12 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.44, value: 0
+2026-04-05 08:14:12 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-05 08:14:12 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-05 08:14:15 | INFO     | COMMAND RECEIVED: 'nine'
+2026-04-05 08:14:15 | INFO     | Processing command: 'nine'
+2026-04-05 08:14:15 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.46, value: 9
+2026-04-05 08:14:15 | INFO     | SYSTEM ACTION ATTEMPT: sleep
+2026-04-05 08:14:15 | INFO     | Command executed successfully: system_control.sleep
+2026-04-05 08:14:18 | INFO     | COMMAND RECEIVED: 'note'
+2026-04-05 08:14:18 | INFO     | Processing command: 'note'
+2026-04-05 08:14:18 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.67, value: 0
+2026-04-05 08:14:18 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 08:14:18 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 08:14:22 | INFO     | COMMAND RECEIVED: 'open file explorer editor'
+2026-04-05 08:14:22 | INFO     | Processing command: 'open file explorer editor'
+2026-04-05 08:14:22 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.84, value: 0
+2026-04-05 08:14:22 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 08:14:22 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 08:14:34 | INFO     | COMMAND RECEIVED: 'less'
+2026-04-05 08:14:34 | INFO     | Processing command: 'less'
+2026-04-05 08:14:34 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.55, value: 0
+2026-04-05 08:14:34 | INFO     | Command executed successfully: volume.absolute_increase
+2026-04-05 08:14:37 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 08:14:37 | INFO     | Shortcut command executed: Arrow left
+2026-04-05 08:14:40 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 08:14:40 | INFO     | Shortcut command executed: Arrow right
+2026-04-05 08:14:49 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 08:14:49 | INFO     | Shortcut command executed: Arrow right
+2026-04-05 08:14:51 | INFO     | COMMAND RECEIVED: 'now'
+2026-04-05 08:14:51 | INFO     | Processing command: 'now'
+2026-04-05 08:14:51 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-04-05 08:14:51 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-04-05 08:14:53 | INFO     | COMMAND RECEIVED: 'volume'
+2026-04-05 08:14:53 | INFO     | Processing command: 'volume'
+2026-04-05 08:14:53 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-04-05 08:14:53 | INFO     | Command executed successfully: volume.set_value
+2026-04-05 08:14:55 | INFO     | COMMAND RECEIVED: 'level'
+2026-04-05 08:14:55 | INFO     | Processing command: 'level'
+2026-04-05 08:14:55 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 0.60, value: 0
+2026-04-05 08:14:55 | INFO     | SYSTEM ACTION ATTEMPT: sleep
+2026-04-05 08:14:55 | INFO     | Executing system sleep...
+2026-04-05 08:15:24 | INFO     | SYSTEM ACTION SUCCESS: sleep
+2026-04-05 08:15:24 | INFO     | Command executed successfully: system_control.sleep
+2026-04-05 08:15:41 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 08:15:41 | INFO     | Shortcut command executed: Arrow right
+2026-04-05 08:15:43 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 08:15:43 | INFO     | Shortcut command executed: Arrow right
+2026-04-05 08:15:45 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 08:15:46 | INFO     | Processing command: 'open'
+2026-04-05 08:15:46 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-05 08:15:46 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-05 08:15:46 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-05 08:15:54 | INFO     | COMMAND RECEIVED: 'i'
+2026-04-05 08:15:54 | INFO     | Processing command: 'i'
+2026-04-05 08:15:54 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-04-05 08:15:54 | INFO     | AUDIO EVENT: Low confidence command | Confidence: 0.00
+2026-04-05 08:15:57 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 08:15:57 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 08:16:02 | INFO     | COMMAND RECEIVED: 'minimize'
+2026-04-05 08:16:02 | INFO     | Shortcut command executed: Minimize window
+2026-04-05 08:16:04 | INFO     | COMMAND RECEIVED: 'maximize'
+2026-04-05 08:16:05 | INFO     | Shortcut command executed: Maximize window
+2026-04-05 08:16:07 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 08:16:08 | INFO     | Shortcut command executed: Zoom in
+2026-04-05 08:16:11 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 08:16:12 | INFO     | Shortcut command executed: Zoom in
+2026-04-05 08:16:19 | INFO     | COMMAND RECEIVED: 'light in'
+2026-04-05 08:16:19 | INFO     | Processing command: 'light in'
+2026-04-05 08:16:19 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.78, value: 0
+2026-04-05 08:16:19 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-04-05 08:16:19 | INFO     | Command executed successfully: brightness.relative_decrease
+2026-04-05 08:16:23 | INFO     | COMMAND RECEIVED: 'zoom out'
+2026-04-05 08:16:24 | INFO     | Shortcut command executed: Zoom out
+2026-04-05 08:16:25 | INFO     | COMMAND RECEIVED: 'nora'
+2026-04-05 08:16:25 | INFO     | Processing command: 'nora'
+2026-04-05 08:16:25 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 08:16:25 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 08:16:25 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 08:16:32 | INFO     | COMMAND RECEIVED: 'an order on what an order level'
+2026-04-05 08:16:32 | INFO     | Processing command: 'an order on what an order level'
+2026-04-05 08:16:32 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.50, value: 0
+2026-04-05 08:16:32 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 08:16:32 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 17:35:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 17:35:19 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 17:35:19 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 17:35:19 | INFO     | Detection threshold: 0.65
+2026-04-05 17:35:19 | INFO     | VoiceListener initialized
+2026-04-05 17:35:19 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 17:35:19 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 17:35:19 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 17:35:19 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 17:35:19 | INFO     | Validated 5 application paths
+2026-04-05 17:35:19 | INFO     | ApplicationLauncher initialized
+2026-04-05 17:35:19 | INFO     | Loaded 5 application configurations
+2026-04-05 17:35:19 | INFO     | SystemController initialized
+2026-04-05 17:35:19 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 17:35:19 | INFO     | ==================================================
+2026-04-05 17:35:19 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 17:35:19 | INFO     | Start time: 2026-04-05 17:35:19
+2026-04-05 17:35:19 | INFO     | ==================================================
+2026-04-05 17:35:19 | INFO     | VoiceAssistant initialized
+2026-04-05 17:35:19 | INFO     | Starting voice assistant...
+2026-04-05 17:35:19 | INFO     | brightness controller: ✅ Supported
+2026-04-05 17:35:19 | INFO     | volume controller: ✅ Supported
+2026-04-05 17:35:19 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 17:35:19 | INFO     | system_control controller: ✅ Supported
+2026-04-05 17:35:19 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 17:35:19 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 17:35:20 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 17:35:21 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 17:35:21 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 17:35:21 | INFO     | Voice assistant started successfully
+2026-04-05 17:35:21 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 17:54:34 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 17:54:34 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 17:54:34 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 17:54:34 | INFO     | Detection threshold: 0.65
+2026-04-05 17:54:34 | INFO     | VoiceListener initialized
+2026-04-05 17:54:34 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 17:54:34 | INFO     | Loaded 25 total actions across 5 categories
+2026-04-05 17:54:34 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 17:54:35 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 17:54:35 | INFO     | Validated 5 application paths
+2026-04-05 17:54:35 | INFO     | ApplicationLauncher initialized
+2026-04-05 17:54:35 | INFO     | Loaded 5 application configurations
+2026-04-05 17:54:35 | INFO     | SystemController initialized
+2026-04-05 17:54:35 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 17:54:35 | INFO     | ==================================================
+2026-04-05 17:54:35 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 17:54:35 | INFO     | Start time: 2026-04-05 17:54:35
+2026-04-05 17:54:35 | INFO     | ==================================================
+2026-04-05 17:54:35 | INFO     | VoiceAssistant initialized
+2026-04-05 17:54:35 | INFO     | Starting voice assistant...
+2026-04-05 17:54:35 | INFO     | brightness controller: ✅ Supported
+2026-04-05 17:54:35 | INFO     | volume controller: ✅ Supported
+2026-04-05 17:54:35 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 17:54:35 | INFO     | system_control controller: ✅ Supported
+2026-04-05 17:54:35 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 17:54:35 | INFO     | AUDIO EVENT: Loading VOSK model | Path: models/vosk-model-small-en-us-0.15
+2026-04-05 17:54:36 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 17:54:36 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 17:54:36 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 17:54:36 | INFO     | Voice assistant started successfully
+2026-04-05 17:54:36 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 17:54:41 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 17:54:41 | INFO     | Processing command: 'hey nora'
+2026-04-05 17:54:41 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 17:54:41 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 17:54:41 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 17:54:56 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-05 17:54:56 | INFO     | Shortcut command executed: Close window
+2026-04-05 17:55:01 | INFO     | COMMAND RECEIVED: 'close notepad'
+2026-04-05 17:55:01 | INFO     | Processing command: 'close notepad'
+2026-04-05 17:55:01 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-05 17:55:02 | INFO     | Closed notepad
+2026-04-05 17:55:02 | INFO     | Command executed successfully: app_launcher.close_notepad
+2026-04-05 17:55:07 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-05 17:55:07 | INFO     | Processing command: 'open file explorer'
+2026-04-05 17:55:07 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-05 17:55:07 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 17:55:07 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 17:55:14 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:55:15 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:55:16 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:55:16 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:55:19 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 17:55:19 | INFO     | Processing command: 'open'
+2026-04-05 17:55:19 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-05 17:55:19 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-05 17:55:19 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-05 17:55:37 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-05 17:55:37 | INFO     | Shortcut command executed: Close window
+2026-04-05 17:58:04 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-05 17:58:05 | INFO     | Shortcut command executed: Next page
+2026-04-05 17:58:07 | INFO     | COMMAND RECEIVED: 'next page'
+2026-04-05 17:58:07 | INFO     | Shortcut command executed: Next page
+2026-04-05 17:58:13 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-05 17:58:13 | INFO     | Shortcut command executed: Scroll down
+2026-04-05 17:58:16 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:58:16 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:58:18 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 17:58:19 | INFO     | Shortcut command executed: Zoom in
+2026-04-05 17:58:21 | INFO     | COMMAND RECEIVED: 'zoom in'
+2026-04-05 17:58:21 | INFO     | Shortcut command executed: Zoom in
+2026-04-05 17:58:24 | INFO     | COMMAND RECEIVED: 'zoom out'
+2026-04-05 17:58:25 | INFO     | Shortcut command executed: Zoom out
+2026-04-05 17:58:28 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-05 17:58:28 | INFO     | Shortcut command executed: Scroll down
+2026-04-05 17:58:34 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-05 17:58:34 | INFO     | Shortcut command executed: Scroll down
+2026-04-05 17:58:36 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-05 17:58:37 | INFO     | Shortcut command executed: Scroll up
+2026-04-05 17:58:39 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-05 17:58:39 | INFO     | Shortcut command executed: Scroll up
+2026-04-05 17:58:42 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-05 17:58:42 | INFO     | Shortcut command executed: Scroll up
+2026-04-05 17:58:45 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-05 17:58:45 | INFO     | Shortcut command executed: Scroll up
+2026-04-05 17:58:49 | INFO     | COMMAND RECEIVED: 'scroll up'
+2026-04-05 17:58:49 | INFO     | Shortcut command executed: Scroll up
+2026-04-05 17:58:52 | INFO     | COMMAND RECEIVED: 'scroll down'
+2026-04-05 17:58:52 | INFO     | Shortcut command executed: Scroll down
+2026-04-05 17:58:54 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:58:54 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:59:04 | INFO     | COMMAND RECEIVED: 'close'
+2026-04-05 17:59:05 | INFO     | Shortcut command executed: Close window
+2026-04-05 17:59:12 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:59:12 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:59:14 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 17:59:14 | INFO     | Shortcut command executed: Arrow down
+2026-04-05 17:59:16 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-05 17:59:16 | INFO     | Shortcut command executed: Arrow up
+2026-04-05 17:59:18 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-05 17:59:18 | INFO     | Shortcut command executed: Arrow up
+2026-04-05 17:59:19 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-05 17:59:19 | INFO     | Shortcut command executed: Arrow up
+2026-04-05 17:59:21 | INFO     | COMMAND RECEIVED: 'up'
+2026-04-05 17:59:21 | INFO     | Shortcut command executed: Arrow up
+2026-04-05 17:59:24 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 17:59:24 | INFO     | Processing command: 'open'
+2026-04-05 17:59:24 | INFO     | INTENT DETECTED: app_launcher, action: open_code, confidence: 0.73, value: 0
+2026-04-05 17:59:24 | INFO     | APP LAUNCH: code (path: C:\Users\%USERNAME%\AppData\Local\Programs\Microsoft VS Code\Code.exe)
+2026-04-05 17:59:24 | INFO     | Command executed successfully: app_launcher.open_code
+2026-04-05 17:59:38 | INFO     | COMMAND RECEIVED: 'lower'
+2026-04-05 17:59:38 | INFO     | Processing command: 'lower'
+2026-04-05 17:59:38 | INFO     | INTENT DETECTED: volume, action: relative_increase, confidence: 0.73, value: 0
+2026-04-05 17:59:38 | INFO     | Command executed successfully: volume.relative_increase

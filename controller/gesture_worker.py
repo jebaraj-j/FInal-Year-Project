@@ -92,6 +92,7 @@ class GestureWorker(QThread):
         pinch_state       = "open"
         is_dragging       = False
         right_click_active = False
+        right_click_hold_start = None
         pinch_start_time  = 0.0
         hard_pinch_active = False
         scroll_mode       = False
@@ -102,6 +103,7 @@ class GestureWorker(QThread):
         # Left-hand original state (Alt+Tab only — others moved to extensions)
         task_switch_active = False
         last_tab_time      = 0.0
+        left_tab_hold_start = None
 
         # Mode-switch gesture
         start_up_time             = time.time()
@@ -176,29 +178,42 @@ class GestureWorker(QThread):
                     if label == "Right":
                         found_right = True
 
-                        # ── Right Click: Thumb(4) + Middle(12) pinch ──────
+                        # ── Right Click: Thumb(4) + Middle(12) pinch + hold ──────
                         thumb_tip  = np.array(pts[4][:2])
                         middle_tip = np.array(pts[12][:2])
                         rc_dist    = np.linalg.norm(thumb_tip - middle_tip)
-                        is_rc = (rc_dist < 0.08
-                                 and not states["Index"]
-                                 and not states["Ring"]
-                                 and not states["Pinky"])
+                        is_rc_shape = (
+                            rc_dist < 0.08
+                            and states["Index"]
+                            and states["Ring"]
+                            and states["Pinky"]
+                        )
 
-                        if is_rc:
-                            if not right_click_active:
+                        if is_rc_shape:
+                            now_rc = time.time()
+                            if right_click_hold_start is None:
+                                right_click_hold_start = now_rc
+
+                            hold_sec = now_rc - right_click_hold_start
+                            if hold_sec >= 0.7 and not right_click_active:
                                 pyautogui.rightClick()
                                 self.action_logged.emit("RIGHT CLICK")
                                 self.gesture_triggered.emit("Right Click", "🖱️")
                                 right_click_active = True
-                            current_gesture  = "Right Click"
-                            current_subtitle = "Thumb + Middle pinch"
+
+                            if not right_click_active:
+                                current_gesture  = "Right Click Hold"
+                                current_subtitle = f"Thumb+Middle pinch hold {hold_sec:.1f}/0.7s"
+                            else:
+                                current_gesture  = "Right Click"
+                                current_subtitle = "Confirmed"
                         else:
                             right_click_active = False
+                            right_click_hold_start = None
 
                         # ── Scroll: Index + Middle extended ───────────────
                         is_scroll = False
-                        if not is_rc:
+                        if not is_rc_shape:
                             ix_ext    = pts[6][1] - pts[8][1]
                             mx_ext    = pts[10][1] - pts[12][1]
                             is_scroll = (
@@ -336,28 +351,46 @@ class GestureWorker(QThread):
                             np.linalg.norm(thumb_l - index_l) <= cfg.left_pinch_threshold
                         )
 
+                        # Evaluate extension gestures first so copy/paste can override pinch noise.
+                        ext = lh_ext.process(states, is_left_pinch)
+                        extension_blocks_tab = (
+                            ext['gesture'].startswith("Copy")
+                            or ext['gesture'].startswith("Paste")
+                            or ext['gesture'].startswith("Minimize")
+                            or ext['gesture'].startswith("Maximize")
+                        )
+                        extension_blocks_mode_switch = extension_blocks_tab
+
                         now_l = time.time()
-                        if is_left_pinch:
-                            if not task_switch_active:
-                                pyautogui.keyDown("alt")
-                                pyautogui.press("tab")
-                                task_switch_active = True
-                                last_tab_time = now_l
-                                self.action_logged.emit("TASK SWITCH START")
-                                self.gesture_triggered.emit("Tab Switching", "🗂️")
-                            elif now_l - last_tab_time >= cfg.tab_repeat_sec:
-                                pyautogui.press("tab")
-                                last_tab_time = now_l
-                            current_gesture  = "Task Switch"
-                            current_subtitle = "Left pinch — Alt+Tab"
+                        if is_left_pinch and not extension_blocks_tab:
+                            if left_tab_hold_start is None:
+                                left_tab_hold_start = now_l
+
+                            hold_sec = now_l - left_tab_hold_start
+                            if hold_sec >= 1.0:
+                                if not task_switch_active:
+                                    pyautogui.keyDown("alt")
+                                    pyautogui.press("tab")
+                                    task_switch_active = True
+                                    last_tab_time = now_l
+                                    self.action_logged.emit("TASK SWITCH START")
+                                    self.gesture_triggered.emit("Tab Switching", "🗂️")
+                                elif now_l - last_tab_time >= cfg.tab_repeat_sec:
+                                    pyautogui.press("tab")
+                                    last_tab_time = now_l
+                                current_gesture  = "Task Switch"
+                                current_subtitle = "Left pinch hold confirmed — Alt+Tab"
+                            else:
+                                current_gesture  = "Task Switch Hold"
+                                current_subtitle = f"Hold {hold_sec:.1f}/1.0s"
                         else:
+                            left_tab_hold_start = None
                             if task_switch_active:
                                 pyautogui.keyUp("alt")
                                 task_switch_active = False
                                 self.action_logged.emit("TASK SWITCH END")
 
                         # ── NEW: Hold-based gestures via extensions ────────
-                        ext = lh_ext.process(states, is_left_pinch)
                         if ext['action']:
                             action_map = {
                                 'minimize': ("Window Minimized", "🔽"),
@@ -370,7 +403,7 @@ class GestureWorker(QThread):
                             self.gesture_triggered.emit(*label_icon)
 
                         # Show hold progress in gesture label
-                        if ext['gesture'] and not is_left_pinch:
+                        if ext['gesture']:
                             current_gesture  = ext['gesture']
                             current_subtitle = ext['subtitle']
 
@@ -379,7 +412,7 @@ class GestureWorker(QThread):
                             states["Thumb"] and states["Index"] and states["Middle"]
                             and not states["Ring"] and not states["Pinky"]
                         )
-                        if is_switch and time.time() - start_up_time > 2.0:
+                        if is_switch and not extension_blocks_mode_switch and time.time() - start_up_time > 2.0:
                             if switch_gesture_start_time is None:
                                 switch_gesture_start_time = time.time()
                                 self.action_logged.emit("Switch gesture — hold 1.5s…")
@@ -420,12 +453,14 @@ class GestureWorker(QThread):
                     pyautogui.mouseUp()
                     is_dragging = False
                 right_click_active = False
+                right_click_hold_start = None
                 hard_pinch_active  = False
                 pinch_start_time   = 0.0
 
                 if task_switch_active:
                     pyautogui.keyUp("alt")
                     task_switch_active = False
+                left_tab_hold_start = None
 
                 current_gesture  = "No hand detected"
                 current_subtitle = "Show hand in camera"
@@ -434,11 +469,14 @@ class GestureWorker(QThread):
             if not found_left and task_switch_active:
                 pyautogui.keyUp("alt")
                 task_switch_active = False
+            if not found_left:
+                left_tab_hold_start = None
             if not found_right:
                 if is_dragging:
                     pyautogui.mouseUp()
                     is_dragging = False
                 scroll_mode = False
+                right_click_hold_start = None
 
             # Cursor mode tracking
             if cursor_hand and not is_cursor_mode:

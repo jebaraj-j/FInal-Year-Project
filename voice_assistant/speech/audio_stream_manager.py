@@ -92,61 +92,85 @@ class AudioStreamManager:
                 except:
                     continue
 
-            # 1. Prioritize Headsets (often what the user wants if plugged in)
-            for info in devices:
-                name = info['name'].lower()
-                if any(k in name for k in ["headset", "hands-free"]):
-                    self.logger.info(f"Checking headset candidate: {info['name']}")
-                    if "mapper" not in name and "virtual" not in name:
-                        # Try preferred rate first, then fall back
-                        for rate in [self.sample_rate, 16000, 8000, 44100, 48000]:
-                            if self._is_rate_supported(info['index'], rate):
-                                if rate != self.sample_rate:
-                                    self.sample_rate = rate
-                                    self.logger.warning(f"Using fallback sample rate {rate}Hz for headset {info['name']}")
-                                return info['index']
-                        self.logger.warning(f"Headset {info['name']} supports none of the common sample rates")
+            # Bluetooth hands-free profile is often unstable for low-latency capture
+            # and can cause [Errno -9999] Unanticipated host error on stream start.
+            # Prefer wired/built-in microphone devices first.
+            def _is_unstable_handsfree(device_name: str) -> bool:
+                n = device_name.lower()
+                return (
+                    "hands-free" in n
+                    or "bthhfenum" in n
+                    or ("bluetooth" in n and "headset" in n)
+                )
 
-            # 2. Try PyAudio's official default if it's not a mapping device
+            # 1. Try PyAudio's official default input first (if stable)
             try:
                 default_info = self.audio.get_default_input_device_info()
-                if "Mapping" not in default_info['name'] and "Mapper" not in default_info['name']:
+                default_name = default_info['name']
+                if (
+                    "Mapping" not in default_name
+                    and "Mapper" not in default_name
+                    and not _is_unstable_handsfree(default_name)
+                ):
                     if self._is_rate_supported(default_info['index'], self.sample_rate):
                         return default_info['index']
             except:
                 pass
 
-            # 2. Then try other microphones/arrays
+            # 2. Then try microphone/array devices (excluding unstable hands-free)
             for info in devices:
                 name = info['name'].lower()
                 if any(k in name for k in ["microphone", "input", "array"]):
-                    if "mapper" not in name and "virtual" not in name:
+                    if (
+                        "mapper" not in name
+                        and "virtual" not in name
+                        and not _is_unstable_handsfree(name)
+                    ):
                         if self._is_rate_supported(info['index'], self.sample_rate):
                             return info['index']
             
-            # 3. Fallback for other mics with rate negotiation
+            # 3. Fallback for other microphones with rate negotiation
             for info in devices:
                 name = info['name'].lower()
                 if any(k in name for k in ["microphone", "input", "array"]):
+                    if _is_unstable_handsfree(name):
+                        continue
                     for rate in [16000, 44100, 48000, 8000]:
                         if self._is_rate_supported(info['index'], rate):
                             self.sample_rate = rate
                             self.logger.warning(f"Using alternate sample rate {rate}Hz for device {info['name']}")
                             return info['index']
-            
-            # Fallback to any hardware device that supports our rate
+
+            # 4. Try headset devices (but still avoid unstable hands-free profile)
             for info in devices:
+                name = info['name'].lower()
+                if "headset" in name and not _is_unstable_handsfree(name):
+                    self.logger.info(f"Checking headset candidate: {info['name']}")
+                    for rate in [self.sample_rate, 16000, 44100, 48000, 8000]:
+                        if self._is_rate_supported(info['index'], rate):
+                            if rate != self.sample_rate:
+                                self.sample_rate = rate
+                                self.logger.warning(f"Using fallback sample rate {rate}Hz for headset {info['name']}")
+                            return info['index']
+
+            # 5. Fallback to any non-handsfree hardware device that supports our rate
+            for info in devices:
+                name = info['name'].lower()
+                if _is_unstable_handsfree(name):
+                    continue
                 if self._is_rate_supported(info['index'], self.sample_rate):
                     return info['index']
             
-            # Absolute fallback: find a rate that works for the first device
+            # 6. Absolute fallback: find a rate that works for first non-handsfree device
             if devices:
-                first_device = devices[0]['index']
-                for rate in [16000, 44100, 48000, 8000]:
-                    if self._is_rate_supported(first_device, rate):
-                        self.sample_rate = rate
-                        self.logger.warning(f"Using fallback sample rate: {rate}Hz")
-                        return first_device
+                for info in devices:
+                    if _is_unstable_handsfree(info['name'].lower()):
+                        continue
+                    for rate in [16000, 44100, 48000, 8000]:
+                        if self._is_rate_supported(info['index'], rate):
+                            self.sample_rate = rate
+                            self.logger.warning(f"Using fallback sample rate: {rate}Hz")
+                            return info['index']
                         
         except Exception as e:
             self.logger.log_error("DeviceDetectionError", str(e))

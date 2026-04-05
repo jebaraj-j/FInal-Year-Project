@@ -12,6 +12,7 @@ Gestures handled here:
 """
 
 import pyautogui
+import time
 from extensions.hold_detector import HoldDetector
 
 
@@ -23,12 +24,15 @@ class LeftHandExtensions:
 
     HOLD_TIME     = 1.0   # seconds gesture must be held
     COOLDOWN_TIME = 2.5   # seconds before same action can fire again
+    HOLD_GRACE_SEC = 0.20 # tolerate brief landmark jitter while holding
 
     def __init__(self):
         self._copy_hold     = HoldDetector(self.HOLD_TIME, self.COOLDOWN_TIME)
         self._paste_hold    = HoldDetector(self.HOLD_TIME, self.COOLDOWN_TIME)
         self._minimize_hold = HoldDetector(self.HOLD_TIME, self.COOLDOWN_TIME)
         self._maximize_hold = HoldDetector(self.HOLD_TIME, self.COOLDOWN_TIME)
+        self._last_active_gesture = None
+        self._last_active_time = 0.0
 
     # ------------------------------------------------------------------
     def process(self, states: dict, is_left_pinch: bool) -> dict:
@@ -50,11 +54,14 @@ class LeftHandExtensions:
         """
         result = {'action': None, 'progress': 0.0, 'gesture': '', 'subtitle': ''}
 
-        # Don't run copy/paste while pinching for Alt+Tab
-        no_pinch = not is_left_pinch
-
         # ── Detect gesture shapes ───────────────────────────────────
-        all_folded   = not any(states[n] for n in ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky'])
+        # Thumb state is often noisy for folded fist; rely on non-thumb fingers for robust fist detection.
+        all_folded   = (
+            not states['Index']
+            and not states['Middle']
+            and not states['Ring']
+            and not states['Pinky']
+        )
         all_extended = all(states[n] for n in ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky'])
 
         index_only   = (
@@ -62,23 +69,35 @@ class LeftHandExtensions:
             and not states['Middle']
             and not states['Ring']
             and not states['Pinky']
-            and no_pinch
         )
         index_middle = (
             states['Index']
             and states['Middle']
             and not states['Ring']
             and not states['Pinky']
-            and no_pinch
         )
 
         # ── Reset detectors for mutually exclusive gestures ─────────
         # Only one gesture can be held at a time
         active_gesture = None
-        if all_folded:    active_gesture = 'minimize'
-        elif all_extended: active_gesture = 'maximize'
-        elif index_middle: active_gesture = 'paste'     # check before index_only
-        elif index_only:   active_gesture = 'copy'
+        if all_folded:
+            active_gesture = 'minimize'
+        elif all_extended:
+            active_gesture = 'maximize'
+        elif index_middle:  # check before index_only
+            active_gesture = 'paste'
+        elif index_only:
+            active_gesture = 'copy'
+
+        # Keep the same gesture alive for a short grace window to survive jitter.
+        now = time.time()
+        if active_gesture:
+            self._last_active_gesture = active_gesture
+            self._last_active_time = now
+        elif self._last_active_gesture and (now - self._last_active_time) <= self.HOLD_GRACE_SEC:
+            active_gesture = self._last_active_gesture
+        else:
+            self._last_active_gesture = None
 
         if active_gesture != 'minimize':  self._minimize_hold.reset()
         if active_gesture != 'maximize':  self._maximize_hold.reset()
@@ -137,3 +156,5 @@ class LeftHandExtensions:
         self._paste_hold.reset()
         self._minimize_hold.reset()
         self._maximize_hold.reset()
+        self._last_active_gesture = None
+        self._last_active_time = 0.0

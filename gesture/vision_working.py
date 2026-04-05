@@ -4,6 +4,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import time
+import sys
 from collections import deque
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
@@ -308,9 +309,11 @@ def draw_help_overlay(img: np.ndarray):
         "  - Scroll: Index + Middle extended. Move hand UP/DOWN",
         "",
         "LEFT HAND (System Control):",
-        "  - Minimize (Win+Down): Closed Fist",
-        "  - Maximize (Win+Up): Open Palm",
-        "  - Task Switch (Alt+Tab): Pinch Thumb + Index. Hold to cycle.",
+        "  - Copy (Ctrl+C): Pinky extended only (hold 1s)",
+        "  - Paste (Ctrl+V): Ring + Pinky extended (hold 1s)",
+        "  - Minimize (Win+Down): Thumb only (hold 1s)",
+        "  - Maximize (Win+Up): Open Palm (hold 1s)",
+        "  - Task Switch (Alt+Tab): Thumb+Index pinch + others up (hold 1s)",
         "",
         "MODE SWITCHING (TO VOICE):",
         "  - Thumb + Index + Middle Extended (Left Hand)",
@@ -363,7 +366,8 @@ def main():
     # Task switching state variables
     task_switch_active = False
     last_tab_time = 0.0
-    
+    tab_hold_start = 0.0
+
     # Scroll mode state variables
     scroll_mode = False
     scroll_was_active = False
@@ -373,9 +377,24 @@ def main():
     # Drag & Drop and Right-Click state variables (redesigned)
     is_dragging = False
     right_click_active = False
+    right_click_hold_start = 0.0
     pinch_start_time = 0.0      # When hard pinch begins
     hard_pinch_active = False   # Track hard pinch state
     show_help = False           # Help overlay toggle
+
+    # Left-hand hold-to-confirm timers (1.0s)
+    left_hold_start = {
+        "copy": 0.0,
+        "paste": 0.0,
+        "minimize": 0.0,
+        "maximize": 0.0,
+    }
+    left_hold_fired = {
+        "copy": False,
+        "paste": False,
+        "minimize": False,
+        "maximize": False,
+    }
 
     print("\n=== EASY CONTROL GUIDE ===")
     print("  * Right hand, ONLY index extended -> Cursor mode")
@@ -388,10 +407,12 @@ def main():
     print("  - Move fingers up/down -> Scroll up/down")
     print("* Right hand, thumb + middle pinch -> Right click")
     print("* Right hand, thumb + index hard pinch hold -> Drag & drop")
-    print("* Left hand gestures:")
-    print("  - Closed fist -> Minimize window (Win+Down)")
-    print("  - Open palm -> Maximize window (Win+Up)")
-    print("  - Thumb-index pinch -> Alt+Tab task switching")
+    print("* Left hand gestures (1.0s hold confirm):")
+    print("  - Copy: Pinky extended only -> Ctrl+C")
+    print("  - Paste: Ring + Pinky extended -> Ctrl+V")
+    print("  - Minimize: Thumb extended only -> Win+Down")
+    print("  - Maximize: Open palm -> Win+Up")
+    print("  - Task Switch: Thumb-Index pinch + Middle/Ring/Pinky extended -> Alt+Tab")
     print("Q = quit    S = screenshot\n")
 
     while cap.isOpened():
@@ -427,6 +448,7 @@ def main():
         cursor_hand = False
         current_pinch_state = "open"
         line_color = Palette.LINE_OPEN
+        seen_left_hand = False
 
         if hand_detected:
             # --- HIGH PRIORITY MODE SWITCH CHECK ---
@@ -480,25 +502,34 @@ def main():
                 if label == "Right":
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
                     
-                    # Check for right-click gesture (thumb + middle mild pinch)
+                    # Check for right-click gesture (thumb + middle pinch hold 0.7s)
                     thumb_tip = np.array(pts[4][:2])      # Thumb tip (landmark 4)
                     middle_tip = np.array(pts[12][:2])    # Middle finger tip (landmark 12)
                     right_click_dist = np.linalg.norm(thumb_tip - middle_tip)
-                    
-                    # Refined right-click detection based on clear mild-pinch distance
-                    is_right_click = (right_click_dist < 0.08 and 
-                                      not states["Ring"] and not states["Pinky"])
-                    
-                    if is_right_click and not right_click_active:
-                        pyautogui.rightClick()
-                        print(f"RIGHT CLICK (thumb + middle pinch) - dist: {right_click_dist:.3f}")
-                        right_click_active = True
-                    elif not is_right_click:
+
+                    # Strict posture: index, ring, and pinky must be extended.
+                    is_right_click_shape = (
+                        right_click_dist < 0.08
+                        and states["Index"]
+                        and states["Ring"]
+                        and states["Pinky"]
+                    )
+
+                    if is_right_click_shape:
+                        if right_click_hold_start == 0.0:
+                            right_click_hold_start = time.time()
+                        hold_t = time.time() - right_click_hold_start
+                        if hold_t >= 0.7 and not right_click_active:
+                            pyautogui.rightClick()
+                            print(f"RIGHT CLICK CONFIRMED (hold {hold_t:.2f}s)")
+                            right_click_active = True
+                    else:
                         right_click_active = False
+                        right_click_hold_start = 0.0
                     
                     # Check for scroll gesture (index + middle extended)
                     is_scroll_gesture = False
-                    if not is_right_click:  
+                    if not is_right_click_shape:  
                         index_extension = pts[6][1] - pts[8][1]
                         middle_extension = pts[10][1] - pts[12][1]
                         min_extension = 0.04
@@ -600,60 +631,116 @@ def main():
                         base_scroll_y = 0.0
 
                 elif label == "Left":
+                    seen_left_hand = True
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
                     thumb_tip = np.array(pts[4][:2])
                     index_tip = np.array(pts[8][:2])
                     pinch_dist = np.linalg.norm(thumb_tip - index_tip)
                     is_left_pinch = pinch_dist <= cfg.left_pinch_threshold
-                    
                     current_time = time.time()
-                    
-                    # Task switching logic (highest priority)
-                    if is_left_pinch:
-                        if not task_switch_active:  # Pinch START
-                            pyautogui.keyDown("alt")
-                            pyautogui.press("tab")
-                            task_switch_active = True
-                            last_tab_time = current_time
-                            print("LEFT HAND: TASK SWITCH START (pinch gesture)")
-                        elif current_time - last_tab_time >= cfg.tab_repeat_sec:  # Pinch HOLD - cycle
-                            pyautogui.press("tab")
-                            last_tab_time = current_time
-                            print("LEFT HAND: TASK SWITCH CYCLE")
+
+                    thumb_e = states["Thumb"]
+                    index_e = states["Index"]
+                    middle_e = states["Middle"]
+                    ring_e = states["Ring"]
+                    pinky_e = states["Pinky"]
+
+                    # New left-hand gesture mapping requested by user.
+                    # Priority rule: pinky-based gestures must win before pinch-based tab switch.
+                    # This avoids false tab triggers when thumb/index are close during copy/paste.
+                    is_copy = pinky_e and (not ring_e) and (not middle_e)
+                    is_paste = pinky_e and ring_e and (not middle_e)
+                    is_minimize = thumb_e and (not index_e) and (not middle_e) and (not ring_e) and (not pinky_e)
+                    is_maximize = thumb_e and index_e and middle_e and ring_e and pinky_e
+                    # Tab switch: thumb-index pinch + other fingers extended.
+                    is_tab_switch = (not is_copy) and (not is_paste) and is_left_pinch and middle_e and ring_e and pinky_e
+
+                    active_left = "none"
+                    if is_copy:
+                        active_left = "copy"
+                    elif is_paste:
+                        active_left = "paste"
+                    elif is_minimize:
+                        active_left = "minimize"
+                    elif is_maximize:
+                        active_left = "maximize"
+                    elif is_tab_switch:
+                        active_left = "tab"
+
+                    # Reset non-active hold timers
+                    for g in ("copy", "paste", "minimize", "maximize"):
+                        if active_left != g:
+                            left_hold_start[g] = 0.0
+                            left_hold_fired[g] = False
+
+                    # Handle copy/paste/minimize/maximize with 1s hold confirm
+                    if active_left in left_hold_start:
+                        if left_hold_start[active_left] == 0.0:
+                            left_hold_start[active_left] = current_time
+                        hold_t = current_time - left_hold_start[active_left]
+
+                        if hold_t >= 1.0 and not left_hold_fired[active_left]:
+                            if active_left == "copy":
+                                pyautogui.hotkey("ctrl", "c")
+                                print("LEFT HAND: COPY (hold 1.0s)")
+                            elif active_left == "paste":
+                                pyautogui.hotkey("ctrl", "v")
+                                print("LEFT HAND: PASTE (hold 1.0s)")
+                            elif active_left == "minimize":
+                                # Press twice so minimize works even from maximized windows.
+                                pyautogui.hotkey("win", "down")
+                                time.sleep(0.05)
+                                pyautogui.hotkey("win", "down")
+                                print("LEFT HAND: MINIMIZE WINDOW (hold 1.0s)")
+                            elif active_left == "maximize":
+                                pyautogui.hotkey("win", "up")
+                                print("LEFT HAND: MAXIMIZE WINDOW (hold 1.0s)")
+                            left_hold_fired[active_left] = True
+
+                        left_hand_state = active_left
                     else:
-                        if task_switch_active:  # Pinch RELEASE
+                        left_hand_state = "none"
+
+                    # Tab switching with 1s hold confirm
+                    if active_left == "tab":
+                        if tab_hold_start == 0.0:
+                            tab_hold_start = current_time
+                        tab_hold_t = current_time - tab_hold_start
+
+                        if tab_hold_t >= 1.0:
+                            if not task_switch_active:
+                                pyautogui.keyDown("alt")
+                                pyautogui.press("tab")
+                                task_switch_active = True
+                                last_tab_time = current_time
+                                print("LEFT HAND: TASK SWITCH START (hold 1.0s)")
+                            elif current_time - last_tab_time >= cfg.tab_repeat_sec:
+                                pyautogui.press("tab")
+                                last_tab_time = current_time
+                                print("LEFT HAND: TASK SWITCH CYCLE")
+                        else:
+                            print(f"LEFT HAND: TASK SWITCH HOLD {tab_hold_t:.1f}/1.0s", end="\r")
+                    else:
+                        tab_hold_start = 0.0
+                        if task_switch_active:
                             pyautogui.keyUp("alt")
                             task_switch_active = False
-                            print("LEFT HAND: TASK SWITCH END (pinch released)")
-                    
-                    # Check for closed fist (all fingers folded)
-                    all_fingers_folded = not any(states[n] for n in FINGER_DEFS)
-                    
-                    # Check for open palm (all fingers extended)
-                    all_fingers_extended = all(states[n] for n in FINGER_DEFS)
-                    
-                    # Determine current left-hand gesture (for window control)
-                    current_left_state = "none"
-                    if all_fingers_folded:
-                        current_left_state = "fist"
-                    elif all_fingers_extended:
-                        current_left_state = "open"
-                    
-                    # Trigger window actions only on state transitions (only when not in task switch mode)
-                    if not task_switch_active and left_hand_state != current_left_state:
-                        if current_left_state == "fist":
-                            pyautogui.hotkey("win", "down")
-                            print("LEFT HAND: MINIMIZE WINDOW (fist gesture)")
-                        elif current_left_state == "open":
-                            pyautogui.hotkey("win", "up")
-                            print("LEFT HAND: MAXIMIZE WINDOW (open palm gesture)")
-                    
-                    if not task_switch_active:
-                        left_hand_state = current_left_state
+                            print("LEFT HAND: TASK SWITCH END")
 
                 # Draw skeleton + pinch line
                 draw_skeleton_and_line(display, pts, label, glow=cfg.skeleton_glow,
                                        dense=cfg.dense_points_per_bone, line_color=line_color)
+
+            # If no left hand is visible in this frame, clear left-hand hold state.
+            if not seen_left_hand:
+                left_hand_state = "none"
+                tab_hold_start = 0.0
+                for g in ("copy", "paste", "minimize", "maximize"):
+                    left_hold_start[g] = 0.0
+                    left_hold_fired[g] = False
+                if task_switch_active:
+                    pyautogui.keyUp("alt")
+                    task_switch_active = False
 
         else:
             for i in range(cfg.max_hands):
@@ -671,8 +758,13 @@ def main():
                 print("DRAG FORCE END (no hands)")
             is_dragging = False
             right_click_active = False
+            right_click_hold_start = 0.0
             pinch_start_time = 0.0
             hard_pinch_active = False
+            tab_hold_start = 0.0
+            for g in ("copy", "paste", "minimize", "maximize"):
+                left_hold_start[g] = 0.0
+                left_hold_fired[g] = False
             # Safety: Release Alt key if task switch was active
             if task_switch_active:
                 pyautogui.keyUp("alt")
