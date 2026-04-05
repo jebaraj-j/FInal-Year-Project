@@ -12,8 +12,6 @@ import pyautogui
 import threading
 import queue
 import json
-import vosk
-import pyaudio
 import os
 
 

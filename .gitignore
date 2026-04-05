@@ -6,3 +6,6 @@ __pycache__/
 env/
 venv/
 ENV/
+dist_installer/
+build/
+dist/

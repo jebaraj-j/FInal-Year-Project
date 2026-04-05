@@ -111,6 +111,34 @@ pip install -r requirements.txt
 
 The main `requirements.txt` includes all necessary packages for both gesture and voice control:
 
+## 🛠 Build As Clickable Software (No Terminal)
+
+### 1) Build standalone EXE
+Run:
+```bat
+build_exe.bat
+```
+
+Output:
+```text
+dist\G-Vox\G-Vox.exe
+```
+
+Double-click `G-Vox.exe` to run directly (no terminal window).
+
+### 2) Build installer
+Install **Inno Setup 6**, then run:
+```bat
+build_installer.bat
+```
+
+Output:
+```text
+dist_installer\G-Vox-Setup.exe
+```
+
+Run `G-Vox-Setup.exe` to install, create Start Menu/Desktop shortcut, and launch like normal software.
+
 **Core Dependencies:**
 - `mediapipe>=0.10.0` - Hand tracking and gesture recognition
 - `opencv-python>=4.8.0` - Computer vision and image processing

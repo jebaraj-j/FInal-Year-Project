@@ -168,7 +168,8 @@ class GestureWorker(QThread):
 
                     states = {n: is_finger_extended(pts, n, label) for n in FINGER_DEFS}
                     is_fist_shape = (
-                        not states["Index"]
+                        not states["Thumb"]
+                        and not states["Index"]
                         and not states["Middle"]
                         and not states["Ring"]
                         and not states["Pinky"]
@@ -178,14 +179,14 @@ class GestureWorker(QThread):
                         found_right = True
                         right_fist = is_fist_shape
 
-                        thumb_tip = np.array(pts[4][:2])
-                        middle_tip = np.array(pts[12][:2])
-                        rc_dist = np.linalg.norm(thumb_tip - middle_tip)
+                        # Right click mapping requested by user:
+                        # Right ring+pinky extended, thumb/index/middle closed.
                         is_rc_shape = (
-                            rc_dist < 0.08
-                            and states["Index"]
-                            and states["Ring"]
+                            states["Ring"]
                             and states["Pinky"]
+                            and not states["Index"]
+                            and not states["Middle"]
+                            and not states["Thumb"]
                         )
 
                         if is_rc_shape:
@@ -202,7 +203,7 @@ class GestureWorker(QThread):
 
                             if not right_click_active:
                                 current_gesture = "Right Click Hold"
-                                current_subtitle = f"Thumb+Middle hold {hold_sec:.1f}/0.7s"
+                                current_subtitle = f"Ring+Pinky hold {hold_sec:.1f}/0.7s"
                             else:
                                 current_gesture = "Right Click"
                                 current_subtitle = "Confirmed"
@@ -249,6 +250,7 @@ class GestureWorker(QThread):
                             and not states["Middle"]
                             and not states["Ring"]
                             and not states["Pinky"]
+                            and not is_rc_shape
                         ):
                             cursor_hand = True
                             scroll_mode = False
@@ -336,15 +338,20 @@ class GestureWorker(QThread):
                         index_l = np.array(pts[8][:2])
                         is_left_pinch = np.linalg.norm(thumb_l - index_l) <= cfg.left_pinch_threshold
 
-                        # Mode switch shape: ring + pinky only, hold 1.5s.
+                        # Mode switch shape: left ring + pinky, others closed, hold 1.5s.
                         is_switch = (
                             states["Ring"]
                             and states["Pinky"]
-                            and not states["Thumb"]
                             and not states["Index"]
                             and not states["Middle"]
+                            and not states["Thumb"]
                         )
-                        ext = lh_ext.process(states, is_left_pinch)
+                        # Mode switch takes priority to avoid conflicts with paste gesture.
+                        if is_switch:
+                            lh_ext.reset_all()
+                            ext = {"action": None, "gesture": "", "subtitle": ""}
+                        else:
+                            ext = lh_ext.process(states, is_left_pinch)
 
                         extension_blocks_tab = (
                             ext["gesture"].startswith("Copy")
@@ -443,7 +450,14 @@ class GestureWorker(QThread):
                 pinch_state = current_pinch_state
 
                 # Exit gesture: both palms closed (fists) hold 3s.
-                if found_left and found_right and left_fist and right_fist:
+                if (
+                    found_left
+                    and found_right
+                    and left_fist
+                    and right_fist
+                    and switch_gesture_start_time is None
+                    and not task_switch_active
+                ):
                     now_exit = time.time()
                     if exit_hold_start is None:
                         exit_hold_start = now_exit

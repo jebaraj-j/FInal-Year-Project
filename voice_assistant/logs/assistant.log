@@ -8469,3 +8469,340 @@
 2026-04-05 19:48:53 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.71, value: 0
 2026-04-05 19:48:53 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
 2026-04-05 19:48:53 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 22:32:21 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 22:32:21 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 22:32:21 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 22:32:21 | INFO     | Detection threshold: 0.65
+2026-04-05 22:32:21 | INFO     | VoiceListener initialized
+2026-04-05 22:32:22 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 22:32:22 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 22:32:22 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 22:32:22 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 22:32:22 | INFO     | Validated 4 application paths
+2026-04-05 22:32:22 | INFO     | ApplicationLauncher initialized
+2026-04-05 22:32:22 | INFO     | Loaded 4 application configurations
+2026-04-05 22:32:22 | INFO     | SystemController initialized
+2026-04-05 22:32:22 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 22:32:22 | INFO     | ==================================================
+2026-04-05 22:32:22 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 22:32:22 | INFO     | Start time: 2026-04-05 22:32:22
+2026-04-05 22:32:22 | INFO     | ==================================================
+2026-04-05 22:32:22 | INFO     | VoiceAssistant initialized
+2026-04-05 22:32:22 | INFO     | Starting voice assistant...
+2026-04-05 22:32:22 | INFO     | brightness controller: ✅ Supported
+2026-04-05 22:32:22 | INFO     | volume controller: ✅ Supported
+2026-04-05 22:32:22 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 22:32:22 | INFO     | system_control controller: ✅ Supported
+2026-04-05 22:32:22 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 22:32:22 | INFO     | AUDIO EVENT: Loading VOSK model | Path: E:\projectnew\voice_assistant\models\vosk-model-small-en-us-0.15
+2026-04-05 22:32:23 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 22:32:23 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 22:32:23 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 22:32:23 | INFO     | Voice assistant started successfully
+2026-04-05 22:32:23 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 22:32:25 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 22:32:26 | INFO     | Processing command: 'hey nora'
+2026-04-05 22:32:26 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 22:32:26 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.50, Required: 0.62
+2026-04-05 22:32:29 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-05 22:32:29 | INFO     | Processing command: 'open chrome'
+2026-04-05 22:32:29 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-05 22:32:29 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-05 22:32:29 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-05 22:32:32 | INFO     | COMMAND RECEIVED: 'close chrome'
+2026-04-05 22:32:32 | INFO     | Processing command: 'close chrome'
+2026-04-05 22:32:32 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-05 22:32:32 | INFO     | Closed chrome
+2026-04-05 22:32:32 | INFO     | Command executed successfully: app_launcher.close_chrome
+2026-04-05 22:32:35 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-05 22:32:35 | INFO     | Processing command: 'open file explorer'
+2026-04-05 22:32:35 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-05 22:32:35 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 22:32:35 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 22:32:44 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 22:32:47 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 22:32:54 | INFO     | COMMAND RECEIVED: 'less'
+2026-04-05 22:32:54 | INFO     | Processing command: 'less'
+2026-04-05 22:32:54 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.55, value: 0
+2026-04-05 22:32:54 | INFO     | Command executed successfully: volume.absolute_increase
+2026-04-05 22:32:56 | INFO     | COMMAND RECEIVED: 'left'
+2026-04-05 22:32:57 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 22:32:59 | INFO     | COMMAND RECEIVED: 'bright'
+2026-04-05 22:32:59 | INFO     | Processing command: 'bright'
+2026-04-05 22:32:59 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.86, value: 0
+2026-04-05 22:32:59 | INFO     | BRIGHTNESS CHANGE: 0% → 9% (action: set)
+2026-04-05 22:32:59 | INFO     | Command executed successfully: brightness.relative_increase
+2026-04-05 22:33:00 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 22:33:02 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 22:33:04 | INFO     | COMMAND RECEIVED: 'right'
+2026-04-05 22:33:06 | INFO     | COMMAND RECEIVED: 'copy'
+2026-04-05 22:33:11 | INFO     | COMMAND RECEIVED: 'back'
+2026-04-05 22:33:11 | INFO     | Processing command: 'back'
+2026-04-05 22:33:11 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.50, value: 0
+2026-04-05 22:33:11 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: lock, Confidence: 0.50, Required: 0.78
+2026-04-05 22:33:31 | INFO     | COMMAND RECEIVED: 'paste'
+2026-04-05 22:33:37 | INFO     | COMMAND RECEIVED: 'copy'
+2026-04-05 22:33:39 | INFO     | COMMAND RECEIVED: 'copy'
+2026-04-05 22:33:44 | INFO     | COMMAND RECEIVED: 'back'
+2026-04-05 22:33:44 | INFO     | Processing command: 'back'
+2026-04-05 22:33:44 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.50, value: 0
+2026-04-05 22:33:44 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: lock, Confidence: 0.50, Required: 0.78
+2026-04-05 22:33:47 | INFO     | COMMAND RECEIVED: 'go back'
+2026-04-05 22:33:50 | INFO     | COMMAND RECEIVED: 'go back'
+2026-04-05 22:33:54 | INFO     | COMMAND RECEIVED: 'paste'
+2026-04-05 22:34:00 | INFO     | COMMAND RECEIVED: 'volume level volume'
+2026-04-05 22:34:00 | INFO     | Processing command: 'volume level volume'
+2026-04-05 22:34:00 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-04-05 22:34:00 | INFO     | Command executed successfully: volume.set_value
+2026-04-05 22:34:04 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 22:34:07 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:09 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 22:34:15 | INFO     | COMMAND RECEIVED: 'now'
+2026-04-05 22:34:15 | INFO     | Processing command: 'now'
+2026-04-05 22:34:15 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-04-05 22:34:15 | INFO     | AUDIO EVENT: No action detected | Command: now
+2026-04-05 22:34:17 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:18 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:20 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:22 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:24 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:34:48 | INFO     | Shutting down voice assistant...
+2026-04-05 22:34:48 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-04-05 22:34:48 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 22:34:48 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-04-05 22:34:48 | INFO     | VolumeController cleanup completed
+2026-04-05 22:34:48 | INFO     | ApplicationLauncher cleanup completed
+2026-04-05 22:34:48 | INFO     | SystemController cleanup completed
+2026-04-05 22:34:48 | INFO     | ==================================================
+2026-04-05 22:34:48 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-04-05 22:34:48 | INFO     | Shutdown time: 2026-04-05 22:34:48
+2026-04-05 22:34:48 | INFO     | ==================================================
+2026-04-05 22:52:01 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 22:52:01 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 22:52:01 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 22:52:01 | INFO     | Detection threshold: 0.65
+2026-04-05 22:52:01 | INFO     | VoiceListener initialized
+2026-04-05 22:52:01 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 22:52:01 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 22:52:02 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 22:52:02 | INFO     | VolumeController initialized (pycaw)
+2026-04-05 22:52:02 | INFO     | Validated 4 application paths
+2026-04-05 22:52:02 | INFO     | ApplicationLauncher initialized
+2026-04-05 22:52:02 | INFO     | Loaded 4 application configurations
+2026-04-05 22:52:02 | INFO     | SystemController initialized
+2026-04-05 22:52:02 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 22:52:02 | INFO     | ==================================================
+2026-04-05 22:52:02 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 22:52:02 | INFO     | Start time: 2026-04-05 22:52:02
+2026-04-05 22:52:02 | INFO     | ==================================================
+2026-04-05 22:52:02 | INFO     | VoiceAssistant initialized
+2026-04-05 22:52:02 | INFO     | Starting voice assistant...
+2026-04-05 22:52:02 | INFO     | brightness controller: ✅ Supported
+2026-04-05 22:52:02 | INFO     | volume controller: ✅ Supported
+2026-04-05 22:52:02 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 22:52:02 | INFO     | system_control controller: ✅ Supported
+2026-04-05 22:52:02 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 22:52:02 | INFO     | AUDIO EVENT: Loading VOSK model | Path: E:\projectnew\voice_assistant\models\vosk-model-small-en-us-0.15
+2026-04-05 22:52:03 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 22:52:03 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 22:52:03 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 22:52:03 | INFO     | Voice assistant started successfully
+2026-04-05 22:52:03 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 22:52:11 | INFO     | COMMAND RECEIVED: 'down'
+2026-04-05 22:52:16 | INFO     | COMMAND RECEIVED: 'ok item go mode'
+2026-04-05 22:52:16 | INFO     | Processing command: 'ok item go mode'
+2026-04-05 22:52:16 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.53, value: 0
+2026-04-05 22:52:16 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: lock, Confidence: 0.53, Required: 0.78
+2026-04-05 22:52:19 | INFO     | COMMAND RECEIVED: 'zero'
+2026-04-05 22:52:19 | INFO     | Processing command: 'zero'
+2026-04-05 22:52:19 | INFO     | INTENT DETECTED: volume, action: absolute_decrease, confidence: 0.53, value: 0
+2026-04-05 22:52:19 | INFO     | AUDIO EVENT: Low confidence command | Category: volume, Action: absolute_decrease, Confidence: 0.53, Required: 0.55
+2026-04-05 22:52:23 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-05 22:52:23 | INFO     | Processing command: 'open chrome'
+2026-04-05 22:52:23 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-05 22:52:23 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-05 22:52:23 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-05 22:52:28 | INFO     | Shutting down voice assistant...
+2026-04-05 22:52:28 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-04-05 22:52:28 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 22:52:28 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-04-05 22:52:28 | INFO     | VolumeController cleanup completed
+2026-04-05 22:52:28 | INFO     | ApplicationLauncher cleanup completed
+2026-04-05 22:52:28 | INFO     | SystemController cleanup completed
+2026-04-05 22:52:28 | INFO     | ==================================================
+2026-04-05 22:52:28 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-04-05 22:52:28 | INFO     | Shutdown time: 2026-04-05 22:52:28
+2026-04-05 22:52:28 | INFO     | ==================================================
+2026-04-05 22:52:32 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-05 22:52:32 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-05 22:52:32 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-05 22:52:32 | INFO     | Detection threshold: 0.65
+2026-04-05 22:52:32 | INFO     | VoiceListener initialized
+2026-04-05 22:52:32 | INFO     | UnifiedIntentEngine initialized
+2026-04-05 22:52:32 | INFO     | Loaded 23 total actions across 5 categories
+2026-04-05 22:52:32 | INFO     | BrightnessController initialized (screen_brightness_control)
+2026-04-05 22:52:32 | INFO     | Validated 4 application paths
+2026-04-05 22:52:32 | INFO     | ApplicationLauncher initialized
+2026-04-05 22:52:32 | INFO     | Loaded 4 application configurations
+2026-04-05 22:52:32 | INFO     | SystemController initialized
+2026-04-05 22:52:32 | INFO     | Supported operations: shutdown, restart, sleep, lock
+2026-04-05 22:52:32 | INFO     | ==================================================
+2026-04-05 22:52:32 | INFO     | VOICE ASSISTANT SYSTEM STARTING
+2026-04-05 22:52:32 | INFO     | Start time: 2026-04-05 22:52:32
+2026-04-05 22:52:32 | INFO     | ==================================================
+2026-04-05 22:52:32 | INFO     | VoiceAssistant initialized
+2026-04-05 22:52:32 | INFO     | Starting voice assistant...
+2026-04-05 22:52:32 | INFO     | brightness controller: ✅ Supported
+2026-04-05 22:52:32 | INFO     | volume controller: ✅ Supported
+2026-04-05 22:52:32 | INFO     | app_launcher controller: ✅ Supported
+2026-04-05 22:52:32 | INFO     | system_control controller: ✅ Supported
+2026-04-05 22:52:32 | INFO     | AUDIO EVENT: Auto-detected audio device | Microphone (Realtek(R) Audio) (Index: 1)
+2026-04-05 22:52:32 | INFO     | AUDIO EVENT: Loading VOSK model | Path: E:\projectnew\voice_assistant\models\vosk-model-small-en-us-0.15
+2026-04-05 22:52:33 | INFO     | AUDIO EVENT: VOSK model loaded successfully | Grammar enabled: True
+2026-04-05 22:52:33 | INFO     | AUDIO EVENT: Audio stream started | Device: 1
+2026-04-05 22:52:33 | INFO     | AUDIO EVENT: Voice listening started
+2026-04-05 22:52:33 | INFO     | Voice assistant started successfully
+2026-04-05 22:52:33 | INFO     | Listening for wake words: 'hey assistant', 'ok assistant', 'hello system'
+2026-04-05 22:52:46 | INFO     | COMMAND RECEIVED: 'hey nora'
+2026-04-05 22:52:46 | INFO     | Processing command: 'hey nora'
+2026-04-05 22:52:46 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.50, value: 0
+2026-04-05 22:52:46 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.50, Required: 0.62
+2026-04-05 22:52:54 | INFO     | COMMAND RECEIVED: 'open file explorer'
+2026-04-05 22:52:54 | INFO     | Processing command: 'open file explorer'
+2026-04-05 22:52:54 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 1.00
+2026-04-05 22:52:54 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 22:52:54 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 22:52:59 | INFO     | COMMAND RECEIVED: 'open notepad'
+2026-04-05 22:52:59 | INFO     | Processing command: 'open notepad'
+2026-04-05 22:52:59 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 1.00
+2026-04-05 22:52:59 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 22:52:59 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 22:53:03 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-05 22:53:03 | INFO     | Processing command: 'open chrome'
+2026-04-05 22:53:03 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 1.00
+2026-04-05 22:53:03 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-05 22:53:03 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-05 22:53:06 | INFO     | COMMAND RECEIVED: 'close chrome'
+2026-04-05 22:53:06 | INFO     | Processing command: 'close chrome'
+2026-04-05 22:53:06 | INFO     | INTENT DETECTED: app_launcher, action: close_chrome, confidence: 1.00
+2026-04-05 22:53:06 | INFO     | Closed chrome
+2026-04-05 22:53:06 | INFO     | Command executed successfully: app_launcher.close_chrome
+2026-04-05 22:53:08 | INFO     | COMMAND RECEIVED: 'close notepad'
+2026-04-05 22:53:09 | INFO     | Processing command: 'close notepad'
+2026-04-05 22:53:09 | INFO     | INTENT DETECTED: app_launcher, action: close_notepad, confidence: 1.00
+2026-04-05 22:53:09 | INFO     | Closed notepad
+2026-04-05 22:53:09 | INFO     | Command executed successfully: app_launcher.close_notepad
+2026-04-05 22:53:11 | INFO     | COMMAND RECEIVED: 'close file explorer'
+2026-04-05 22:53:11 | INFO     | Processing command: 'close file explorer'
+2026-04-05 22:53:11 | INFO     | INTENT DETECTED: app_launcher, action: close_explorer, confidence: 1.00
+2026-04-05 22:53:11 | INFO     | Closed explorer
+2026-04-05 22:53:11 | INFO     | Command executed successfully: app_launcher.close_explorer
+2026-04-05 22:53:17 | INFO     | COMMAND RECEIVED: 'lock loudest'
+2026-04-05 22:53:17 | INFO     | Processing command: 'lock loudest'
+2026-04-05 22:53:17 | INFO     | INTENT DETECTED: volume, action: absolute_increase, confidence: 0.74, value: 0
+2026-04-05 22:53:17 | INFO     | Command executed successfully: volume.absolute_increase
+2026-04-05 22:53:20 | INFO     | COMMAND RECEIVED: 'sleep mode'
+2026-04-05 22:53:20 | INFO     | Processing command: 'sleep mode'
+2026-04-05 22:53:20 | INFO     | INTENT DETECTED: system_control, action: sleep, confidence: 1.00
+2026-04-05 22:53:20 | INFO     | System confirmation requested: sleep
+2026-04-05 22:53:32 | INFO     | COMMAND RECEIVED: 'my'
+2026-04-05 22:53:32 | INFO     | System confirmation timeout: sleep
+2026-04-05 22:53:32 | INFO     | Processing command: 'my'
+2026-04-05 22:53:32 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-04-05 22:53:32 | INFO     | AUDIO EVENT: No action detected | Command: my
+2026-04-05 22:53:34 | INFO     | COMMAND RECEIVED: 'ninety'
+2026-04-05 22:53:34 | INFO     | Processing command: 'ninety'
+2026-04-05 22:53:34 | INFO     | INTENT DETECTED: volume, action: relative_decrease, confidence: 0.46, value: 90
+2026-04-05 22:53:34 | INFO     | AUDIO EVENT: Low confidence command | Category: volume, Action: relative_decrease, Confidence: 0.46, Required: 0.55
+2026-04-05 22:53:39 | INFO     | COMMAND RECEIVED: 'sound to'
+2026-04-05 22:53:39 | INFO     | Processing command: 'sound to'
+2026-04-05 22:53:39 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-04-05 22:53:39 | INFO     | Command executed successfully: volume.set_value
+2026-04-05 22:53:41 | INFO     | COMMAND RECEIVED: 'light to'
+2026-04-05 22:53:41 | INFO     | Processing command: 'light to'
+2026-04-05 22:53:41 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 1.00, value: 0
+2026-04-05 22:53:41 | INFO     | BRIGHTNESS CHANGE: 0% → 0% (action: set)
+2026-04-05 22:53:41 | INFO     | Command executed successfully: brightness.set_value
+2026-04-05 22:53:42 | INFO     | COMMAND RECEIVED: 'video'
+2026-04-05 22:53:42 | INFO     | Processing command: 'video'
+2026-04-05 22:53:42 | INFO     | INTENT DETECTED: brightness, action: relative_decrease, confidence: 0.46, value: 0
+2026-04-05 22:53:42 | INFO     | AUDIO EVENT: Low confidence command | Category: brightness, Action: relative_decrease, Confidence: 0.46, Required: 0.55
+2026-04-05 22:53:43 | INFO     | COMMAND RECEIVED: 'next'
+2026-04-05 22:53:47 | INFO     | COMMAND RECEIVED: 'browser'
+2026-04-05 22:53:47 | INFO     | Processing command: 'browser'
+2026-04-05 22:53:47 | INFO     | INTENT DETECTED: app_launcher, action: open_chrome, confidence: 0.78, value: 0
+2026-04-05 22:53:47 | INFO     | APP LAUNCH: chrome (path: C:\Program Files\Google\Chrome\Application\chrome.exe)
+2026-04-05 22:53:47 | INFO     | Command executed successfully: app_launcher.open_chrome
+2026-04-05 22:53:56 | INFO     | COMMAND RECEIVED: 'to'
+2026-04-05 22:53:56 | INFO     | Processing command: 'to'
+2026-04-05 22:53:56 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.40, value: 0
+2026-04-05 22:53:56 | INFO     | AUDIO EVENT: Low confidence command | Category: brightness, Action: set_value, Confidence: 0.40, Required: 0.55
+2026-04-05 22:54:00 | INFO     | COMMAND RECEIVED: 'eight'
+2026-04-05 22:54:00 | INFO     | Processing command: 'eight'
+2026-04-05 22:54:00 | INFO     | INTENT DETECTED: brightness, action: relative_increase, confidence: 0.62, value: 8
+2026-04-05 22:54:01 | INFO     | BRIGHTNESS CHANGE: 0% → 10% (action: set)
+2026-04-05 22:54:01 | INFO     | Command executed successfully: brightness.relative_increase
+2026-04-05 22:54:02 | INFO     | COMMAND RECEIVED: 'editor'
+2026-04-05 22:54:02 | INFO     | Processing command: 'editor'
+2026-04-05 22:54:02 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.71, value: 0
+2026-04-05 22:54:02 | INFO     | APP LAUNCH: notepad (path: notepad.exe)
+2026-04-05 22:54:02 | INFO     | Command executed successfully: app_launcher.open_notepad
+2026-04-05 22:54:05 | INFO     | COMMAND RECEIVED: 'open'
+2026-04-05 22:54:06 | INFO     | COMMAND RECEIVED: 'manager'
+2026-04-05 22:54:06 | INFO     | Processing command: 'manager'
+2026-04-05 22:54:06 | INFO     | INTENT DETECTED: app_launcher, action: open_explorer, confidence: 0.74, value: 0
+2026-04-05 22:54:06 | INFO     | APP LAUNCH: explorer (path: explorer.exe)
+2026-04-05 22:54:06 | INFO     | Command executed successfully: app_launcher.open_explorer
+2026-04-05 22:54:10 | INFO     | COMMAND RECEIVED: 'level hundred open down this close windows what can you'
+2026-04-05 22:54:10 | INFO     | Processing command: 'level hundred open down this close windows what can you'
+2026-04-05 22:54:10 | INFO     | INTENT DETECTED: app_launcher, action: close_settings, confidence: 0.42, value: 0
+2026-04-05 22:54:10 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: close_settings, Confidence: 0.42, Required: 0.62
+2026-04-05 22:54:14 | INFO     | COMMAND RECEIVED: 'control'
+2026-04-05 22:54:14 | INFO     | Processing command: 'control'
+2026-04-05 22:54:14 | INFO     | INTENT DETECTED: app_launcher, action: open_settings, confidence: 0.70, value: 0
+2026-04-05 22:54:14 | INFO     | APP LAUNCH: settings (path: ms-settings:)
+2026-04-05 22:54:14 | INFO     | Command executed successfully: app_launcher.open_settings
+2026-04-05 22:54:20 | INFO     | COMMAND RECEIVED: 'maximum'
+2026-04-05 22:54:20 | INFO     | Processing command: 'maximum'
+2026-04-05 22:54:20 | INFO     | INTENT DETECTED: brightness, action: absolute_increase, confidence: 0.70, value: 0
+2026-04-05 22:54:20 | INFO     | BRIGHTNESS CHANGE: 0% → 100% (action: set)
+2026-04-05 22:54:20 | INFO     | Command executed successfully: brightness.absolute_increase
+2026-04-05 22:54:29 | INFO     | COMMAND RECEIVED: 'go'
+2026-04-05 22:54:29 | INFO     | Processing command: 'go'
+2026-04-05 22:54:29 | INFO     | INTENT DETECTED: brightness, action: set_value, confidence: 0.40, value: 0
+2026-04-05 22:54:29 | INFO     | AUDIO EVENT: Low confidence command | Category: brightness, Action: set_value, Confidence: 0.40, Required: 0.55
+2026-04-05 22:54:43 | INFO     | COMMAND RECEIVED: 'can i say zoom'
+2026-04-05 22:54:43 | INFO     | Processing command: 'can i say zoom'
+2026-04-05 22:54:43 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 0.64, value: 0
+2026-04-05 22:54:43 | INFO     | Help information displayed to user
+2026-04-05 22:54:45 | INFO     | COMMAND RECEIVED: 'system now'
+2026-04-05 22:54:45 | INFO     | Processing command: 'system now'
+2026-04-05 22:54:45 | INFO     | INTENT DETECTED: unknown, action: None, confidence: 0.00
+2026-04-05 22:54:45 | INFO     | AUDIO EVENT: No action detected | Command: system now
+2026-04-05 22:54:53 | INFO     | COMMAND RECEIVED: 'volume use manager left setting page'
+2026-04-05 22:54:53 | INFO     | Processing command: 'volume use manager left setting page'
+2026-04-05 22:54:53 | INFO     | INTENT DETECTED: volume, action: set_value, confidence: 1.00, value: 0
+2026-04-05 22:54:53 | INFO     | Command executed successfully: volume.set_value
+2026-04-05 22:54:56 | INFO     | COMMAND RECEIVED: 'back'
+2026-04-05 22:54:56 | INFO     | Processing command: 'back'
+2026-04-05 22:54:56 | INFO     | INTENT DETECTED: system_control, action: lock, confidence: 0.50, value: 0
+2026-04-05 22:54:56 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: lock, Confidence: 0.50, Required: 0.78
+2026-04-05 22:54:57 | INFO     | COMMAND RECEIVED: 'eleven exit'
+2026-04-05 22:54:57 | INFO     | Processing command: 'eleven exit'
+2026-04-05 22:54:57 | INFO     | INTENT DETECTED: app_launcher, action: open_notepad, confidence: 0.52, value: 0
+2026-04-05 22:54:57 | INFO     | AUDIO EVENT: Low confidence command | Category: app_launcher, Action: open_notepad, Confidence: 0.52, Required: 0.62
+2026-04-05 22:55:01 | INFO     | COMMAND RECEIVED: 'item left'
+2026-04-05 22:55:01 | INFO     | Processing command: 'item left'
+2026-04-05 22:55:01 | INFO     | INTENT DETECTED: system_control, action: shutdown, confidence: 0.53, value: 0
+2026-04-05 22:55:01 | INFO     | AUDIO EVENT: Low confidence command | Category: system_control, Action: shutdown, Confidence: 0.53, Required: 0.78
+2026-04-05 22:55:02 | INFO     | Shutting down voice assistant...
+2026-04-05 22:55:02 | INFO     | AUDIO EVENT: Stopping voice listening
+2026-04-05 22:55:02 | INFO     | AUDIO EVENT: Audio resources cleaned up
+2026-04-05 22:55:02 | INFO     | AUDIO EVENT: Voice listening stopped
+2026-04-05 22:55:02 | INFO     | VolumeController cleanup completed
+2026-04-05 22:55:02 | INFO     | ApplicationLauncher cleanup completed
+2026-04-05 22:55:02 | INFO     | SystemController cleanup completed
+2026-04-05 22:55:02 | INFO     | ==================================================
+2026-04-05 22:55:02 | INFO     | VOICE ASSISTANT SYSTEM SHUTTING DOWN
+2026-04-05 22:55:02 | INFO     | Shutdown time: 2026-04-05 22:55:02
+2026-04-05 22:55:02 | INFO     | ==================================================
