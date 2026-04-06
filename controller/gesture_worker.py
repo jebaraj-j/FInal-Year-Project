@@ -182,14 +182,13 @@ class GestureWorker(QThread):
                         found_right = True
                         right_fist = is_fist_shape
 
-                        # Right click mapping requested by user:
-                        # Right ring+pinky extended, thumb/index/middle closed.
+                        # Right click mapping:
+                        # Right ring+pinky extended, index/middle closed (thumb ignored).
                         is_rc_shape = (
                             states["Ring"]
                             and states["Pinky"]
                             and not states["Index"]
                             and not states["Middle"]
-                            and not states["Thumb"]
                         )
 
                         if is_rc_shape:
