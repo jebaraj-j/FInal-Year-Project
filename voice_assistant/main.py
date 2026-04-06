@@ -64,8 +64,7 @@ class VoiceAssistant:
         self.pending_system_action: Optional[str] = None
         self.pending_confirmation_started_at = 0.0
         self.confirmation_timeout_sec = 8.0
-        self.confirm_yes_words = {"yes", "yeah", "yep", "ok", "okay", "confirm", "do it"}
-        self.confirm_no_words = {"no", "nope", "cancel", "stop", "not now", "dont", "don't"}
+        self.confirm_cancel_words = {"cancel", "stop", "not now", "dont", "don't"}
         
         # Initialize all controllers
         self.brightness_controller = BrightnessController()
@@ -139,7 +138,7 @@ class VoiceAssistant:
         return any(p in t for p in phrase_map.get(action, ()))
 
     def _start_system_confirmation(self, action: str) -> None:
-        """Start explicit YES/NO confirmation for system actions."""
+        """Start repeat-command confirmation for system actions."""
         action_name = {
             "shutdown": "shutdown",
             "restart": "restart",
@@ -148,7 +147,7 @@ class VoiceAssistant:
         }.get(action, action)
         self.pending_system_action = action
         self.pending_confirmation_started_at = time.time()
-        print(f"\nWARNING: Confirm {action_name}. Say YES to continue or NO to cancel.")
+        print(f"\nWARNING: Confirm {action_name}. Say '{action_name}' again to continue.")
         self.logger.info(f"System confirmation requested: {action}")
 
     def _handle_pending_confirmation(self, text: str) -> bool:
@@ -168,11 +167,13 @@ class VoiceAssistant:
             return False
 
         normalized = self._normalize_text(text)
-        yes = any(normalized == w or normalized.startswith(f"{w} ") for w in self.confirm_yes_words)
-        no = any(normalized == w or normalized.startswith(f"{w} ") for w in self.confirm_no_words)
+        action = self.pending_system_action
+        if not action:
+            return False
 
-        if yes:
-            action = self.pending_system_action
+        # Confirm only when the same dangerous action is spoken again.
+        # Example: "shutdown" -> prompt -> user says "shutdown".
+        if self._is_system_action_explicit(normalized, action):
             self.pending_system_action = None
             success = self.system_controller.execute_action(action, require_confirmation=False)
             if success:
@@ -183,18 +184,16 @@ class VoiceAssistant:
                 print(f"Failed: {action}")
             return True
 
-        if no:
+        # Optional explicit cancel words.
+        if any(normalized == w or normalized.startswith(f"{w} ") for w in self.confirm_cancel_words):
             cancelled_action = self.pending_system_action
             self.pending_system_action = None
             print("Command cancelled.")
             self.logger.info(f"System confirmation cancelled: {cancelled_action}")
             return True
 
-        # If user said a different command, cancel the pending dangerous action and continue.
-        cancelled_action = self.pending_system_action
-        self.pending_system_action = None
-        self.logger.info(f"System confirmation auto-cancelled due to new input: {cancelled_action}")
-        return False
+        # Keep waiting for the same action phrase until timeout/cancel.
+        return True
     
     def _load_config(self) -> Dict[str, Any]:
         """
@@ -441,7 +440,7 @@ class VoiceAssistant:
                 )
                 return
 
-            # Dangerous system commands require explicit wording + YES confirmation.
+            # Dangerous system commands require explicit wording + repeat-action confirmation.
             if category == "system_control":
                 if not self._is_system_action_explicit(text, action):
                     self.logger.log_audio_event(

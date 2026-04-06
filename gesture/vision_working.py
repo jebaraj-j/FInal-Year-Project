@@ -52,7 +52,7 @@ class Config:
     double_repeat_sec: float = 2.0
     
     # Relative movement
-    sensitivity: float = 3.5  #
+    sensitivity: float = 3  #
     deadzone: float = 0.003
     
     # Left-hand pinch detection for Alt+Tab

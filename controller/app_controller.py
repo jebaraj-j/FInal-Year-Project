@@ -95,11 +95,6 @@ class AppController(QObject):
 
     def _on_exit_requested(self, source: str):
         self.window.log_action(f"Exit requested via {source}.")
-        if not self.window.confirm_exit(f"Triggered from {source}."):
-            self.window.log_action("Exit cancelled.")
-            self.window.notify("Exit cancelled", "ℹ️")
-            return
-
         self.window.log_action("Closing G-Vox.")
         self.window.notify("Closing G-Vox", "⛔")
         SPEAKER.say("Closing G Vox")
@@ -114,3 +109,4 @@ class AppController(QObject):
         if self._voice_worker and self._voice_worker.isRunning():
             self._voice_worker.stop()
             self._voice_worker = None
+
