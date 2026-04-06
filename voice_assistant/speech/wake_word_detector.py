@@ -5,7 +5,13 @@ Detects wake words with configurable sensitivity threshold.
 
 import re
 from typing import List, Optional, Tuple
-from fuzzywuzzy import fuzz
+try:
+    from ..utils.fuzzy_compat import fuzz
+except ImportError:
+    import sys
+    import os
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from utils.fuzzy_compat import fuzz
 try:
     from ..utils.logger import get_logger
 except ImportError:

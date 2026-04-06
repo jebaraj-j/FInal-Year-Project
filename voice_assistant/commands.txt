@@ -68,4 +68,5 @@ SYSTEM CONTROL:
 - "restart system now" / "restart" / "reboot" / "reboot system"
 - "sleep system now" / "sleep" / "hibernate" / "sleep mode"
 - "lock system now" / "lock" / "lock screen" / "lock windows"
-- Safety: shutdown/restart/sleep/lock require confirmation ("yes" to run, "no" to cancel)
+- Safety: shutdown/restart/sleep/lock require repeat confirmation
+  (say the same command again to execute).

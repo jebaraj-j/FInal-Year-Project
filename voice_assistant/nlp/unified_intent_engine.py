@@ -6,7 +6,13 @@ Handles brightness, volume, app launcher, and system control commands.
 import re
 import json
 from typing import Dict, Any, Optional, Tuple
-from fuzzywuzzy import fuzz
+try:
+    from ..utils.fuzzy_compat import fuzz
+except ImportError:
+    import sys
+    import os
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from utils.fuzzy_compat import fuzz
 
 try:
     from ..utils.logger import get_logger

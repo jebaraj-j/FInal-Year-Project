@@ -32,7 +32,7 @@ RIGHT_HAND_GESTURES = [
     ("Quick tight pinch release (<0.25s)", "Red line", "Double click"),
     ("Hold tight pinch (>0.35s)", "Red line", "Drag and drop"),
     (
-        "Thumb + middle pinch (hold 0.7s) with index/ring/pinky extended",
+        "Ring + pinky extended, index + middle folded (hold 0.7s)",
         "Gesture confirm",
         "Right click",
     ),
@@ -51,7 +51,7 @@ LEFT_HAND_GESTURES = [
     ("Thumb only extended (hold 1s)", "1s hold", "Minimize window"),
     ("Open palm (all fingers extended, hold 1s)", "1s hold", "Maximize window"),
     (
-        "Ring + pinky extended, thumb/index/middle closed (hold 1.5s)",
+        "Thumb + index + middle extended, ring + pinky closed (hold 1.5s)",
         "1.5s hold",
         "Switch to voice mode",
     ),
@@ -132,6 +132,19 @@ def _shortcut_result(phrase: str) -> str:
     return "Execute shortcut"
 
 
+def _system_confirm_note(phrase: str) -> str:
+    p = phrase.strip().lower()
+    if "shutdown" in p or "shut down" in p or "power off" in p or "turn off" in p:
+        return "Confirm by saying shutdown again"
+    if "restart" in p or "reboot" in p:
+        return "Confirm by saying restart again"
+    if "sleep" in p or "hibernate" in p:
+        return "Confirm by saying sleep again"
+    if "lock" in p:
+        return "Confirm by saying lock again"
+    return "Execute action"
+
+
 def _load_voice_commands() -> List[Tuple[str, str, str]]:
     root = Path(__file__).resolve().parent.parent
     commands_cfg = _load_json(root / "voice_assistant" / "config" / "commands.json")
@@ -161,7 +174,11 @@ def _load_voice_commands() -> List[Tuple[str, str, str]]:
         for _, action_cfg in actions.items():
             desc = str(action_cfg.get("description", "Execute action"))
             for phrase in action_cfg.get("patterns", []):
-                add_row(category, str(phrase), desc)
+                phrase_text = str(phrase)
+                if category == "System":
+                    add_row(category, phrase_text, _system_confirm_note(phrase_text))
+                else:
+                    add_row(category, phrase_text, desc)
 
     add_row("Mode", "switch to gesture", "Switch to gesture mode")
     add_row("Mode", "switch gesture", "Switch to gesture mode")

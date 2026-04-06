@@ -273,14 +273,46 @@ def draw_hud(frame, fps, det_rate, frame_count, detected_count, hand_detected, e
 # MAIN LOOP
 # ─────────────────────────────────────────────
 def open_camera(cfg):
-    for i in range(4):
-        cap = cv2.VideoCapture(i)
-        if cap.isOpened():
+    """
+    Open a camera reliably on Windows.
+    Tries DirectShow first (more stable for many webcams), then fallback backends.
+    Validates by reading at least one frame before accepting a device.
+    """
+    backends = [
+        ("DSHOW", cv2.CAP_DSHOW),
+        ("ANY", None),
+        ("MSMF", cv2.CAP_MSMF),
+    ]
+    for backend_name, backend_flag in backends:
+        for i in range(4):
+            try:
+                cap = cv2.VideoCapture(i, backend_flag) if backend_flag is not None else cv2.VideoCapture(i)
+            except Exception:
+                cap = None
+            if cap is None or not cap.isOpened():
+                continue
+
             cap.set(cv2.CAP_PROP_FRAME_WIDTH, cfg.camera_width)
             cap.set(cv2.CAP_PROP_FRAME_HEIGHT, cfg.camera_height)
             cap.set(cv2.CAP_PROP_FPS, cfg.target_fps)
-            print(f"Camera {i} opened at {cfg.camera_width}x{cfg.camera_height}")
-            return cap, i
+
+            # Warm up and verify we can actually read frames.
+            ok = False
+            for _ in range(8):
+                ret, _ = cap.read()
+                if ret:
+                    ok = True
+                    break
+                time.sleep(0.03)
+
+            if ok:
+                print(
+                    f"Camera {i} opened at {cfg.camera_width}x{cfg.camera_height} "
+                    f"(backend={backend_name})"
+                )
+                return cap, i
+
+            cap.release()
     return None, -1
 
 def draw_help_overlay(img: np.ndarray):

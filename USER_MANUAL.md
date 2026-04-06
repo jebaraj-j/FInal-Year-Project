@@ -16,13 +16,13 @@ run.bat
 System starts in Gesture Mode.
 
 ## Modes
-- Gesture to Voice: left ring + pinky extended (thumb/index/middle closed), hold 1.5s.
+- Gesture to Voice: left thumb + index + middle extended (ring/pinky closed), hold 1.5s.
 - Voice to Gesture: say `switch to gesture` (or `switch gesture`, `switch mode`).
 
 ## Exit
 - Gesture exit: close both left and right palms (both fists), hold 3s.
 - Voice exit: say `exit gvox` (or `exit g vox`).
-- A confirmation popup appears before closing G-Vox.
+- Exit command closes G-Vox directly.
 
 ## Gesture Controls
 ### Right Hand
@@ -30,7 +30,7 @@ System starts in Gesture Mode.
 - Mild thumb-index pinch: single click
 - Tight thumb-index quick release: double click
 - Tight thumb-index hold: drag/drop
-- Thumb-middle pinch hold 0.7s (index/ring/pinky extended): right click
+- Ring + pinky extended, index + middle folded (hold 0.7s): right click
 - Index + middle extended: scroll
 
 ### Left Hand
@@ -39,7 +39,7 @@ System starts in Gesture Mode.
 - Ring + pinky (hold 1s): paste (Ctrl+V)
 - Thumb only (hold 1s): minimize window
 - Open palm (all fingers, hold 1s): maximize window
-- Ring + pinky only (hold 1.5s): switch to voice mode
+- Thumb + index + middle extended (ring/pinky closed, hold 1.5s): switch to voice mode
 - Both fists (left + right, hold 3s): exit G-Vox
 
 ## Voice Controls
@@ -75,7 +75,11 @@ Use wake word first:
 
 ### System
 - Shutdown, restart, sleep, lock
-- Confirmation required (`yes` / `no`)
+- Confirmation required by repeating the same command:
+  - `shutdown` -> say `shutdown` again to confirm
+  - `restart` -> say `restart` again to confirm
+  - `sleep` -> say `sleep` again to confirm
+  - `lock` -> say `lock` again to confirm
 
 ## UI Notes
 - Right side panel:

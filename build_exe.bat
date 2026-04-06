@@ -30,6 +30,7 @@ echo [3/4] Building G-Vox.exe (windowed, no terminal)...
 "%PYINSTALLER%" ^
   --noconfirm ^
   --clean ^
+  --noupx ^
   --name "G-Vox" ^
   --windowed ^
   --onedir ^
@@ -51,8 +52,11 @@ echo [3/4] Building G-Vox.exe (windowed, no terminal)...
   --hidden-import pycaw ^
   --hidden-import comtypes ^
   --hidden-import fuzzywuzzy ^
+  --hidden-import logging ^
+  --hidden-import logging.handlers ^
   --collect-all vosk ^
   --collect-all pyaudio ^
+  --collect-all mediapipe ^
   main.py
 
 if errorlevel 1 (
