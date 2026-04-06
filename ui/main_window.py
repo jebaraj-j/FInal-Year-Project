@@ -22,6 +22,7 @@ from PyQt5.QtWidgets import (
 
 from ui.notification import NotificationWidget
 from ui.styles import MAIN_STYLE
+from storage.sqlite_logger import SQLiteLogger
 
 
 class MainWindow(QMainWindow):
@@ -38,6 +39,7 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(MAIN_STYLE)
         self._animations = []
         self._tray_icon = None
+        self._sqlite_logger = SQLiteLogger()
         self._build_ui()
         self._init_system_notifications()
 
@@ -351,6 +353,11 @@ class MainWindow(QMainWindow):
         self.action_log.append(line)
         sb = self.action_log.verticalScrollBar()
         sb.setValue(sb.maximum())
+        try:
+            self._sqlite_logger.log_event(source="ui", message=text, level="INFO")
+        except Exception:
+            # Never let logging persistence affect core app behavior.
+            pass
 
     def notify(self, message: str, icon: str = "OK"):
         if self._tray_icon:
