@@ -88,6 +88,8 @@ class ApplicationLauncher:
             # Handle special cases (Windows settings, system commands)
             if app_path.startswith('ms-settings:') or app_path in ['notepad.exe', 'explorer.exe']:
                 return True
+            if '%' in app_path or os.path.isdir(os.path.expandvars(app_path)):
+                return True
             
             # Check if path exists
             path_obj = Path(app_path)
@@ -244,6 +246,12 @@ class ApplicationLauncher:
             elif app_path == 'explorer.exe':
                 # File Explorer
                 subprocess.Popen(['explorer.exe'], shell=True)
+                return True
+
+            elif '%' in app_path or os.path.isdir(os.path.expandvars(app_path)):
+                # Folder path - open with explorer
+                folder = os.path.expandvars(app_path)
+                subprocess.Popen(['explorer.exe', folder], shell=False)
                 return True
             
             else:

@@ -2,5 +2,13 @@
   "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "notepad": "notepad.exe",
   "settings": "ms-settings:",
-  "explorer": "explorer.exe"
+  "explorer": "explorer.exe",
+  "desktop": "%USERPROFILE%\\Desktop",
+  "downloads": "%USERPROFILE%\\Downloads",
+  "documents": "%USERPROFILE%\\Documents",
+  "pictures": "%USERPROFILE%\\Pictures",
+  "videos": "%USERPROFILE%\\Videos",
+  "music": "%USERPROFILE%\\Music",
+  "visual_studio": "C:\\Users\\acer\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+  "vscode": "C:\\Users\\acer\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
 }

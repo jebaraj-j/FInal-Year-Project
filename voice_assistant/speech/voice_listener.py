@@ -7,6 +7,8 @@ import json
 import queue
 import threading
 import time
+import re
+from difflib import SequenceMatcher
 from typing import Dict, Optional, Any
 import vosk
 import numpy as np
@@ -67,6 +69,10 @@ class VoiceListener:
         
         # Threading
         self.listening_thread = None
+
+        # Stop words that deactivate listening until wake word is said again
+        self.stop_words = ["stop nora", "nora stop", "stop listening"]
+        self.on_stop_word = None   # optional callback: fn() called when stop word heard
         
         self.logger.info("VoiceListener initialized")
     
@@ -200,20 +206,9 @@ class VoiceListener:
             Tuple of (data, flag)
         """
         if self.is_listening:
-            # Lightweight denoise while always keeping stream continuity.
-            # Important: do not drop silence frames, or VOSK finalization can break.
-            try:
-                audio_data = np.frombuffer(in_data, dtype=np.int16)
-                if audio_data.size == 0:
-                    self.recognition_queue.put(in_data)
-                    return (in_data, pyaudio.paContinue)
-
-                centered = audio_data.astype(np.float32) - float(np.mean(audio_data))
-                cleaned = np.clip(centered, -32768, 32767).astype(np.int16).tobytes()
-                self.recognition_queue.put(cleaned)
-            except Exception:
-                # Fallback to raw audio on preprocessing failure.
-                self.recognition_queue.put(in_data)
+            # Keep raw stream continuity for VOSK stability.
+            # Aggressive waveform transforms can cause transcript artifacts.
+            self.recognition_queue.put(in_data)
         
         return (in_data, pyaudio.paContinue)
     
@@ -221,14 +216,6 @@ class VoiceListener:
         """Main listening loop for voice interaction."""
         while not self.stop_event.is_set():
             try:
-                if (
-                    self.is_active_mode
-                    and hasattr(self, "active_listening_start")
-                    and (time.time() - self.active_listening_start) > self.active_listening_timeout
-                ):
-                    self._handle_timeout()
-                    continue
-
                 # Get audio data from queue
                 try:
                     audio_data = self.recognition_queue.get(timeout=0.2)
@@ -240,14 +227,19 @@ class VoiceListener:
                     result = json.loads(self.recognizer.Result())
                     text = result.get("text", "").strip()
                     if text:
-                        print(f"\r🎤 Final: {text}")
-                        self._process_recognition_result(text)
+                        cleaned_text = self._clean_transcript(text)
+                        if cleaned_text:
+                            if self.is_active_mode:
+                                print(f"\rFinal: {cleaned_text}")
+                            self._process_recognition_result(cleaned_text)
                 else:
-                    # Show partial results
-                    partial = json.loads(self.recognizer.PartialResult())
-                    partial_text = partial.get("partial", "").strip()
-                    if partial_text:
-                        print(f"\r📡 Listening: {partial_text}...", end="", flush=True)
+                    if self.is_active_mode:
+                        partial = json.loads(self.recognizer.PartialResult())
+                        partial_text = partial.get("partial", "").strip()
+                        if partial_text:
+                            cleaned_partial = self._clean_transcript(partial_text)
+                            if cleaned_partial:
+                                print(f"\rListening: {cleaned_partial}...", end="", flush=True)
                 
                 # No timeout in direct command mode
                 
@@ -257,13 +249,30 @@ class VoiceListener:
 
     def _process_recognition_result(self, text: str) -> None:
         """Process finalized speech text with wake-word gating."""
-        normalized = " ".join((text or "").lower().split())
+        try:
+            self._process_recognition_result_safe(text)
+        except Exception as e:
+            self.logger.log_error("RecognitionResultError", str(e))
+
+    def _process_recognition_result_safe(self, text: str) -> None:
+        """Inner implementation - exceptions caught by caller."""
+        normalized = self._clean_transcript(text)
         if not normalized:
             return
 
+        # Stop word check — works in both passive and active mode
+        for sw in self.stop_words:
+            if sw in normalized or normalized == sw:
+                self.is_active_mode = False
+                self.logger.log_audio_event("Stop word detected", sw)
+                print("\nNora stopped. Say a wake word to start again.")
+                if self.on_stop_word:
+                    self.on_stop_word()
+                return
+
         # Passive mode: only wake words are accepted.
         if not self.is_active_mode:
-            detected, wake_word, confidence = self.wake_word_detector.detect_wake_word(normalized)
+            detected, wake_word, confidence = self._detect_wake_word_strict(normalized)
             if not detected:
                 return
 
@@ -276,7 +285,7 @@ class VoiceListener:
             # If wake phrase and command came together in one final chunk,
             # remove wake words and execute remaining command immediately.
             command_text = self._strip_wake_words(normalized)
-            if command_text:
+            if command_text and not self._is_wake_residue(command_text):
                 self._handle_command_recognition(command_text)
                 self.is_active_mode = False
             return
@@ -284,9 +293,79 @@ class VoiceListener:
         # Active mode: accept one command, then return to passive mode.
         command_text = self._strip_wake_words(normalized)
         if not command_text:
+            # Wake phrase repeated while active: keep waiting for command.
+            self.active_listening_start = time.time()
+            return
+        if self._is_wake_residue(command_text):
+            # Ignore wake residue/noise terms without exiting active mode.
+            self.active_listening_start = time.time()
             return
         self._handle_command_recognition(command_text)
-        self.is_active_mode = False
+        # Stay in active mode - user can give next command without wake word
+        self.active_listening_start = time.time()
+
+
+    def _clean_transcript(self, text: str) -> str:
+        """Normalize transcript and remove VOSK suffix-echo artifacts."""
+        raw = (text or "").lower().strip()
+        if not raw:
+            return ""
+        tokens = re.findall(r"[a-z0-9]+", raw)
+        if not tokens:
+            return ""
+        cleaned = []
+        for tok in tokens:
+            cleaned.append(self._remove_suffix_echo(tok))
+        # Collapse consecutive identical tokens
+        collapsed = []
+        for t in cleaned:
+            if collapsed and collapsed[-1] == t:
+                continue
+            collapsed.append(t)
+        return " ".join(collapsed)
+
+    def _remove_suffix_echo(self, tok: str) -> str:
+        """Remove VOSK suffix-echo artifacts.
+        Handles: 'chromerome'->'chrome', 'shutdowndown'->'shutdown', 'zoomzoom'->'zoom'.
+        """
+        n = len(tok)
+        # Try every tail length from 3 up to len//2
+        for tail_len in range(3, n // 2 + 1):
+            tail = tok[n - tail_len:]
+            base = tok[:n - tail_len]
+            if base and base.endswith(tail):
+                return base
+        return tok
+
+    def _contains_phrase_whole(self, text: str, phrase: str) -> bool:
+        return f" {phrase} " in f" {text} "
+
+    def _detect_wake_word_strict(self, text: str):
+        """
+        Strict wake detection:
+        1) whole-phrase match first
+        2) high similarity fallback (>=0.85) for multi-word input only
+        """
+        wake_words = [" ".join(str(w).lower().split()) for w in self.config.get("wake_words", [])]
+        for wake in wake_words:
+            if wake and self._contains_phrase_whole(text, wake):
+                return True, wake, 1.0
+
+        if len(text.split()) < 2:
+            return False, None, 0.0
+
+        best_wake = None
+        best_score = 0.0
+        for wake in wake_words:
+            if not wake:
+                continue
+            score = SequenceMatcher(None, text, wake).ratio()
+            if score > best_score:
+                best_score = score
+                best_wake = wake
+        if best_wake and best_score >= 0.85:
+            return True, best_wake, best_score
+        return False, None, best_score
 
     def _strip_wake_words(self, text: str) -> str:
         cleaned = f" {text} "
@@ -294,14 +373,33 @@ class VoiceListener:
             w = " ".join(str(wake).lower().split())
             if w:
                 cleaned = cleaned.replace(f" {w} ", " ")
-        return " ".join(cleaned.split())
+        tokens = cleaned.split()
+        residue_tokens = {"hey", "ok", "hi", "hello", "nora", "on"}
+        # Common wake-word corruption artifact in transcripts.
+        residue_tokens.add("ona")
+        # Trim wake residue from beginning/end without touching middle command words.
+        while tokens and tokens[0] in residue_tokens:
+            tokens.pop(0)
+        while tokens and tokens[-1] in residue_tokens:
+            tokens.pop()
+        return " ".join(tokens)
+
+    def _is_wake_residue(self, text: str) -> bool:
+        """
+        Detect common wake/noise residue so it does not consume active mode.
+        """
+        tokens = [t for t in text.split() if t]
+        if not tokens:
+            return True
+        residue_tokens = {"hey", "ok", "hi", "hello", "nora", "on", "ona"}
+        return all(t in residue_tokens for t in tokens)
 
     def _enter_active_mode(self) -> None:
         """Switch to active command listening mode."""
         self.is_active_mode = True
         self.active_listening_start = time.time()
         self.logger.log_audio_event("Entered active listening mode")
-        print("\n✨ How can I help you?")
+        print("\nHow can I help you?")
 
     def _handle_command_recognition(self, text: str) -> None:
         """Store command result for processing."""
@@ -309,14 +407,14 @@ class VoiceListener:
         if self.command_buffer_delay > 0:
             time.sleep(self.command_buffer_delay)
         self.last_result = {"status": "success", "text": text}
-        print(f"\r🎙️  Heard: '{text}'")
+        print(f"\rHeard: '{text}'")
 
     def _handle_timeout(self) -> None:
         """Handle listening timeout."""
         self.logger.log_audio_event("Active listening timeout")
         self.last_result = {"status": "timeout", "text": ""}
         self.is_active_mode = False
-        print("\n⌛ Listening timed out.")
+        print("\nListening timed out.")
     
     def listen(self, timeout: Optional[float] = None) -> Dict[str, Any]:
         """

@@ -1,11 +1,16 @@
 {
   "brightness": {
-    "keywords": ["brightness", "bright", "light", "screen"],
+    "keywords": [
+      "brightness",
+      "bright",
+      "light",
+      "screen"
+    ],
     "actions": {
       "absolute_increase": {
         "patterns": [
           "increase brightness to maximum",
-          "brightness maximum", 
+          "brightness maximum",
           "full brightness now",
           "max brightness",
           "brightest",
@@ -33,7 +38,7 @@
       "relative_increase": {
         "patterns": [
           "brightness up",
-          "increase brightness slightly", 
+          "increase brightness slightly",
           "brighten up",
           "bright up",
           "more brightness",
@@ -49,7 +54,7 @@
         "patterns": [
           "brightness down",
           "decrease brightness slightly",
-          "dim down", 
+          "dim down",
           "bright down",
           "less brightness",
           "dimmer",
@@ -70,19 +75,27 @@
           "light to {value}",
           "screen to {value}"
         ],
-        "value_range": [0, 100],
+        "value_range": [
+          0,
+          100
+        ],
         "description": "Set brightness to specific value (0-100)"
       }
     }
   },
   "volume": {
-    "keywords": ["volume", "sound", "audio", "speaker"],
+    "keywords": [
+      "volume",
+      "sound",
+      "audio",
+      "speaker"
+    ],
     "actions": {
       "absolute_increase": {
         "patterns": [
           "increase volume to maximum",
           "volume maximum",
-          "full volume now", 
+          "full volume now",
           "max volume",
           "loudest",
           "full volume",
@@ -98,7 +111,7 @@
           "volume minimum",
           "mute volume",
           "turn off volume",
-          "min volume", 
+          "min volume",
           "quietest",
           "zero volume",
           "mute",
@@ -127,7 +140,7 @@
           "volume down",
           "decrease volume slightly",
           "volume lower",
-          "sound down", 
+          "sound down",
           "audio down",
           "quieter",
           "decrease volume",
@@ -147,48 +160,85 @@
           "audio to {value}",
           "speaker to {value}"
         ],
-        "value_range": [0, 100],
+        "value_range": [
+          0,
+          100
+        ],
         "description": "Set volume to specific value (0-100)"
       }
     }
   },
   "app_launcher": {
-    "keywords": ["open", "launch", "start", "run"],
+    "keywords": [
+      "open",
+      "launch",
+      "start",
+      "run"
+    ],
     "actions": {
       "open_chrome": {
         "patterns": [
-          "open chrome", "launch chrome", "start chrome",
-          "open crow", "open krome", "open chrome browser",
-          "open browser", "launch browser", "run chrome",
-          "chrome browser", "web browser", "internet browser"
+          "open chrome",
+          "launch chrome",
+          "start chrome",
+          "open crow",
+          "open krome",
+          "open chrome browser",
+          "open browser",
+          "launch browser",
+          "run chrome",
+          "chrome browser",
+          "web browser",
+          "internet browser"
         ],
         "app": "chrome",
         "description": "Open Chrome browser"
       },
       "open_notepad": {
         "patterns": [
-          "open notepad", "launch notepad", "start notepad", 
-          "open note pad", "open text editor", "open notepad++",
-          "run notepad", "text editor", "note pad"
+          "open notepad",
+          "launch notepad",
+          "start notepad",
+          "open note pad",
+          "open text editor",
+          "open notepad++",
+          "run notepad",
+          "text editor",
+          "note pad"
         ],
         "app": "notepad",
         "description": "Open Notepad"
       },
       "open_settings": {
         "patterns": [
-          "open settings", "launch settings", "open system settings",
-          "open setting", "open control panel", "open windows settings",
-          "run settings", "system settings", "control panel"
+          "open settings",
+          "launch settings",
+          "open system settings",
+          "open setting",
+          "open control panel",
+          "open windows settings",
+          "run settings",
+          "system settings",
+          "control panel"
         ],
         "app": "settings",
         "description": "Open Settings"
       },
       "open_explorer": {
         "patterns": [
-          "open explorer", "launch explorer", "open file explorer",
-          "open explore", "wat one explorer", "warp an order",
-          "open files", "open file manager", "open my computer",
-          "run explorer", "file manager", "my computer", "windows explorer"
+          "open explorer",
+          "launch explorer",
+          "open file explorer",
+          "open explore",
+          "wat one explorer",
+          "warp an order",
+          "open files",
+          "open file manager",
+          "open my computer",
+          "run explorer",
+          "file manager",
+          "my computer",
+          "windows explorer"
         ],
         "app": "explorer",
         "description": "Open File Explorer"
@@ -232,53 +282,175 @@
         ],
         "app": "explorer",
         "description": "Close File Explorer"
+      },
+      "open_desktop": {
+        "patterns": [
+          "open desktop",
+          "show desktop folder",
+          "open desktop folder",
+          "go to desktop"
+        ],
+        "app": "desktop",
+        "description": "Open Desktop folder"
+      },
+      "open_downloads": {
+        "patterns": [
+          "open downloads",
+          "open download folder",
+          "show downloads",
+          "go to downloads"
+        ],
+        "app": "downloads",
+        "description": "Open Downloads folder"
+      },
+      "open_documents": {
+        "patterns": [
+          "open documents",
+          "open document folder",
+          "show documents",
+          "go to documents"
+        ],
+        "app": "documents",
+        "description": "Open Documents folder"
+      },
+      "open_pictures": {
+        "patterns": [
+          "open pictures",
+          "open picture folder",
+          "show pictures",
+          "go to pictures"
+        ],
+        "app": "pictures",
+        "description": "Open Pictures folder"
+      },
+      "open_videos": {
+        "patterns": [
+          "open videos",
+          "open video folder",
+          "show videos",
+          "go to videos"
+        ],
+        "app": "videos",
+        "description": "Open Videos folder"
+      },
+      "open_music": {
+        "patterns": [
+          "open music",
+          "open music folder",
+          "show music",
+          "go to music"
+        ],
+        "app": "music",
+        "description": "Open Music folder"
+      },
+      "open_visual_studio": {
+        "patterns": [
+          "open visual studio",
+          "launch visual studio",
+          "start visual studio",
+          "open vs",
+          "open visual studio code",
+          "open vs code",
+          "open vscode",
+          "open code"
+        ],
+        "app": "vscode",
+        "description": "Open VS Code"
       }
     }
   },
   "system_control": {
-    "keywords": ["system", "computer", "pc", "shutdown", "restart", "sleep", "lock", "power"],
+    "keywords": [
+      "system",
+      "computer",
+      "pc",
+      "shutdown",
+      "restart",
+      "sleep",
+      "lock",
+      "power"
+    ],
     "actions": {
       "shutdown": {
         "patterns": [
-          "shutdown system now", "turn off computer", "shutdown pc", "shut down",
-          "shutdown", "power off", "turn off", "shut down pc",
-          "computer off", "pc off", "system off"
+          "shutdown system now",
+          "turn off computer",
+          "shutdown pc",
+          "shut down",
+          "shutdown",
+          "power off",
+          "turn off",
+          "shut down pc",
+          "computer off",
+          "pc off",
+          "system off"
         ],
         "description": "Shutdown system"
       },
       "restart": {
         "patterns": [
-          "restart system now", "reboot computer", "restart pc", "reboot",
-          "restart", "reboot system", "restart computer",
-          "computer restart", "pc restart", "system restart"
+          "restart system now",
+          "reboot computer",
+          "restart pc",
+          "reboot",
+          "restart",
+          "reboot system",
+          "restart computer",
+          "computer restart",
+          "pc restart",
+          "system restart"
         ],
         "description": "Restart system"
       },
       "sleep": {
         "patterns": [
-          "sleep system now", "sleep computer", "hibernate pc", "sleep system",
-          "sleep", "hibernate", "sleep mode", "computer sleep",
-          "pc sleep", "system hibernate"
+          "sleep system now",
+          "sleep computer",
+          "hibernate pc",
+          "sleep system",
+          "sleep",
+          "hibernate",
+          "sleep mode",
+          "computer sleep",
+          "pc sleep",
+          "system hibernate"
         ],
         "description": "Put system to sleep"
       },
       "lock": {
         "patterns": [
-          "lock system now", "lock computer", "lock pc", "lock system",
-          "lock", "lock screen", "lock windows", "computer lock",
-          "pc lock", "screen lock"
+          "lock system now",
+          "lock computer",
+          "lock pc",
+          "lock system",
+          "lock",
+          "lock screen",
+          "lock windows",
+          "computer lock",
+          "pc lock",
+          "screen lock"
         ],
         "description": "Lock system"
       }
     }
   },
   "help": {
-    "keywords": ["help", "show", "what", "how"],
+    "keywords": [
+      "help",
+      "show",
+      "what",
+      "how"
+    ],
     "actions": {
       "show_help": {
         "patterns": [
-          "help", "show help", "show commands", "what can i say", 
-          "how to use this", "help me", "commands list"
+          "help",
+          "show help",
+          "show commands",
+          "what can i say",
+          "how to use this",
+          "help me",
+          "commands list"
         ],
         "description": "Display help information for voice commands"
       }

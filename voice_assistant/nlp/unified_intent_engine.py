@@ -155,7 +155,7 @@ class UnifiedIntentEngine:
         for category_name, category_patterns in self.compiled_patterns.items():
             for action_name, patterns in category_patterns.items():
                 for pattern in patterns:
-                    match = pattern.fullmatch(text)
+                    match = pattern.search(text)
                     if match:
                         # Extract numeric value if present
                         if match.groups():

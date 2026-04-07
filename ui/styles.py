@@ -279,4 +279,59 @@ QTabBar::tab:selected {
     background: #2C5F98;
     color: #F5FAFF;
 }
+/* Voice recognition status */
+QLabel#voice_status_lbl {
+    color: #2E5E9A;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 0;
+}
+QLabel#voice_status_lbl[state="listening"] {
+    color: #1A7A45;
+}
+QLabel#voice_status_lbl[state="active"] {
+    color: #8A5A00;
+}
+QLabel#voice_heard_lbl {
+    color: #3A5A80;
+    font-size: 11px;
+    font-style: italic;
+    padding: 2px 4px;
+}
+
+/* Voice confirmation overlay */
+QFrame#voice_confirm_dialog {
+    background: #FFFFFF;
+    border: 2px solid #2E6BB1;
+    border-radius: 16px;
+}
+QLabel#confirm_title {
+    color: #8A1D2E;
+    font-size: 16px;
+    font-weight: 800;
+}
+QLabel#confirm_msg {
+    color: #1C3050;
+    font-size: 13px;
+    font-weight: 500;
+}
+QPushButton#confirm_yes {
+    background: #1D7A45;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+}
+QPushButton#confirm_yes:hover { background: #22924F; }
+QPushButton#confirm_no {
+    background: #B7394F;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+}
+QPushButton#confirm_no:hover { background: #C6465D; }
+
 """

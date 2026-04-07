@@ -6,9 +6,11 @@ Adds a modular shortcut-command layer before forwarding to original voice_assist
 Original voice_assistant/main.py is NOT modified.
 """
 
+import os
 import signal
 import sys
 import time
+import json
 from difflib import SequenceMatcher
 from pathlib import Path
 from threading import Lock
@@ -22,11 +24,41 @@ _REAL_SIGNAL_FN = _signal_module.signal
 
 # Offline Audio Response
 from voice_assistant.speaker import SPEAKER
+
+def _say(text: str):
+    """Speak text using pyttsx3 in a background thread.
+    Completely silent on any error - never crashes the app.
+    """
+    import threading
+    def _run():
+        try:
+            import pyttsx3
+            e = pyttsx3.init()
+            e.setProperty("rate", 165)
+            e.setProperty("volume", 0.9)
+            e.say(str(text))
+            e.runAndWait()
+        except Exception:
+            pass
+        finally:
+            try:
+                e.stop()
+            except Exception:
+                pass
+    try:
+        threading.Thread(target=_run, daemon=True).start()
+    except Exception:
+        pass
 from extensions.voice_shortcut_commands import check_and_execute as shortcut_check
 
 
 ADDITIONAL_VOICE_PHRASES = [
     "screenshot",
+    "take screenshot",
+    "capture screenshot",
+    "take a screenshot",
+    "capture screen",
+    "save screenshot",
     "open file",
     "close file",
     "close window",
@@ -35,6 +67,8 @@ ADDITIONAL_VOICE_PHRASES = [
     "minimize",
     "maximize window",
     "maximize",
+    "maximize screen",
+    "minimize screen",
     "zoom in",
     "zoom out",
     "next image",
@@ -48,25 +82,70 @@ ADDITIONAL_VOICE_PHRASES = [
     "paste",
     "open notepad",
     "start notepad",
-    "increase volume",
     "volume up",
-    "decrease volume",
     "volume down",
-    "increase brightness",
+    "volume low",
+    "volume high",
+    "mute",
+    "unmute",
+    "louder",
+    "quieter",
     "brightness up",
-    "decrease brightness",
     "brightness down",
+    "brightness low",
+    "brightness high",
+    "dim",
+    "brighter",
+    "dimmer",
     "shutdown",
     "restart",
     "sleep",
     "lock screen",
+    "yes",
+    "no",
+    "confirm",
+    "cancel",
+    "switch to gesture",
+    "switch gesture",
     "exit gvox",
     "exit g vox",
+    "switch to gesture",
+    "switch gesture",
+    "switch mode",
+    "gesture mode",
+    "gesture control",
+    "open help",
+    "user guide",
+    "open user guide",
+    "show help",
+    "show commands",
+    "stop nora",
+    "nora stop",
+    "stop listening",
+    "move up",
+    "move down",
+    "move left",
+    "move right",
+    "go up",
+    "go down",
+    "arrow up",
+    "arrow down",
+    "press enter",
+    "press up",
+    "press down",
+    "up",
+    "down",
+    "left",
+    "right",
+    "enter",
+    "back",
+    "next",
+    "previous",
 ]
 
 STRICT_CONFIRM_YES = {"yes", "confirm"}
 STRICT_CONFIRM_NO = {"no", "cancel"}
-STRICT_SIMILARITY = 0.90
+STRICT_SIMILARITY = 0.82
 RECOGNITION_DELAY_SEC = 0.25
 
 
@@ -81,6 +160,11 @@ class VoiceWorker(QThread):
     exit_requested = pyqtSignal()
     critical_confirmation_requested = pyqtSignal(str)
     error_occurred = pyqtSignal(str)
+    wake_word_detected = pyqtSignal(str)
+    voice_status_changed = pyqtSignal(str)   # idle | listening | active
+    voice_heard = pyqtSignal(str)             # last heard text
+    open_help_requested = pyqtSignal()
+    nora_stopped = pyqtSignal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -113,7 +197,7 @@ class VoiceWorker(QThread):
             self._execute_critical_action(pending)
         else:
             self.action_logged.emit(f"VOICE: {pending['label']} cancelled via popup.")
-            SPEAKER.say(f"Cancelled {pending['label']}")
+            _say(f"Cancelled {pending['label']}")
 
     def _normalize(self, text: str) -> str:
         return " ".join((text or "").lower().strip().split())
@@ -149,10 +233,10 @@ class VoiceWorker(QThread):
 
     def _strip_wake_words(self, text: str) -> str:
         wake_words = [self._normalize(w) for w in self._assistant.config.get("wake_words", [])]
-        cleaned = text
+        cleaned = f" {text} "
         for ww in wake_words:
             if ww:
-                cleaned = cleaned.replace(ww, " ")
+                cleaned = cleaned.replace(f" {ww} ", " ")
         return self._normalize(cleaned)
 
     def _is_globally_allowed_command(self, text: str) -> bool:
@@ -170,7 +254,10 @@ class VoiceWorker(QThread):
     def _request_critical_confirmation(self, label: str, execute_cb):
         with self._critical_lock:
             self._pending_critical = {"label": label, "exec": execute_cb}
-        self.action_logged.emit(f"VOICE: Confirmation required for {label}.")
+        msg = f"Say Yes to confirm {label}, or No to cancel."
+        self.action_logged.emit(f"VOICE: {msg}")
+        _say(msg)
+        # Show visual popup so user can also click Yes/No
         self.critical_confirmation_requested.emit(label)
 
     def _execute_critical_action(self, pending):
@@ -202,11 +289,41 @@ class VoiceWorker(QThread):
             with self._critical_lock:
                 self._pending_critical = None
             self.action_logged.emit(f"VOICE: {pending['label']} cancelled by voice.")
-            SPEAKER.say(f"Cancelled {pending['label']}")
+            _say(f"Cancelled {pending['label']}")
             return True
 
         self.action_logged.emit("VOICE: Awaiting explicit confirmation: say yes/confirm or no/cancel.")
         return True
+
+    def _try_open_folder(self, folder_name: str) -> bool:
+        """Open a folder by spoken name. Checks known folders then Desktop/Downloads subfolders."""
+        import os, subprocess
+        known = {
+            "desktop":    os.path.expandvars("%USERPROFILE%\\Desktop"),
+            "downloads":  os.path.expandvars("%USERPROFILE%\\Downloads"),
+            "documents":  os.path.expandvars("%USERPROFILE%\\Documents"),
+            "pictures":   os.path.expandvars("%USERPROFILE%\\Pictures"),
+            "videos":     os.path.expandvars("%USERPROFILE%\\Videos"),
+            "music":      os.path.expandvars("%USERPROFILE%\\Music"),
+            "this pc":    "shell:MyComputerFolder",
+            "my computer":"shell:MyComputerFolder",
+        }
+        # 1. Known folder
+        target = known.get(folder_name.lower())
+        if target:
+            subprocess.Popen(["explorer.exe", target], shell=False)
+            return True
+        # 2. Subfolder inside Desktop / Downloads / Documents
+        for base in ["Desktop", "Downloads", "Documents"]:
+            path = os.path.expandvars(f"%USERPROFILE%\\{base}\\{folder_name}")
+            if os.path.isdir(path):
+                subprocess.Popen(["explorer.exe", path], shell=False)
+                return True
+        # 3. Absolute path spoken
+        if os.path.isdir(folder_name):
+            subprocess.Popen(["explorer.exe", folder_name], shell=False)
+            return True
+        return False
 
     def run(self):
         """Start the voice assistant in this thread."""
@@ -283,15 +400,43 @@ class VoiceWorker(QThread):
                 controller.execute_action = _make_exec_wrapper(category, original_exec)
 
             # Extend grammar at runtime with additional shortcut phrases.
-            original_get_grammar = self._assistant._get_compiled_grammar
-
             def patched_get_grammar():
-                base = original_get_grammar()
-                merged = set(base)
+                merged = set()
+                # Wake words: add full phrase AND each individual token
+                for ww in self._assistant.config.get("wake_words", []):
+                    p = self._normalize(ww)
+                    if p:
+                        merged.add(p)
+                        for tok in p.split():
+                            merged.add(tok)
+                # Confirmation words
+                merged.update(["yes", "no", "confirm", "cancel"])
+                # Command patterns: add full phrase AND each individual token
+                for category in self._assistant.commands_config.values():
+                    actions = category.get("actions", {})
+                    for action in actions.values():
+                        for pattern in action.get("patterns", []):
+                            p = self._normalize(str(pattern).replace("{value}", "").strip())
+                            if p:
+                                merged.add(p)
+                                for tok in p.split():
+                                    merged.add(tok)
+                # Extension phrases and their tokens
                 for phrase in ADDITIONAL_VOICE_PHRASES:
                     p = phrase.lower().strip()
                     if p:
                         merged.add(p)
+                        for tok in p.split():
+                            merged.add(tok)
+                # Small number words for {value} commands
+                for num in (
+                    "zero one two three four five six seven eight nine ten "
+                    "eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty "
+                    "thirty forty fifty sixty seventy eighty ninety hundred"
+                ).split():
+                    merged.add(num)
+                # Allow unknown tokens so recognizer remains robust.
+                merged.add("[unk]")
                 return sorted(merged)
 
             self._assistant._get_compiled_grammar = patched_get_grammar
@@ -300,14 +445,26 @@ class VoiceWorker(QThread):
             original_process = self._assistant._process_command
 
             def patched_process(command_text: str):
+                try:
+                    _patched_process_inner(command_text)
+                except Exception as _exc:
+                    self.action_logged.emit(f"VOICE ERROR: {_exc}")
+
+            def _patched_process_inner(command_text: str):
                 time.sleep(RECOGNITION_DELAY_SEC)
                 text = self._normalize(command_text)
                 text = self._strip_wake_words(text)
+                try:
+                    text = self._assistant.voice_listener._clean_transcript(text)
+                except Exception:
+                    pass
                 compact = text.replace(" ", "").replace("-", "")
 
                 # Always show what was recognized in command log panel.
                 if text:
                     self.action_logged.emit(f"VOICE HEARD: {text}")
+                    self.voice_heard.emit(text)
+                    self.voice_status_changed.emit("active")
 
                 # Pending critical confirmation has highest priority.
                 if self._handle_pending_voice_confirmation(text):
@@ -326,14 +483,22 @@ class VoiceWorker(QThread):
                     "exit window": lambda: pyautogui.hotkey("alt", "f4"),
                     "minimize window": lambda: pyautogui.hotkey("win", "down"),
                     "minimize": lambda: pyautogui.hotkey("win", "down"),
-                    "increase volume": lambda: self._assistant.controllers["volume"].execute_action("relative_increase", 0),
+                    "maximize window": lambda: pyautogui.hotkey("win", "up"),
+                    "maximize": lambda: pyautogui.hotkey("win", "up"),
                     "volume up": lambda: self._assistant.controllers["volume"].execute_action("relative_increase", 0),
-                    "decrease volume": lambda: self._assistant.controllers["volume"].execute_action("relative_decrease", 0),
+                    "louder": lambda: self._assistant.controllers["volume"].execute_action("relative_increase", 0),
+                    "volume high": lambda: self._assistant.controllers["volume"].execute_action("absolute_increase", 0),
                     "volume down": lambda: self._assistant.controllers["volume"].execute_action("relative_decrease", 0),
-                    "increase brightness": lambda: self._assistant.controllers["brightness"].execute_action("relative_increase", 0),
+                    "quieter": lambda: self._assistant.controllers["volume"].execute_action("relative_decrease", 0),
+                    "volume low": lambda: self._assistant.controllers["volume"].execute_action("absolute_decrease", 0),
+                    "mute": lambda: self._assistant.controllers["volume"].execute_action("absolute_decrease", 0),
                     "brightness up": lambda: self._assistant.controllers["brightness"].execute_action("relative_increase", 0),
-                    "decrease brightness": lambda: self._assistant.controllers["brightness"].execute_action("relative_decrease", 0),
+                    "brighter": lambda: self._assistant.controllers["brightness"].execute_action("relative_increase", 0),
+                    "brightness high": lambda: self._assistant.controllers["brightness"].execute_action("absolute_increase", 0),
                     "brightness down": lambda: self._assistant.controllers["brightness"].execute_action("relative_decrease", 0),
+                    "dimmer": lambda: self._assistant.controllers["brightness"].execute_action("relative_decrease", 0),
+                    "dim": lambda: self._assistant.controllers["brightness"].execute_action("relative_decrease", 0),
+                    "brightness low": lambda: self._assistant.controllers["brightness"].execute_action("absolute_decrease", 0),
                 }
                 strict_phrases = list(strict_actions.keys())
                 matched_phrase = self._strict_match(text, strict_phrases) or self._extract_best_phrase(text, strict_phrases)
@@ -355,23 +520,47 @@ class VoiceWorker(QThread):
                     self._request_critical_confirmation(critical_phrase, critical_actions[critical_phrase])
                     return
 
+                # 3a) Dynamic folder open: "open <foldername>"
+                if text.startswith("open ") and len(text.split()) >= 2:
+                    folder_name = text[5:].strip()
+                    if self._try_open_folder(folder_name):
+                        self.action_logged.emit(f"VOICE: Opened folder '{folder_name}'")
+                        return
+
                 # 3) Additional shortcut command layer (exact only in extension module)
                 handled, msg = shortcut_check(text)
                 if handled:
                     self.action_logged.emit(f"VOICE: {msg}")
                     return
 
-                # 4) Mode switch -> emit Qt signal instead of sys.exit
-                if text in {"switch to gesture", "switch gesture", "switch mode"}:
+                # 4) Mode switch — checked BEFORE strict gates so it always works
+                switch_phrases = {
+                    "switch to gesture", "switch gesture", "switch mode",
+                    "gesture mode", "go to gesture", "gesture control"
+                }
+                if text in switch_phrases or any(text.startswith(p) for p in switch_phrases):
                     self.action_logged.emit("VOICE: Switching to Gesture Mode...")
-                    SPEAKER.say("Switching to Gesture Mode")
+                    _say("Switching to Gesture Mode")
                     self.switch_to_gesture.emit()
                     return
 
-                # 5) Reject ambiguous one-word noise before forwarding fuzzy intent engine.
-                if len(text.split()) <= 1:
-                    self.action_logged.emit("VOICE: Ignored ambiguous command.")
+                # 4b) Help / User Guide — checked BEFORE strict gates
+                help_phrases = {
+                    "open help", "user guide", "open user guide",
+                    "show help", "open guide", "voice commands", "show commands"
+                }
+                if text in help_phrases or any(p in text for p in help_phrases):
+                    self.action_logged.emit("VOICE: Opening User Guide...")
+                    self.open_help_requested.emit()
                     return
+
+                # Reset to listening after command processed
+                self.voice_status_changed.emit("listening")
+                self.voice_heard.emit("")
+
+                # 5) Allow yes/no through when confirmation is pending
+                with self._critical_lock:
+                    has_pending = self._pending_critical is not None
 
                 # 6) Global strict-gate for all remaining commands.
                 if not self._is_globally_allowed_command(text):
@@ -383,6 +572,23 @@ class VoiceWorker(QThread):
                 original_process(forwarded)
 
             self._assistant._process_command = patched_process
+
+            # Wire stop-word callback
+            def _on_stop_word():
+                self.action_logged.emit("VOICE: Nora stopped. Say a wake word to start again.")
+                self.voice_status_changed.emit("idle")
+                self.voice_heard.emit("")
+                self.nora_stopped.emit()
+            self._assistant.voice_listener.on_stop_word = _on_stop_word
+
+            # Patch _enter_active_mode to log wake word detection in UI
+            original_enter_active = self._assistant.voice_listener._enter_active_mode
+            def patched_enter_active():
+                original_enter_active()
+                self.action_logged.emit("Wake word detected - listening for command...")
+                self.wake_word_detected.emit("active")
+                self.voice_status_changed.emit("listening")
+            self._assistant.voice_listener._enter_active_mode = patched_enter_active
 
             # Start listening
             self._assistant.start()

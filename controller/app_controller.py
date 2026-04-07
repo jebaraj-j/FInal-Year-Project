@@ -44,7 +44,7 @@ class AppController(QObject):
         self._connect_voice_signals()
         self._voice_worker.start()
         self.window.set_mode_voice()
-        self.window.log_action("Voice Mode started - say a wake word.")
+        self.window.log_action("Voice Mode started - say a wake word to begin.")
         self.window.notify("Voice Mode active", "VOICE")
 
     def stop_all(self):
@@ -74,6 +74,12 @@ class AppController(QObject):
         w.exit_requested.connect(lambda: self._on_exit_requested("voice command"))
         w.critical_confirmation_requested.connect(self._on_critical_confirmation_requested)
         w.error_occurred.connect(lambda e: self.window.log_action(f"Voice error: {e}"))
+        w.wake_word_detected.connect(lambda _: self.window.set_mode_voice_active())
+        w.voice_status_changed.connect(self.window.update_voice_status)
+        w.voice_heard.connect(self.window.update_voice_heard)
+        w.voice_heard.connect(self.window.voice_answer_confirm)
+        w.open_help_requested.connect(self.window._open_help)
+        w.nora_stopped.connect(self._on_nora_stopped)
 
     def _on_gesture_detected(self, gesture: str, subtitle: str, confidence: int):
         self.window.update_gesture_info(gesture, subtitle, confidence)
@@ -98,9 +104,14 @@ class AppController(QObject):
         self.window.close()
 
     def _on_critical_confirmation_requested(self, action_label: str):
-        approved = self.window.confirm_critical_action(action_label)
-        if self._voice_worker:
-            self._voice_worker.set_critical_confirmation_result(approved)
+        def _on_answer(approved: bool):
+            if self._voice_worker:
+                self._voice_worker.set_critical_confirmation_result(approved)
+        self.window.show_voice_confirm(action_label, _on_answer)
+
+    def _on_nora_stopped(self):
+        self.window.set_mode_voice()
+        self.window.log_action("Nora stopped. Say a wake word to start again.")
 
     def _stop_workers(self):
         if self._gesture_worker and self._gesture_worker.isRunning():

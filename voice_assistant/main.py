@@ -367,7 +367,8 @@ class VoiceAssistant:
                 break
             except Exception as e:
                 self.logger.log_error("MainLoopError", str(e))
-                time.sleep(2.0)  # Pause before retry
+                time.sleep(0.5)  # Brief pause then keep running
+                continue  # Never stop the loop on transient errors
         
         self.shutdown()
     

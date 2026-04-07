@@ -659,3 +659,92 @@
 2026-04-07 21:16:13 | INFO     | WAKE WORD DETECTED: 'hey nora'
 2026-04-07 21:16:13 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
 2026-04-07 21:16:13 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:16:42 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:16:42 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:16:42 | INFO     | Detection threshold: 0.65
+2026-04-07 21:16:42 | INFO     | VoiceListener initialized
+2026-04-07 21:16:42 | INFO     | WAKE WORD DETECTED: 'hey nora'
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:16:42 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:16:42 | INFO     | WAKE WORD DETECTED: 'hey nora'
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:16:42 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:16:42 | INFO     | WAKE WORD DETECTED: 'ok nora'
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Wake word detected | ok nora (1.00)
+2026-04-07 21:16:42 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:16:42 | INFO     | COMMAND RECEIVED: 'uh um ah'
+2026-04-07 21:18:38 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:18:38 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:18:38 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:18:38 | INFO     | Detection threshold: 0.65
+2026-04-07 21:18:38 | INFO     | VoiceListener initialized
+2026-04-07 21:18:38 | INFO     | WAKE WORD DETECTED: 'hey nora'
+2026-04-07 21:18:38 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:18:38 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:18:38 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:23:17 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:23:17 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:23:17 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:23:17 | INFO     | Detection threshold: 0.65
+2026-04-07 21:23:17 | INFO     | VoiceListener initialized
+2026-04-07 21:23:17 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:23:17 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:23:17 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:23:17 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:23:17 | INFO     | COMMAND RECEIVED: 'nora'
+2026-04-07 21:23:40 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:23:40 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:23:40 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:23:40 | INFO     | Detection threshold: 0.65
+2026-04-07 21:23:40 | INFO     | VoiceListener initialized
+2026-04-07 21:23:40 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:23:40 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:23:40 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:27:18 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:27:18 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:27:18 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:27:18 | INFO     | Detection threshold: 0.65
+2026-04-07 21:27:18 | INFO     | VoiceListener initialized
+2026-04-07 21:27:28 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:27:28 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:27:28 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:27:28 | INFO     | Detection threshold: 0.65
+2026-04-07 21:27:28 | INFO     | VoiceListener initialized
+2026-04-07 21:27:28 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:27:28 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:27:28 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:37:19 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:37:19 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:37:19 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:37:19 | INFO     | Detection threshold: 0.65
+2026-04-07 21:37:19 | INFO     | VoiceListener initialized
+2026-04-07 21:37:19 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:37:19 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:37:19 | INFO     | COMMAND RECEIVED: 'ona'
+2026-04-07 21:37:19 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:37:19 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:37:19 | INFO     | COMMAND RECEIVED: 'close chrome'
+2026-04-07 21:37:43 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:37:43 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:37:43 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:37:43 | INFO     | Detection threshold: 0.65
+2026-04-07 21:37:43 | INFO     | VoiceListener initialized
+2026-04-07 21:37:43 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:37:43 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:37:43 | INFO     | COMMAND RECEIVED: 'open chrome'
+2026-04-07 21:37:43 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:37:43 | INFO     | AUDIO EVENT: Entered active listening mode
+2026-04-07 21:37:43 | INFO     | COMMAND RECEIVED: 'close chrome'
+2026-04-07 21:57:20 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:57:20 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:57:20 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:57:20 | INFO     | Detection threshold: 0.65
+2026-04-07 21:57:20 | INFO     | VoiceListener initialized
+2026-04-07 22:03:49 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 22:03:49 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 22:03:49 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 22:03:49 | INFO     | Detection threshold: 0.65
+2026-04-07 22:03:49 | INFO     | VoiceListener initialized

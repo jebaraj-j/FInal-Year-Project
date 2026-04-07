@@ -1,8 +1,10 @@
 """Industrial-grade PyQt5 main window for G-Vox."""
 
+import math
 from PyQt5.QtCore import QEasingCurve, QPropertyAnimation, QTimer, Qt, pyqtSignal
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QColor, QImage, QPainter, QPen, QPixmap
 from PyQt5.QtWidgets import (
+    QDialog,
     QFrame,
     QGraphicsOpacityEffect,
     QHBoxLayout,
@@ -20,9 +22,138 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
+
+class VoiceWaveWidget(QWidget):
+    """Animated sound-wave bars shown in voice mode recognition panel."""
+
+    BARS = 9
+    BAR_W = 6
+    GAP = 5
+    MAX_H = 38
+    MIN_H = 5
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._phase = 0.0
+        self._active = False
+        self._timer = QTimer(self)
+        self._timer.timeout.connect(self._tick)
+        total_w = self.BARS * (self.BAR_W + self.GAP) - self.GAP
+        self.setFixedSize(total_w, self.MAX_H + 4)
+
+    def start(self):
+        self._active = True
+        self._timer.start(45)
+
+    def stop(self):
+        self._active = False
+        self._timer.stop()
+        self.update()
+
+    def _tick(self):
+        self._phase += 0.38
+        self.update()
+
+    def paintEvent(self, event):
+        p = QPainter(self)
+        p.setRenderHint(QPainter.Antialiasing)
+        w = self.width()
+        h = self.height()
+        for i in range(self.BARS):
+            x = i * (self.BAR_W + self.GAP)
+            if self._active:
+                ratio = (math.sin(self._phase + i * 0.72) + 1) / 2
+                bar_h = int(self.MIN_H + ratio * (self.MAX_H - self.MIN_H))
+                alpha = 180 + int(ratio * 75)
+                color = QColor(46, 107, 177, alpha)
+            else:
+                bar_h = self.MIN_H
+                color = QColor(160, 185, 215, 120)
+            y = (h - bar_h) // 2
+            p.setBrush(color)
+            p.setPen(Qt.NoPen)
+            p.drawRoundedRect(x, y, self.BAR_W, bar_h, 3, 3)
+        p.end()
+
 from ui.notification import NotificationWidget
 from ui.styles import MAIN_STYLE
 from storage.sqlite_logger import SQLiteLogger
+
+
+class VoiceConfirmDialog(QDialog):
+    """Non-blocking voice confirmation dialog.
+    Always stays attached to the main window, never opens as a separate app.
+    """
+
+    confirmed = pyqtSignal(bool)   # True=yes, False=no
+
+    def __init__(self, parent, action_label: str):
+        super().__init__(parent)
+        self._action = action_label
+        self.setObjectName("voice_confirm_dialog")
+        self.setFixedSize(360, 180)
+        # Keep dialog attached to parent window, no separate taskbar entry
+        self.setWindowFlags(Qt.Dialog | Qt.WindowTitleHint | Qt.WindowCloseButtonHint)
+        self.setWindowModality(Qt.NonModal)
+        self.setWindowTitle("Confirm Action")
+        # Prevent dialog close from propagating to parent window
+        self.setAttribute(Qt.WA_DeleteOnClose, True)
+        self.setAttribute(Qt.WA_QuitOnClose, False)
+        self._build(action_label)
+        self._center_on_parent()
+        self.show()
+
+    def _build(self, label: str):
+        lay = QVBoxLayout(self)
+        lay.setContentsMargins(20, 16, 20, 16)
+        lay.setSpacing(12)
+
+        title = QLabel(f"⚠️  Confirm {label.title()}")
+        title.setObjectName("confirm_title")
+        title.setAlignment(Qt.AlignCenter)
+        lay.addWidget(title)
+
+        msg = QLabel(f"Say \"Yes\" to confirm or \"No\" to cancel.")
+        msg.setObjectName("confirm_msg")
+        msg.setAlignment(Qt.AlignCenter)
+        msg.setWordWrap(True)
+        lay.addWidget(msg)
+
+        btn_row = QHBoxLayout()
+        btn_row.setSpacing(12)
+        btn_yes = QPushButton("Yes")
+        btn_yes.setObjectName("confirm_yes")
+        btn_yes.setFixedHeight(36)
+        btn_yes.clicked.connect(lambda: self._respond(True))
+        btn_no = QPushButton("No")
+        btn_no.setObjectName("confirm_no")
+        btn_no.setFixedHeight(36)
+        btn_no.clicked.connect(lambda: self._respond(False))
+        btn_row.addWidget(btn_yes)
+        btn_row.addWidget(btn_no)
+        lay.addLayout(btn_row)
+
+    def _center_on_parent(self):
+        if self.parent():
+            pr = self.parent().rect()
+            x = (pr.width() - self.width()) // 2
+            y = (pr.height() - self.height()) // 2
+            self.move(x, y)
+
+    def _respond(self, approved: bool):
+        self.confirmed.emit(approved)
+        if approved:
+            self.accept()
+        else:
+            self.reject()
+
+    def voice_answer(self, text: str):
+        """Called from voice worker with recognized text to auto-close dialog."""
+        t = text.lower().strip()
+        if t in {"yes", "confirm", "yeah", "yep"}:
+            self._respond(True)
+        elif t in {"no", "cancel", "nope", "stop"}:
+            self._respond(False)
 
 
 class MainWindow(QMainWindow):
@@ -212,6 +343,7 @@ class MainWindow(QMainWindow):
         title.setObjectName("card_title")
         lay.addWidget(title)
 
+        # ── Gesture section ──────────────────────────────────────────
         self.gesture_name = QLabel("--")
         self.gesture_name.setObjectName("gesture_name")
         self.gesture_name.setAlignment(Qt.AlignCenter)
@@ -234,6 +366,35 @@ class MainWindow(QMainWindow):
         lay.addWidget(self.gesture_sub)
         lay.addWidget(self.confidence_lbl)
         lay.addWidget(self.hold_bar)
+
+        # ── Voice section (hidden in gesture mode) ───────────────────
+        self._voice_section = QWidget()
+        v_lay = QVBoxLayout(self._voice_section)
+        v_lay.setContentsMargins(0, 8, 0, 0)
+        v_lay.setSpacing(6)
+
+        # Wave animation
+        wave_row = QHBoxLayout()
+        wave_row.setAlignment(Qt.AlignCenter)
+        self._voice_wave = VoiceWaveWidget()
+        wave_row.addWidget(self._voice_wave)
+        v_lay.addLayout(wave_row)
+
+        # Status label
+        self._voice_status_lbl = QLabel('Say "Hi Nora" to start...')
+        self._voice_status_lbl.setObjectName("voice_status_lbl")
+        self._voice_status_lbl.setAlignment(Qt.AlignCenter)
+        v_lay.addWidget(self._voice_status_lbl)
+
+        # Last heard label
+        self._voice_heard_lbl = QLabel("")
+        self._voice_heard_lbl.setObjectName("voice_heard_lbl")
+        self._voice_heard_lbl.setAlignment(Qt.AlignCenter)
+        self._voice_heard_lbl.setWordWrap(True)
+        v_lay.addWidget(self._voice_heard_lbl)
+
+        lay.addWidget(self._voice_section)
+        self._voice_section.setVisible(False)
         return card
 
     def _build_right_panel(self):
@@ -338,6 +499,30 @@ class MainWindow(QMainWindow):
     def update_hold_progress(self, progress: float):
         self.hold_bar.setValue(int(progress * 100))
 
+    def update_voice_status(self, state: str):
+        """Update voice recognition status panel. state: idle|listening|active|heard"""
+        if state == "idle":
+            self._voice_wave.stop()
+            self._voice_status_lbl.setText('Say "Hi Nora" to start...')
+            self._voice_status_lbl.setProperty("state", "idle")
+        elif state == "listening":
+            self._voice_wave.start()
+            self._voice_status_lbl.setText("🎙  Listening...")
+            self._voice_status_lbl.setProperty("state", "listening")
+        elif state == "active":
+            self._voice_wave.start()
+            self._voice_status_lbl.setText("⚡  Processing command...")
+            self._voice_status_lbl.setProperty("state", "active")
+        self._voice_status_lbl.style().unpolish(self._voice_status_lbl)
+        self._voice_status_lbl.style().polish(self._voice_status_lbl)
+
+    def update_voice_heard(self, text: str):
+        """Show last heard command in recognition panel."""
+        if text:
+            self._voice_heard_lbl.setText(f"Heard: \"{text}\"")
+        else:
+            self._voice_heard_lbl.setText("")
+
     def log_action(self, text: str):
         import html
         import time
@@ -370,26 +555,35 @@ class MainWindow(QMainWindow):
         except Exception:
             pass
 
+    def show_voice_confirm(self, action_label: str, callback):
+        """Show non-blocking voice confirmation dialog. callback(bool) called on answer."""
+        # Clear any stale reference from a previously deleted dialog
+        self._active_confirm_dialog = None
+        dlg = VoiceConfirmDialog(self, action_label)
+        dlg.confirmed.connect(callback)
+        self._active_confirm_dialog = dlg
+
+    def voice_answer_confirm(self, text: str):
+        """Forward voice text to active confirmation dialog if present."""
+        dlg = getattr(self, "_active_confirm_dialog", None)
+        if dlg is None:
+            return
+        try:
+            # isVisible() will raise RuntimeError if C++ object already deleted
+            if dlg.isVisible():
+                dlg.voice_answer(text)
+        except RuntimeError:
+            # Dialog C++ object deleted - clear the stale reference
+            self._active_confirm_dialog = None
+
     def confirm_critical_action(self, action_label: str) -> bool:
+        """Legacy blocking dialog - kept for non-voice use."""
         dlg = QMessageBox(self)
         dlg.setIcon(QMessageBox.Warning)
         dlg.setWindowTitle("Confirm Critical Action")
         dlg.setText(f"Are you sure you want to {action_label}?")
         dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         dlg.setDefaultButton(QMessageBox.No)
-        dlg.setWindowModality(Qt.ApplicationModal)
-        dlg.adjustSize()
-
-        center = self.geometry().center()
-        x = center.x() - dlg.width() // 2
-        y = center.y() - dlg.height() // 2
-        dlg.move(max(x, 0), max(y, 0))
-
-        try:
-            from voice_assistant.speaker import SPEAKER
-            SPEAKER.say(f"Are you sure you want to {action_label}?")
-        except Exception:
-            pass
         return dlg.exec_() == QMessageBox.Yes
 
     def confirm_exit(self, context: str = "Exit requested.") -> bool:
@@ -411,19 +605,50 @@ class MainWindow(QMainWindow):
         self.btn_gesture.setChecked(True)
         self.btn_voice.setChecked(False)
         self._status.showMessage(" Gesture mode active.")
+        self._voice_section.setVisible(False)
+        self._voice_wave.stop()
+        self.gesture_name.setVisible(True)
+        self.gesture_sub.setVisible(True)
+        self.confidence_lbl.setVisible(True)
+        self.hold_bar.setVisible(True)
 
     def set_mode_voice(self):
         self.mode_badge.setText("VOICE MODE")
         self.mode_badge.setProperty("mode", "voice")
         self.mode_badge.style().unpolish(self.mode_badge)
         self.mode_badge.style().polish(self.mode_badge)
-        self.system_state.setText("LISTENING FOR WAKE WORD")
+        self.system_state.setText("WAITING FOR WAKE WORD")
         self.btn_gesture.setChecked(False)
         self.btn_voice.setChecked(True)
         self._status.showMessage(" Voice mode active. Say a wake word.")
+        self._voice_section.setVisible(True)
+        self.gesture_name.setVisible(False)
+        self.gesture_sub.setVisible(False)
+        self.confidence_lbl.setVisible(False)
+        self.hold_bar.setVisible(False)
+        self.update_voice_status("idle")
+        self.update_voice_heard("")
+        self.camera_label.setPixmap(__import__("PyQt5.QtGui", fromlist=["QPixmap"]).QPixmap())
         self.camera_label.setText(
-            "Voice mode active.\n\nSay one wake phrase:\n"
-            "hey nora | ok nora | hi nora | hello nora | nora on"
+            "\n\n🎙️  VOICE MODE ACTIVE\n\n"
+            "Say a wake word to begin:\n\n"
+            "  \"Hey Nora\"\n"
+            "  \"OK Nora\"\n"
+            "  \"Hi Nora\"\n"
+            "  \"Hello Nora\"\n"
+            "  \"Nora On\"\n\n"
+            "Camera is off in Voice Mode."
+        )
+
+    def set_mode_voice_active(self):
+        """Called when wake word is detected - update UI to show listening state."""
+        self.system_state.setText("LISTENING FOR COMMAND")
+        self._status.showMessage(" Wake word detected - listening for command...")
+        self.update_voice_status("listening")
+        self.camera_label.setText(
+            "\n\n🎙️  WAKE WORD DETECTED\n\n"
+            "Listening for your command...\n\n"
+            "Say a command or \"Switch to Gesture\" to go back."
         )
 
     def set_mode_stopped(self):
