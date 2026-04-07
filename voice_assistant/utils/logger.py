@@ -22,7 +22,12 @@ class VoiceAssistantLogger:
             log_level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
         """
         self.log_dir = Path(log_dir)
-        self.log_dir.mkdir(exist_ok=True)
+        
+        # Ensure parent directories exist
+        try:
+            self.log_dir.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            print(f"WARNING: Could not create log directory {self.log_dir}: {e}")
         
         # Create logger
         self.logger = logging.getLogger("voice_assistant")
@@ -35,23 +40,27 @@ class VoiceAssistantLogger:
     
     def _setup_file_handler(self):
         """Setup rotating file handler for persistent logging."""
-        log_file = self.log_dir / "assistant.log"
-        
-        # Rotating file handler (10MB max, keep 5 backup files)
-        file_handler = logging.handlers.RotatingFileHandler(
-            log_file,
-            maxBytes=10*1024*1024,  # 10MB
-            backupCount=5,
-            encoding='utf-8'
-        )
-        
-        # File format: timestamp, level, message
-        file_formatter = logging.Formatter(
-            '%(asctime)s | %(levelname)-8s | %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
-        )
-        file_handler.setFormatter(file_formatter)
-        self.logger.addHandler(file_handler)
+        try:
+            log_file = self.log_dir / "assistant.log"
+            
+            # Rotating file handler (10MB max, keep 5 backup files)
+            file_handler = logging.handlers.RotatingFileHandler(
+                str(log_file),  # Convert Path to string
+                maxBytes=10*1024*1024,  # 10MB
+                backupCount=5,
+                encoding='utf-8'
+            )
+            
+            # File format: timestamp, level, message
+            file_formatter = logging.Formatter(
+                '%(asctime)s | %(levelname)-8s | %(message)s',
+                datefmt='%Y-%m-%d %H:%M:%S'
+            )
+            file_handler.setFormatter(file_formatter)
+            self.logger.addHandler(file_handler)
+        except Exception as e:
+            print(f"WARNING: Could not setup file handler: {e}")
+            print(f"Log file path: {self.log_dir / 'assistant.log'}")
     
     def _setup_console_handler(self):
         """Setup console handler for real-time monitoring."""

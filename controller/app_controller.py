@@ -7,7 +7,6 @@ from PyQt5.QtCore import QObject, QTimer
 from controller.gesture_worker import GestureWorker
 from controller.voice_worker import VoiceWorker
 from ui.main_window import MainWindow
-from voice_assistant.speaker import SPEAKER
 
 
 class AppController(QObject):
@@ -34,8 +33,7 @@ class AppController(QObject):
         self._gesture_worker.start()
         self.window.set_mode_gesture()
         self.window.log_action("Gesture Mode started.")
-        self.window.notify("Gesture Mode active", "🖐️")
-        SPEAKER.say("Gesture Mode activated")
+        self.window.notify("Gesture Mode active", "GEST")
 
     def start_voice_mode(self):
         if self._current_mode == "voice":
@@ -47,8 +45,7 @@ class AppController(QObject):
         self._voice_worker.start()
         self.window.set_mode_voice()
         self.window.log_action("Voice Mode started - say a wake word.")
-        self.window.notify("Voice Mode active", "🎙️")
-        SPEAKER.say("Voice Mode activated. Say hey nora to begin.")
+        self.window.notify("Voice Mode active", "VOICE")
 
     def stop_all(self):
         self._stop_workers()
@@ -57,8 +54,7 @@ class AppController(QObject):
         self.window.update_gesture_info("Stopped", "", 0)
         self.window.update_hand_status(False)
         self.window.log_action("All modes stopped.")
-        self.window.notify("System stopped", "⏹")
-        SPEAKER.say("System stopped")
+        self.window.notify("System stopped", "STOP")
 
     def _connect_gesture_signals(self):
         w = self._gesture_worker
@@ -76,6 +72,7 @@ class AppController(QObject):
         w.action_logged.connect(self.window.log_action)
         w.switch_to_gesture.connect(self._on_switch_to_gesture)
         w.exit_requested.connect(lambda: self._on_exit_requested("voice command"))
+        w.critical_confirmation_requested.connect(self._on_critical_confirmation_requested)
         w.error_occurred.connect(lambda e: self.window.log_action(f"Voice error: {e}"))
 
     def _on_gesture_detected(self, gesture: str, subtitle: str, confidence: int):
@@ -83,7 +80,6 @@ class AppController(QObject):
 
     def _on_gesture_triggered(self, label: str, icon: str):
         self.window.notify(label, icon)
-        SPEAKER.say(label)
 
     def _on_switch_to_voice(self):
         self.window.log_action("Switching to Voice Mode via gesture.")
@@ -96,11 +92,15 @@ class AppController(QObject):
     def _on_exit_requested(self, source: str):
         self.window.log_action(f"Exit requested via {source}.")
         self.window.log_action("Closing G-Vox.")
-        self.window.notify("Closing G-Vox", "⛔")
-        SPEAKER.say("Closing G Vox")
+        self.window.notify("Closing G-Vox", "EXIT")
         self._stop_workers()
         self._current_mode = "stopped"
         self.window.close()
+
+    def _on_critical_confirmation_requested(self, action_label: str):
+        approved = self.window.confirm_critical_action(action_label)
+        if self._voice_worker:
+            self._voice_worker.set_critical_confirmation_result(approved)
 
     def _stop_workers(self):
         if self._gesture_worker and self._gesture_worker.isRunning():
@@ -109,4 +109,3 @@ class AppController(QObject):
         if self._voice_worker and self._voice_worker.isRunning():
             self._voice_worker.stop()
             self._voice_worker = None
-

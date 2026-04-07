@@ -2,7 +2,7 @@
 voice_assistant/speaker.py
 ===========================
 Offline TTS using pyttsx3 (no internet required).
-Female voice, runs in a background thread to avoid UI blocking.
+Male-preferred voice, runs in a background thread to avoid UI blocking.
 """
 
 import threading
@@ -28,13 +28,16 @@ class _Speaker:
             return
         try:
             engine = pyttsx3.init()
-            # Try to select a female voice
+            # Prefer a male voice; gracefully fall back to default if unavailable.
             voices = engine.getProperty("voices")
+            selected_voice_id = None
             for v in voices:
                 name = v.name.lower()
-                if any(k in name for k in ("zira", "female", "hazel", "susan", "helen")):
-                    engine.setProperty("voice", v.id)
+                if any(k in name for k in ("david", "mark", "male", "guy", "james", "richard", "george")):
+                    selected_voice_id = v.id
                     break
+            if selected_voice_id:
+                engine.setProperty("voice", selected_voice_id)
             engine.setProperty("rate", 170)
             engine.setProperty("volume", 0.9)
 

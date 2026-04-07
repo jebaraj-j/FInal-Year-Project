@@ -28,9 +28,9 @@ from ui.styles import MAIN_STYLE
 
 RIGHT_HAND_GESTURES = [
     ("Index finger only extended", "Green line", "Move cursor"),
-    ("Mild pinch: thumb + index", "Orange line", "Single click"),
-    ("Quick tight pinch release (<0.25s)", "Red line", "Double click"),
-    ("Hold tight pinch (>0.35s)", "Red line", "Drag and drop"),
+    ("Mild pinch: thumb + index (hold ~0.25s)", "Orange line", "Single click"),
+    ("Tight pinch: thumb + index (hold >=1.0s)", "Red line", "Double click"),
+    ("After red hold confirm, move while still pinching", "Red line", "Drag and drop"),
     (
         "Ring + pinky extended, index + middle folded (hold 0.7s)",
         "Gesture confirm",
@@ -88,33 +88,29 @@ def _pretty_category(name: str) -> str:
 def _shortcut_result(phrase: str) -> str:
     p = phrase.strip().lower()
 
-    if p in {"open", "enter", "open selected", "open selected item"}:
-        return "Press Enter"
     if p == "screenshot":
         return "Capture full screenshot"
     if p == "open file":
         return "Open file dialog"
     if p == "close file":
         return "Close current file/tab"
-    if p == "close":
+    if p in {"close window", "exit window"}:
         return "Close current window"
-    if p == "minimize":
+    if p in {"minimize", "minimize window"}:
         return "Minimize window"
-    if p == "maximize":
+    if p in {"maximize", "maximize window"}:
         return "Maximize window"
     if p == "zoom in":
         return "Zoom in"
     if p == "zoom out":
         return "Zoom out"
-    if p in {"next image", "next page", "next"}:
+    if p in {"next image", "next page"}:
         return "Navigate forward"
-    if p in {"previous image", "previous page", "previous"}:
+    if p in {"previous image", "previous page"}:
         return "Navigate backward"
-    if p in {"up", "down", "left", "right"}:
-        return "Arrow key navigation"
     if p in {"scroll up", "scroll down"}:
         return "Scrolling"
-    if p in {"play", "pause", "play video", "pause video"}:
+    if p in {"play video", "pause video"}:
         return "Play or pause media"
     if p == "next track":
         return "Next media track"
@@ -135,13 +131,13 @@ def _shortcut_result(phrase: str) -> str:
 def _system_confirm_note(phrase: str) -> str:
     p = phrase.strip().lower()
     if "shutdown" in p or "shut down" in p or "power off" in p or "turn off" in p:
-        return "Confirm by saying shutdown again"
+        return "Requires explicit confirmation (Yes/No or voice confirm/cancel)"
     if "restart" in p or "reboot" in p:
-        return "Confirm by saying restart again"
+        return "Requires explicit confirmation (Yes/No or voice confirm/cancel)"
     if "sleep" in p or "hibernate" in p:
-        return "Confirm by saying sleep again"
+        return "Requires explicit confirmation (Yes/No or voice confirm/cancel)"
     if "lock" in p:
-        return "Confirm by saying lock again"
+        return "Requires explicit confirmation (Yes/No or voice confirm/cancel)"
     return "Execute action"
 
 
@@ -239,10 +235,9 @@ class HelpDialog(QDialog):
         lay.addLayout(row)
 
     def _right_hand_tab(self):
-        w = QScrollArea()
-        w.setWidgetResizable(True)
-        inner = QWidget()
-        lay = QVBoxLayout(inner)
+        page = QWidget()
+        lay = QVBoxLayout(page)
+        lay.setContentsMargins(8, 8, 8, 8)
         lay.setSpacing(8)
 
         intro = QLabel(
@@ -256,17 +251,16 @@ class HelpDialog(QDialog):
             self._make_table(
                 ["Gesture / Hand Shape", "Indicator", "Action"],
                 RIGHT_HAND_GESTURES,
-            )
+                fill_vertical=True,
+            ),
+            1,
         )
-        lay.addStretch()
-        w.setWidget(inner)
-        return w
+        return page
 
     def _left_hand_tab(self):
-        w = QScrollArea()
-        w.setWidgetResizable(True)
-        inner = QWidget()
-        lay = QVBoxLayout(inner)
+        page = QWidget()
+        lay = QVBoxLayout(page)
+        lay.setContentsMargins(8, 8, 8, 8)
         lay.setSpacing(8)
 
         intro = QLabel(
@@ -280,12 +274,11 @@ class HelpDialog(QDialog):
             self._make_table(
                 ["Gesture / Hand Shape", "Hold Time", "Action"],
                 LEFT_HAND_GESTURES,
-            )
+                fill_vertical=True,
+            ),
+            1,
         )
-
-        lay.addStretch()
-        w.setWidget(inner)
-        return w
+        return page
 
     def _voice_tab(self):
         page = QWidget()
@@ -395,13 +388,17 @@ class HelpDialog(QDialog):
         w.setWidget(inner)
         return w
 
-    def _make_table(self, headers, rows):
+    def _make_table(self, headers, rows, fill_vertical: bool = False):
         tbl = QTableWidget(len(rows), len(headers))
         tbl.setHorizontalHeaderLabels(headers)
         tbl.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         tbl.verticalHeader().setVisible(False)
         tbl.setEditTriggers(QTableWidget.NoEditTriggers)
         tbl.setAlternatingRowColors(True)
+        if fill_vertical:
+            tbl.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+            tbl.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
+            tbl.setSizeAdjustPolicy(QTableWidget.AdjustToContents)
         tbl.setStyleSheet(
             """
             QTableWidget {

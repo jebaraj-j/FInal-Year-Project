@@ -57,6 +57,7 @@ class VoiceListener:
         self.command_confidence_threshold = config["recognition"]["command_confidence_threshold"]
         self.active_listening_timeout = config["recognition"]["active_listening_timeout"]
         self.max_retry_attempts = config["recognition"]["max_retry_attempts"]
+        self.command_buffer_delay = config["recognition"].get("command_buffer_delay", 0.25)
         
         # State management
         self.is_listening = False
@@ -199,8 +200,20 @@ class VoiceListener:
             Tuple of (data, flag)
         """
         if self.is_listening:
-            # Put audio data in queue for processing
-            self.recognition_queue.put(in_data)
+            # Lightweight denoise while always keeping stream continuity.
+            # Important: do not drop silence frames, or VOSK finalization can break.
+            try:
+                audio_data = np.frombuffer(in_data, dtype=np.int16)
+                if audio_data.size == 0:
+                    self.recognition_queue.put(in_data)
+                    return (in_data, pyaudio.paContinue)
+
+                centered = audio_data.astype(np.float32) - float(np.mean(audio_data))
+                cleaned = np.clip(centered, -32768, 32767).astype(np.int16).tobytes()
+                self.recognition_queue.put(cleaned)
+            except Exception:
+                # Fallback to raw audio on preprocessing failure.
+                self.recognition_queue.put(in_data)
         
         return (in_data, pyaudio.paContinue)
     
@@ -208,6 +221,14 @@ class VoiceListener:
         """Main listening loop for voice interaction."""
         while not self.stop_event.is_set():
             try:
+                if (
+                    self.is_active_mode
+                    and hasattr(self, "active_listening_start")
+                    and (time.time() - self.active_listening_start) > self.active_listening_timeout
+                ):
+                    self._handle_timeout()
+                    continue
+
                 # Get audio data from queue
                 try:
                     audio_data = self.recognition_queue.get(timeout=0.2)
@@ -235,8 +256,45 @@ class VoiceListener:
                 time.sleep(0.1)
 
     def _process_recognition_result(self, text: str) -> None:
-        """Process finalized speech text — always treat as a direct command."""
-        self._handle_command_recognition(text)
+        """Process finalized speech text with wake-word gating."""
+        normalized = " ".join((text or "").lower().split())
+        if not normalized:
+            return
+
+        # Passive mode: only wake words are accepted.
+        if not self.is_active_mode:
+            detected, wake_word, confidence = self.wake_word_detector.detect_wake_word(normalized)
+            if not detected:
+                return
+
+            self.logger.log_audio_event(
+                "Wake word detected",
+                f"{wake_word} ({confidence:.2f})",
+            )
+            self._enter_active_mode()
+
+            # If wake phrase and command came together in one final chunk,
+            # remove wake words and execute remaining command immediately.
+            command_text = self._strip_wake_words(normalized)
+            if command_text:
+                self._handle_command_recognition(command_text)
+                self.is_active_mode = False
+            return
+
+        # Active mode: accept one command, then return to passive mode.
+        command_text = self._strip_wake_words(normalized)
+        if not command_text:
+            return
+        self._handle_command_recognition(command_text)
+        self.is_active_mode = False
+
+    def _strip_wake_words(self, text: str) -> str:
+        cleaned = f" {text} "
+        for wake in self.config.get("wake_words", []):
+            w = " ".join(str(wake).lower().split())
+            if w:
+                cleaned = cleaned.replace(f" {w} ", " ")
+        return " ".join(cleaned.split())
 
     def _enter_active_mode(self) -> None:
         """Switch to active command listening mode."""
@@ -248,6 +306,8 @@ class VoiceListener:
     def _handle_command_recognition(self, text: str) -> None:
         """Store command result for processing."""
         self.logger.log_command_received(text)
+        if self.command_buffer_delay > 0:
+            time.sleep(self.command_buffer_delay)
         self.last_result = {"status": "success", "text": text}
         print(f"\r🎙️  Heard: '{text}'")
 

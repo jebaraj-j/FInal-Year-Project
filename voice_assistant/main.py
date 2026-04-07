@@ -4,6 +4,7 @@ Coordinates voice listener, unified intent engine, and all controllers.
 """
 
 import json
+import os
 import re
 import signal
 import sys
@@ -43,9 +44,10 @@ class VoiceAssistant:
         self.config = self._load_config()
         self.commands_config = self._load_commands_config()
         
-        # Initialize logger
+        # Initialize logger - use AppData directory for user-writable logs
         log_level = self.config["logging"]["level"]
-        log_dir = Path(__file__).parent / "logs"
+        appdata_dir = Path(os.getenv('APPDATA', Path.home())) / "G-Vox"
+        log_dir = appdata_dir / "logs"
         self.logger = get_logger(str(log_dir), log_level)
         
         # Initialize components

@@ -12,15 +12,13 @@ New commands:
 
 import subprocess
 import sys
+import re
 
 
 # Map trigger phrases → process name to kill
 CLOSE_COMMANDS = {
     # VS Code (4)
-    "vscode closing":           "Code.exe",
-    "vs code closing":          "Code.exe",
-    "visual studio closing":    "Code.exe",
-    "close vscode":             "Code.exe",
+
 
     # Chrome (4)
     "chrome closing":           "chrome.exe",
@@ -47,6 +45,35 @@ CLOSE_COMMANDS = {
     "close file explorer":      "explorer.exe",
 }
 
+# Compact keyword patterns so recognition is less phrase-sensitive.
+# This accepts variations like:
+# - "close chrome"
+# - "chrome close now"
+# - "please close file explorer"
+PROCESS_KEYWORD_RULES = {
+    "chrome.exe": [
+        {"open chrome", "close chorme"},
+        
+    ],
+    "notepad.exe": [
+        {"open notepad", "close notepad"},
+       
+    ],
+    "SystemSettings.exe": [
+        {"open settings", "close setting"},
+        
+    ],
+    "explorer.exe": [
+        {" open file explorer", "close file explorer"},
+        
+        
+    ],
+}
+
+
+def _tokenize(text: str) -> set[str]:
+    return set(re.findall(r"[a-z]+", text.lower()))
+
 
 def check_and_execute(text: str) -> tuple[bool, str]:
     """
@@ -60,9 +87,19 @@ def check_and_execute(text: str) -> tuple[bool, str]:
         handled = True means the command was consumed here.
     """
     text = text.lower().strip()
+
+    # 1) Keep exact phrase support for backward compatibility.
     for phrase, process in CLOSE_COMMANDS.items():
         if phrase in text:
             return _kill_process(process)
+
+    # 2) Less phrase-sensitive fallback using keyword rules.
+    tokens = _tokenize(text)
+    for process, keyword_sets in PROCESS_KEYWORD_RULES.items():
+        for keywords in keyword_sets:
+            if keywords.issubset(tokens):
+                return _kill_process(process)
+
     return False, ""
 
 

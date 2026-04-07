@@ -651,3 +651,11 @@
 2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
 2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
 2026-04-04 10:38:28 | INFO     | INTENT DETECTED: help, action: show_help, confidence: 1.00
+2026-04-07 21:16:13 | INFO     | AUDIO EVENT: AudioStreamManager initialized
+2026-04-07 21:16:13 | INFO     | WakeWordDetector initialized with 5 wake words
+2026-04-07 21:16:13 | INFO     | Wake words: ['hey nora', 'ok nora', 'hi nora', 'hello nora', 'nora on']
+2026-04-07 21:16:13 | INFO     | Detection threshold: 0.65
+2026-04-07 21:16:13 | INFO     | VoiceListener initialized
+2026-04-07 21:16:13 | INFO     | WAKE WORD DETECTED: 'hey nora'
+2026-04-07 21:16:13 | INFO     | AUDIO EVENT: Wake word detected | hey nora (1.00)
+2026-04-07 21:16:13 | INFO     | AUDIO EVENT: Entered active listening mode

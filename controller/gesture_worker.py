@@ -93,6 +93,12 @@ class GestureWorker(QThread):
         right_click_hold_start = None
         pinch_start_time = 0.0
         hard_pinch_active = False
+        mild_pinch_start_time = 0.0
+        mild_click_fired = False
+        red_hold_confirmed = False
+        red_doubleclick_fired = False
+        red_last_index_norm = None
+        drag_move_threshold = max(cfg.deadzone * 2.0, 0.01)
         scroll_mode = False
         base_scroll_y = 0.0
         last_scroll_time = 0.0
@@ -276,41 +282,69 @@ class GestureWorker(QThread):
                             now = time.time()
                             if current_pinch_state == "mild":
                                 if pinch_state != "mild":
+                                    mild_pinch_start_time = now
+                                    mild_click_fired = False
+                                hold_t = now - mild_pinch_start_time
+                                if hold_t >= 0.25 and not mild_click_fired:
                                     pyautogui.click()
                                     self.action_logged.emit("SINGLE CLICK")
+                                    mild_click_fired = True
                                     current_gesture = "Single Click"
-                                    current_subtitle = "Mild pinch (orange)"
+                                    current_subtitle = "Orange hold confirmed"
                                 else:
-                                    current_gesture = "Single Click (held)"
-                                    current_subtitle = "Orange line"
+                                    current_gesture = "Single Click Hold"
+                                    current_subtitle = f"Orange hold {hold_t:.1f}/0.25s"
+                                hard_pinch_active = False
+                                red_hold_confirmed = False
+                                red_doubleclick_fired = False
+                                red_last_index_norm = None
 
                             elif current_pinch_state == "tight":
                                 if pinch_state != "tight":
                                     pinch_start_time = now
                                     hard_pinch_active = True
-                                if hard_pinch_active and not is_dragging and now - pinch_start_time >= cfg.drag_threshold:
-                                    is_dragging = True
-                                    pyautogui.mouseDown()
-                                    self.action_logged.emit("DRAG START")
-                                    current_gesture = "Drag"
-                                    current_subtitle = "Tight pinch > 0.35s"
+                                    red_hold_confirmed = False
+                                    red_doubleclick_fired = False
+                                    red_last_index_norm = np.array(pts[8][:2])
+                                hold_t = now - pinch_start_time
+
+                                if hold_t >= 1.0 and not red_doubleclick_fired:
+                                    pyautogui.doubleClick()
+                                    self.action_logged.emit("DOUBLE CLICK")
+                                    red_doubleclick_fired = True
+                                    red_hold_confirmed = True
+                                    current_gesture = "Double Click"
+                                    current_subtitle = "Red hold confirmed (1.0s)"
+                                elif not red_hold_confirmed:
+                                    current_gesture = "Tight Pinch Hold"
+                                    current_subtitle = f"Red hold {hold_t:.1f}/1.0s"
                                 else:
-                                    current_gesture = "Tight Pinch (red)"
-                                    current_subtitle = "Quick release -> double-click"
+                                    current_gesture = "Drag Ready"
+                                    current_subtitle = "Move while holding to drag"
+
+                                current_index_norm = np.array(pts[8][:2])
+                                if red_hold_confirmed and not is_dragging and red_last_index_norm is not None:
+                                    move_vec = current_index_norm - red_last_index_norm
+                                    if np.linalg.norm(move_vec) > drag_move_threshold:
+                                        is_dragging = True
+                                        pyautogui.mouseDown()
+                                        self.action_logged.emit("DRAG START")
+                                        current_gesture = "Drag"
+                                        current_subtitle = "Red hold + movement"
+                                red_last_index_norm = current_index_norm
+                                mild_click_fired = False
 
                             elif current_pinch_state == "open" and hard_pinch_active:
-                                dur = now - pinch_start_time
                                 if is_dragging:
                                     pyautogui.mouseUp()
                                     self.action_logged.emit("DRAG END")
                                     current_gesture = "Drag Released"
-                                elif dur < cfg.double_click_threshold:
-                                    pyautogui.doubleClick()
-                                    self.action_logged.emit("DOUBLE CLICK")
-                                    current_gesture = "Double Click"
-                                    current_subtitle = "Quick tight-pinch release"
                                 is_dragging = False
                                 hard_pinch_active = False
+                                red_hold_confirmed = False
+                                red_doubleclick_fired = False
+                                red_last_index_norm = None
+                                mild_click_fired = False
 
                             index_norm = np.array(pts[8][:2])
                             if prev_index_norm is not None and (is_dragging or current_pinch_state == "open"):
@@ -507,6 +541,11 @@ class GestureWorker(QThread):
                 right_click_hold_start = None
                 hard_pinch_active = False
                 pinch_start_time = 0.0
+                mild_pinch_start_time = 0.0
+                mild_click_fired = False
+                red_hold_confirmed = False
+                red_doubleclick_fired = False
+                red_last_index_norm = None
 
                 if task_switch_active:
                     pyautogui.keyUp("alt")
@@ -528,6 +567,13 @@ class GestureWorker(QThread):
                     is_dragging = False
                 scroll_mode = False
                 right_click_hold_start = None
+                hard_pinch_active = False
+                pinch_start_time = 0.0
+                mild_pinch_start_time = 0.0
+                mild_click_fired = False
+                red_hold_confirmed = False
+                red_doubleclick_fired = False
+                red_last_index_norm = None
             if not (found_left and found_right):
                 exit_hold_start = None
                 exit_hold_announced = False

@@ -364,6 +364,33 @@ class MainWindow(QMainWindow):
             self._tray_icon.showMessage("G-Vox", message, QSystemTrayIcon.Information, 2500)
         n = NotificationWidget(self, message, icon)
         n.show()
+        try:
+            from voice_assistant.speaker import SPEAKER
+            SPEAKER.say(message)
+        except Exception:
+            pass
+
+    def confirm_critical_action(self, action_label: str) -> bool:
+        dlg = QMessageBox(self)
+        dlg.setIcon(QMessageBox.Warning)
+        dlg.setWindowTitle("Confirm Critical Action")
+        dlg.setText(f"Are you sure you want to {action_label}?")
+        dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        dlg.setDefaultButton(QMessageBox.No)
+        dlg.setWindowModality(Qt.ApplicationModal)
+        dlg.adjustSize()
+
+        center = self.geometry().center()
+        x = center.x() - dlg.width() // 2
+        y = center.y() - dlg.height() // 2
+        dlg.move(max(x, 0), max(y, 0))
+
+        try:
+            from voice_assistant.speaker import SPEAKER
+            SPEAKER.say(f"Are you sure you want to {action_label}?")
+        except Exception:
+            pass
+        return dlg.exec_() == QMessageBox.Yes
 
     def confirm_exit(self, context: str = "Exit requested.") -> bool:
         dlg = QMessageBox(self)
