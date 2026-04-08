@@ -652,11 +652,20 @@ class MainWindow(QMainWindow):
         )
 
     def bring_to_front(self):
-        """Bring G-Vox window to foreground from any state."""
+        """Bring G-Vox window to foreground using Win32 SetForegroundWindow."""
+        import ctypes
+        # Un-minimize first
         self.setWindowState(self.windowState() & ~Qt.WindowMinimized)
         self.show()
         self.raise_()
         self.activateWindow()
+        # Win32 force-foreground: works even when another app has focus
+        try:
+            hwnd = int(self.winId())
+            ctypes.windll.user32.ShowWindow(hwnd, 9)   # SW_RESTORE
+            ctypes.windll.user32.SetForegroundWindow(hwnd)
+        except Exception:
+            pass
 
     def set_mode_stopped(self):
         self.mode_badge.setText("STOPPED")

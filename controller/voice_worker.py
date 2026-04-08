@@ -26,12 +26,17 @@ _REAL_SIGNAL_FN = _signal_module.signal
 from voice_assistant.speaker import SPEAKER
 
 def _say(text: str):
-    """Speak text using pyttsx3 in a background thread.
-    Completely silent on any error - never crashes the app.
-    """
+    """Speak text using pyttsx3 in a COM-initialized background thread."""
     import threading
     def _run():
+        e = None
         try:
+            # pyttsx3 on Windows uses SAPI5 COM - must init COM on this thread
+            try:
+                import pythoncom
+                pythoncom.CoInitialize()
+            except Exception:
+                pass
             import pyttsx3
             e = pyttsx3.init()
             e.setProperty("rate", 165)
@@ -42,7 +47,13 @@ def _say(text: str):
             pass
         finally:
             try:
-                e.stop()
+                if e:
+                    e.stop()
+            except Exception:
+                pass
+            try:
+                import pythoncom
+                pythoncom.CoUninitialize()
             except Exception:
                 pass
     try:
@@ -80,7 +91,6 @@ ADDITIONAL_VOICE_PHRASES = [
     "go back",
     "copy",
     "paste",
-    "open notepad",
     "start notepad",
     "volume up",
     "volume down",
@@ -581,7 +591,13 @@ class VoiceWorker(QThread):
                 self.voice_status_changed.emit("listening")
                 self.voice_heard.emit("")
 
-                # 5) Allow yes/no through when confirmation is pending
+                # 5) Block bare app names that should require "open <app>"
+                _bare_app_words = {"notepad", "chrome", "browser", "explorer", "settings"}
+                if text in _bare_app_words:
+                    self.action_logged.emit(f"VOICE: Ignored bare app name '{text}'. Say 'open {text}' instead.")
+                    return
+
+                # Allow yes/no through when confirmation is pending
                 with self._critical_lock:
                     has_pending = self._pending_critical is not None
 
