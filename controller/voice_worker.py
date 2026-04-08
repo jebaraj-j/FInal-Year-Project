@@ -122,6 +122,12 @@ ADDITIONAL_VOICE_PHRASES = [
     "stop nora",
     "nora stop",
     "stop listening",
+    "open g vox",
+    "go to g vox",
+    "show g vox",
+    "close help",
+    "close user guide",
+    "close guide",
     "move up",
     "move down",
     "move left",
@@ -165,6 +171,9 @@ class VoiceWorker(QThread):
     voice_heard = pyqtSignal(str)             # last heard text
     open_help_requested = pyqtSignal()
     nora_stopped = pyqtSignal()
+    dismiss_confirm_dialog = pyqtSignal()
+    bring_to_front_requested = pyqtSignal()
+    close_help_requested = pyqtSignal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -283,6 +292,7 @@ class VoiceWorker(QThread):
                 self._pending_critical = None
             self.action_logged.emit(f"VOICE: {pending['label']} confirmed by voice.")
             self._execute_critical_action(pending)
+            self.dismiss_confirm_dialog.emit()
             return True
 
         if text in no_phrases:
@@ -290,6 +300,7 @@ class VoiceWorker(QThread):
                 self._pending_critical = None
             self.action_logged.emit(f"VOICE: {pending['label']} cancelled by voice.")
             _say(f"Cancelled {pending['label']}")
+            self.dismiss_confirm_dialog.emit()
             return True
 
         self.action_logged.emit("VOICE: Awaiting explicit confirmation: say yes/confirm or no/cancel.")
@@ -477,7 +488,6 @@ class VoiceWorker(QThread):
 
                 # 1) Strict direct command matching (exact or >= 90% similar)
                 strict_actions = {
-                    "open notepad": lambda: self._assistant.controllers["app_launcher"].execute_action("open_notepad"),
                     "start notepad": lambda: self._assistant.controllers["app_launcher"].execute_action("open_notepad"),
                     "close window": lambda: pyautogui.hotkey("alt", "f4"),
                     "exit window": lambda: pyautogui.hotkey("alt", "f4"),
@@ -531,6 +541,19 @@ class VoiceWorker(QThread):
                 handled, msg = shortcut_check(text)
                 if handled:
                     self.action_logged.emit(f"VOICE: {msg}")
+                    return
+
+                # 3b) Bring G-Vox to front
+                gvox_phrases = {"open g vox", "go to g vox", "show g vox", "open gvox"}
+                if text in gvox_phrases or any(p in text for p in gvox_phrases):
+                    self.action_logged.emit("VOICE: Bringing G-Vox to front...")
+                    self.bring_to_front_requested.emit()
+                    return
+
+                # 3c) Close help dialog
+                if text in {"close help", "close user guide", "close guide"}:
+                    self.action_logged.emit("VOICE: Closing help dialog...")
+                    self.close_help_requested.emit()
                     return
 
                 # 4) Mode switch — checked BEFORE strict gates so it always works

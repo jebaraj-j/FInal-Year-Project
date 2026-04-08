@@ -80,6 +80,9 @@ class AppController(QObject):
         w.voice_heard.connect(self.window.voice_answer_confirm)
         w.open_help_requested.connect(self.window._open_help)
         w.nora_stopped.connect(self._on_nora_stopped)
+        w.bring_to_front_requested.connect(self.window.bring_to_front)
+        w.close_help_requested.connect(self.window.close_help_dialog)
+        w.dismiss_confirm_dialog.connect(self.window.dismiss_confirm_dialog)
 
     def _on_gesture_detected(self, gesture: str, subtitle: str, confidence: int):
         self.window.update_gesture_info(gesture, subtitle, confidence)

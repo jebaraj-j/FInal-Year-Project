@@ -651,6 +651,13 @@ class MainWindow(QMainWindow):
             "Say a command or \"Switch to Gesture\" to go back."
         )
 
+    def bring_to_front(self):
+        """Bring G-Vox window to foreground from any state."""
+        self.setWindowState(self.windowState() & ~Qt.WindowMinimized)
+        self.show()
+        self.raise_()
+        self.activateWindow()
+
     def set_mode_stopped(self):
         self.mode_badge.setText("STOPPED")
         self.mode_badge.setProperty("mode", "stopped")
@@ -663,6 +670,28 @@ class MainWindow(QMainWindow):
 
     def _open_help(self):
         from ui.help_dialog import HelpDialog
+        self._help_dialog = HelpDialog(self)
+        self._help_dialog.exec_()
+        self._help_dialog = None
 
-        dlg = HelpDialog(self)
-        dlg.exec_()
+    def close_help_dialog(self):
+        dlg = getattr(self, "_help_dialog", None)
+        if dlg is not None:
+            try:
+                dlg.accept()
+            except RuntimeError:
+                pass
+            self._help_dialog = None
+
+    def dismiss_confirm_dialog(self):
+        dlg = getattr(self, "_active_confirm_dialog", None)
+        if dlg is None:
+            return
+        try:
+            if dlg.isVisible():
+                dlg.blockSignals(True)
+                dlg.reject()
+                dlg.blockSignals(False)
+        except RuntimeError:
+            pass
+        self._active_confirm_dialog = None
