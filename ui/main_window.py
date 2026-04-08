@@ -652,20 +652,25 @@ class MainWindow(QMainWindow):
         )
 
     def bring_to_front(self):
-        """Bring G-Vox window to foreground using Win32 SetForegroundWindow."""
-        import ctypes
-        # Un-minimize first
-        self.setWindowState(self.windowState() & ~Qt.WindowMinimized)
-        self.show()
-        self.raise_()
-        self.activateWindow()
-        # Win32 force-foreground: works even when another app has focus
-        try:
-            hwnd = int(self.winId())
-            ctypes.windll.user32.ShowWindow(hwnd, 9)   # SW_RESTORE
-            ctypes.windll.user32.SetForegroundWindow(hwnd)
-        except Exception:
-            pass
+        """Minimize all other windows then maximize G-Vox."""
+        import ctypes, time, threading
+        def _do():
+            try:
+                user32 = ctypes.windll.user32
+                hwnd = int(self.winId())
+                # Step 1: minimize all windows (Win+D shows desktop)
+                user32.keybd_event(0x5B, 0, 0, 0)   # VK_LWIN down
+                user32.keybd_event(0x44, 0, 0, 0)   # D down
+                user32.keybd_event(0x44, 0, 2, 0)   # D up
+                user32.keybd_event(0x5B, 0, 2, 0)   # VK_LWIN up
+                time.sleep(0.3)
+                # Step 2: restore and maximize G-Vox
+                user32.ShowWindow(hwnd, 9)    # SW_RESTORE
+                user32.ShowWindow(hwnd, 3)    # SW_MAXIMIZE
+                user32.SetForegroundWindow(hwnd)
+            except Exception:
+                pass
+        threading.Thread(target=_do, daemon=True).start()
 
     def set_mode_stopped(self):
         self.mode_badge.setText("STOPPED")
